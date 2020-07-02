@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>【8】ポートフォリオとして公開しよう</title>
+    <link rel="shortcut icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico">
+    <meta charset="UTF-8">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+        }
+
+        iframe {
+            border: 0;
+            frameborder: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #header {
+            align-items: center;
+            background: white;
+            border-bottom: 1px #ccc solid;
+            display: flex;
+            height: 60px;
+            justify-content: space-between;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        #header #title {
+            font-family: 'Noto Sans JP';
+            font-size: large;
+            margin: auto 0 auto 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 70%;
+        }
+
+        #header #interval {
+            margin: auto 25px auto 0;
+            font-family: 'Noto Sans JP';
+            font-size: small;
+            ;
+        }
+
+        #footer {
+            background: #f0f0f0;
+            border-bottom: 1px #ccc solid;
+            bottom: 0;
+            font-family: 'Noto Sans JP';
+            font-size: small;
+            padding: 10px 10px;
+            position: fixed;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #contents {
+            padding: 100px 3rem 50px;
+            max-width: 930px;
+            margin: 0 auto;
+        }
+
+        @media only screen and (max-width: 767px) {
+            #contents {
+                padding: 150px 1rem 80px;
+                word-break: break-all;
+            }
+        }
+
+        .dash {
+            padding: 0 6px;
+        }
+
+        :root {
+            --base_font_size: 14pt;
+        }
+
+        @media only screen and (max-width: 767px) {
+            :root {
+                --base_font_size: 14px;
+            }
+        }
+
+        .code_block {
+            white-space: nowrap;
+            overflow-x: auto;
+            background-color: #f8f8f8;
+            padding: 10px;
+        }
+
+        .code_block>p {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="title">【8】ポートフォリオとして公開しよう</div>
+        <div id="interval"><span>Javaコース</span></div>
+    </div>
+    <div id="contents">
+        <style type="text/css">
+            @import url(https://themes.googleusercontent.com/fonts/css?kit=lhDjYqiy3mZ0x6ROQEUoUw);
+
+            ol.lst-kix_2zwrtrp7d7si-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-0 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-3 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-3.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-3 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-0.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-0 0
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-6.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-6 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-8>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-3.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-3 0
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-6.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-6 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-5.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-5 0
+            }
+
+            .lst-kix_tw1k779xd1a4-0>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-0
+            }
+
+            .lst-kix_za19uzqo5vqc-3>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-3
+            }
+
+            .lst-kix_za19uzqo5vqc-5>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-5
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-8.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-8 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-2.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-2 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-8.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-8 0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-0.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-0 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-5.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-5 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-8>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-8
+            }
+
+            .lst-kix_x41s1rdpnz1l-5>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-5, lower-roman) ") "
+            }
+
+            .lst-kix_za19uzqo5vqc-1>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-1
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-2.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-2 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-4>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-4, lower-latin) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-6>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-6, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-2>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-2, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-4>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-4, lower-latin) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-7>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-7
+            }
+
+            .lst-kix_x41s1rdpnz1l-3>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-3, decimal) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-7>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-7, lower-latin) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-1>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-1, lower-latin) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-5>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-5, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-5.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-5 0
+            }
+
+            .lst-kix_tw1k779xd1a4-0>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-0, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-6>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-6, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-8>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-8, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-7>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-7, lower-latin) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-8.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-8 0
+            }
+
+            .lst-kix_tw1k779xd1a4-8>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-0.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-0 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-8>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-8, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-2>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-2
+            }
+
+            ol.lst-kix_tw1k779xd1a4-1.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-1 0
+            }
+
+            .lst-kix_tw1k779xd1a4-3>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-3, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-7>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-7
+            }
+
+            .lst-kix_za19uzqo5vqc-8>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-7, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-8, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-1>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-1
+            }
+
+            .lst-kix_2zwrtrp7d7si-4>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-4
+            }
+
+            .lst-kix_za19uzqo5vqc-7>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-7, decimal) ". "
+            }
+
+            ol.lst-kix_tw1k779xd1a4-0.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-0 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-3.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-3 0
+            }
+
+            .lst-kix_za19uzqo5vqc-4>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-5>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-7.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-7 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-7.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-7 0
+            }
+
+            .lst-kix_za19uzqo5vqc-6>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-0>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-1>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-1.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-1 0
+            }
+
+            .lst-kix_za19uzqo5vqc-3>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) ". "
+            }
+
+            .lst-kix_x41s1rdpnz1l-4>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-4
+            }
+
+            .lst-kix_x41s1rdpnz1l-7>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-7
+            }
+
+            .lst-kix_x41s1rdpnz1l-1>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-1, lower-latin) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-0>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-0, decimal) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-2>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-2, lower-roman) ") "
+            }
+
+            .lst-kix_za19uzqo5vqc-2>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) ". "
+            }
+
+            .lst-kix_x41s1rdpnz1l-1>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-1
+            }
+
+            .lst-kix_za19uzqo5vqc-4>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-4
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-7.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-7 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-3>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-3
+            }
+
+            .lst-kix_tw1k779xd1a4-4>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-4
+            }
+
+            .lst-kix_2zwrtrp7d7si-3>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-3
+            }
+
+            .lst-kix_2zwrtrp7d7si-2>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-2
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-4.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-4 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-6.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-6 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-1.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-1 0
+            }
+
+            .lst-kix_tw1k779xd1a4-5>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-5
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-5.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-5 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-0 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-3 {
+                list-style-type: none
+            }
+
+            .lst-kix_tw1k779xd1a4-3>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-3
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-1 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-0>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-0
+            }
+
+            .lst-kix_x41s1rdpnz1l-2>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-2
+            }
+
+            .lst-kix_x41s1rdpnz1l-5>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-5
+            }
+
+            .lst-kix_tw1k779xd1a4-6>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-6
+            }
+
+            ol.lst-kix_za19uzqo5vqc-4.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-4 0
+            }
+
+            .lst-kix_za19uzqo5vqc-8>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-2.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-2 0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-7.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-7 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-5 {
+                list-style-type: none
+            }
+
+            .lst-kix_x41s1rdpnz1l-6>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-6
+            }
+
+            .lst-kix_x41s1rdpnz1l-0>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-4.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-4 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-0>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-8.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-8 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-6>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-6
+            }
+
+            ol.lst-kix_za19uzqo5vqc-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-3 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-2 {
+                list-style-type: none
+            }
+
+            .lst-kix_tw1k779xd1a4-1>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-1
+            }
+
+            ol.lst-kix_za19uzqo5vqc-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-3 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-2>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-2
+            }
+
+            .lst-kix_2zwrtrp7d7si-5>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-5
+            }
+
+            ol.lst-kix_za19uzqo5vqc-1.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-1 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-7 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-6>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-6
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-6.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-6 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-0 {
+                list-style-type: none
+            }
+
+            .lst-kix_2zwrtrp7d7si-0>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-0, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-1>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-1, lower-latin) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-3>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-3, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-2>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-2, lower-roman) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-4>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-4, lower-latin) ". "
+            }
+
+            ol.lst-kix_tw1k779xd1a4-3.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-3 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-7>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-7, lower-latin) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-6>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-6, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-8>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-8, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-0 {
+                list-style-type: none
+            }
+
+            .lst-kix_2zwrtrp7d7si-5>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-5, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-2.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-2 0
+            }
+
+            .lst-kix_tw1k779xd1a4-7>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-7
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-4.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-4 0
+            }
+
+            ol {
+                margin: 0;
+                padding: 0
+            }
+
+            table td,
+            table th {
+                padding: 0
+            }
+
+            .c30 {
+                border-right-style: solid;
+                padding: 5pt 5pt 5pt 5pt;
+                border-bottom-color: #000000;
+                border-top-width: 0pt;
+                border-right-width: 0pt;
+                border-left-color: #000000;
+                vertical-align: top;
+                border-right-color: #000000;
+                border-left-width: 0pt;
+                border-top-style: solid;
+                background-color: #e4f0f6;
+                border-left-style: solid;
+                border-bottom-width: 0pt;
+                width: 697.9pt;
+                border-top-color: #000000;
+                border-bottom-style: solid
+            }
+
+            .c15 {
+                -webkit-text-decoration-skip: none;
+                color: #1155cc;
+                font-weight: 400;
+                text-decoration: underline;
+                vertical-align: baseline;
+                text-decoration-skip-ink: none;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c0 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c5 {
+                background-color: #f8f8f8;
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.3571428571428572;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c1 {
+                color: #000000;
+                font-weight: 700;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 16pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c25 {
+                padding-top: 4pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c21 {
+                color: #000000;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 20pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c17 {
+                padding-top: 10pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c2 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c32 {
+                padding-top: 0pt;
+                padding-bottom: 3pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c18 {
+                padding-top: 20pt;
+                padding-bottom: 6pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c24 {
+                border-spacing: 0;
+                border-collapse: collapse;
+                margin-right: auto
+            }
+
+            .c33 {
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 26pt;
+                font-style: normal
+            }
+
+            .c9 {
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-style: normal
+            }
+
+            .c27 {
+                background-color: #ffffff;
+                max-width: 697.9pt;
+                padding: 72pt 72pt 72pt 72pt
+            }
+
+            .c4 {
+                font-family: "Consolas";
+                color: #383a42;
+                font-weight: 400
+            }
+
+            .c12 {
+                font-family: "Consolas";
+                color: #c18401;
+                font-weight: 400
+            }
+
+            .c22 {
+                text-decoration-skip-ink: none;
+                -webkit-text-decoration-skip: none;
+                text-decoration: underline
+            }
+
+            .c31 {
+                font-family: "Consolas";
+                color: #0184bc;
+                font-weight: 400
+            }
+
+            .c8 {
+                font-family: "Consolas";
+                color: #e45649;
+                font-weight: 400
+            }
+
+            .c7 {
+                font-family: "Consolas";
+                color: #50a14f;
+                font-weight: 400
+            }
+
+            .c11 {
+                font-family: "Consolas";
+                color: #986801;
+                font-weight: 400
+            }
+
+            .c6 {
+                font-family: "Consolas";
+                color: #a626a4;
+                font-weight: 400
+            }
+
+            .c19 {
+                font-family: "Consolas";
+                color: #4078f2;
+                font-weight: 400
+            }
+
+            .c23 {
+                color: #000000;
+                font-family: 'Noto Sans JP'
+            }
+
+            .c14 {
+                color: inherit;
+                text-decoration: inherit
+            }
+
+            .c20 {
+                font-weight: 700
+            }
+
+            .c10 {
+                background-color: #fce5cd
+            }
+
+            .c28 {
+                color: #ff9900
+            }
+
+            .c16 {
+                page-break-after: avoid
+            }
+
+            .c35 {
+                height: 0pt
+            }
+
+            .c3 {
+                height: var(--base_font_size)
+            }
+
+            .c34 {
+                color: #3c78d8
+            }
+
+            .c29 {
+                color: #1155cc
+            }
+
+            .c36 {
+                color: #ff0000
+            }
+
+            .c13 {
+                background-color: #efefef
+            }
+
+            .c26 {
+                color: #00ff00
+            }
+
+            .title {
+                padding-top: 0pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 26pt;
+                padding-bottom: 3pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .subtitle {
+                padding-top: 0pt;
+                color: #666666;
+                font-size: 15pt;
+                padding-bottom: 16pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            li {
+                color: #000000;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP'
+            }
+
+            p {
+                margin: 0;
+                color: #000000;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP'
+            }
+
+            h1 {
+                padding-top: 20pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h2 {
+                padding-top: 20pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h3 {
+                padding-top: 0pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 16pt;
+                padding-bottom: 0pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h4 {
+                padding-top: var(--base_font_size);
+                color: #666666;
+                font-size: 12pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h5 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h6 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                font-style: italic;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .custom_c1 {
+                text-decoration-skip-ink: none;
+                -webkit-text-decoration-skip: none;
+                color: #1155cc;
+                text-decoration: underline
+            }
+        </style>
+        <p class="c16 c32 title" id="h.86z3hj8st4vu"><span class="c23 c20 c33">8 ポートフォリオとして公開しよう</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c25"><span class="c22 c29"><a class="c14" href="#h.sqj8vn8g2a5h">8-1
+                    PostgreSQLをdocker上に構築する</a></span></p>
+        <p class="c17"><span class="c22 c29"><a class="c14" href="#h.nhg4xgcr5x3a">8-2
+                    SpringBootへPostgreSQL用の設定を追加する</a></span></p>
+        <p class="c17"><span class="c22 c29"><a class="c14" href="#h.2wnbqx2w6wwe">8-3
+                    MySQL用のSQLをPostgreSQL向けに変更する</a></span></p>
+        <p class="c17"><span class="c22 c29"><a class="c14" href="#h.e2oc29ry4z0m">8-4
+                    JavaのソースコードをPostgreSQLとHEROKU向けに修正する</a></span></p>
+        <p class="c17"><span class="c22 c29"><a class="c14" href="#h.knn840ftyki8">8-5
+                    ローカル環境でのPostgreSQLの動作確認</a></span></p>
+        <p class="c17"><span class="c22 c29"><a class="c14" href="#h.hy8xatlr6slj">8-6
+                    HEROKUへの登録とクライアントツールのインストール</a></span></p>
+        <p class="c17"><span class="c22 c29"><a class="c14" href="#h.cr2n7ofkaxko">8-7
+                    HEROKUへ家計簿アプリをデプロイ（展開）する</a></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c2"><span
+                class="c0">作成した家計簿アプリに他の人からもアクセスできるようにして、自分のポートフォリオとして公開しましょう！そのためにはアプリケーションを配置するサーバーが必要ですが、サーバーを借りてWEB／AP／DBサーバーの各機能を構築するには、もっと幅広い知識や技術が必要となり、時間やお金もかかります。</span>
+        </p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c2"><span>そこで</span><span class="c22">HEROKU</span><span
+                class="c0">というサービスを利用しましょう。HEROKUは自分専用のサーバー領域を無料で借りることができ、さらにいくつかのコマンドを実行するだけで、環境の構築とアプリケーションの配置までを簡単に行えるサービスです。</span>
+        </p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c2"><span class="c0">以下の手順で進めていきます。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p><a id="t.72ef5b12b9adf01aa9259ea5829786b41f23f7f9"></a><a
+            id="t.0"></a>
+        <table class="c24">
+            <tbody>
+                <tr class="c35">
+                    <td class="c30" colspan="1" rowspan="1">
+                        <p class="c2"><span>8-1. HEROKUで使用できるRDBMS、</span><span class="c22">PostgreSQL</span><span
+                                class="c0">のローカル環境をdocker上に構築</span></p>
+                        <p class="c2 c3"><span class="c0"></span></p>
+                        <p class="c2"><span class="c0">8-2. SpringBootでPostgreSQLを使用するために設定を変更・追加</span></p>
+                        <p class="c2 c3"><span class="c0"></span></p>
+                        <p class="c2"><span class="c0">8-3. PostgreSQL向けにSQLファイルを変更</span></p>
+                        <p class="c2 c3"><span class="c0"></span></p>
+                        <p class="c2"><span class="c0">8-4. Javaソースコードの内容を一部変更</span></p>
+                        <p class="c2 c3"><span class="c0"></span></p>
+                        <p class="c2"><span class="c0">8-5. ローカル環境でPostgreSQLの動作確認</span></p>
+                        <p class="c2 c3"><span class="c0"></span></p>
+                        <p class="c2"><span class="c0">8-6. HEROKUサービスにサインアップ、クライアントツールインストール</span></p>
+                        <p class="c2 c3"><span class="c0"></span></p>
+                        <p class="c2"><span class="c0">8-7. HEROKU CLIによる設定とHEROKUサーバーへのデプロイ（展開）</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h1 class="c18 c16" id="h.sqj8vn8g2a5h"><span class="c21 c20">8-1 PostgreSQLをdocker上に構築する</span></h1>
+        <p class="c2"><span
+                class="c0">HEROKUではPostgreSQLというデータベースを無料で利用することが可能です。まずはdocker上にPostgreSQL環境を構築して、ローカル環境でデータベースを切り替えてもアプリケーションが稼動することを確認しましょう。</span>
+        </p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.6gal2v3dmoh2"><span class="c1">1.</span></h3>
+        <p class="c2"><span
+                class="c0">MySQLを起動するために2章でダウンロードして利用していたdocker-compose.ymlへ、PostgreSQLを起動するための設定を追加しましょう</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c5"><span class="c9 c23 c20">サンプルコード：Desktop/workspace/docker/compose/docker-compose.yml（追記）</span>
+        </p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <div class="code_block">
+            <p class="c5"><span class="c8">&nbsp;&nbsp;db2</span><span class="c9 c4">:</span></p><br>
+            <p class="c5"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;image</span><span class="c4">: </span><span
+                    class="c9 c7">postgres:10-alpine</span></p><br>
+            <p class="c5"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;ports</span><span class="c9 c4">:</span></p><br>
+            <p class="c5"><span class="c7 c9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 5432:5432</span></p><br>
+            <p class="c5"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;environment</span><span class="c9 c4">:</span></p>
+            <br>
+            <p class="c5"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;POSTGRES_DB</span><span class="c4">:
+                </span><span class="c9 c7">mydb</span>
+            </p><br>
+            <p class="c5"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;POSTGRES_USER</span><span class="c4">:
+                </span><span class="c9 c7">mydb_user</span></p><br>
+            <p class="c5"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;POSTGRES_PASSWORD</span><span
+                    class="c4">:
+                </span><span class="c9 c7">mydb_password</span></p><br>
+            <p class="c5"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;volumes</span><span class="c9 c4">:</span></p><br>
+            <p class="c5"><span class="c7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- ./postgres:/var/lib/postgresql</span>
+            </p><br>
+        </div>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.2nhl9t2odkeg"><span class="c1">2.</span></h3>
+        <p class="c2"><span>dockerコンテナが起動状態の場合には</span><span class="c10">docker-compose down</span><span
+                class="c0">コマンドによりコンテナを終了させてください。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.sldbyn7r7vf8"><span class="c1">3.</span></h3>
+        <p class="c2"><span class="c10">docker-compose up -d</span><span
+                class="c0">コマンドにより、MySQLに加え、PostgreSQLのコンテナも起動しましょう。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.r5b1h7m3pic0"><span class="c1">4.</span></h3>
+        <p class="c2"><span class="c10">docker-compose ps</span><span
+                class="c0">コマンドにより、dbとdb2の両コンテナが正常に起動していることを確認してください。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h1 class="c18 c16" id="h.nhg4xgcr5x3a"><span class="c21 c20">8-2 SpringBootへPostgreSQL用の設定を追加する</span></h1>
+        <p class="c2"><span class="c0">PostgreSQLをSpringBootから使用できるようにいくつかの設定を変更・追加しましょう。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.frxj0caa12g"><span class="c1">1.</span></h3>
+        <p class="c2"><span>SpringBootからPostgreSQLへ接続するためのドライバを依存関係に設定します。プロジェクトフォルダのルート階層にあるbuild.gradleの</span><span
+                class="c10">dependencies</span><span class="c0">に以下の通り1行を追加してください。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c5"><span class="c9 c23 c20">サンプルコード：build.gradle（追記）</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <div class="code_block">
+            <p class="c5"><span class="c9 c4">dependencies {</span></p><br>
+            <p class="c5 c3"><span class="c9 c4"></span></p><br>
+            <p class="c5"><span class="c9 c4">（省略）</span></p><br>
+            <p class="c5 c3"><span class="c9 c4"></span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;runtimeOnly </span><span
+                    class="c9 c7">&#39;org.postgresql:postgresql&#39;</span></p><br>
+            <p class="c5"><span class="c9 c4">}</span></p><br>
+        </div>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.r0o4og48b146"><span class="c1">2.</span></h3>
+        <p class="c2"><span
+                class="c0">SpringBootの設定ファイルapplication.ymlの中にある、DB接続情報を以下の通り変更してください。その際、変更前の設定は消さずに「//」でコメントアウトしておきましょう。</span>
+        </p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c5"><span class="c9 c20 c23">サンプルコード：src/main/resources/application.yml（変更）</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <div class="code_block">
+            <p class="c5"><span class="c8">spring</span><span class="c9 c4">:</span></p><br>
+            <p class="c5"><span class="c8">&nbsp;&nbsp;datasource</span><span class="c9 c4">:</span></p><br>
+            <p class="c5"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;url</span><span class="c4">: </span><span
+                    class="c9 c7">jdbc:postgresql://192.168.99.100/mydb</span></p><br>
+            <p class="c5"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;username</span><span class="c4">: </span><span
+                    class="c9 c7">mydb_user</span>
+            </p><br>
+            <p class="c5"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;password</span><span class="c4">: </span><span
+                    class="c9 c7">mydb_password</span></p><br>
+            <p class="c5"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;driver-class-name</span><span class="c4">:
+                </span><span class="c7">org.postgresql.Driver</span></p><br>
+        </div>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.2wjkfse8nl2"><span class="c1">3.</span></h3>
+        <p class="c2"><span class="c0">PostgreSQLを使用する場合に必要な設定ファイルを、application.ymlと同じ階層に追加してください。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c5"><span class="c9 c23 c20">サンプルコード：src/main/resources/hibernate.properties（新規作成）</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <div class="code_block">
+            <p class="c5"><span class="c8">hibernate.jdbc.lob.non_contextual_creation</span><span
+                    class="c9 c4">=true</span>
+            </p><br>
+        </div>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h1 class="c18 c16" id="h.2wnbqx2w6wwe"><span class="c21 c20">8-3 MySQL用のSQLをPostgreSQL向けに変更する</span></h1>
+        <p class="c2"><span class="c0">MySQLとPostgreSQLでは使用できるSQLに若干違いがありますので、マイグレーション用のSQLを変更します。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.qummrk1g62jq"><span class="c1">1.</span></h3>
+        <p class="c2">
+            <span>usersテーブル作成用のSQLを変更します。MySQL用のSQLはコメントアウトで残しておき、次のSQLをファイルの後方に追記するようにしましょう。大きな違いは、idを</span><span
+                class="c10">AUTO_INCREMENT</span><span>の代わりに</span><span
+                class="c10">SERIAL</span><span>型としている点と、</span><span class="c10">PRIMARY KEY</span><span
+                class="c0">の指定方法が異なる点です。これらの変更は、MySQLとPostgreSQLの違いによるものであるため、毎回必要な変更点となります。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c5"><span class="c9 c23 c20">サンプルコード：src/main/resources/db/V1__create_table_users.sql（変更）</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <div class="code_block">
+            <p class="c5"><span class="c6">DROP</span><span class="c4"> </span><span class="c6">TABLE</span><span
+                    class="c4"> </span><span class="c6">IF</span><span class="c4"> </span><span
+                    class="c6">EXISTS</span><span class="c9 c4"> users;</span></p><br>
+            <p class="c5"><span class="c6">CREATE</span><span class="c4"> </span><span class="c6">TABLE</span><span
+                    class="c4"> </span><span class="c6">IF</span><span class="c4"> </span><span
+                    class="c6">NOT</span><span class="c4"> </span><span class="c6">EXISTS</span><span class="c9 c4">
+                    users (</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;id </span><span class="c6">SERIAL</span><span
+                    class="c4">
+                </span><span class="c6">NOT</span><span class="c4"> </span><span class="c6">NULL</span><span
+                    class="c9 c4">,</span>
+            </p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;username </span><span class="c6">varchar</span><span
+                    class="c4">(</span><span class="c11">40</span><span class="c4">) </span><span
+                    class="c6">NOT</span><span class="c4"> </span><span class="c6">NULL</span><span
+                    class="c9 c4">,</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;displayname </span><span
+                    class="c6">varchar</span><span class="c4">(</span><span class="c11">10</span><span class="c4">)
+                </span><span class="c6">NOT</span><span class="c4"> </span><span class="c6">NULL</span><span
+                    class="c9 c4">,</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;password </span><span class="c6">varchar</span><span
+                    class="c4">(</span><span class="c11">64</span><span class="c4">) </span><span
+                    class="c6">NOT</span><span class="c4"> </span><span class="c6">NULL</span><span
+                    class="c9 c4">,</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c6">PRIMARY</span><span
+                    class="c4">
+                </span><span class="c6">KEY</span><span class="c9 c4"> (id)</span></p><br>
+            <p class="c5"><span class="c9 c4">);</span></p><br>
+        </div>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.naeryic5zqag"><span class="c1">2.</span></h3>
+        <p class="c2">
+            <span>続いてbalance_dataテーブル作成用のSQLを変更します。usersと同様にMySQL用のSQLはコメントアウトで残しておき、次のSQLをファイルの後方に追記してください。大きな違いは、occurred_atを</span><span
+                class="c10">date</span><span>型から</span><span
+                class="c10">varchar(10)</span><span>型に変更している点と、activeを</span><span
+                class="c10">boolean</span><span>型から</span><span class="c10">integer</span><span
+                class="c0">型に変更している点です。</span></p>
+        <p class="c2"><span
+                class="c0">（これらの変更は、MySQLとPostgreSQLおよびSpringBoot(JPA)の「型の扱いの厳密さ」の違いによるものであるため、最初から考慮しておけば本来は必要の無い変更です。）</span>
+        </p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c5"><span
+                class="c9 c23 c20">サンプルコード：src/main/resources/db/V2__create_table_balance_data.sql（変更）</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <div class="code_block">
+            <p class="c5"><span class="c6">DROP</span><span class="c4"> </span><span class="c6">TABLE</span><span
+                    class="c4"> </span><span class="c6">IF</span><span class="c4"> </span><span
+                    class="c6">EXISTS</span><span class="c9 c4"> balance_data;</span></p><br>
+            <p class="c5"><span class="c6">CREATE</span><span class="c4"> </span><span class="c6">TABLE</span><span
+                    class="c4"> </span><span class="c6">IF</span><span class="c4"> </span><span
+                    class="c6">NOT</span><span class="c4"> </span><span class="c6">EXISTS</span><span class="c9 c4">
+                    balance_data (</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;id </span><span class="c6">SERIAL</span><span
+                    class="c4">
+                </span><span class="c6">NOT</span><span class="c4"> </span><span class="c6">NULL</span><span
+                    class="c9 c4">,</span>
+            </p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;user_id </span><span class="c6">integer</span><span
+                    class="c4"> </span><span class="c6">NOT</span><span class="c4"> </span><span
+                    class="c6">NULL</span><span class="c9 c4">,</span>
+            </p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;occurred_at </span><span
+                    class="c6">varchar</span><span class="c4">(</span><span class="c11">10</span><span class="c4">)
+                </span><span class="c6">NOT</span><span class="c4"> </span><span class="c6">NULL</span><span
+                    class="c9 c4">,</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;title </span><span class="c6">varchar</span><span
+                    class="c4">(</span><span class="c11">20</span><span class="c4">) </span><span
+                    class="c6">NOT</span><span class="c4"> </span><span class="c6">NULL</span><span
+                    class="c9 c4">,</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;type </span><span class="c6">varchar</span><span
+                    class="c4">(</span><span class="c11">2</span><span class="c4">) </span><span
+                    class="c6">NOT</span><span class="c4"> </span><span class="c6">NULL</span><span
+                    class="c9 c4">,</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;amount </span><span class="c6">integer</span><span
+                    class="c4"> </span><span class="c6">NOT</span><span class="c4"> </span><span
+                    class="c6">NULL</span><span class="c9 c4">,</span>
+            </p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;description </span><span
+                    class="c6">varchar</span><span class="c4">(</span><span class="c11">255</span><span
+                    class="c9 c4">),</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;created_at </span><span
+                    class="c6">timestamp</span><span class="c4">
+                </span><span class="c6">NOT</span><span class="c4"> </span><span class="c6">NULL</span><span class="c4">
+                    DEFAULT </span><span class="c31">CURRENT_TIMESTAMP</span><span class="c9 c4">,</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;updated_at </span><span
+                    class="c6">timestamp</span><span class="c4">
+                </span><span class="c6">NOT</span><span class="c4"> </span><span class="c6">NULL</span><span class="c4">
+                    DEFAULT </span><span class="c31">CURRENT_TIMESTAMP</span><span class="c9 c4">,</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;active </span><span class="c6">integer</span><span
+                    class="c4"> </span><span class="c6">NULL</span><span class="c4"> DEFAULT </span><span
+                    class="c11">0</span><span class="c9 c4">,</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c6">PRIMARY</span><span
+                    class="c4">
+                </span><span class="c6">KEY</span><span class="c9 c4"> (id)</span></p><br>
+            <p class="c5"><span class="c9 c4">);</span></p><br>
+        </div>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h1 class="c18 c16" id="h.e2oc29ry4z0m"><span class="c21 c20">8-4 JavaのソースコードをPostgreSQLとHEROKU向けに修正する</span>
+        </h1>
+        <p class="c2"><span
+                class="c0">SQLの変更内容に合わせた修正と、HEROKUで正常に動作させるための修正をJavaに加えます。これらの変更も、最初から考慮しておけば必要の無い変更となります。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.cmwhrqdummvf"><span class="c1">1.</span></h3>
+        <p class="c2"><span>balance_dataテーブルのactive列の型を</span><span
+                class="c10">int</span><span>型に変更したことへの対応を行います。まずはentity内の型を</span><span
+                class="c10">boolean</span><span>から</span><span class="c10">int</span><span class="c0">へ変更しましょう。</span>
+        </p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c5"><span class="c9 c23 c20">サンプルコード：BalanceData.java（変更）</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <div class="code_block">
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;@</span><span class="c6">Column</span><span
+                    class="c4">(</span><span class="c11">nullable</span><span class="c4"> = </span><span
+                    class="c11">true</span><span class="c9 c4">)</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c6">private</span><span
+                    class="c4">
+                </span><span class="c6">int</span><span class="c8"> active</span><span class="c9 c4">;</span></p><br>
+        </div>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.it5txajih7lw"><span class="c1">2.</span></h3>
+        <p class="c2"><span>前項の変更に合わせ、コンストラクタの呼び出し箇所の引数を</span><span class="c10">true</span><span>から</span><span
+                class="c10">1</span><span
+                class="c0">へ変更しましょう。コンストラクタ自体は、Lombokのアノテーションでコンパイル時に生成されますので、手作業での変更は発生しません。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c5"><span class="c9 c23 c20">サンプルコード：BalanceDataService.java（変更）</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <div class="code_block">
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c6">public</span><span
+                    class="c4">
+                </span><span class="c12">BalanceData</span><span class="c4"> </span><span
+                    class="c19">addData</span><span class="c4">(</span><span class="c12">User</span><span class="c4">
+                    user, </span><span class="c12">String</span><span class="c9 c4"> occurredAt,</span></p><br>
+            <p class="c5"><span
+                    class="c4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c12">String</span><span class="c4"> title, </span><span class="c12">String</span><span
+                    class="c4"> type, </span><span class="c6">int</span><span class="c4">
+                    amount, </span><span class="c12">String</span><span class="c9 c4"> description) {</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c12">Timestamp</span><span class="c8"> now </span><span class="c4">= </span><span
+                    class="c6">new</span><span class="c4"> </span><span class="c19">Timestamp</span><span
+                    class="c4">(</span><span class="c8">System</span><span class="c4">.</span><span
+                    class="c19">currentTimeMillis</span><span class="c9 c4">());</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c6">return</span><span class="c4"> </span><span class="c8">repository</span><span
+                    class="c4">.</span><span class="c19">save</span><span class="c4">(</span><span
+                    class="c6">new</span><span class="c4"> </span><span class="c19">BalanceData</span><span
+                    class="c4">(</span><span class="c11">null</span><span class="c4">,
+                </span><span class="c8">user</span><span class="c4">.</span><span class="c19">getId</span><span
+                    class="c9 c4">(),</span></p><br>
+            <p class="c5"><span
+                    class="c4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;occurredAt,
+                    title, type, amount, description, now, now, </span><span class="c11">1</span><span
+                    class="c9 c4">));</span></p><br>
+            <p class="c5"><span class="c9 c4">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+        </div>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.1njaji35c0u5"><span class="c1">3.</span></h3>
+        <p class="c2"><span>active項目の状態を変更して論理削除を行っている箇所の引数を</span><span class="c10">false</span><span>から</span><span
+                class="c10">0</span><span class="c0">に変更しましょう。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c5"><span class="c20">サンプルコード：BalanceDataService.java（変更）</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <div class="code_block">
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c6">public</span><span
+                    class="c4">
+                </span><span class="c12">BalanceData</span><span class="c4"> </span><span
+                    class="c19">deleteData</span><span class="c4">(</span><span class="c12">Long</span><span
+                    class="c9 c4"> id) {</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c12">BalanceData</span><span class="c8"> balanceData
+                </span><span class="c4">= </span><span class="c8">this</span><span class="c4">.</span><span
+                    class="c19">getData</span><span class="c9 c4">(id);</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c6">if</span><span class="c4"> (balanceData !=
+                </span><span class="c11">null</span><span class="c9 c4">) {</span></p><br>
+            <p class="c5"><span
+                    class="c4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c8">balanceData</span><span class="c4">.</span><span class="c19">setActive</span><span
+                    class="c4">(</span><span class="c11">0</span><span class="c9 c4">);</span></p><br>
+            <p class="c5"><span
+                    class="c4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;balanceData =
+                </span><span class="c8">this</span><span class="c4">.</span><span class="c8">repository</span><span
+                    class="c4">.</span><span class="c19">save</span><span class="c9 c4">(balanceData);</span></p><br>
+            <p class="c5"><span class="c9 c4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c6">return</span><span class="c4"> </span><span class="c4">balanceData</span><span
+                    class="c9 c4">;</span></p><br>
+            <p class="c5"><span class="c9 c4">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+        </div>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.agzrl71zfqur"><span class="c1">4.</span></h3>
+        <p class="c2"><span>次の変更は、HEROKUサーバーのタイムゾーンに左右されず、日本語で曜日表示するための変更です。</span><span
+                class="c10">ofPattern</span><span>の引数に</span><span class="c10">Locale.JAPAN</span><span
+                class="c0">を追記しています。これは常に指定するように心がけましょう。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c5"><span class="c20">サンプルコード：BalanceData.java（変更）</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <div class="code_block">
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c6">private</span><span
+                    class="c4">
+                </span><span class="c6">static</span><span class="c4"> </span><span class="c6">final</span><span
+                    class="c4">
+                </span><span class="c12">DateTimeFormatter</span><span class="c8"> FORMAT_OCCURRED_AT </span><span
+                    class="c9 c4">=</span></p><br>
+            <p class="c5"><span
+                    class="c4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c8">DateTimeFormatter</span><span class="c4">.</span><span class="c19">ofPattern</span><span
+                    class="c4">(</span><span class="c7">&quot;uuuu-MM-dd&quot;</span><span class="c4">, </span><span
+                    class="c8">Locale</span><span class="c4">.</span><span class="c8">JAPAN</span><span
+                    class="c9 c4">);</span></p><br>
+            <p class="c5"><span class="c4">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c6">private</span><span
+                    class="c4">
+                </span><span class="c6">static</span><span class="c4"> </span><span class="c6">final</span><span
+                    class="c4">
+                </span><span class="c12">DateTimeFormatter</span><span class="c8"> FORMAT_OCCURRED_AT_FORMATTED
+                </span><span class="c9 c4">=</span></p><br>
+            <p class="c5"><span
+                    class="c4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c8">DateTimeFormatter</span><span class="c4">.</span><span class="c19">ofPattern</span><span
+                    class="c4">(</span><span class="c7">&quot;uuuu年MM月dd日(E)&quot;</span><span class="c4"> ,
+                </span><span class="c8">Locale</span><span class="c4">.</span><span class="c8">JAPAN</span><span
+                    class="c9 c4">);</span></p><br>
+        </div>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h1 class="c16 c18" id="h.knn840ftyki8"><span class="c20 c21">8-5 ローカル環境でのPostgreSQLの動作確認</span></h1>
+        <p class="c2"><span class="c0">docker上でのPostgreSQLコンテナの起動とアプリケーション側の修正が完了しましたので、まずはローカル環境での動作確認を行います。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.fvo6fpfczqm6"><span class="c1">1.</span></h3>
+        <p class="c2"><span
+                class="c0">eclipseからmyappを起動しましょう。PostgreSQLにはまだテーブルを作成していませんので、flywayによるマイグレーションが成功していることを示す、以下のようなログが出力されていることを確認しましょう。</span>
+        </p>
+        <p class="c2"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/jXDJvpdkrWpEOOHLme9rfqMzXlwKOV3SfLRKyx52aNPi58qlf7_vdLqCEKHWcGk29EDwUUWabINp11vYImMJThQBBFWS-2W5CWj7QmDKGBjX_95B0JWiTIbtQRL0_KHA8Oc2BXr5"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.38p6gw4302dx"><span class="c1">2.</span></h3>
+        <p class="c2"><span
+                class="c0">アプリケーションが起動したら、登録、ログイン、収支情報入力を行い、その結果が正常に一覧やグラフに表示できること、つまり、MySQLからPostgreSQLに変えたことによる差異が何もないことを確認しましょう。</span>
+        </p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.t66dw9rmykmx"><span class="c1">3.</span></h3>
+        <p class="c2"><span class="c0">問題が無ければ、7-11を参考にしてテストデータの大量登録も確認しておきましょう。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h1 class="c18 c16" id="h.hy8xatlr6slj"><span class="c21 c20">8-6 HEROKUへの登録とクライアントツールのインストール</span></h1>
+        <p class="c2"><span
+                class="c0">続いてHEROKUを使用する準備を進めます。HEROKUはサーバー領域やその上で稼働するWEB／AP／DB各サーバー機能の構築や管理まで、すべてWEBサービス上で行うことが可能です。また、作成したアプリケーションをその環境へ配置（デプロイ）する際は、HEROKUのクライアントツールをインストールして、いくつかコマンドを実行するだけで公開が完了となります。</span>
+        </p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.91ifcb2humnv"><span class="c1">1.</span></h3>
+        <p class="c2"><span>まずはHEROKUアカウント（無料）を作成します。ブラウザで「</span>
+            <span class="custom_c1"><a class="c14" href="https://signup.heroku.com/" target="_blank" rel="noopener
+                                noreferrer">https://signup.heroku.com/</a></span>
+            <span>」にアクセス、下図を参考に入力し、最後に「</span><span class="c22">CREATE FREE ACCOUNT</span><span
+                class="c0">」ボタンを押してください。</span></p>
+        <p class="c2"><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 663.00px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/ve319ganpDKpj737xTnpD2bHDCGFbnil4zkny38YQ1vs6Hl9wmM7Rpvp4YwZsBUYf1BGkstQaCRmP3gNvTHQU-xsmrhiHdnGUqAXtXRvKpi-8PXgxqit0ulx2BNPYqp6FsfdmXaj"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.hno6jyrjmhyj"><span class="c1">2.</span></h3>
+        <p class="c2"><span
+                class="c0">入力したメールアドレスに認証メールが届きますので、メールの中程にある「https://id.heroku.com/account/accept/～」のリンクを押下してください。</span>
+        </p>
+        <p class="c2"><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 526.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/5aQX7ZLgZSZ0hbQHNvA-pJLW7EleP8b44HNh8UZkk-GNGCHeZLf4TE8BVFkEWKcFr0n0ge-G1uO3e-2hqIYP5Uilp-BjmCBcY_ZtRifiduEf7E0_GZHdy3miRPzwhkTjri0TGxhu"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.6zbbedxps07x"><span class="c1">3.</span></h3>
+        <p class="c2"><span>アカウント用にパスワードを入力し、「</span><span class="c22">SET PASSWORD AND LOG IN</span><span
+                class="c0">」ボタンを押してください。「I would like to ～」のチェックは外してしまって構いません。</span></p>
+        <p class="c2"><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 546.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/Ey90AIObDZ4zyC12v5ayjEaIsyS8i5S1N8O1DYtC0WfA3PwiYjgc4MSJAGKasZ5tN769rJMdNSFxj1YZxax5t_ydMVoHVG_dxlc4yySzEdBayDXt11gwkU9Mmnr_HMAIhm-hvWbk"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.c2vtsg9nslf2"><span class="c1">4.</span></h3>
+        <p class="c2"><span>次にアプリケーションをHEROKUにデプロイするための</span><span class="c22">HEROKUクライアントツール</span><span
+                class="c0">をインストールします。「</span>
+            <span class="custom_c1"><a class="c14" href="https://devcenter.heroku.com/articles/heroku-cli"
+                    target="_blank" rel="noopener
+                                    noreferrer">https://devcenter.heroku.com/articles/heroku-cli</a></span>
+            <span>」を開き、「64-bit
+                installer」をクリックしましょう。</span></p>
+        <p class="c2"><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 779.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/PATfU2JVPHlFBpUWERXD9lj6tZ9FgZjTiIesYoi3BBbB0iCU5BZSP4dM6nrTDvrkpWLEHUOAGjuM1IWT-F_sLmzKZgPrGHSCJYq313kR-IFOO9CUJcXL_WgXTBeRUYYGkMgEwBcj"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.sr5a5ryzu065"><span class="c1">5.</span></h3>
+        <p class="c2"><span class="c0">ダウンロードされたインストーラーを起動すると、次の画面になりますので、すべてチェックして「Next &gt;」をクリックしてください。</span></p>
+        <p class="c2"><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 487.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/5qWl9Q8Psja1M2h1jXA_8UiwvdikQr_2XL46ZaVXUrAeVCkZCi4bIU55Dqk_vkHHCn7H1Ono0P68R0umofp11ElEcLGXx73s85Qxy-Mx4LtoJGhSFThvJYVzsGTauFQY3tW72Uq7"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.69hiqg2cq0er"><span class="c1">6.</span></h3>
+        <p class="c2"><span class="c0">ダウンロードされたインストーラーを起動すると、次の画面になりますので、すべてチェックして「Next &gt;」をクリックしてください。</span></p>
+        <p class="c2"><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 486.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/XNh5COFrvcSCNuZ-cS6wApTRhWWBiTbZRQ0E_PYh12LRPWj9f6WFiSMfvzhS2saV-gpnOuuMN6gRMbyoqQy9DPNxKqjQisU6bdYqr6vXqhw71nVCYGnm0D_ge4WQL76k7EcRqWff"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.ppr3h87q5hzp"><span class="c1">7.</span></h3>
+        <p class="c2"><span class="c0">インストールが完了したら、「Close」を押して画面を閉じましょう。</span></p>
+        <p class="c2"><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 492.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/RATmkP9ic4g0UQHeFJzlgGx7kqVbk-AewWDtreQwZadULB2ikaMfPPpR-xGhLA3smega-DEEOjTUwqYUX7hR5NR3ZuVVolkhzX4VkGaJT1oJgWIQ6JIw-MrNKDYqsuZ7q2NNJiI5"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.gt6k8hhysgmo"><span class="c1">8.</span></h3>
+        <p class="c2"><span>HEROKUクライアントツールをインストールすると、herokuというコマンドが使用可能となります。Docker Quickstart
+                Terminalを起動して、</span><span class="c10">heroku</span><span
+                class="c0">コマンドを実行してみましょう。下記のように表示されれば、インストールは成功です。</span></p>
+        <p class="c2"><span class="c0">※もし「コマンドが見つからない」とのエラーが表示されたら、PCを再起動してください。</span></p>
+        <p class="c2"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/yHtJYn3SUCS6130RZ_iqkMRwLe6YWtecTiQ4weTlYq4iRmDMAryEFJ7YsSF-cKnAehW1NB6G8ZqGhSZuGR4LcXPPBy5ODj_WMXYADEsnv-i9XzNxuesjH2z8GHP6_OwZ9iD1OvIG"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.ezvukyvtw8f4"><span class="c1">9.</span></h3>
+        <p class="c2"><span class="c10">heroku</span><span>コマンドを使って、HEROKUにログインしてみましょう。</span><span class="c10">heroku
+                login</span><span class="c0">を実行して、Press any
+                key～が表示されたらEnterキーを押してください。ブラウザでHEROKUのログイン認証ページが表示されますので、画面に従ってログインしてください。Logged in
+                as～と表示されればログイン成功です。</span></p>
+        <p class="c2"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/9qeVK6CfEw_R2OYVbDQ508aqrBdmApALb0iw6JCpm2huU-3q4OP1dK4YbhY5DELAWhJczdA-ix-dzfKPtdTjN0Q0urN_FIjzz6ZCh4YX0SRVR7Q9xIvyJgjlMkbNOYWM_OJCfrTA"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/3Xwp2rdmHNCJDlmHzfwNiBCuh4LmZWpgtnOZVqhvhxBAzbZy3hDbFkG6f2hm18PspHbcWcLFh0U08ZLKNEVzGie8W61TtVdFZg7Kkj785IHYiMDMkY6A9QoED3LUaR2lHrR81P-O"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/RaBFLxdDk7SwtR6uS-bleltmNMEYOmxWsizB33vxPfBXLMvFDST0qecBQXr2zj4pd3k5IA7_mR_Iu_msQMUSBLstqStCute6Xd5UiPvp-c0RUDNvusDU3v_JHSkEdDl9_uBWr-R_"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h1 class="c18 c16" id="h.cr2n7ofkaxko"><span class="c21 c20">8-7 HEROKUへ家計簿アプリをデプロイ（展開）する</span></h1>
+        <p class="c2"><span
+                class="c0">HEROKUへ「家計簿アプリ」をデプロイします。まずはHEROKU上に「アプリケーション」を作成して、WEB/APに当たる機能を担うサーバー領域を準備します。次に、DBとしてPostgreSQLが稼動するサーバー領域を「アドオン」として追加します。そして、アプリ側からDBへアクセスできるように接続先等の設定を行えば、後はアップロードして、デプロイ完了となります。</span>
+        </p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.h63ccxx1rw6z"><span class="c1">1.</span></h3>
+        <p class="c2"><span>自分のHEROKUアカウント上に「アプリケーション」を作成しましょう。「myapp」フォルダへ移動してから、</span><span class="c10">heroku
+                create</span><span class="c0">を実行してください。「Creating
+                app～」に続く文字列が、作成されたアプリケーションを一意に特定するためのID（アプリケーション名）になります。青文字の「.herokuapp.com」が付いたURLでアクセスが可能となり、緑文字のgitリモートリポジトリにpushすることでデプロイできるようになります。</span>
+        </p>
+        <p class="c2"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/O8eeE8Z6RS4J1-AGrhNpPjBpkGcAawlzXB2Jnt_55ZzBSvc2x-NNFELGyzfkz_PofP9iGpH4nHv4cdel6tEo8EGEB3KD5wNVZAhRbSzp1SDqOfnuLshlzhMTGNxnOXKrjZ8Cebqz"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.gqq9yk8rzhha"><span class="c1">2.</span></h3>
+        <p class="c2"><span class="c10">heroku open</span><span
+                class="c0">コマンドを実行すると、ブラウザが起動されてアプリケーションのURLにアクセスされます。まだデプロイしていないため、デフォルトのWelcome画面が表示されればOKです。これで、あなた専用のWEB/APサーバーが、WEB上に公開されたことになります！</span>
+        </p>
+        <p class="c2"><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 745.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/vI5gchPf6M_eg7ZX1_uvj3gAWdt0nJJbLf-j1ka3A2eaWh3pN6q2UP8NrMEcTU0IGwMtjIUuNKeiJ6rg1Z7zNYjXbNOdkMnDMXHOaO4PAjrYtLBfKX11oyks_kami4ojzA080330"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.oyiikdli2zyv"><span class="c1">3.</span></h3>
+        <p class="c2"><span class="c0">続いて、DBサーバーを「アドオン」します。次のコマンドを実行してPostgreSQLサーバーを作成しましょう。</span></p>
+        <p class="c2"><span class="c0 c10">heroku addons:create heroku-postgresql --version=10</span></p>
+        <p class="c2"><span class="c0">以下のように表示されれば成功です。</span></p>
+        <p class="c2"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/hfpCJ93zcWbE5XALt9bfFQw1XLUHZRn9RaoUtKGpw2xkDBJHDYycrsHvYTEkJq4B181J0qy6Vuk9VOb4aUKdi57HPn9IvqppFFm9eO8EzTB2HSJb2TvEao05RupXFKZsEB3hGy2m"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.qnzwmgabdhky"><span class="c1">4.</span></h3>
+        <p class="c2"><span>作成したDBサーバーへの接続情報を取得し、application.ymlに設定します。</span><span class="c10">heroku
+                config</span><span>コマンドを実行、取得された</span><span class="c10">DATABASE_URL</span><span
+                class="c0">を分解して、それぞれ対応する箇所に設定してください。</span></p>
+        <p class="c2"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/4IZ1FMCg1_n_k1RZjoCHKZq_gZlQs8pYARva4ZUyvGGTxF8X5eFdE8excsP2eZNdGg8CZ0vPQ8pNdcHaej6wtYRZ_PVquDpRmOBmQcxMTpwn4kIy5IW_Rs_QJ9rq7kdLCYcxuhxg"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2"><span>postgres://</span><span>【</span><span
+                class="c36">■</span><span>ユーザー名】</span><span>:【</span><span
+                class="c34">■</span><span>パスワード】@【</span><span class="c28">■</span><span>サーバー名】:【ポート番号】/【</span><span
+                class="c26">■</span><span class="c0">データベース名】</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c5"><span class="c20">サンプルコード：src/main/resources/application.yml（変更）</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <div class="code_block">
+            <p class="c5"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;url</span><span class="c4">: </span><span
+                    class="c7">jdbc:postgresql://</span><span class="c7 c13">【サーバー名】</span><span
+                    class="c7">:</span><span class="c7 c13">【ポート番号】</span><span class="c7">/</span><span
+                    class="c7 c13">【データベース名】</span><span class="c9 c7">?sslmode=require</span></p><br>
+            <p class="c5"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;username</span><span class="c4">: </span><span
+                    class="c9 c7 c13">【ユーザー名】</span>
+            </p><br>
+            <p class="c5"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;password</span><span class="c4">: </span><span
+                    class="c9 c7 c13">【パスワード】</span>
+            </p><br>
+        </div>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.bdd04c87vy1h"><span class="c1">5.</span></h3>
+        <p class="c2"><span
+                class="c0">デプロイする際にHEROKUが「SpringBootプロジェクトである」ことを判定してくれ、サーバー領域にJavaの実行環境を構築してくれます。適切なバージョンを構築してくれるように、プロジェクトフォルダのルート階層に以下のファイルを作成してください。</span>
+        </p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c5"><span class="c20">サンプルコード：system.properties（新規作成）</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <div class="code_block">
+            <p class="c5"><span class="c8">java.runtime.version</span><span class="c9 c4">=11</span></p><br>
+        </div>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.g4sqbls7s5hv"><span class="c1">6.</span></h3>
+        <p class="c2"><span class="c0">次のコマンドにより、サーバー領域にこのアプリケーションが稼動する環境のタイムゾーンを設定します。</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c2"><span class="c0 c10">heroku config:add TZ=Asia/Tokyo</span></p>
+        <p class="c2"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/p3L2Up2eUx7T0zUdkH3LgkZVx5V47jOU1PTME8oJO9V3-j_oruyWBloYd1pez6_-makB5hMbWFp3v3ADSYwATqx-1f-zYIGOnrVFxrIt9blVfPllHAH1Qy5G4WgeZcs1p6zqJWwk"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.yb0tahgz6tel"><span class="c1">7.</span></h3>
+        <p class="c2"><span
+                class="c0">それではデプロイを行います。デプロイはHEROKUのgitへpushすることで開始されますので、次の通り順番にコマンドを実行してください。push後に状況によって3分程度かかる場合があります。</span>
+        </p>
+        <p class="c2 c3"><span class="c0"></span></p><a id="t.6bead68ac8d31a7b38af6827b058f477c642e88a"></a><a
+            id="t.1"></a>
+        <table class="c24">
+            <tbody>
+                <tr class="c35">
+                    <td class="c30" colspan="1" rowspan="1">
+                        <p class="c2"><span class="c20">(1)</span><span> </span><span class="c0 c10">git add .</span>
+                        </p>
+                        <p class="c2"><span class="c20">(2)</span><span> </span><span class="c0 c10">git commit -m
+                                “heroku settings”</span></p>
+                        <p class="c2"><span class="c20">(3)</span><span> </span><span class="c0 c10">git push heroku
+                                master</span></p>
+                        <p class="c2"><span>※</span><span class="c20">(2) </span><span class="c0">のコミットメッセージ「heroku
+                                settings」は自由に設定して構いません。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <p class="c2"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/b5aeTiOOqH3wVvl6nfpHFqqwn1M_RTOVE29cbWgafxavAt2kQGr6AGaITYSrtM8CedQuIXmzzaPbyj-jZZkfpoZ6ewXCUJgh2CexOsEga-MzfQ8NUxRY_r7JokOI1QwuKdiLZ3DW"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/wvhAjfnGQpXssdxMPICdCaDLszIFAmIYWs_j_LOS9w3X66IAXDTt60oxdBEJ5n5NGOVscstUD9PbYRi6wb_QTaMshgR9hxyo5lk7fsP1aGmFrFeoxoVxhN0fkMJJi55l3Nj72ke7"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/C0Cs_Xhim8DG4w6FFgEoHAsUtRiKCgbsTLF6Yw_lt9HxT2hxUlv594aNhyPiXjeoBEy3Fh5TcHpcY92DMwrji-DCod3M-_bKRVB6L4xDUsW83uTx2241qVoWCthrYM5rW6siyuuQ"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+        <h3 class="c2 c16" id="h.o1pfh0cz8y4q"><span class="c1">8.</span></h3>
+        <p class="c2"><span class="c0">heroku
+                openしてアプリケーションにアクセスしてみましょう。ローカルに構築していたアプリケーションと全く同じ動作をすることが確認できれば、HEROKUを使用したポートフォリオの公開が完了です！</span></p>
+        <p class="c2 c3"><span class="c0"></span></p>
+    </div>
+    <div id="footer"><span>公開元: <a href="https://member.digskill.net/dashboard">Dig Skill</a></span><span
+            class="dash">&ndash;</span>【8】ポートフォリオとして公開しよう
+    </div>
+</body>
+
+</html>

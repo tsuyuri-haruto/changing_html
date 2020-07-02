@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>【4】簡単なWEBアプリケーションを作ってみよう！</title>
+    <link rel="shortcut icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico">
+    <meta charset="UTF-8">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+        }
+
+        iframe {
+            border: 0;
+            frameborder: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #header {
+            align-items: center;
+            background: white;
+            border-bottom: 1px #ccc solid;
+            display: flex;
+            height: 60px;
+            justify-content: space-between;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        #header #title {
+            font-family: 'Noto Sans JP';
+            font-size: large;
+            margin: auto 0 auto 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 70%;
+        }
+
+        #header #interval {
+            margin: auto 25px auto 0;
+            font-family: 'Noto Sans JP';
+            font-size: small;
+            ;
+        }
+
+        #footer {
+            background: #f0f0f0;
+            border-bottom: 1px #ccc solid;
+            bottom: 0;
+            font-family: 'Noto Sans JP';
+            font-size: small;
+            padding: 10px 10px;
+            position: fixed;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #contents {
+            padding: 100px 3rem 50px;
+            max-width: 930px;
+            margin: 0 auto;
+        }
+
+        @media only screen and (max-width: 767px) {
+            #contents {
+                padding: 150px 1rem 80px;
+                word-break: break-all;
+            }
+        }
+
+        .dash {
+            padding: 0 6px;
+        }
+
+        :root {
+            --base_font_size: 14pt;
+        }
+
+        @media only screen and (max-width: 767px) {
+            :root {
+                --base_font_size: 14px;
+            }
+        }
+
+        .code_block {
+            white-space: nowrap;
+            overflow-x: auto;
+            background-color: #f8f8f8;
+            padding: 10px;
+        }
+
+        .code_block>p {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="title">【4】簡単なWEBアプリケーションを作ってみよう！</div>
+        <div id="interval"><span>Javaコース</span></div>
+    </div>
+    <div id="contents">
+        <style type="text/css">
+            @import url('https://themes.googleusercontent.com/fonts/css?kit=lhDjYqiy3mZ0x6ROQEUoUw');
+
+            ol.lst-kix_2zwrtrp7d7si-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-0 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-3 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-3.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-3 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-0.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-0 0
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-6.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-6 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-8>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-3.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-3 0
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-6.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-6 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-5.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-5 0
+            }
+
+            .lst-kix_tw1k779xd1a4-0>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-0
+            }
+
+            .lst-kix_za19uzqo5vqc-3>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-3
+            }
+
+            .lst-kix_za19uzqo5vqc-5>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-5
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-8.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-8 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-2.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-2 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-8.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-8 0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-0.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-0 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-5.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-5 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-8>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-8
+            }
+
+            .lst-kix_x41s1rdpnz1l-5>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-5, lower-roman) ") "
+            }
+
+            .lst-kix_za19uzqo5vqc-1>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-1
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-2.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-2 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-4>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-4, lower-latin) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-6>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-6, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-2>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-2, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-4>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-4, lower-latin) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-7>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-7
+            }
+
+            .lst-kix_x41s1rdpnz1l-3>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-3, decimal) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-7>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-7, lower-latin) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-1>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-1, lower-latin) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-5>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-5, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-5.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-5 0
+            }
+
+            .lst-kix_tw1k779xd1a4-0>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-0, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-6>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-6, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-8>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-8, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-7>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-7, lower-latin) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-8.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-8 0
+            }
+
+            .lst-kix_tw1k779xd1a4-8>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-0.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-0 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-8>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-8, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-2>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-2
+            }
+
+            ol.lst-kix_tw1k779xd1a4-1.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-1 0
+            }
+
+            .lst-kix_tw1k779xd1a4-3>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-3, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-7>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-7
+            }
+
+            .lst-kix_za19uzqo5vqc-8>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-7, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-8, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-1>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-1
+            }
+
+            .lst-kix_2zwrtrp7d7si-4>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-4
+            }
+
+            .lst-kix_za19uzqo5vqc-7>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-7, decimal) ". "
+            }
+
+            ol.lst-kix_tw1k779xd1a4-0.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-0 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-3.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-3 0
+            }
+
+            .lst-kix_za19uzqo5vqc-4>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-5>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-7.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-7 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-7.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-7 0
+            }
+
+            .lst-kix_za19uzqo5vqc-6>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-0>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-1>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-1.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-1 0
+            }
+
+            .lst-kix_za19uzqo5vqc-3>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) ". "
+            }
+
+            .lst-kix_x41s1rdpnz1l-4>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-4
+            }
+
+            .lst-kix_x41s1rdpnz1l-7>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-7
+            }
+
+            .lst-kix_x41s1rdpnz1l-1>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-1, lower-latin) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-0>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-0, decimal) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-2>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-2, lower-roman) ") "
+            }
+
+            .lst-kix_za19uzqo5vqc-2>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) ". "
+            }
+
+            .lst-kix_x41s1rdpnz1l-1>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-1
+            }
+
+            .lst-kix_za19uzqo5vqc-4>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-4
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-7.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-7 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-3>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-3
+            }
+
+            .lst-kix_tw1k779xd1a4-4>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-4
+            }
+
+            .lst-kix_2zwrtrp7d7si-3>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-3
+            }
+
+            .lst-kix_2zwrtrp7d7si-2>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-2
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-4.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-4 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-6.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-6 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-1.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-1 0
+            }
+
+            .lst-kix_tw1k779xd1a4-5>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-5
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-5.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-5 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-0 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-3 {
+                list-style-type: none
+            }
+
+            .lst-kix_tw1k779xd1a4-3>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-3
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-1 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-0>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-0
+            }
+
+            .lst-kix_x41s1rdpnz1l-2>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-2
+            }
+
+            .lst-kix_x41s1rdpnz1l-5>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-5
+            }
+
+            .lst-kix_tw1k779xd1a4-6>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-6
+            }
+
+            ol.lst-kix_za19uzqo5vqc-4.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-4 0
+            }
+
+            .lst-kix_za19uzqo5vqc-8>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-2.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-2 0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-7.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-7 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-5 {
+                list-style-type: none
+            }
+
+            .lst-kix_x41s1rdpnz1l-6>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-6
+            }
+
+            .lst-kix_x41s1rdpnz1l-0>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-4.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-4 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-0>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-8.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-8 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-6>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-6
+            }
+
+            ol.lst-kix_za19uzqo5vqc-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-3 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-2 {
+                list-style-type: none
+            }
+
+            .lst-kix_tw1k779xd1a4-1>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-1
+            }
+
+            ol.lst-kix_za19uzqo5vqc-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-3 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-2>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-2
+            }
+
+            .lst-kix_2zwrtrp7d7si-5>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-5
+            }
+
+            ol.lst-kix_za19uzqo5vqc-1.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-1 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-7 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-6>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-6
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-6.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-6 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-0 {
+                list-style-type: none
+            }
+
+            .lst-kix_2zwrtrp7d7si-0>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-0, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-1>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-1, lower-latin) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-3>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-3, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-2>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-2, lower-roman) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-4>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-4, lower-latin) ". "
+            }
+
+            ol.lst-kix_tw1k779xd1a4-3.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-3 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-7>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-7, lower-latin) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-6>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-6, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-8>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-8, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-0 {
+                list-style-type: none
+            }
+
+            .lst-kix_2zwrtrp7d7si-5>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-5, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-2.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-2 0
+            }
+
+            .lst-kix_tw1k779xd1a4-7>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-7
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-4.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-4 0
+            }
+
+            ol {
+                margin: 0;
+                padding: 0
+            }
+
+            table td,
+            table th {
+                padding: 0
+            }
+
+            .c23 {
+                border-right-style: solid;
+                padding: 5pt 5pt 5pt 5pt;
+                border-bottom-color: #000000;
+                border-top-width: 0pt;
+                border-right-width: 0pt;
+                border-left-color: #000000;
+                vertical-align: top;
+                border-right-color: #000000;
+                border-left-width: 0pt;
+                border-top-style: solid;
+                background-color: #e4f0f6;
+                border-left-style: solid;
+                border-bottom-width: 0pt;
+                width: 697.9pt;
+                border-top-color: #000000;
+                border-bottom-style: solid
+            }
+
+            .c10 {
+                -webkit-text-decoration-skip: none;
+                color: #1155cc;
+                font-weight: 400;
+                text-decoration: underline;
+                vertical-align: baseline;
+                text-decoration-skip-ink: none;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c2 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c14 {
+                background-color: #f8f8f8;
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.3571428571428572;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c11 {
+                color: #000000;
+                font-weight: 700;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c6 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 10pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c0 {
+                color: #383a42;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: "Consolas";
+                font-style: normal
+            }
+
+            .c24 {
+                padding-top: 4pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c12 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c33 {
+                color: #000000;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 26pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c1 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c28 {
+                color: #000000;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 16pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c27 {
+                color: #000000;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 20pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c22 {
+                padding-top: 10pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c35 {
+                padding-top: 0pt;
+                padding-bottom: 3pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c31 {
+                padding-top: 20pt;
+                padding-bottom: 6pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c37 {
+                border-spacing: 0;
+                border-collapse: collapse;
+                margin-right: auto
+            }
+
+            .c18 {
+                text-decoration-skip-ink: none;
+                -webkit-text-decoration-skip: none;
+                color: #1155cc;
+                text-decoration: underline
+            }
+
+            .c25 {
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-style: normal
+            }
+
+            .c20 {
+                text-decoration-skip-ink: none;
+                -webkit-text-decoration-skip: none;
+                text-decoration: underline
+            }
+
+            .c30 {
+                font-family: "Consolas";
+                color: #c18401;
+                font-weight: 400
+            }
+
+            .c29 {
+                font-family: "Consolas";
+                color: #4078f2;
+                font-weight: 400
+            }
+
+            .c19 {
+                font-family: "Consolas";
+                color: #ca1243;
+                font-weight: 400
+            }
+
+            .c9 {
+                font-family: "Consolas";
+                color: #e45649;
+                font-weight: 400
+            }
+
+            .c13 {
+                font-family: "Consolas";
+                color: #50a14f;
+                font-weight: 400
+            }
+
+            .c3 {
+                font-family: "Consolas";
+                color: #383a42;
+                font-weight: 400
+            }
+
+            .c5 {
+                font-family: "Consolas";
+                color: #986801;
+                font-weight: 400
+            }
+
+            .c16 {
+                font-family: "Consolas";
+                color: #a626a4;
+                font-weight: 400
+            }
+
+            .c36 {
+                background-color: #ffffff;
+                max-width: 697.9pt;
+                padding: 72pt 72pt 72pt 72pt
+            }
+
+            .c21 {
+                width: 33%;
+                height: 1px
+            }
+
+            .c32 {
+                color: inherit;
+                text-decoration: inherit
+            }
+
+            .c17 {
+                font-weight: 700
+            }
+
+            .c15 {
+                background-color: #fce5cd
+            }
+
+            .c8 {
+                height: var(--base_font_size)
+            }
+
+            .c4 {
+                page-break-after: avoid
+            }
+
+            .c26 {
+                font-size: 10pt
+            }
+
+            .c34 {
+                height: 0pt
+            }
+
+            .c7 {
+                background-color: #efefef
+            }
+
+            .title {
+                padding-top: 0pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 26pt;
+                padding-bottom: 3pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .subtitle {
+                padding-top: 0pt;
+                color: #666666;
+                font-size: 15pt;
+                padding-bottom: 16pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            li {
+                color: #000000;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP'
+            }
+
+            p {
+                margin: 0;
+                color: #000000;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP'
+            }
+
+            h1 {
+                padding-top: 20pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h2 {
+                padding-top: 20pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h3 {
+                padding-top: 0pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 16pt;
+                padding-bottom: 0pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h4 {
+                padding-top: var(--base_font_size);
+                color: #666666;
+                font-size: 12pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h5 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h6 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                font-style: italic;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+        </style>
+        <p class="c4 c35 title" id="h.hq0ppjbl6mkl"><span class="c17 c33">4 簡単なWEBアプリケーションを作ってみよう！</span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <p class="c24"><span class="c18"><a class="c32" href="#h.aqusxc29jg1q">4-1 入力フォームの作成</a></span></p>
+        <p class="c22"><span class="c18"><a class="c32" href="#h.d3d0gtc6oiih">4-2 フォーム送信データの取得・表示</a></span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <p class="c1"><span
+                class="c2">ここまでは、ブラウザの画面に文字列を表示させるだけのWEBページでした。ここからは、ブラウザからユーザーの入力を受け取り、その結果を返す簡単なWEBアプリケーションを作ってみましょう！</span>
+        </p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <h1 class="c31 c4" id="h.aqusxc29jg1q"><span class="c17 c27">4-1 入力フォームの作成</span></h1>
+        <h3 class="c1 c4" id="h.fr7dks6kmd2o"><span>1.</span></h3>
+        <p class="c1">
+            <span>今まで作ってきた「IndexController.java」では、画面に表示させたい文字をそのままやり取りしていましたが、ネットショッピングで物を買う際の入力フォームなど、様々な入力項目があるフォームを「.append()」だけで組み立てていくのはとても大変です。「見た目」を制御できるHTMLと、条件に応じてそのHTMLを変更できるJavaのプログラムを両方とも記述できる「</span><span
+                class="c20">JSP（Java Server Pages）</span>
+            <span class="c2">」という仕組みを活用することで、効率的にフォームを作ることが可能となります。</span>
+        </p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <p class="c1"><span
+                class="c2">「パッケージ・エクスプローラー」パネルで「HelloWorld」プロジェクトを開き、「WebContent」フォルダを右クリックして、「新規」⇒「その他」の順にクリックしてください。</span>
+        </p>
+        <p class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 879.00px;">
+                <img alt=""
+                    src="https://lh4.googleusercontent.com/GHhgWbCjoW8o35BXNnSa2PyO7JqExJDIsFbknm8CiG7ueX8Bg9fokb_DEhGmkD91lehC3jM2n3_n3imbWA2FNAeS79pHgUUys-EHk6W-15HlOOaNLNnjK2tikw1ig6bQ7nsThSsU"
+                    style="width: 100%;  margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title="">
+            </span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <h3 class="c1 c4" id="h.gf0mf5c2vcs1"><span class="c17 c28">2.</span></h3>
+        <p class="c1"><span class="c2">次の画面が開きますので、「Web」の中の「JSPファイル」を選択して、「次へ」をクリックしてください。</span></p>
+        <p class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 699.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/cCVj8Texg13_4lPsILaSIMrn3OjuGjxQe7o_NxQrIwTWg_NpLTKSrTtFYI88zOBgO5-fb4JIgS_PwHrKRT6DWXOtOazlxq5hwSmJQ46bek14HzicWigyC01r-z0ebz0YuKNXSvFD"
+                    style="width: 100%;  margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <h3 class="c1 c4" id="h.eyd8qlcf528q"><span class="c28 c17">3.</span></h3>
+        <p class="c1"><span
+                class="c2">次の画面では「WebContent」フォルダが選択されていることを確認して、ファイル名に「form.jsp」と入力して「次へ」ボタンをクリックしてください。</span></p>
+        <p class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 691.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/JWA8ye12P8RisUb1AQOs7ZWRkrN-US_TdSSa_t_3xJuVa2GBPW7XyjU6qiYH1hFNN6jNkpk95fH5zzy4JwkOKAo8UjsQSP6yIDEuXmPoWN9ELiGsQH36IVYslW_qggBOgiDQLAbE"
+                    style="width: 100%;  margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <h3 class="c1 c4" id="h.nyhf7t7xv496"><span class="c28 c17">4.</span></h3>
+        <p class="c1"><span class="c2">次の画面ではテンプレートに「新規JSPファイル（html 5）」を選択して、「完了」をクリックしてください。</span></p>
+        <p class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 691.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/f8rptLqFyyYppsrG8a-xH4E-AFgB5C0KBZwSoe_MnBHuGXn_sN8wGiB7QSkDgOlFgaXn3EOyCod8LeyEKgoGiyVgrRekoIwH8DvjZQvhU5-N71xG8CYnuuRMabEeRzpHkxTL7TMS"
+                    style="width: 100%;  margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <h3 class="c1 c4" id="h.ipv2hb8avvgg"><span class="c28 c17">5.</span></h3>
+        <p class="c1"><span class="c2">「IndexController.java」やその表示結果が表示されていたパネルに「form.jsp」の中身が表示されます。</span></p>
+        <p class="c1"><span>「</span><span class="c15">&lt;html&gt; ～ &lt;/html&gt;</span><span>」の中身をサンプルのように書き換えて「Ctrl +
+                s」で保存しましょう。保存したら、「パッケージ・エクスプローラー」で「form.jsp」を右クリックして、「実行」の中にある「サーバーで実行」をクリックしてみましょう。このサンプルではまだ</span><span
+                class="c20">HTMLのみで構成されている</span><span class="c2">ことに注意しましょう。</span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <p class="c1"><span class="c17">＜ポイント＞</span></p>
+        <a id="t.58298f042aca63880f10f2dd50463486488c8e4b"></a>
+        <a id="t.0"></a>
+        <table class="c37">
+            <tbody>
+                <tr class="c34">
+                    <td class="c23" colspan="1" rowspan="1">
+                        <p class="c1"><span class="c11">(1) 属性：</span></p>
+                        <p class="c1"><span>HTML各タグ名に続く「id」「name」「type」・・・などを「</span><span class="c20">属性</span><span
+                                class="c2">」といいます。</span></p>
+                        <p class="c1"><span>タグの種類によって指定すべき属性は異なり、そのタグの機能を補完・拡張します。特にformタグとinputタグについて、</span><span
+                                class="c20">id属性</span><span>はjavascriptでHTMLを操作する場合などに使用し、</span><span
+                                class="c20">name属性</span><span
+                                class="c2">はサーバー側でフォームの値を認識する際に必要であるため、必ずセットで指定するようにしましょう。</span></p>
+                        <p class="c1 c8"><span class="c2"></span></p>
+                        <p class="c1"><span class="c11">(2) formタグ：</span></p>
+                        <p class="c1"><span>formタグの中にはinputタグなどの入力用フォーム部品を配置し、submitボタンによりその</span><span
+                                class="c20">入力内容をaction属性に指定したURLへ送信</span><span class="c2">することができます。</span></p>
+                        <p class="c1"><span class="c2">action属性の属性値が空文字「&quot;&quot;」の場合には、今のページのURLに送信します。</span></p>
+                        <p class="c1 c8"><span class="c2"></span></p>
+                        <p class="c1"><span class="c11">(3) inputタグ：</span></p>
+                        <p class="c1"><span class="c2">inputタグは、type属性によりその見え方や機能を変えることができます。</span></p>
+                        <p class="c1"><span
+                                class="c2">type属性の属性値が「text」の場合は、文字列（英数字や記号、日本語などすべて）を入力できる入力欄となり、「submit」の場合には、送信を実行するボタンとなります。なお、ボタンの場合はvalue属性の値がボタンに表示されます。</span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <p class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 293.40px;">
+                <a href="https://www.google.com/search?q=HTML+%E3%82%BF%E3%82%B0+%E5%B1%9E%E6%80%A7&oq=HTML+%E3%82%BF%E3%82%B0+%E5%B1%9E%E6%80%A7&aqs=chrome..69i57j0l7.13163j0j7&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh6.googleusercontent.com/q8I8hzUZ12FVJKw01waFueqZ2SNHpyOI8Oyyfd5trpMbwQtLca2islOetNKT6V8GoQbq9PVpKNuZxWuAloTyO_4rfDKXxe4M2oIhXDx_LMtTUbOIQQh4GMzyJqfdajPpz6uQbSkD"
+                        style="width: 100%;  margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title=""></a>
+            </span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <p class="c14"><span class="c17">サンプルコード：form.jsp（HTMLタグの中身を置き換え）</span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <div class="code_block">
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span class="c9">head</span><span
+                    class="c0">&gt;</span></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c9">meta</span><span class="c3"> </span><span class="c5">charset</span><span
+                    class="c3">=</span><span class="c13">&quot;UTF-8&quot;</span><span class="c0">&gt;</span></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c9">title</span><span class="c3">&gt;ごあいさつ&lt;/</span><span class="c9">title</span><span
+                    class="c0">&gt;</span></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span class="c9">head</span><span
+                    class="c0">&gt;</span></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span class="c9">body</span><span
+                    class="c0">&gt;</span></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c9">form</span><span class="c3"> </span><span class="c5">id</span><span
+                    class="c3">=</span><span class="c13">&quot;greetings_form&quot;</span>
+                <span class="c3"> </span>
+                <span class="c5">name</span>
+                <span class="c3">=</span><span class="c13">&quot;greetings_form&quot;</span><span class="c3">
+                </span><span class="c5">method</span><span class="c3">=</span><span
+                    class="c13">&quot;POST&quot;</span><span class="c3"> </span>
+                <span class="c5">action</span>
+                <span class="c3">=</span><span class="c13">&quot;&quot;</span><span class="c0">&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;お名前を教えてください。&lt;</span><span
+                    class="c9">br</span><span class="c0">&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c9">input</span><span class="c3"> </span><span class="c5">id</span><span
+                    class="c3">=</span><span class="c13">&quot;your_name&quot;</span>
+                <span class="c3"> </span><span class="c5">name</span>
+                <span class="c3">=</span><span class="c13">&quot;your_name&quot;</span><span class="c3"> </span><span
+                    class="c5">type</span><span class="c3">=</span><span class="c13">&quot;text&quot;</span><span
+                    class="c3"> </span><span class="c5">value</span>
+                <span class="c3">=</span>
+                <span class="c13">&quot;&quot;</span><span class="c3">&gt;&lt;</span><span class="c9">br</span><span
+                    class="c0">&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今は「朝」？「昼」？「夜」？&lt;</span><span
+                    class="c9">br</span><span class="c0">&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c9">input</span><span class="c3"> </span><span class="c5">id</span><span
+                    class="c3">=</span><span class="c13">&quot;now&quot;</span>
+                <span class="c3">
+                </span><span class="c5">name</span><span class="c3">=</span><span
+                    class="c13">&quot;now&quot;</span><span class="c3"> </span><span class="c5">type</span><span
+                    class="c3">=</span><span class="c13">&quot;text&quot;</span>
+                <span class="c3"> </span>
+                <span class="c5">value</span><span class="c3">=</span><span class="c13">&quot;&quot;</span><span
+                    class="c3">&gt;&lt;</span><span class="c9">br</span><span class="c3">&gt;&lt;</span><span
+                    class="c9">br</span><span class="c0">&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c9">input</span><span class="c3"> </span><span class="c5">id</span><span
+                    class="c3">=</span><span class="c13">&quot;submit&quot;</span>
+                <span class="c3"> </span><span class="c5">name</span><span class="c3">=</span>
+                <span class="c13">&quot;submit&quot;</span><span class="c3"> </span><span class="c5">type</span><span
+                    class="c3">=</span><span class="c13">&quot;submit&quot;</span><span class="c3"> </span><span
+                    class="c5">value</span><span class="c3">=</span>
+                <span class="c13">&quot;送信！&quot;</span>
+                <span class="c3">&gt;&lt;</span><span class="c9">br</span><span class="c0">&gt;</span></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span
+                    class="c9">form</span><span class="c0">&gt;</span></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span class="c9">body</span><span
+                    class="c0">&gt;</span></p><br>
+            <p class="c1 c8"><span class="c2"></span></p><br>
+        </div>
+        <p class="c1"><span class="c11">＜表示結果＞</span></p>
+        <p class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 783.00px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/wli40fmD7YnXJDS25jwbeTTl19tqh5xrtLLjKsJWazyOVGVGzcKyyOKexTMJXn5InGDVwr-0XxQEZ2yCPdStDw-DFRfSypXgyOHUgurPkoNK4S5wDX0hU_owJLdIejaNNEkRegQw"
+                    style="width: 100%;  margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c1"><span class="c2"> </span></p>
+        <h1 class="c4 c31" id="h.d3d0gtc6oiih"><span class="c27 c17">4-2 フォーム送信データの取得・表示</span></h1>
+        <h3 class="c1 c4" id="h.9ix5ukxkgznd"><span class="c28 c17">1.</span></h3>
+        <p class="c1"><span>作成したフォームの送信ボタンを押すと、入力した内容がクリアされるだけに見えると思います。実際には「</span><span
+                class="c15">http://localhost:8080/HelloWorld/form.jsp</span><span
+                class="c2">」へ入力内容を送信していますが、form.jspの中身はHTMLのみで送信データを取得するような処理を行っていないため、最初と同じページを表示させているだけなのです。</span>
+        </p>
+        <p class="c1"><span class="c2">次のサンプルのようにJavaコードを書き加えて、送信データを取得して、返すページに表示させてみましょう！</span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <p class="c1"><span class="c17">＜ポイント＞</span></p>
+        <a id="t.12cf94772c8fce515e9b6d38adc0f44eb6fcb748"></a>
+        <a id="t.1"></a>
+        <table class="c37">
+            <tbody>
+                <tr class="c34">
+                    <td class="c23" colspan="1" rowspan="1">
+                        <p class="c1"><span class="c11">(1) JSPタグ：</span></p>
+                        <p class="c1"><span>「</span><span class="c15">&lt;% ～ %&gt;</span><span
+                                class="c2">」の中では、Javaコードを動かすことが可能です。サンプルでは、フォームから送信されたデータを取得して変数に格納したり、文字コードの設定を行っています。</span>
+                        </p>
+                        <p class="c1"><span>定数・変数や関数の定義などを行う場合は「</span><span class="c15">&lt;%! ～ %&gt;</span><span
+                                class="c2">」を使います。</span></p>
+                        <p class="c1 c8"><span class="c2"></span></p>
+                        <p class="c1"><span class="c11">(2) POST：</span></p>
+                        <p class="c1"><span>greetings_formのmethod属性に「POST」と指定しています。これは、HTTP通信の</span><span
+                                class="c20">リクエストデータ</span><span class="c2">の中にフォームデータを含むことをサーバー側に知らせています。</span></p>
+                        <p class="c1"><span>サンプルでは「your_name=太郎&amp;now=朝」のようなデータ（実際には日本語が</span><span
+                                class="c20">HTMLエンコード</span><span class="c2">されています）が送られています。</span></p>
+                        <p class="c1 c8"><span class="c2"></span></p>
+                        <p class="c1"><span class="c11">(3) GET：</span></p>
+                        <p class="c1">
+                            <span>ブラウザのアドレスバーにURLを打ち込んだり、リンクをクリックしてアクセスした場合には、HTTP通信の際にGETというメソッドが使用されます。リクエストデータの中にデータを持つことはできませんが、URLの後ろに</span><span
+                                class="c20">クエリストリング</span><span class="c2">を付加することでデータを送信することが可能です。</span></p>
+                        <p class="c1"><span>例）</span><span
+                                class="c2 c15">http://localhost:8080/HelloWorld/form.jsp?your_name=太郎&amp;now=朝</span>
+                        </p>
+                        <p class="c1 c8"><span class="c2"></span></p>
+                        <p class="c1"><span class="c11">(4) データ取得：</span></p>
+                        <p class="c1"><span>最初のJSPタグの中に「</span><span
+                                class="c15">request</span><span>」という変数が突然登場します。IndexController.javaのdoGetで引数として受け取っていた「</span><span
+                                class="c15">HttpServletRequest
+                                request</span><span>」と同じものが、jspでは暗黙的に用意されますので、ここから「</span><span
+                                class="c15">getParameter()</span><span class="c2">」で取得しています。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <p class="c14"><span class="c17">サンプルコード：form.jsp（BODYタグの中身を置き換え）</span></p>
+        <p class="c1 c8"><span class="c11"></span></p>
+        <div class="code_block">
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span class="c9">body</span><span
+                    class="c0">&gt;</span></p><br>
+            <p class="c14"><span class="c25 c19">&lt;%</span></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c9 c7">request</span><span
+                    class="c3 c7">.</span><span class="c7 c29">setCharacterEncoding</span><span
+                    class="c3 c7">(</span><span class="c13 c7">&quot;UTF-8&quot;</span>
+                <span class="c3 c7">);</span>
+                <sup class="c3"><a href="#ftnt1" id="ftnt_ref1" style="user-select: none;">[1]</a></sup>
+            </p><br>
+            <p class="c14 c8"><span class="c0"></span></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c7 c30">String</span><span
+                    class="c9 c7"> </span><span class="c9 c7">yourName</span><span class="c9 c7"> </span><span
+                    class="c3 c7">= </span><span class="c9 c7">request</span>
+                <span class="c3 c7">.</span>
+                <span class="c29 c7">getParameter</span><span class="c3 c7">(</span><span
+                    class="c13 c7">&quot;your_name&quot;</span><span class="c3 c7">);</span><sup class="c3"><a
+                        href="#ftnt2" id="ftnt_ref2" style="user-select: none;">[2]</a></sup></p><br>
+            <p class="c14"><span class="c3 c7">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c16 c7">if</span><span
+                    class="c3 c7"> (yourName ==
+                </span><span class="c5 c7">null</span><span class="c0 c7">) {</span></p><br>
+            <p class="c14"><span class="c3 c7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yourName = </span><span
+                    class="c13 c7">&quot;&quot;</span><span class="c0 c7">;</span></p><br>
+            <p class="c14"><span class="c0 c7">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c14"><span class="c3 c7">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c30 c7">String</span><span
+                    class="c9 c7"> now
+                </span><span class="c3 c7">= </span><span class="c9 c7">request</span><span class="c3 c7">.</span><span
+                    class="c29 c7">getParameter</span><span class="c3 c7">(</span><span
+                    class="c13 c7">&quot;now&quot;</span><span class="c0 c7">);</span></p><br>
+            <p class="c14"><span class="c3 c7">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c16 c7">if</span><span
+                    class="c3 c7"> (now ==
+                </span><span class="c5 c7">null</span><span class="c0 c7">) {</span></p><br>
+            <p class="c14"><span class="c3 c7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now = </span><span
+                    class="c13 c7">&quot;&quot;</span><span class="c0 c7">;</span></p><br>
+            <p class="c14"><span class="c0 c7">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c14"><span class="c25 c19">%&gt;</span></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c9">form</span><span class="c3"> </span><span class="c5">id</span><span
+                    class="c3">=</span><span class="c13">&quot;greetings_form&quot;</span>
+                <span class="c3"> </span>
+                <span class="c5">name</span>
+                <span class="c3">=</span><span class="c13">&quot;greetings_form&quot;</span><span class="c3">
+                </span><span class="c5">method</span><span class="c3">=</span><span
+                    class="c13">&quot;POST&quot;</span><span class="c3"> </span>
+                <span class="c5">action</span>
+                <span class="c3">=</span><span class="c13">&quot;&quot;</span><span class="c0">&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;お名前を教えてください。&lt;</span><span
+                    class="c9">br</span><span class="c0">&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c9">input</span><span class="c3"> </span><span class="c5">id</span><span
+                    class="c3">=</span><span class="c13">&quot;your_name&quot;</span>
+                <span class="c3"> </span><span class="c5">name</span>
+                <span class="c3">=</span><span class="c13">&quot;your_name&quot;</span><span class="c3"> </span><span
+                    class="c5">type</span><span class="c3">=</span><span class="c13">&quot;text&quot; </span><span
+                    class="c5 c7">value</span><span class="c3 c7">=</span>
+                <span class="c13 c7">&quot;</span><span class="c19 c7">&lt;%=</span><span class="c13 c7"> yourName
+                </span><span class="c19 c7">%&gt;</span><span class="c13">&quot;</span><span
+                    class="c3">&gt;&lt;</span><span class="c9">br</span><span class="c3">&gt;</span>
+                <sup class="c3"><a href="#ftnt3" id="ftnt_ref3" style="user-select: none;">[3]</a></sup>
+            </p><br>
+            <p class="c14"><span
+                    class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今は「朝」？「昼」？「夜」？&lt;</span><span
+                    class="c9">br</span><span class="c0">&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c9">input</span><span class="c3"> </span><span class="c5">id</span><span
+                    class="c3">=</span><span class="c13">&quot;now&quot;</span>
+                <span class="c3">
+                </span><span class="c5">name</span><span class="c3">=</span><span
+                    class="c13">&quot;now&quot;</span><span class="c3"> </span><span class="c5">type</span><span
+                    class="c3">=</span><span class="c13">&quot;text&quot;</span>
+                <span class="c3"> </span>
+                <span class="c5 c7">value</span><span class="c3 c7">=</span><span class="c13 c7">&quot;</span><span
+                    class="c19 c7">&lt;%=</span><span class="c13 c7"> now </span><span class="c19 c7">%&gt;</span><span
+                    class="c13">&quot;</span>
+                <span class="c3">&gt;&lt;</span>
+                <span class="c9">br</span><span class="c3">&gt;&lt;</span><span class="c9">br</span><span
+                    class="c3">&gt;</span><sup class="c3"><a href="#ftnt4" id="ftnt_ref4"
+                        style="user-select: none;">[4]</a></sup></p><br>
+            <p class="c14"><span
+                    class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c9">input</span><span class="c3"> </span><span class="c5">id</span><span
+                    class="c3">=</span><span class="c13">&quot;submit&quot;</span>
+                <span class="c3"> </span><span class="c5">name</span><span class="c3">=</span>
+                <span class="c13">&quot;submit&quot;</span><span class="c3"> </span><span class="c5">type</span><span
+                    class="c3">=</span><span class="c13">&quot;submit&quot;</span><span class="c3"> </span><span
+                    class="c5">value</span><span class="c3">=</span>
+                <span class="c13">&quot;送信！&quot;</span>
+                <span class="c3">&gt;&lt;</span><span class="c9">br</span><span class="c0">&gt;</span></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span
+                    class="c9">form</span><span class="c0">&gt;</span></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;あなたのお名前は「</span><span
+                    class="c19 c7">&lt;%=</span><span class="c3 c7">
+                    yourName </span><span class="c19 c7">%&gt;</span><span class="c3">」さんですね！</span><sup class="c3"><a
+                        href="#ftnt5" id="ftnt_ref5" style="user-select: none;">[5]</a></sup></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span class="c9">body</span><span
+                    class="c0">&gt;</span></p><br>
+            <p class="c1 c8"><span class="c2"></span></p><br>
+        </div>
+        <hr class="c21">
+        <div>
+            <p class="c12"><a href="#ftnt_ref1" id="ftnt1">[1]</a><span class="c6"> 取得データの文字コードを設定</span></p>
+            <p class="c12 c8"><span class="c6"></span></p>
+        </div>
+        <div>
+            <p class="c12"><a href="#ftnt_ref2" id="ftnt2">[2]</a><span class="c26">
+                    POSTされたフォームデータを変数へ格納。パラメーター無しならば「</span><span class="c20 c26">null</span><span
+                    class="c26">」という「</span><span class="c20 c26">何もないことを示す特殊な値</span><span
+                    class="c6">」となるため、それを判定して、空文字「&quot;&quot;」に置き換える。</span></p>
+            <p class="c12 c8"><span class="c6"></span></p>
+        </div>
+        <div>
+            <p class="c12"><a href="#ftnt_ref3" id="ftnt3">[3]</a><span class="c6"> 変数の中身をvalue属性に設定</span></p>
+            <p class="c12 c8"><span class="c6"></span></p>
+        </div>
+        <div>
+            <p class="c12"><a href="#ftnt_ref4" id="ftnt4">[4]</a><span class="c6"> 変数の中身をvalue属性に設定</span></p>
+            <p class="c12 c8"><span class="c6"></span></p>
+        </div>
+        <div>
+            <p class="c12"><a href="#ftnt_ref5" id="ftnt5">[5]</a><span class="c6"> &lt;%= 変数名 %&gt;で変数の中身を文字列に変換</span>
+            </p>
+            <p class="c12 c8"><span class="c6"></span></p>
+        </div>
+        <p class="c1">
+            <span>「request.getParameter()」でフォームからデータを取得して、表示させることに成功しました。しかし、実はこのコードはとても危険です。名前入力欄に「</span><span
+                class="c15">&lt;script&gt;alert(&#39;意図しないjavascriptの実行&#39;);&lt;/script&gt;</span><span
+                class="c2">」と入力して送信してみてください。</span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <h3 class="c1 c4" id="h.nzjh252lcahc"><span class="c28 c17">3.</span></h3>
+        <p class="c1"><span>画面上にアラートメッセージが表示されました。これは、「あなたのお名前は～」の部分にyour_nameへ入力した内容がそのまま出力され、ブラウザにより「</span><span
+                class="c15">&lt;script&gt; ～
+                &lt;/script&gt;</span><span>」の中身がjavascriptとして実行されてしまったことを示します。これがもし、悪意のあるＡさんがこれを入力し、Ｂさんが別のページでこの内容を表示できるシステムだった場合、Ａさんが勝手にＢさんのブラウザで勝手にjavascriptを動かせることになってしまいます。このリスクを「</span><span
+                class="c20">クロスサイトスクリプティング（XSS）</span><span class="c2">」と言います。</span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <p class="c1"><span class="c11">＜表示結果＞</span></p>
+        <p class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 291.00px;">
+                <img alt=""
+                    src="https://lh4.googleusercontent.com/vDompEysvwET5hIn_iG6u8Q3FLmSZM5IwtDo_6JLk8kJnOo_f3CJwZjPCtkbp5Jl3JlfCJ2GQK541D1iyrV9skhMIW2B6sshSWovR2ZVzzi-qUM8_H2nIcmrcl0D96L9Xj2bkpaN"
+                    style="width: 100%;  margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span class="c17"> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 289.00px;">
+                <a href="https://www.google.com/search?q=XSS&oq=XSS&aqs=chrome..69i57j0l7.2147j0j7&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh6.googleusercontent.com/BL-Yb_iiNqlQSjYUJD4PbV62cpKSYraCAvMPcstDnkH4MygKezhq5V2r-e4ggj5Zu3EpnH8KJZup0LBZDsd1zwIGa5dCydAAK-DVAAsi6Eo_FW9SaV4gbtwRmBfDfZ7XIDpvRvbg"
+                        style="width: 100%;  margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title=""></a></span></span>
+        </p>
+        <p class="c1 c8"><span class="c11"></span></p>
+        <h3 class="c1 c4" id="h.y4mv1649najf"><span class="c28 c17">4.</span></h3>
+        <p class="c1">
+            <span>また、HTMLタグがそのまま出力されるということは、ユーザーが顔文字のつもりで入力した文字列により、レイアウトが崩れたり、ページの機能が損なわれるなどの結果を招きます。これを防ぐため、</span><span
+                class="c20">htmlspecialchars</span><span
+                class="c2">という関数で、HTMLタグを安全な文字列にエスケープしましょう。ただし、そもそも入力内容としてどんな文字を許可するかを設計時点であらかじめ決めておき、その範囲内に限定する処理を行うことが大切です。</span>
+        </p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <p class="c14"><span class="c17">サンプルコード：form.jsp（JSPタグとformタグの間に追記）</span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <div class="code_block">
+            <p class="c14"><span class="c25 c19">%&gt;</span></p><br>
+            <p class="c14"><span class="c19 c25">&lt;%!</span></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c7 c16">private</span><span
+                    class="c3 c7"> </span><span class="c16 c7">static</span><span class="c3 c7"> </span><span
+                    class="c30 c7">String</span><span class="c3 c7"> </span>
+                <span class="c29 c7">htmlspecialchars</span>
+                <span class="c3 c7">(</span><span class="c30 c7">String</span><span class="c3 c7"> str) {</span><sup
+                    class="c3"><a href="#ftnt6" id="ftnt_ref6" style="user-select: none;">[6]</a></sup></p><br>
+            <p class="c14"><span class="c3 c7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c16 c7">return</span><span class="c3 c7">
+                </span><span class="c9 c7">str</span><span class="c3 c7">.</span><span
+                    class="c29 c7">replace</span><span class="c3 c7">(</span><span
+                    class="c13 c7">&quot;&lt;&quot;</span><span class="c3 c7">, </span><span
+                    class="c13 c7">&quot;&amp;lt;&quot;</span>
+                <span class="c3 c7">).</span><span class="c29 c7">replace</span><span class="c3 c7">(</span><span
+                    class="c13 c7">&quot;&gt;&quot;</span><span class="c3 c7">, </span><span
+                    class="c13 c7">&quot;&amp;gt;&quot;</span><span class="c0 c7">);</span></p><br>
+            <p class="c14"><span class="c0 c7">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c14"><span class="c25 c19">%&gt;</span></p><br>
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c9">form</span><span class="c3"> </span><span class="c5">id</span><span
+                    class="c3">=</span><span class="c13">&quot;greetings_form&quot;</span>
+                <span class="c3"> </span>
+                <span class="c5">name</span>
+                <span class="c3">=</span><span class="c13">&quot;greetings_form&quot;</span><span class="c3">
+                </span><span class="c5">method</span><span class="c3">=</span><span
+                    class="c13">&quot;POST&quot;</span><span class="c3"> </span>
+                <span class="c5">action</span>
+                <span class="c3">=</span><span class="c13">&quot;&quot;</span><span class="c0">&gt;</span></p><br>
+            <p class="c1 c8"><span class="c2"></span></p><br>
+        </div>
+        <hr class="c21">
+        <div>
+            <p class="c12"><a href="#ftnt_ref6" id="ftnt6">[6]</a><span class="c6"> ここを追加</span></p>
+            <p class="c12 c8"><span class="c6"></span></p>
+        </div>
+        <p class="c1 c8"><span class="c2"></span></p><br>
+        <p class="c14"><span class="c17">サンプルコード：form.jsp（最後の行を変更）</span></p>
+        <p class="c1 c8"><span class="c11"></span></p>
+        <div class="code_block">
+            <p class="c14"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;あなたのお名前は「&lt;%= </span><span
+                    class="c29">htmlspecialchars</span><span class="c3">(yourName) </span><span
+                    class="c19">%&gt;</span><span class="c0">」さんですね！</span></p><br>
+        </div>
+        <p class="c1 c8"><span class="c2"></span></p>
+        <p class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 294.80px;">
+                <a href="https://www.google.com/search?sxsrf=ALeKk016xLGWLkkyMt2-99emJP6qukwZBw%3A1593079033277&ei=-XT0Xp7BEJjmwQOivIC4Cw&q=html+%E3%82%A8%E3%83%B3%E3%83%86%E3%82%A3%E3%83%86%E3%82%A3&oq=html&gs_lcp=CgZwc3ktYWIQAxgBMgQIIxAnMgQIIxAnMgQIABBDMgQIABBDMgcIABCxAxBDMgQIABBDMgQIABBDMgQIABBDOgIIADoHCAAQgwEQBDoFCAAQsQNQ2PMHWKD7B2CvgghoAHAAeACAAa0BiAHeA5IBAzIuMpgBAKABAaoBB2d3cy13aXo&sclient=psy-ab"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh5.googleusercontent.com/zrS-07_QdL__2imwG_jbqoa8x4ZP7CokqGerabkyKrzP4VjH5EUn10H0XlWPoUlTSN7ZWDBtett-tCjzXXSbUhvxPq_LR5HanenXVhA4TRaivxRenHuvX2JQ9oUw8_gwZuqszZK_"
+                        style="width: 100%;  margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span></p>
+        <p class="c1 c8"><span class="c2"></span></p>
+
+        <h3 class="c1 c4" id="h.gnng3lmw741i"><span class="c28 c17">5.</span></h3>
+        <p class="c1"><span class="c2">これでアラートメッセージが表示されず、「あなたのお名前は～」に入力内容がそのまま表示されました。</span></p>
+        <p class="c1">
+            <span>「HTMLタグを安全な文字列にエスケープ」の結果どうなったのか、表示されたページ内のどこかを右クリックして、「ソースを表示」してみましょう。すると、「&lt;script&gt;」が「&amp;lt;script&amp;gt;」に変換されていることがわかると思います。このように、「&lt;」を「&amp;lt;」、「&gt;」を「&amp;gt;」のように「</span><span
+                class="c20">エンティティ化</span>
+            <span class="c2">」することで、ブラウザにHTMLとは認識させず、表示のみ元の文字にさせることが可能です。</span>
+        </p>
+        <p class="c1 c8"><span class="c2"></span></p>
+    </div>
+    <div id="footer"><span></span>公開元: <a href="https://member.digskill.net/dashboard">Dig Skill</a><span
+            class="dash">&ndash;</span>【4】簡単なWEBアプリケーションを作ってみよう！
+    </div>
+</body>
+
+</html>

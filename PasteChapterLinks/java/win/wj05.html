@@ -1,0 +1,2444 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>【5】プログラムの構造を理解しよう！</title>
+    <link rel="shortcut icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico">
+    <meta charset="UTF-8">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+        }
+
+        iframe {
+            border: 0;
+            frameborder: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #header {
+            align-items: center;
+            background: white;
+            border-bottom: 1px #ccc solid;
+            display: flex;
+            height: 60px;
+            justify-content: space-between;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        #header #title {
+            font-family: 'Noto Sans JP';
+            font-size: large;
+            margin: auto 0 auto 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 70%;
+        }
+
+        #header #interval {
+            margin: auto 25px auto 0;
+            font-family: 'Noto Sans JP';
+            font-size: small;
+            ;
+        }
+
+        #footer {
+            background: #f0f0f0;
+            border-bottom: 1px #ccc solid;
+            bottom: 0;
+            font-family: 'Noto Sans JP';
+            font-size: small;
+            padding: 10px 10px;
+            position: fixed;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #contents {
+            padding: 100px 3rem 50px;
+            max-width: 930px;
+            margin: 0 auto;
+        }
+
+        @media only screen and (max-width: 767px) {
+            #contents {
+                padding: 150px 1rem 80px;
+                word-break: break-all;
+            }
+        }
+
+        .dash {
+            padding: 0 6px;
+        }
+
+        :root {
+            --base_font_size: 14pt;
+        }
+
+        @media only screen and (max-width: 767px) {
+            :root {
+                --base_font_size: 14px;
+            }
+        }
+
+        .code_block {
+            white-space: nowrap;
+            overflow-x: auto;
+            background-color: #f8f8f8;
+            padding: 10px;
+        }
+
+        .code_block>p {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="title">【5】プログラムの構造を理解しよう！</div>
+        <div id="interval"><span>Javaコース</span></div>
+    </div>
+    <div id="contents">
+        <style type="text/css">
+            @import url('https://themes.googleusercontent.com/fonts/css?kit=lhDjYqiy3mZ0x6ROQEUoUw');
+
+            ol.lst-kix_2zwrtrp7d7si-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-0 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-3 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-3.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-3 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-0.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-0 0
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-6.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-6 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-8>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-3.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-3 0
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-6.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-6 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-5.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-5 0
+            }
+
+            .lst-kix_tw1k779xd1a4-0>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-0
+            }
+
+            .lst-kix_za19uzqo5vqc-3>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-3
+            }
+
+            .lst-kix_za19uzqo5vqc-5>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-5
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-8.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-8 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-2.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-2 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-8.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-8 0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-0.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-0 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-5.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-5 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-8>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-8
+            }
+
+            .lst-kix_x41s1rdpnz1l-5>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-5, lower-roman) ") "
+            }
+
+            .lst-kix_za19uzqo5vqc-1>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-1
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-2.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-2 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-4>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-4, lower-latin) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-6>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-6, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-2>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-2, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-4>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-4, lower-latin) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-7>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-7
+            }
+
+            .lst-kix_x41s1rdpnz1l-3>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-3, decimal) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-7>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-7, lower-latin) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-1>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-1, lower-latin) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-5>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-5, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-5.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-5 0
+            }
+
+            .lst-kix_tw1k779xd1a4-0>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-0, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-6>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-6, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-8>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-8, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-7>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-7, lower-latin) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-8.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-8 0
+            }
+
+            .lst-kix_tw1k779xd1a4-8>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-0.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-0 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-8>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-8, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-2>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-2
+            }
+
+            ol.lst-kix_tw1k779xd1a4-1.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-1 0
+            }
+
+            .lst-kix_tw1k779xd1a4-3>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-3, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-7>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-7
+            }
+
+            .lst-kix_za19uzqo5vqc-8>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-7, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-8, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-1>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-1
+            }
+
+            .lst-kix_2zwrtrp7d7si-4>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-4
+            }
+
+            .lst-kix_za19uzqo5vqc-7>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-7, decimal) ". "
+            }
+
+            ol.lst-kix_tw1k779xd1a4-0.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-0 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-3.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-3 0
+            }
+
+            .lst-kix_za19uzqo5vqc-4>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-5>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-7.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-7 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-7.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-7 0
+            }
+
+            .lst-kix_za19uzqo5vqc-6>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-0>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-1>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-1.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-1 0
+            }
+
+            .lst-kix_za19uzqo5vqc-3>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) ". "
+            }
+
+            .lst-kix_x41s1rdpnz1l-4>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-4
+            }
+
+            .lst-kix_x41s1rdpnz1l-7>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-7
+            }
+
+            .lst-kix_x41s1rdpnz1l-1>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-1, lower-latin) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-0>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-0, decimal) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-2>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-2, lower-roman) ") "
+            }
+
+            .lst-kix_za19uzqo5vqc-2>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) ". "
+            }
+
+            .lst-kix_x41s1rdpnz1l-1>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-1
+            }
+
+            .lst-kix_za19uzqo5vqc-4>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-4
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-7.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-7 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-3>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-3
+            }
+
+            .lst-kix_tw1k779xd1a4-4>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-4
+            }
+
+            .lst-kix_2zwrtrp7d7si-3>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-3
+            }
+
+            .lst-kix_2zwrtrp7d7si-2>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-2
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-4.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-4 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-6.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-6 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-1.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-1 0
+            }
+
+            .lst-kix_tw1k779xd1a4-5>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-5
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-5.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-5 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-0 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-3 {
+                list-style-type: none
+            }
+
+            .lst-kix_tw1k779xd1a4-3>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-3
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-1 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-0>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-0
+            }
+
+            .lst-kix_x41s1rdpnz1l-2>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-2
+            }
+
+            .lst-kix_x41s1rdpnz1l-5>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-5
+            }
+
+            .lst-kix_tw1k779xd1a4-6>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-6
+            }
+
+            ol.lst-kix_za19uzqo5vqc-4.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-4 0
+            }
+
+            .lst-kix_za19uzqo5vqc-8>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-2.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-2 0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-7.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-7 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-5 {
+                list-style-type: none
+            }
+
+            .lst-kix_x41s1rdpnz1l-6>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-6
+            }
+
+            .lst-kix_x41s1rdpnz1l-0>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-4.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-4 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-0>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-8.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-8 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-6>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-6
+            }
+
+            ol.lst-kix_za19uzqo5vqc-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-3 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-2 {
+                list-style-type: none
+            }
+
+            .lst-kix_tw1k779xd1a4-1>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-1
+            }
+
+            ol.lst-kix_za19uzqo5vqc-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-3 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-2>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-2
+            }
+
+            .lst-kix_2zwrtrp7d7si-5>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-5
+            }
+
+            ol.lst-kix_za19uzqo5vqc-1.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-1 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-7 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-6>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-6
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-6.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-6 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-0 {
+                list-style-type: none
+            }
+
+            .lst-kix_2zwrtrp7d7si-0>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-0, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-1>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-1, lower-latin) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-3>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-3, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-2>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-2, lower-roman) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-4>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-4, lower-latin) ". "
+            }
+
+            ol.lst-kix_tw1k779xd1a4-3.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-3 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-7>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-7, lower-latin) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-6>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-6, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-8>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-8, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-0 {
+                list-style-type: none
+            }
+
+            .lst-kix_2zwrtrp7d7si-5>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-5, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-2.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-2 0
+            }
+
+            .lst-kix_tw1k779xd1a4-7>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-7
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-4.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-4 0
+            }
+
+            ol {
+                margin: 0;
+                padding: 0
+            }
+
+            table td,
+            table th {
+                padding: 0
+            }
+
+            .c24 {
+                border-right-style: solid;
+                padding: 5pt 5pt 5pt 5pt;
+                border-bottom-color: #000000;
+                border-top-width: 0pt;
+                border-right-width: 0pt;
+                border-left-color: #000000;
+                vertical-align: top;
+                border-right-color: #000000;
+                border-left-width: 0pt;
+                border-top-style: solid;
+                background-color: #e4f0f6;
+                border-left-style: solid;
+                border-bottom-width: 0pt;
+                width: 697.9pt;
+                border-top-color: #000000;
+                border-bottom-style: solid
+            }
+
+            .c1 {
+                background-color: #f8f8f8;
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.3571428571428572;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+                height: var(--base_font_size)
+            }
+
+            .c10 {
+                background-color: #f8f8f8;
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.3571428571428572;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c16 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 10pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c3 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c9 {
+                color: #a0a1a7;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: "Consolas";
+                font-style: italic
+            }
+
+            .c34 {
+                padding-top: 20pt;
+                padding-bottom: 6pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c27 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c18 {
+                padding-top: 4pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c38 {
+                padding-top: 12pt;
+                padding-bottom: 12pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c20 {
+                padding-top: 10pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c37 {
+                padding-top: 0pt;
+                padding-bottom: 3pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c12 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c17 {
+                color: #000000;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 20pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c23 {
+                color: #000000;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 16pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c32 {
+                font-weight: 400;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c28 {
+                border-spacing: 0;
+                border-collapse: collapse;
+                margin-right: auto
+            }
+
+            .c19 {
+                font-family: "Consolas";
+                font-style: italic;
+                color: #a0a1a7;
+                font-weight: 400
+            }
+
+            .c14 {
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-style: normal
+            }
+
+            .c40 {
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 10.5pt;
+                font-style: normal
+            }
+
+            .c39 {
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 26pt;
+                font-style: normal
+            }
+
+            .c25 {
+                font-family: "Consolas";
+                color: #986801;
+                font-weight: 400
+            }
+
+            .c15 {
+                font-family: "Consolas";
+                color: #c18401;
+                font-weight: 400
+            }
+
+            .c7 {
+                font-family: "Consolas";
+                color: #e45649;
+                font-weight: 400
+            }
+
+            .c22 {
+                text-decoration-skip-ink: none;
+                -webkit-text-decoration-skip: none;
+                text-decoration: underline
+            }
+
+            .c8 {
+                font-family: "Consolas";
+                color: #383a42;
+                font-weight: 400
+            }
+
+            .c5 {
+                font-family: "Consolas";
+                color: #50a14f;
+                font-weight: 400
+            }
+
+            .c2 {
+                font-family: "Consolas";
+                color: #a626a4;
+                font-weight: 400
+            }
+
+            .c0 {
+                font-family: "Consolas";
+                color: #4078f2;
+                font-weight: 400
+            }
+
+            .c6 {
+                font-family: "Consolas";
+                color: #ca1243;
+                font-weight: 400
+            }
+
+            .c36 {
+                background-color: #ffffff;
+                max-width: 697.9pt;
+                padding: 72pt 72pt 72pt 72pt
+            }
+
+            .c33 {
+                color: inherit;
+                text-decoration: inherit
+            }
+
+            .c26 {
+                color: #000000;
+                font-family: 'Noto Sans JP'
+            }
+
+            .c31 {
+                width: 33%;
+                height: 1px
+            }
+
+            .c11 {
+                background-color: #fce5cd
+            }
+
+            .c21 {
+                background-color: #efefef
+            }
+
+            .c30 {
+                page-break-after: avoid
+            }
+
+            .c4 {
+                font-weight: 700
+            }
+
+            .c35 {
+                height: 0pt
+            }
+
+            .c29 {
+                color: #1155cc
+            }
+
+            .c13 {
+                height: var(--base_font_size)
+            }
+
+            .title {
+                padding-top: 0pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 26pt;
+                padding-bottom: 3pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .subtitle {
+                padding-top: 0pt;
+                color: #666666;
+                font-size: 15pt;
+                padding-bottom: 16pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            li {
+                color: #000000;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP'
+            }
+
+            p {
+                margin: 0;
+                color: #000000;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP'
+            }
+
+            h1 {
+                padding-top: 20pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h2 {
+                padding-top: 20pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h3 {
+                padding-top: 0pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 16pt;
+                padding-bottom: 0pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h4 {
+                padding-top: var(--base_font_size);
+                color: #666666;
+                font-size: 12pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h5 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h6 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                font-style: italic;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+        </style>
+        <p class="c30 c37 title" id="h.1gkp5os27jhk"><span class="c26 c4 c39">5 プログラムの構造を理解しよう！</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c18"><span class="c22 c29"><a class="c33" href="#h.dy8n0uz7z965">5-1 ファイルの分割・読込</a></span></p>
+        <p class="c20"><span class="c22 c29"><a class="c33" href="#h.djosr82n27nc">5-2 JSP/Servlet連携</a></span></p>
+        <p class="c20"><span class="c22 c29"><a class="c33" href="#h.u4bil5buutnl">5-3 クラス・プロパティ・メソッド</a></span></p>
+        <p class="c20"><span class="c22 c29"><a class="c33" href="#h.wyarj7q0arwn">5-4 継承・オーバーライド</a></span></p>
+        <p class="c20"><span class="c22 c29"><a class="c33" href="#h.mkep5q6j6x92">5-5 「朝・昼・夜」をプルダウン化</a></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span
+                class="c3">HTMLやJavaを使用したプログラミングにだいぶ慣れてきたと思います。コードの量も増えてきましたので、ファイルを分割したり、「クラス」化したりして、プログラムの構造について理解していきましょう。</span>
+        </p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <h1 class="c34 c30" id="h.dy8n0uz7z965"><span class="c17 c4">5-1 ファイルの分割・読込</span></h1>
+        <h3 class="c12 c30" id="h.8yzntands7li"><span>1.</span></h3>
+        <p class="c12"><span
+                class="c3">4-2で作成した「form.jsp」に少し追加を行いたいのですが、「だらだらと長く」なってしまいますので、ファイルを分割しようと思います。4-1-1を参考に、「form_result.jsp」を作成してください。</span>
+        </p>
+        <p class="c12"><span class="c3">作成された「form_result.jsp」の中身をすべて次のサンプルコードで置き換えてください。</span></p>
+        <p class="c12"><span class="c3">かなり「form.jsp」と重複している部分がありますが、これは後で解消していきます。</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c4">サンプルコード：form_result.jsp（すべて置き換え）</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c8">&lt;%@ </span><span class="c2">page</span><span class="c8"> </span><span
+                    class="c25">language</span><span class="c8">=</span><span class="c5">&quot;java&quot;</span><span
+                    class="c8"> </span><span class="c25">contentType</span><span class="c8">=</span><span
+                    class="c5">&quot;text/html; </span><span class="c5 c21">charset=&quot;UTF-8&quot;</span><sup
+                    class="c5"><a href="#ftnt1" id="ftnt_ref1" style="user-select: none;">[1]</a></sup></p><br>
+            <p class="c10"><span class="c8 c21">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c25 c21">pageEncoding</span><span class="c8 c21">=</span><span
+                    class="c5 c21">&quot;UTF-8&quot;</span><span class="c14 c8">%&gt;</span>
+            </p><br>
+            <p class="c10"><span class="c14 c6">&lt;%</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c7">request</span><span
+                    class="c8">.</span><span class="c0">setCharacterEncoding</span><span class="c8">(</span><span
+                    class="c5">&quot;UTF-8&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c15">String</span><span
+                    class="c7">
+                    now </span><span class="c8">= </span><span class="c7">request</span><span class="c8">.</span><span
+                    class="c0">getParameter</span><span class="c8">(</span><span class="c5">&quot;now&quot;</span><span
+                    class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">if</span><span class="c8">
+                    (now
+                    == </span><span class="c25">null</span><span class="c14 c8">) {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now = </span><span
+                    class="c5">&quot;&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c14 c8">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c10"><span class="c14 c6">%&gt;</span></p><br>
+            <p class="c10"><span class="c14 c6">&lt;%!</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">private</span><span
+                    class="c8">
+                </span><span class="c2">static</span><span class="c8"> </span><span class="c15">String</span><span
+                    class="c8">
+                </span><span class="c0">htmlspecialchars</span><span class="c8">(</span><span
+                    class="c15">String</span><span class="c14 c8"> s) {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2">return</span><span class="c8"> </span><span class="c7">s</span><span
+                    class="c8">.</span><span class="c0">replace</span><span class="c8">(</span><span
+                    class="c5">&quot;&lt;&quot;</span><span class="c8">, </span><span
+                    class="c5">&quot;&amp;lt;&quot;</span><span class="c8">).</span><span class="c0">replace</span><span
+                    class="c8">(</span><span class="c5">&quot;&gt;&quot;</span><span class="c8">, </span><span
+                    class="c5">&quot;&amp;gt;&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c14 c8">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c10"><span class="c14 c6">%&gt;</span></p><br>
+            <p class="c10"><span class="c8">今は「</span><span class="c6">&lt;%=</span><span class="c8"> </span><span
+                    class="c0">htmlspecialchars</span><span class="c8">(now) </span><span class="c6">%&gt;</span><span
+                    class="c8">」ですね！&lt;</span><span class="c7">br</span><span class="c14 c8">&gt;</span></p><br>
+            <p class="c10"><span class="c14 c6">&lt;%</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c15">String</span><span
+                    class="c7">
+                    message </span><span class="c8">= </span><span class="c5">&quot;&quot;</span><span
+                    class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">if</span><span class="c8">
+                    (</span><span class="c7">now</span><span class="c8">.</span><span class="c0">equals</span><span
+                    class="c8">(</span><span class="c5">&quot;朝&quot;</span><span class="c14 c8">)) {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message = </span><span
+                    class="c5">&quot;おはようございます！&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;} </span><span class="c2">else</span><span
+                    class="c8">
+                </span><span class="c2">if</span><span class="c8"> (</span><span class="c7">now</span><span
+                    class="c8">.</span><span class="c0">equals</span><span class="c8">(</span><span
+                    class="c5">&quot;昼&quot;</span><span class="c14 c8">)) {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message = </span><span
+                    class="c5">&quot;こんにちは！&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;} </span><span class="c2">else</span><span
+                    class="c8">
+                </span><span class="c2">if</span><span class="c8"> (</span><span class="c7">now</span><span
+                    class="c8">.</span><span class="c0">equals</span><span class="c8">(</span><span
+                    class="c5">&quot;夜&quot;</span><span class="c14 c8">)) {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message = </span><span
+                    class="c5">&quot;こんばんは！&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;} </span><span class="c2">else</span><span
+                    class="c14 c8"> {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message = </span><span
+                    class="c5">&quot;朝・昼・夜で答えてください。&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c14 c8">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c7">out</span><span
+                    class="c8">.</span><span class="c0">print</span><span class="c14 c8">(message);</span></p><br>
+            <p class="c10"><span class="c14 c6">%&gt;</span></p><br>
+        </div>
+        <hr class="c31">
+        <div>
+            <p class="c27"><a href="#ftnt_ref1" id="ftnt1">[1]</a><span class="c16"> JSPの文字コード設定</span></p>
+            <p class="c27 c13"><span class="c16"></span></p>
+        </div>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <h3 class="c12 c30" id="h.cuxuxgayi29b"><span class="c23 c4">2.</span></h3>
+        <p class="c12"><span
+                class="c3">次に「form.jsp」の「あなたのお名前は～」の行を次のコードで置き換えてください。「form.jsp」にGETでアクセス（URL入力欄でEnter）すると空のフォームが表示され、送信ボタンからPOSTした際には、「form_result.jsp」の一部を「form.jsp」に追記した場合と全く同じ動きをしていることがわかると思います。</span>
+        </p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c4">＜ポイント＞</span></p><a id="t.41c4ab6f0cb687c0f28df66fa7f6b8c9703829dc"></a><a
+            id="t.0"></a>
+        <table class="c28">
+            <tbody>
+                <tr class="c35">
+                    <td class="c24" colspan="1" rowspan="1">
+                        <p class="c12"><span class="c14 c26 c4">(1) GET/POST：</span></p>
+                        <p class="c12"><span>「</span><span class="c11">request.getMethod()</span><span
+                                class="c3">」によって、アクセスがGETなのかPOSTなのかを取得できます。</span></p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c14 c26 c4">(2) jsp:include：</span></p>
+                        <p class="c12"><span>あるJSPファイルに他のJSPファイルの内容を読み込むには、「</span><span
+                                class="c11">jsp:include</span><span
+                                class="c3">」を使用します。ただし、JSPの中で定義した変数や関数は引き継がれない（他のJSPから参照できない）ため、それぞれで定義する必要があります。</span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c4">サンプルコード：form.jsp（「あなたのお名前は～」の行を置き換え）</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c8">&lt;% </span><span class="c2">if</span><span class="c8"> (</span><span
+                    class="c7">request</span><span class="c8">.</span><span class="c0">getMethod</span><span
+                    class="c8">().</span><span class="c0">equals</span><span class="c8">(</span><span
+                    class="c5">&quot;POST&quot;</span><span class="c8">)) { </span><span class="c14 c6">%&gt;</span></p>
+            <br>
+            <p class="c10"><span class="c8">&lt;</span><span class="c7">hr</span><span class="c14 c8">&gt;</span></p>
+            <br>
+            <p class="c10"><span class="c8">あなたのお名前は「</span><span class="c6">&lt;%=</span><span class="c8"> </span><span
+                    class="c0">htmlspecialchars</span><span class="c8">(yourName) </span><span
+                    class="c6">%&gt;</span><span class="c8">」さんですね！&lt;</span><span class="c7">br</span><span
+                    class="c14 c8">&gt;</span></p><br>
+            <p class="c10"><span class="c8">&lt;</span><span class="c7">jsp:include</span><span class="c8"> </span><span
+                    class="c25">page</span><span class="c8">=</span><span
+                    class="c5">&quot;form_result.jsp&quot;</span><span class="c14 c8"> /&gt;</span></p><br>
+            <p class="c10"><span class="c6">&lt;%</span><span class="c8"> } </span><span class="c14 c6">%&gt;</span></p>
+            <br>
+        </div>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c4">＜表示結果＞</span><span class="c3">（送信ボタン押下後）</span></p>
+        <p class="c12"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 440.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/gpOSmzvX3S__IxCp5kZvKy8fN8_4uHGZrRse4wPy9_5nURGVSCw0xS9ABVlaB4Gkf6SnJpySVPlgFwKrrc8PDp4NqQcZDuLXNe3ILr7t-dTYAoKQiPw8Wu23e1YhtNVhfEBdmDNa"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <h1 class="c34 c30" id="h.djosr82n27nc"><span class="c17 c4">5-2 JSP/Servlet連携</span></h1>
+        <h3 class="c12 c30" id="h.jwokttlxfftv"><span class="c23 c4">1.</span></h3>
+        <p class="c12">
+            <span>実はJSPに直接アクセスするWEBアプリケーションはほとんど存在せず、3章で扱ったServletファイルを起点として処理を行い、その結果を表示する部分のみをJSP（もしくはその他の</span><span
+                class="c22">テンプレートエンジン</span><span class="c3">）に任せる方式が一般的です。</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12">
+            <span>2-3-22を参考にして「jp.co.digskill」パッケージの中に「FormController.java」を作成し、中身を次のように書き換えてください。これで「FormController.java」を実行すると、「form.jsp」を実行した場合と全く同じ表示になるはずです。URLも今までは「</span><span
+                class="c29">http://localhost:8080/HelloWorld/form.jsp</span><span>」でアクセスしていましたが、「</span><span
+                class="c29">http://localhost:8080/HelloWorld/FormController</span><span
+                class="c3">」でアクセスできるようになっています。</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c4">サンプルコード：FormController.java（FormControllerクラスの最後に追記）</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">private</span><span
+                    class="c8">
+                </span><span class="c2">void</span><span class="c8"> </span><span class="c0">doResponse</span><span
+                    class="c8">(</span><span class="c15">HttpServletRequest</span><span class="c8"> request,
+                </span><span class="c15">HttpServletResponse</span><span class="c14 c8"> response)</span></p><br>
+            <p class="c10"><span
+                    class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2">throws</span><span class="c8"> </span><span class="c15">ServletException</span><span
+                    class="c8">, </span><span class="c15">IOException</span><span class="c14 c8"> {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c15">RequestDispatcher</span><span class="c7"> dispatch
+                </span><span class="c8">= </span><span class="c7">request</span><span class="c8">.</span><span
+                    class="c0">getRequestDispatcher</span><span class="c8">(</span><span
+                    class="c5">&quot;form.jsp&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">dispatch</span><span class="c8">.</span><span class="c0">forward</span><span
+                    class="c14 c8">(request, response);</span></p><br>
+            <p class="c10"><span class="c14 c8">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+        </div>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c4">サンプルコード：FormController.java（doGetとdoPostの中身を置き換え）</span></p>
+        <p class="c12 c13"><span class="c14 c26 c4"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c0">doResponse</span><span
+                    class="c14 c8">(request,
+                    response);</span></p><br>
+        </div>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <h3 class="c12 c30" id="h.cmqx19yyw9p9"><span class="c23 c4">2.</span></h3>
+        <p class="c12"><span
+                class="c3">次に、各JSPに散らばっている処理をサーブレットにまとめましょう。「FormController.java」「form.jsp」「form_result.jsp」それぞれ以下の通り修正してください。修正量が多いので慎重に！</span>
+        </p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c4">＜ポイント＞</span></p><a id="t.0b6d6634688de5830c334b70c45ada4c836d135d"></a><a
+            id="t.1"></a>
+        <table class="c28">
+            <tbody>
+                <tr class="c35">
+                    <td class="c24" colspan="1" rowspan="1">
+                        <p class="c12"><span class="c4">(1)</span></p>
+                        <p class="c12"><span class="c11">doGet</span><span
+                                class="c3">ではフォーム入力値がない前提なので、初期値として空文字を設定して共通処理を呼んでいます。</span></p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c4">(2)</span></p>
+                        <p class="c12"><span class="c11">doPost</span><span
+                                class="c3">ではフォーム入力値がある前提なので、文字コード設定を行いパラメーターを取得しています。</span></p>
+                        <p class="c12"><span>その後「</span><span class="c11">request.setAttribute()</span><span
+                                class="c3">」によってJSPへ受け渡す準備を行い、共通処理を呼んでいます。</span></p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c4">(3)</span></p>
+                        <p class="c12"><span
+                                class="c11">doResponse</span><span>ではメッセージの表示有無を判定するための「is_post」をJSPへ受け渡す準備を行い、Requestの「</span><span
+                                class="c11">getRequestDispatcher()</span><span>」により「form.jsp」への「</span><span
+                                class="c11">RequestDispatcher</span><span>」を受け取り、その「</span><span
+                                class="c11">forward()</span><span class="c3">」によって、form.jspに出力処理を割り当てています。</span></p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c4">(4)</span></p>
+                        <p class="c12"><span
+                                class="c3">form.jspでは、サーブレットから受け取った値をそのまま表示するのみに変更しており、複雑な処理は一切行わないようになっています。</span></p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c4">(5)</span></p>
+                        <p class="c12"><span
+                                class="c3">form_result.jspも同様に、サーブレットから受け取った値をそのまま表示させています。これによって重複する処理を排除することが可能となりました。サーブレットとJSPのどちらでも処理を行うことが可能であるため、「表示以外の処理をJSPが持っていないか」を基準に整理するとよいでしょう。</span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c14 c26 c4">サンプルコード：FormController.java（doGetの中身を置き換え）</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c9">//
+                    フォーム入力欄の初期値をセット</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">request</span><span class="c8">.</span><span class="c0">setAttribute</span><span
+                    class="c8">(</span><span class="c5">&quot;your_name&quot;</span><span class="c8">, </span><span
+                    class="c5">&quot;&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">request</span><span class="c8">.</span><span class="c0">setAttribute</span><span
+                    class="c8">(</span><span class="c5">&quot;now&quot;</span><span class="c8">, </span><span
+                    class="c5">&quot;&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c9">//
+                    出力共通処理</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c0">doResponse</span><span class="c14 c8">(request,
+                    response);</span></p><br>
+        </div>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c4">サンプルコード：FormController.java（doPostの中身を置き換え）</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+
+        <div class="code_block">
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c9">//
+                    フォーム入力内容を受け取る際の文字コードセットとフォーム入力値受け取り</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">request</span><span class="c8">.</span><span class="c0">setCharacterEncoding</span><span
+                    class="c8">(</span><span class="c5">&quot;UTF-8&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c15">String</span><span class="c7"> </span><span class="c7">yourName</span><span class="c7">
+                </span><span class="c8">= </span><span class="c7">request</span><span class="c8">.</span><span
+                    class="c0">getParameter</span><span class="c8">(</span><span
+                    class="c5">&quot;your_name&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c15">String</span><span class="c7"> now </span><span class="c8">= </span><span
+                    class="c7">request</span><span class="c8">.</span><span class="c0">getParameter</span><span
+                    class="c8">(</span><span class="c5">&quot;now&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c9">//
+                    JSPへデータ受け渡し</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">request</span><span class="c8">.</span><span class="c0">setAttribute</span><span
+                    class="c8">(</span><span class="c5">&quot;your_name&quot;</span><span class="c8">, </span><span
+                    class="c7">this</span><span class="c8">.</span><span class="c0">htmlspecialchars</span><span
+                    class="c14 c8">(yourName));</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">request</span><span class="c8">.</span><span class="c0">setAttribute</span><span
+                    class="c8">(</span><span class="c5">&quot;now&quot;</span><span class="c8">, </span><span
+                    class="c7">this</span><span class="c8">.</span><span class="c0">htmlspecialchars</span><span
+                    class="c14 c8">(now));</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">request</span><span class="c8">.</span><span class="c0">setAttribute</span><span
+                    class="c8">(</span><span class="c5">&quot;message&quot;</span><span class="c8">, </span><span
+                    class="c7">this</span><span class="c8">.</span><span class="c0">getGreetingMessage</span><span
+                    class="c14 c8">(now));</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c9">//
+                    出力共通処理</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c0">doResponse</span><span class="c14 c8">(request,
+                    response);</span></p><br>
+        </div>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c4">サンプルコード：FormController.java（doResponseの中身を置き換え）</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c9">//
+                    初回アクセスか？送信ボタン押下によるアクセスか？</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">request</span><span class="c8">.</span><span class="c0">setAttribute</span><span
+                    class="c8">(</span><span class="c5">&quot;is_post&quot;</span><span class="c8">, </span><span
+                    class="c7">request</span><span class="c8">.</span><span class="c0">getMethod</span><span
+                    class="c8">().</span><span class="c0">equals</span><span class="c8">(</span><span
+                    class="c5">&quot;POST&quot;</span><span class="c14 c8">));</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c9">//
+                    form.jspにHTML出力処理を割り当て</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c15">RequestDispatcher</span><span class="c7"> dispatch
+                </span><span class="c8">= </span><span class="c7">request</span><span class="c8">.</span><span
+                    class="c0">getRequestDispatcher</span><span class="c8">(</span><span
+                    class="c5">&quot;form.jsp&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">dispatch</span><span class="c8">.</span><span class="c0">forward</span><span
+                    class="c14 c8">(request, response);</span></p><br>
+        </div>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c4">サンプルコード：FormController.java（クラスの最後に追記）</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">private</span><span
+                    class="c8">
+                </span><span class="c15">String</span><span class="c8"> </span><span
+                    class="c0">getGreetingMessage</span><span class="c8">(</span><span class="c15">String</span><span
+                    class="c14 c8"> now) {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2">return</span><span class="c8"> </span><span class="c8 c21">(</span><span
+                    class="c7 c21">now</span><span class="c8 c21">.</span><span class="c0 c21">equals</span><span
+                    class="c8 c21">(</span><span class="c5 c21">&quot;朝&quot;</span><span class="c8 c21">)) </span><span
+                    class="c2 c21">?</span><span class="c8 c21"> </span><span
+                    class="c5 c21">&quot;おはようございます！&quot;</span><sup class="c5"><a href="#ftnt2" id="ftnt_ref2"
+                        style="user-select: none;">[2]</a></sup></p><br>
+            <p class="c10"><span
+                    class="c8 c21">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2 c21">:</span><span class="c8 c21">
+                    (</span><span class="c7 c21">now</span><span class="c8 c21">.</span><span
+                    class="c0 c21">equals</span><span class="c8 c21">(</span><span
+                    class="c5 c21">&quot;昼&quot;</span><span class="c8 c21">)) </span><span class="c2 c21">?</span><span
+                    class="c8 c21"> </span><span class="c14 c5 c21">&quot;こんにちは！&quot;</span></p><br>
+            <p class="c10"><span
+                    class="c8 c21">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2 c21">:</span><span class="c8 c21">
+                    (</span><span class="c7 c21">now</span><span class="c8 c21">.</span><span
+                    class="c0 c21">equals</span><span class="c8 c21">(</span><span
+                    class="c5 c21">&quot;夜&quot;</span><span class="c8 c21">)) </span><span class="c2 c21">?</span><span
+                    class="c8 c21"> </span><span class="c14 c5 c21">&quot;こんばんは！&quot;</span></p><br>
+            <p class="c10"><span
+                    class="c8 c21">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2 c21">:</span><span class="c8 c21">
+                </span><span class="c5 c21">&quot;朝・昼・夜で答えてください。&quot;</span><span class="c14 c8 c21">;</span></p><br>
+            <p class="c10"><span class="c14 c8">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c1"><span class="c14 c8"></span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">private</span><span
+                    class="c8">
+                </span><span class="c15">String</span><span class="c8"> </span><span
+                    class="c0">htmlspecialchars</span><span class="c8">(</span><span class="c15">String</span><span
+                    class="c14 c8"> str) {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2">return</span><span class="c8"> </span><span class="c7">str</span><span
+                    class="c8">.</span><span class="c0">replace</span><span class="c8">(</span><span
+                    class="c5">&quot;&lt;&quot;</span><span class="c8">, </span><span
+                    class="c5">&quot;&amp;lt;&quot;</span><span class="c8">).</span><span class="c0">replace</span><span
+                    class="c8">(</span><span class="c5">&quot;&gt;&quot;</span><span class="c8">, </span><span
+                    class="c5">&quot;&amp;gt;&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c14 c8">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+        </div>
+        <hr class="c31">
+        <div>
+            <p class="c27"><a href="#ftnt_ref2" id="ftnt2">[2]</a><span class="c16">
+                    3-7-6で出てきた三項演算子を３つ重ねています</span></p>
+            <p class="c13 c27"><span class="c16"></span></p>
+        </div>
+
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c4">サンプルコード：form.jsp（bodyの中身を書き換え）</span></p>
+        <p class="c12 c13"><span class="c14 c26 c4"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c14 c6">&lt;%</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c15">String</span><span
+                    class="c7">
+                    yourName </span><span class="c8">= </span><span class="c8 c21">(String)</span><span class="c8">
+                </span><span class="c7">request</span><span class="c8">.</span><span class="c0">getAttribute</span><span
+                    class="c8">(</span><span class="c5">&quot;your_name&quot;</span><span class="c8">);</span><sup
+                    class="c8"><a href="#ftnt3" id="ftnt_ref3" style="user-select: none;">[3]</a></sup></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c15">String</span><span
+                    class="c7">
+                    now </span><span class="c8">= (String) </span><span class="c7">request</span><span
+                    class="c8">.</span><span class="c0">getAttribute</span><span class="c8">(</span><span
+                    class="c5">&quot;now&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">boolean</span><span
+                    class="c7">
+                    isPost </span><span class="c8">= (</span><span class="c2">boolean</span><span class="c8">)
+                </span><span class="c7">request</span><span class="c8">.</span><span class="c0">getAttribute</span><span
+                    class="c8">(</span><span class="c5">&quot;is_post&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c14 c6">%&gt;</span></p><br>
+            <p class="c10"><span class="c8">&lt;</span><span class="c7">form</span><span class="c8"> </span><span
+                    class="c25">id</span><span class="c8">=</span><span
+                    class="c5">&quot;greetings_form&quot;</span><span class="c8"> </span><span
+                    class="c25">name</span><span class="c8">=</span><span
+                    class="c5">&quot;greetings_form&quot;</span><span class="c8"> </span><span
+                    class="c25">method</span><span class="c8">=</span><span class="c5">&quot;POST&quot;</span><span
+                    class="c8"> </span><span class="c25">action</span><span class="c8">=</span><span
+                    class="c5">&quot;&quot;</span><span class="c14 c8">&gt;</span></p><br>
+            <p class="c10"><span class="c8">お名前を教えてください。&lt;</span><span class="c7">br</span><span
+                    class="c14 c8">&gt;</span></p><br>
+            <p class="c10"><span class="c8">&lt;</span><span class="c7">input</span><span class="c8"> </span><span
+                    class="c25">id</span><span class="c8">=</span><span class="c5">&quot;your_name&quot;</span><span
+                    class="c8"> </span><span class="c25">name</span><span class="c8">=</span><span
+                    class="c5">&quot;your_name&quot;</span><span class="c8"> </span><span class="c25">type</span><span
+                    class="c8">=</span><span class="c5">&quot;text&quot; </span><span class="c25">value</span><span
+                    class="c8">=</span><span class="c5">&quot;</span><span class="c6">&lt;%=</span><span class="c5">
+                    yourName </span><span class="c6">%&gt;</span><span class="c5">&quot;</span><span
+                    class="c8">&gt;&lt;</span><span class="c7">br</span><span class="c14 c8">&gt;</span></p><br>
+            <p class="c10"><span class="c8">今は「朝」？「昼」？「夜」？&lt;</span><span class="c7">br</span><span
+                    class="c14 c8">&gt;</span></p><br>
+            <p class="c10"><span class="c8">&lt;</span><span class="c7">input</span><span class="c8"> </span><span
+                    class="c25">id</span><span class="c8">=</span><span class="c5">&quot;now&quot;</span><span
+                    class="c8">
+                </span><span class="c25">name</span><span class="c8">=</span><span
+                    class="c5">&quot;now&quot;</span><span class="c8"> </span><span class="c25">type</span><span
+                    class="c8">=</span><span class="c5">&quot;text&quot;</span><span class="c8"> </span><span
+                    class="c25">value</span><span class="c8">=</span><span class="c5">&quot;</span><span
+                    class="c6">&lt;%=</span><span class="c5"> now
+                </span><span class="c6">%&gt;</span><span class="c5">&quot;</span><span class="c8">&gt;&lt;</span><span
+                    class="c7">br</span><span class="c8">&gt;&lt;</span><span class="c7">br</span><span
+                    class="c14 c8">&gt;</span></p><br>
+            <p class="c10"><span class="c8">&lt;</span><span class="c7">input</span><span class="c8"> </span><span
+                    class="c25">id</span><span class="c8">=</span><span class="c5">&quot;submit&quot;</span><span
+                    class="c8"> </span><span class="c25">name</span><span class="c8">=</span><span
+                    class="c5">&quot;submit&quot;</span><span class="c8"> </span><span class="c25">type</span><span
+                    class="c8">=</span><span class="c5">&quot;submit&quot;</span><span class="c8"> </span><span
+                    class="c25">value</span><span class="c8">=</span><span class="c5">&quot;送信！&quot;</span><span
+                    class="c8">&gt;&lt;</span><span class="c7">br</span><span class="c14 c8">&gt;</span></p><br>
+            <p class="c10"><span class="c8">&lt;/</span><span class="c7">form</span><span class="c14 c8">&gt;</span></p>
+            <br>
+            <p class="c10"><span class="c6">&lt;%</span><span class="c8"> </span><span class="c2">if</span><span
+                    class="c8">
+                    (isPost) { </span><span class="c14 c6">%&gt;</span></p><br>
+            <p class="c10"><span class="c8">&lt;</span><span class="c7">hr</span><span class="c14 c8">&gt;</span></p>
+            <br>
+            <p class="c10"><span class="c8">あなたのお名前は「</span><span class="c6">&lt;%=</span><span class="c8"> yourName
+                </span><span class="c6">%&gt;</span><span class="c8">」さんですね！&lt;</span><span class="c7">br</span><span
+                    class="c14 c8">&gt;</span></p><br>
+            <p class="c10"><span class="c8">&lt;</span><span class="c7">jsp:include</span><span class="c8"> </span><span
+                    class="c25">page</span><span class="c8">=</span><span
+                    class="c5">&quot;form_result.jsp&quot;</span><span class="c14 c8"> /&gt;</span></p><br>
+            <p class="c10"><span class="c6">&lt;%</span><span class="c8"> } </span><span class="c6">%&gt;</span></p><br>
+        </div>
+        <hr class="c31">
+        <div>
+            <p class="c27"><a href="#ftnt_ref3" id="ftnt3">[3]</a><span class="c16"> getAttribute(“your_name”);
+                    で取得した値を、String型に変換（キャスト）しています。</span></p>
+            <p class="c27"><span class="c16">丸括弧の中に変換したい型を指定することで、キャストすることができます。</span></p>
+            <p class="c27 c13"><span class="c16"></span></p>
+        </div>
+
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c4">サンプルコード：form_result.jsp（すべて置き換え）</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c8">&lt;%@ </span><span class="c2">page</span><span class="c8"> </span><span
+                    class="c25">language</span><span class="c8">=</span><span class="c5">&quot;java&quot;</span><span
+                    class="c8"> </span><span class="c25">contentType</span><span class="c8">=</span><span
+                    class="c14 c5">&quot;text/html; charset=UTF-8&quot;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c25">pageEncoding</span><span
+                    class="c8">=</span><span class="c5">&quot;UTF-8&quot;</span><span class="c14 c8">%&gt;</span></p>
+            <br>
+            <p class="c10"><span class="c14 c6">&lt;%</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c15">String</span><span
+                    class="c7">
+                    now </span><span class="c8">= (String) </span><span class="c7">request</span><span
+                    class="c8">.</span><span class="c0">getAttribute</span><span class="c8">(</span><span
+                    class="c5">&quot;now&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c15">String</span><span
+                    class="c7">
+                    message </span><span class="c8">= (String) </span><span class="c7">request</span><span
+                    class="c8">.</span><span class="c0">getAttribute</span><span class="c8">(</span><span
+                    class="c5">&quot;message&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c14 c6">%&gt;</span></p><br>
+            <p class="c10"><span class="c8">今は「</span><span class="c6">&lt;%=</span><span class="c8"> now </span><span
+                    class="c6">%&gt;</span><span class="c8">」ですね！&lt;</span><span class="c7">br</span><span
+                    class="c14 c8">&gt;</span></p><br>
+            <p class="c10"><span class="c6">&lt;%=</span><span class="c8"> message </span><span
+                    class="c14 c6">%&gt;</span>
+            </p><br>
+        </div>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <h1 class="c34 c30" id="h.u4bil5buutnl"><span class="c4 c17">5-3 クラス・プロパティ・メソッド</span></h1>
+        <h3 class="c12 c30" id="h.253gr7ftqj54"><span class="c23 c4">1.</span></h3>
+        <p class="c12"><span>ここからは「ただ処理を羅列する」プログラムの書き方から、より構造的なプログラムの書き方へ切り替えていくために、「</span><span
+                class="c22">クラス</span><span
+                class="c3">」という仕組みを覚えましょう。入力内容を元に画面に表示させている内容は、実際の世界における人間との会話と同じです。人間は「朝・昼・夜」という言葉と、それに対応する「挨拶文」を知っており、それを使って「挨拶」を行いますよね。この関係性をプログラムで表現してみましょう！</span>
+        </p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c3">「パッケージ・エクスプローラー」パネルで「jp.co.digskill」フォルダを右クリックして、「新規」⇒「クラス」の順にクリックしてください。</span>
+        </p>
+        <p class="c12"><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 908.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/94werqzvD3beJnCveu2a0t5XEvEwfqCuIoEMr9WOZqA_m5qvI0045fqM2CkPjEIoKU9AmcZV3Ti_rdDnpHdcWJ1EhOtIWjxmsx1JdAyNkAq4dBZcUIYn1CIiL9Rp2moglZzdQhiT"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <h3 class="c12 c30" id="h.z7rhcw2zdans"><span class="c23 c4">2.</span></h3>
+        <p class="c12"><span class="c3">名前に「Human」と入力して「完了」をクリックしてください。</span></p>
+        <p class="c12"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 747.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/dKz76-pb88Irc8T--sDOQhDPqDywc1FP_U7whFxWri0Xd7CBv9pxBFsjCyg_DSOF_cDE9AOGZVDuTG1SHwumeLaQOmbsQkFUkhqsnNKEQ_SpWpGfLRL0hkTag_rqg37ApOcRQB02"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <h3 class="c12 c30" id="h.tlbmmjkd3z63"><span class="c23 c4">3.</span></h3>
+        <p class="c12"><span
+                class="c3">作成された「Human.java」の中身を次のコードで置き換えてください。「FormController.java」からの移動がありますので、コピー＆ペーストを活用して書き換えましょう。</span>
+        </p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c4">＜ポイント＞</span></p><a id="t.52feef056d8fa957a1b97a5cbfb9a2e81f4f0dde"></a><a
+            id="t.2"></a>
+        <table class="c28">
+            <tbody>
+                <tr class="c35">
+                    <td class="c24" colspan="1" rowspan="1">
+                        <p class="c12"><span class="c14 c26 c4">(1) クラス：</span></p>
+                        <p class="c12"><span>「</span><span class="c11">class クラス名 { ～
+                                }</span><span>」でくくると、その中がクラスとして扱われます。クラスの中にはこれまでと同様に、定数や変数、関数を持つことができます。変数はクラスの</span><span
+                                class="c22">プロパティ</span><span>、関数はクラスの</span><span class="c22">メソッド</span><span
+                                class="c3">とも言います。</span></p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c14 c26 c4">(2) インスタンス：</span></p>
+                        <p class="c12"><span>クラスはあくまで設計書であり、その</span><span class="c22">設計書に基づいて実体を作成（実体化）</span><span
+                                class="c3">することで、初めてそのクラスに定義されたプロパティやメソッドを使用できるようになります。</span></p>
+                        <p class="c12"><span>実体化は</span><span
+                                class="c22">コンストラクタというそのクラスの実体が返り値となる特別なメソッド</span><span>によって行います。一般的に実体は「</span><span
+                                class="c22">インスタンス</span><span class="c3">」と呼ばれます。</span></p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c14 c26 c4">(3) アクセス修飾子：</span></p>
+                        <p class="c12"><span>定数やプロパティ、メソッドをクラスの外から参照したり呼び出したりできるかどうかの公開範囲を、</span><span
+                                class="c22">アクセス修飾子</span><span class="c3">により定義します。定数ならば「static
+                                final」キーワードの前、プロパティならば型名の前、メソッドならば戻り値の型名の前に指定します。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c12"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/K__1D7U3b479taP0oNCUhoskOPs4QbRj8AT_hEUUmPLVxMIEC-eI1rQP6C0mk6Ji82vbi9WhxF9-56mGMqeS6NLz60Vh3MGjQVLOdvThApqATHWyx06EL-bIiWUUKhCE-N0X_oDq"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p><a id="t.4b494db179198972b6b266001c76f577ae40f0c9"></a><a id="t.3"></a>
+        <table class="c28">
+            <tbody>
+                <tr class="c35">
+                    <td class="c24" colspan="1" rowspan="1">
+                        <p class="c12"><span class="c4">・public：</span><span class="c3"> クラス内外から自由にアクセス可</span></p>
+                        <p class="c12"><span class="c4">・protected：</span><span class="c3">
+                                クラス内部、同一フォルダ内のクラス、継承したクラスからアクセス可</span></p>
+                        <p class="c12"><span class="c4">・指定なし：</span><span class="c3"> クラス内部、同一フォルダ内のクラスからアクセス可</span>
+                        </p>
+                        <p class="c12"><span class="c4">・private： </span><span class="c3">クラス内部からのみアクセス可</span></p>
+                        <p class="c12"><span class="c3">※「継承」については次の章で解説します。</span></p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c14 c26 c4">(4) プロパティ：</span></p>
+                        <p class="c12"><span class="c3">クラス内で定義されたプロパティは、以下のように参照・代入できます。</span></p>
+                        <p class="c12"><span class="c4">・クラス外部：</span><span class="c3"> インスタンスを格納した変数.now</span></p>
+                        <p class="c12"><span class="c4">・クラス内部：</span><span class="c3"> this.now</span></p>
+                        <p class="c12"><span class="c4">・子クラス：</span><span class="c3"> super.now</span></p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c14 c26 c4">(5) メソッド：</span></p>
+                        <p class="c12"><span class="c3">クラス内で定義されたメソッドは、以下のように呼出できます。</span></p>
+                        <p class="c12"><span class="c4">・クラス外部： </span><span
+                                class="c3">インスタンスを格納した変数.getGreetMessage()</span></p>
+                        <p class="c12"><span class="c4">・クラス内部： </span><span class="c3">this.getGreetMessage()</span>
+                        </p>
+                        <p class="c12"><span class="c4">・子クラス：</span><span class="c3"> super.getGreetMessage()</span>
+                        </p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c14 c26 c4">(4) 定数：</span></p>
+                        <p class="c12"><span class="c3">クラス内で定義された定数は、以下のように参照することができます。</span></p>
+                        <p class="c12"><span class="c4">・クラス内外：</span><span class="c3"> Human.KEYWORD_MORNING</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c4">サンプルコード：Human.java（すべて置き換え）</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c2">package</span><span class="c14 c8"> jp.co.digskill;</span></p>
+            <p class="c1"><span class="c14 c8"></span></p><br>
+            <p class="c10"><span class="c2">public</span><span class="c15"> </span><span class="c2">class</span><span
+                    class="c15"> Human </span><span class="c14 c8">{</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c2">static</span><span class="c8"> </span><span
+                    class="c2">final</span><span class="c8">
+                </span><span class="c15">String</span><span class="c7"> BR </span><span class="c8">= </span><span
+                    class="c5">&quot;&lt;br&gt;&quot;</span><span class="c8">;</span><sup class="c8"><a href="#ftnt4"
+                        id="ftnt_ref4" style="user-select: none;">[4]</a></sup></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c2">static</span><span class="c8"> </span><span
+                    class="c2">final</span><span class="c8">
+                </span><span class="c15">String</span><span class="c7"> HR </span><span class="c8">= </span><span
+                    class="c5">&quot;&lt;hr&gt;&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c2">static</span><span class="c8"> </span><span
+                    class="c2">final</span><span class="c8">
+                </span><span class="c15">String</span><span class="c7"> KEYWORD_MORNING </span><span class="c8">=
+                </span><span class="c5">&quot;朝&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c2">static</span><span class="c8"> </span><span
+                    class="c2">final</span><span class="c8">
+                </span><span class="c15">String</span><span class="c7"> KEYWORD_AFTERNOON </span><span class="c8">=
+                </span><span class="c5">&quot;昼&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c2">static</span><span class="c8"> </span><span
+                    class="c2">final</span><span class="c8">
+                </span><span class="c15">String</span><span class="c7"> KEYWORD_EVENING </span><span class="c8">=
+                </span><span class="c5">&quot;夜&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c1"><span class="c14 c8"></span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c15">String</span><span class="c7"> messageMorning </span><span
+                    class="c8">= </span><span class="c5">&quot;おはようございます！&quot;</span><span class="c8">;</span><sup
+                    class="c8"><a href="#ftnt5" id="ftnt_ref5" style="user-select: none;">[5]</a></sup></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c15">String</span><span class="c7"> messageAfternoon </span><span
+                    class="c8">= </span><span class="c5">&quot;こんにちは！&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c15">String</span><span class="c7"> messageEvening </span><span
+                    class="c8">= </span><span class="c5">&quot;こんばんは！&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c15">String</span><span class="c7"> messageOther </span><span
+                    class="c8">= </span><span class="c5">&quot;朝・昼・夜で答えてください。&quot;</span><span class="c14 c8">;</span>
+            </p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c15">String</span><span class="c7"> name </span><span class="c8">=
+                </span><span class="c5">&quot;&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c1"><span class="c14 c8"></span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2 c21">public</span><span
+                    class="c8 c21"> </span><span class="c0 c21">Human</span><span class="c8 c21">() {}</span><sup
+                    class="c8"><a href="#ftnt6" id="ftnt_ref6" style="user-select: none;">[6]</a></sup></p><br>
+            <p class="c1"><span class="c14 c8"></span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">public</span><span
+                    class="c8">
+                </span><span class="c0">Human</span><span class="c8">(</span><span class="c15">String</span><span
+                    class="c8"> name)
+                    {</span><sup class="c8"><a href="#ftnt7" id="ftnt_ref7" style="user-select: none;">[7]</a></sup></p>
+            <br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">this</span><span class="c8">.</span><span class="c7">name</span><span class="c8"> =
+                </span><span class="c7">this</span><span class="c8">.</span><span
+                    class="c0">htmlspecialchars</span><span class="c14 c8">(name);</span></p><br>
+            <p class="c10"><span class="c14 c8">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c1"><span class="c14 c8"></span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">public</span><span
+                    class="c8">
+                </span><span class="c15">String</span><span class="c8"> </span><span class="c0">greet</span><span
+                    class="c8">(</span><span class="c15">String</span><span class="c8"> </span><span
+                    class="c8">yourName</span><span class="c8">, </span><span class="c15">String</span><span
+                    class="c14 c8">
+                    now) {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c15">String</span><span class="c7"> message </span><span class="c8">= </span><span
+                    class="c7">Human</span><span class="c8">.</span><span class="c7">HR</span><span
+                    class="c14 c8">;</span>
+            </p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message += </span><span
+                    class="c7">String</span><span class="c8">.</span><span class="c0">format</span><span
+                    class="c8">(</span><span class="c5">&quot;私の名前は「%s」です！&quot;</span><span class="c8">, </span><span
+                    class="c7">this</span><span class="c8">.</span><span class="c7">name</span><span class="c8">) +
+                </span><span class="c7">Human</span><span class="c8">.</span><span class="c7">BR</span><span
+                    class="c14 c8">;</span>
+            </p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message += </span><span
+                    class="c7">String</span><span class="c8">.</span><span class="c0">format</span><span
+                    class="c8">(</span><span class="c5">&quot;あなたのお名前は「%s」さんですね！&quot;</span><span
+                    class="c14 c8">,</span>
+            </p><br>
+            <p class="c10"><span
+                    class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">this</span><span class="c8">.</span><span class="c0">htmlspecialchars</span><span
+                    class="c8">(yourName)) + </span><span class="c7">Human</span><span class="c8">.</span><span
+                    class="c7">BR</span><span class="c14 c8">;</span>
+            </p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message += </span><span
+                    class="c7">String</span><span class="c8">.</span><span class="c0">format</span><span
+                    class="c8">(</span><span class="c5">&quot;今は「%s」ですね！&quot;</span><span class="c14 c8">,</span></p>
+            <br>
+            <p class="c10"><span
+                    class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">this</span><span class="c8">.</span><span class="c0">htmlspecialchars</span><span
+                    class="c8">(now)) + </span><span class="c7">Human</span><span class="c8">.</span><span
+                    class="c7">BR</span><span class="c14 c8">;</span>
+            </p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message += </span><span
+                    class="c7 c21">this</span><span class="c8 c21">.</span><span
+                    class="c0 c21">getGreetingMessage</span><span class="c8 c21">(now)</span><span class="c8"> +
+                </span><span class="c7">Human</span><span class="c8">.</span><span class="c7">BR</span><span
+                    class="c8">;</span><sup class="c8"><a href="#ftnt8" id="ftnt_ref8"
+                        style="user-select: none;">[8]</a></sup></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2">return</span><span class="c14 c8"> message;</span>
+            </p><br>
+            <p class="c10"><span class="c14 c8">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c1"><span class="c14 c8"></span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c15">String</span><span class="c8"> </span><span
+                    class="c0">getGreetingMessage</span><span class="c8">(</span><span class="c15">String</span><span
+                    class="c14 c8"> now) {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2">return</span><span class="c8"> </span><span class="c7">now</span><span
+                    class="c8">.</span><span class="c0">equals</span><span class="c8">(</span><span
+                    class="c7 c21">Human</span><span class="c8 c21">.</span><span
+                    class="c7 c21">KEYWORD_MORNING</span><span class="c8">) </span><span class="c2">?</span><span
+                    class="c8"> </span><span class="c7">this</span><span class="c8">.</span><span
+                    class="c7">messageMorning</span><sup class="c7"><a href="#ftnt9" id="ftnt_ref9"
+                        style="user-select: none;">[9]</a></sup></p>
+            <br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2">:</span><span class="c8"> </span><span class="c7">now</span><span
+                    class="c8">.</span><span class="c0">equals</span><span class="c8">(</span><span
+                    class="c7">Human</span><span class="c8">.</span><span class="c7">KEYWORD_AFTERNOON</span><span
+                    class="c8">) </span><span class="c2">?</span><span class="c8">
+                </span><span class="c7">this</span><span class="c8">.</span><span class="c14 c7">messageAfternoon</span>
+            </p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2">:</span><span class="c8"> </span><span class="c7">now</span><span
+                    class="c8">.</span><span class="c0">equals</span><span class="c8">(</span><span
+                    class="c7">Human</span><span class="c8">.</span><span class="c7">KEYWORD_EVENING</span><span
+                    class="c8">) </span><span class="c2">?</span><span class="c8">
+                </span><span class="c7">this</span><span class="c8">.</span><span class="c14 c7">messageEvening</span>
+            </p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2">:</span><span class="c8"> </span><span class="c7">this</span><span
+                    class="c8">.</span><span class="c7">messageOther</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c14 c8">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c1"><span class="c14 c8"></span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c15">String</span><span class="c8"> </span><span
+                    class="c0">htmlspecialchars</span><span class="c8">(</span><span class="c15">String</span><span
+                    class="c14 c8"> str) {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2">return</span><span class="c8"> </span><span class="c7">str</span><span
+                    class="c8">.</span><span class="c0">replace</span><span class="c8">(</span><span
+                    class="c5">&quot;&lt;&quot;</span><span class="c8">, </span><span
+                    class="c5">&quot;&amp;lt;&quot;</span><span class="c8">).</span><span class="c0">replace</span><span
+                    class="c8">(</span><span class="c5">&quot;&gt;&quot;</span><span class="c8">, </span><span
+                    class="c5">&quot;&amp;gt;&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c14 c8">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c10"><span class="c14 c8">}</span></p><br>
+        </div>
+        <hr class="c31">
+        <div>
+            <p class="c27"><a href="#ftnt_ref4" id="ftnt4">[4]</a><span class="c16">
+                    クラスと継承したクラスのみから参照できる定数。「人間が既に知っている言葉」</span></p>
+            <p class="c27 c13"><span class="c16"></span></p>
+        </div>
+        <div>
+            <p class="c27"><a href="#ftnt_ref5" id="ftnt5">[5]</a><span class="c16">
+                    クラスと継承したクラスのみから参照できるプロパティ。「人間が覚えておくための領域」</span></p>
+            <p class="c27 c13"><span class="c16"></span></p>
+        </div>
+        <div>
+            <p class="c27"><a href="#ftnt_ref6" id="ftnt6">[6]</a><span class="c16"> 空のコンストラクタ（約束事）</span></p>
+            <p class="c27 c13"><span class="c16"></span></p>
+        </div>
+        <div>
+            <p class="c27"><a href="#ftnt_ref7" id="ftnt7">[7]</a><span class="c16">
+                    コンストラクタという特別なメソッド。「人間を作る際の初期設定」自分の名前をthis.nameに記憶している。</span></p>
+            <p class="c38"><span class="c16">自分自身のインスタンスが戻り値となり、「public クラス名」で定義する。</span></p>
+            <p class="c27 c13"><span class="c16"></span></p>
+        </div>
+        <div>
+            <p class="c27"><a href="#ftnt_ref8" id="ftnt8">[8]</a><span class="c16">
+                    クラスの外部からも呼び出せるメソッド。「人間が外部に対して行う動作」名前と時間帯を受け取り、挨拶する。</span></p>
+            <p class="c27 c13"><span class="c16"></span></p>
+        </div>
+        <div>
+            <p class="c27"><a href="#ftnt_ref9" id="ftnt9">[9]</a><span class="c16">
+                    クラスと継承したクラスのみから呼び出せるメソッド。「人間が頭の中で考える動作」時間帯に応じた挨拶文を返す。</span></p>
+            <p class="c27 c13"><span class="c16"></span></p>
+        </div>
+
+
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 289.73px;">
+                <a href="https://www.google.com/search?q=%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E4%BF%AE%E9%A3%BE%E5%AD%90&oq=%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E4%BF%AE%E9%A3%BE%E5%AD%90&aqs=chrome..69i57j35i39j0l6.16707j0j7&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh4.googleusercontent.com/_phkNjq8M6aYqeUx46T3gxWVl8hc5WBhPT0XCWDHBfAO1jQU-LIN6Iq6RJX41Sk4AlF1FhR0ofKfMZXqVciZhU2LUa8cFeid7MTbYFZlmVxDW56LidrWD3YU1F8HAGfslkX6uUCy"
+                        style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <h3 class="c12 c30" id="h.nqkgkul33iz2"><span class="c4 c23">4.</span></h3>
+        <p class="c12"><span
+                class="c3">「jp.co.digskill」の中を見ると、なんだか煩雑になってきました。「jp.co.digskill」を右クリックして、「model」と「controller」というフォルダを作成しましょう。「model」には「Human.java」を入れ、「controller」には「FormController.java」と「IndexController.java」をドラッグ＆ドロップで移動しておきましょう。</span>
+        </p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <h3 class="c12 c30" id="h.dv62ccjyofx7"><span class="c23 c4">5.</span></h3>
+        <p class="c12"><span
+                class="c3">次に、作成したクラスを実際に使ってみましょう。「FormController.java」で「花子」という人間（＝Humanのインスタンス）を産み出し、「form_result.jsp」でそれを受け取ります。そして花子さんに「挨拶してください」というメッセージ（＝greetメソッドの呼び出し）を送るという、実世界と同じ関係性でプログラムを構築していますので、次のようにプログラムを修正してください。</span>
+        </p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c4">＜ポイント＞</span></p><a id="t.352ab3b61c90cad86970969a01fdb5b513e049e3"></a><a
+            id="t.4"></a>
+        <table class="c28">
+            <tbody>
+                <tr class="c35">
+                    <td class="c24" colspan="1" rowspan="1">
+                        <p class="c12"><span class="c14 c26 c4">(1) new：</span></p>
+                        <p class="c12"><span>「Human.java」で定義したクラスHumanは、あくまで設計図です。「</span><span
+                                class="c11">new</span><span>」キーワードを付けて</span><span
+                                class="c22">コンストラクタ</span><span>を呼び出して、その戻り値である「</span><span
+                                class="c22">インスタンス</span><span>」を変数に格納（</span><span class="c22">インスタンス化</span><span
+                                class="c3">）した時点で、使える状態となります。</span></p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c14 c26 c4">(2) import：</span></p>
+                        <p class="c12"><span
+                                class="c3">FormController.javaでHuman型の変数を作って、そこに「花子」のインスタンスを格納するためには、まずHuman.javaの存在を知っている必要があります。ファイルの先頭に並ぶ「import」に「jp.co.digskill.model.Human」を追加してあげましょう。</span>
+                        </p>
+                        <p class="c12"><span
+                                class="c3">なお、importは最初に書かなくても、「Human」と書いた時点で表示されるエラーを示す赤い波線から「クイックフィックス」という機能で半自動で追加することも可能です。</span>
+                        </p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c14 c26 c4">(3) useBean：</span></p>
+                        <p class="c12"><span
+                                class="c3">サーブレットでsetAttribute()したHumanのインスタンスは、form_result.jspにあるjsp:useBeanタグで受け取っています。「bean=豆」のように小粒な部品をサーブレットとJSPでやり取りできる仕組みで、クラスのメソッドなどが同じように使えます。</span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c4">サンプルコード：FormController.java（先頭のimport文に追加）</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c2">import</span><span class="c8"> </span><span
+                    class="c15">jp.co.digskill.model.Human</span><span class="c14 c8">;</span></p><br>
+        </div>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c4">サンプルコード：FormController.java（doPostの「JSPへデータ受け渡し」部分を修正）</span></p>
+        <p class="c12 c13"><span class="c14 c4 c26"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c19">//
+                    JSPへデータ受け渡し</span><sup class="c19"><a href="#ftnt10" id="ftnt_ref10"
+                        style="user-select: none;">[10]</a></sup></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">request</span><span class="c8">.</span><span class="c0">setAttribute</span><span
+                    class="c8">(</span><span class="c5">&quot;your_name&quot;</span><span class="c8">,
+                    yourName);</span><sup class="c8"><a href="#ftnt11" id="ftnt_ref11"
+                        style="user-select: none;">[11]</a></sup></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">request</span><span class="c8">.</span><span class="c0">setAttribute</span><span
+                    class="c8">(</span><span class="c5">&quot;now&quot;</span><span class="c14 c8">, now);</span></p>
+            <br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c15">Human</span><span class="c7"> hanaco </span><span class="c8">= </span><span
+                    class="c2">new</span><span class="c8"> </span><span class="c0">Human</span><span
+                    class="c8">(</span><span class="c5">&quot;花子&quot;</span><span class="c8">);</span><sup
+                    class="c8"><a href="#ftnt12" id="ftnt_ref12" style="user-select: none;">[12]</a></sup></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">request</span><span class="c8">.</span><span class="c0">setAttribute</span><span
+                    class="c8">(</span><span class="c5">&quot;hanaco&quot;</span><span class="c14 c8">, hanaco);</span>
+            </p><br>
+        </div>
+        <hr class="c31">
+        <div>
+            <p class="c27"><a href="#ftnt_ref10" id="ftnt10">[10]</a><span class="c16">
+                    getGreetingMessageの呼出を削除</span>
+            </p>
+            <p class="c27 c13"><span class="c16"></span></p>
+        </div>
+        <div>
+            <p class="c27"><a href="#ftnt_ref11" id="ftnt11">[11]</a><span class="c16">
+                    htmlspecialcharsの呼出を削除</span>
+            </p>
+            <p class="c27 c13"><span class="c16"></span></p>
+        </div>
+        <div>
+            <p class="c27"><a href="#ftnt_ref12" id="ftnt12">[12]</a><span class="c16"> 花子をインスタンス化</span></p>
+            <p class="c27 c13"><span class="c16"></span></p>
+        </div>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c4">サンプルコード：form_result.jsp（すべて置き換え）</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c8">&lt;%@ </span><span class="c2">page</span><span class="c8"> </span><span
+                    class="c25">language</span><span class="c8">=</span><span class="c5">&quot;java&quot;</span><span
+                    class="c8"> </span><span class="c25">contentType</span><span class="c8">=</span><span
+                    class="c14 c5">&quot;text/html; charset=UTF-8&quot;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c25">pageEncoding</span><span
+                    class="c8">=</span><span class="c5">&quot;UTF-8&quot;</span><span class="c14 c8">%&gt;</span></p>
+            <br>
+            <p class="c10"><span class="c8">&lt;</span><span class="c7">jsp:useBean</span><span class="c8"> </span><span
+                    class="c25">class</span><span class="c8">=</span><span
+                    class="c5">&quot;jp.co.digskill.model.Human&quot;</span><span class="c8"> </span><span
+                    class="c25">id</span><span class="c8">=</span><span class="c5">&quot;hanaco&quot;</span><span
+                    class="c8"> </span><span class="c25">scope</span><span class="c8">=</span><span
+                    class="c5">&quot;request&quot;</span><span class="c8"> /&gt;</span><sup class="c8"><a href="#ftnt13"
+                        id="ftnt_ref13" style="user-select: none;">[13]</a></sup></p><br>
+            <p class="c10"><span class="c14 c6">&lt;%</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c15">String</span><span
+                    class="c7">
+                    yourName </span><span class="c8">= (String) </span><span class="c7">request</span><span
+                    class="c8">.</span><span class="c0">getAttribute</span><span class="c8">(</span><span
+                    class="c5">&quot;your_name&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c15">String</span><span
+                    class="c7">
+                    now </span><span class="c8">= (String) </span><span class="c7">request</span><span
+                    class="c8">.</span><span class="c0">getAttribute</span><span class="c8">(</span><span
+                    class="c5">&quot;now&quot;</span><span class="c14 c8">);</span></p><br>
+            <p class="c10"><span class="c14 c6">%&gt;</span></p><br>
+            <p class="c10"><span class="c6">&lt;%=</span><span class="c8"> </span><span class="c7">hanaco</span><span
+                    class="c8">.</span><span class="c0">greet</span><span class="c8">(yourName, now) </span><span
+                    class="c6">%&gt;</span><sup class="c6"><a href="#ftnt14" id="ftnt_ref14"
+                        style="user-select: none;">[14]</a></sup></p><br>
+        </div>
+        <hr class="c31">
+        <div>
+            <p class="c27"><a href="#ftnt_ref13" id="ftnt13">[13]</a><span class="c16"> useBeanで花子を受け取り</span>
+            </p>
+            <p class="c27 c13"><span class="c16"></span></p>
+        </div>
+        <div>
+            <p class="c27"><a href="#ftnt_ref14" id="ftnt14">[14]</a><span class="c16"> greet()の呼出結果を表示</span>
+            </p>
+            <p class="c27 c13"><span class="c16"></span></p>
+        </div>
+
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c14 c26 c4">サンプルコード：form.jsp（if文の中身を書き換え）</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c6">&lt;%</span><span class="c8"> </span><span class="c2">if</span><span
+                    class="c8">
+                    (isPost) { </span><span class="c14 c6">%&gt;</span></p><br>
+            <p class="c10"><span class="c8">&lt;</span><span class="c7">jsp:include</span><span class="c8"> </span><span
+                    class="c25">page</span><span class="c8">=</span><span
+                    class="c5">&quot;form_result.jsp&quot;</span><span class="c8"> /&gt;</span><sup class="c8"><a
+                        href="#ftnt15" id="ftnt_ref15" style="user-select: none;">[15]</a></sup></p><br>
+            <p class="c10"><span class="c6">&lt;%</span><span class="c8"> } </span><span class="c14 c6">%&gt;</span></p>
+            <br>
+        </div>
+        <hr class="c31">
+        <div>
+            <p class="c27"><a href="#ftnt_ref15" id="ftnt15">[15]</a><span class="c16"> 既存のメッセージ表示を削除</span></p>
+            <p class="c27 c13"><span class="c16"></span></p>
+        </div>
+
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c4">＜表示結果＞</span><span class="c3">（送信ボタン押下後）</span></p>
+        <p class="c12"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 674.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/1E-8q94vk1waLZBqBR8R_QdxDeHvwWf0kcKk-9D2e0z52TdOdhcesk247zeVZ0EcbdMSlsxX8vindombP8MyKu3m9wCrOBAiENFLYQAexpg9bZnr60RSNrbCBcZ1o14Cj9hcwztA"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c12"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 284.82px;">
+                <a href="https://www.google.com/search?q=%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9&oq=%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9&aqs=chrome..69i57j0l5j69i60j69i61.2472j0j7&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh6.googleusercontent.com/DPQjHW0rRuidwbobthjaQlGNtS0gaOw7qhjZKbdZ7vEvq_MiWhfsU9CV14aYG1K-8eQnQGkvG-IcuonMKzpyIL5egclCdUY8woSPm0kM-1mjbW59vaKNcYzBKVB_6PE0jQnDVP1d"
+                        style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 291.96px;">
+                <a href="https://www.google.com/search?q=Java+Bean&oq=Java+Bean&aqs=chrome..69i57.1531j0j4&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh6.googleusercontent.com/Bc_q5Yq6xm7q5oTy7DdCG-GDcyNai7kaePpcv3RddC7fbgflH4tqTvGHKIwRc69_-_nIJZoLlTlJ3kkA9xhKWvUon8lEJFkAJSqHFIN3e_mepTUEmMAS7vOVvnAffxX50ACgufky"
+                        style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <h3 class="c12 c30" id="h.1xyozghdd8az"><span class="c23 c4">6.</span></h3>
+        <p class="c12"><span class="c3">さて、そろそろサンプルなしでコードを組んでみましょう。以下の課題をクリアしてください。</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c14 c26 c4">＜課題＞</span></p>
+        <p class="c12"><span class="c4">(1)</span><span> </span><span
+                class="c3">「FormController.java」に追記して、２人目の人間を産み出しましょう。</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c4">(2)</span><span> </span><span
+                class="c3">「form_result.jsp」に追記して、２人目の人間にも、挨拶をさせてみましょう。</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c4">＜正解例＞</span><span class="c3">（送信ボタン押下後）</span></p>
+        <p class="c12"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 682.00px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/UxNFTItzA-lUmfsUrFCsUGDp1O5yF4OcBng-QhKT5asX4PXxBPyMBgidjYJEO8lNz1Qrm9eMyvtqGFmcUv-tQ-P7T7cSZvizCF2HmUivuN1eU_0vm_zR5h6ozHJtKlb6Lz2viL10"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <h1 class="c34 c30" id="h.wyarj7q0arwn"><span class="c17 c4">5-4 継承・オーバーライド</span></h1>
+        <h3 class="c12 c30" id="h.pg14rvd9rtl"><span class="c23 c4">1.</span></h3>
+        <p class="c12">
+            <span>「人間」の設計図を作り、産み出すと同時に名前を付け、メッセージを送って挨拶させる。この仕組みはうまく機能しており、何人でも人間を産み出すことができます。しかし、異なる言葉を話す人間を産み出すためにはどうすればよいでしょうか？例えば、名前と同時に話す言語名を渡して、内部でそれを元に分岐するというのも一つの手です。ここでは、継承という仕組みを使って、「人間」の特徴をすべて引き継ぎ、言語の部分のみ独自の定義を行う新たなクラスを作ってみましょう。</span><span
+                class="c22 c29"><a class="c33" href="#h.253gr7ftqj54">5-3-1</a></span><span
+                class="c3">を参考に「EnglishHuman.java」を作成し、次のサンプルコードで置き換えてください。そして、課題をクリアしてみましょう！</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c4">＜ポイント＞</span></p><a id="t.429e1092c80e49e39f43c4c4684c5cc74be5e194"></a><a
+            id="t.5"></a>
+        <table class="c28">
+            <tbody>
+                <tr class="c35">
+                    <td class="c24" colspan="1" rowspan="1">
+                        <p class="c12"><span class="c14 c26 c4">(1) extends：</span></p>
+                        <p class="c12"><span>クラス名の後ろに「</span><span
+                                class="c11">extends</span><span>」キーワードと共に「</span><span
+                                class="c11">Human</span><span>」クラスを指定しています。これにより、Humanクラスの性質をすべて引き継ぐということを示しています。これを「</span><span
+                                class="c22">継承</span><span
+                                class="c3">」と言います。もし、４行目以降のコードがすべてなければ、Humanクラスと全く同じ振る舞いをするクラスになる、ということです。</span></p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c14 c26 c4">継承元 = スーパークラス（親クラス）</span></p>
+                        <p class="c12"><span class="c14 c26 c4">継承先 = サブクラス（子クラス）</span></p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c14 c26 c4">(2) package：</span></p>
+                        <p class="c12"><span
+                                class="c3">Javaの世界では、階層化（グループ化）されたフォルダのことをパッケージと呼びます。パッケージはフォルダ名を「.（ドット）」で繋ぐことで階層を表現します。</span>
+                        </p>
+                        <p class="c12"><span>ルールとして、パッケージ内にクラスを作成する際は、コードの先頭に、「package
+                                フォルダ1.フォルダ2.フォルダx」と宣言する必要があります。（</span><span class="c22">FQCN</span><span
+                                class="c3">）これまでimportで宣言していた「java.util.List」等の記述は、「javaフォルダ」内の、「utilフォルダ」内の、「Listクラス」をimportする。と読むことができます。</span>
+                        </p>
+                        <p class="c12 c13"><span class="c3"></span></p>
+                        <p class="c12"><span class="c14 c26 c4">(3) オーバーライド：</span></p>
+                        <p class="c12"><span>Humanクラスに定義している定数やメソッドのうち、一部のみ、しかも</span><span
+                                class="c22">同じ名前と引数で、異なる内容の定義</span><span>を行っています。これを「</span><span
+                                class="c22">オーバーライド</span><span class="c3">」と言います。</span></p>
+                        <p class="c12"><span>「</span><span class="c11">getGreetMessage</span><span
+                                class="c3">」はオーバーライドしていませんが、その処理に使用される変数は、コンストラクタで代入した変数が使用されていることがわかると思います。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c14 c26 c4">＜課題＞</span></p>
+        <p class="c12"><span class="c4">(1)</span><span> </span><span
+                class="c3">「FormController.java」に追記して、３人目の英語を話す人間を産み出しましょう。</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c4">(2)</span><span> </span><span
+                class="c3">「form_result.jsp」に追記して、３人目の人間にも、挨拶をさせてみましょう。</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c3">※
+                useBeanタグのclassには、EnglishHumanではなくHumanと指定しても問題なく動きます。これは、EnglishHumanもHumanを継承しているからです。試してみましょう！</span>
+        </p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c10"><span class="c4">サンプルコード：EnglishHuman.java（すべて置き換え）</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <div class="code_block">
+            <p class="c10"><span class="c2">package</span><span class="c14 c8"> jp.co.digskill.model;</span></p><br>
+            <p class="c1"><span class="c14 c8"></span></p><br>
+            <p class="c10"><span class="c2">public</span><span class="c15"> </span><span class="c2">class</span><span
+                    class="c15"> EnglishHuman </span><span class="c2">extends</span><span class="c15"> Human
+                </span><span class="c14 c8">{</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">private</span><span
+                    class="c8">
+                </span><span class="c2">static</span><span class="c8"> </span><span class="c2">final</span><span
+                    class="c8">
+                </span><span class="c2">char</span><span class="c7"> DOUBLE_QUOTE </span><span class="c8">= </span><span
+                    class="c5">&#39;&quot;&#39;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c2">static</span><span class="c8"> </span><span
+                    class="c2">final</span><span class="c8">
+                </span><span class="c15">String</span><span class="c7"> GREET_MY_NAME </span><span class="c8">=
+                </span><span class="c5">&quot;My name is %s!&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c2">static</span><span class="c8"> </span><span
+                    class="c2">final</span><span class="c8">
+                </span><span class="c15">String</span><span class="c7"> GREET_YOUR_NAME </span><span class="c8">=
+                </span><span class="c5">&quot;Your name is %s!&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c2">static</span><span class="c8"> </span><span
+                    class="c2">final</span><span class="c8">
+                </span><span class="c15">String</span><span class="c7"> GREET_NOW </span><span class="c8">= </span><span
+                    class="c5">&quot;It&#39;s %s now!&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c2">static</span><span class="c8"> </span><span
+                    class="c2">final</span><span class="c8">
+                </span><span class="c15">String</span><span class="c7"> MESSAGE_MORNING </span><span class="c8">=
+                </span><span class="c5">&quot;Good morning!&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c2">static</span><span class="c8"> </span><span
+                    class="c2">final</span><span class="c8">
+                </span><span class="c15">String</span><span class="c7"> MESSAGE_AFTERNOON </span><span class="c8">=
+                </span><span class="c5">&quot;Good afternoon!&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c2">static</span><span class="c8"> </span><span
+                    class="c2">final</span><span class="c8">
+                </span><span class="c15">String</span><span class="c7"> MESSAGE_EVENING </span><span class="c8">=
+                </span><span class="c5">&quot;Good evening!&quot;</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">protected</span><span
+                    class="c8"> </span><span class="c2">static</span><span class="c8"> </span><span
+                    class="c2">final</span><span class="c8">
+                </span><span class="c15">String</span><span class="c7"> MESSAGE_OTHER </span><span class="c8">=
+                </span><span class="c5">&quot;Please answer with %s, %s or %s.&quot;</span><span class="c14 c8">;</span>
+            </p><br>
+            <p class="c1"><span class="c14 c8"></span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">public</span><span
+                    class="c8">
+                </span><span class="c0">EnglishHuman</span><span class="c14 c8">() {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">super</span><span class="c14 c8">();</span></p><br>
+            <p class="c10"><span class="c14 c8">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c1"><span class="c14 c8"></span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">public</span><span
+                    class="c8">
+                </span><span class="c0">EnglishHuman</span><span class="c8">(</span><span class="c15">String</span><span
+                    class="c14 c8"> name) {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">super</span><span class="c14 c8">(name);</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">super</span><span class="c8">.</span><span class="c7">messageMorning</span><span
+                    class="c8">
+                    = </span><span class="c7">EnglishHuman</span><span class="c8">.</span><span
+                    class="c7">MESSAGE_MORNING</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">super</span><span class="c8">.</span><span class="c7">messageAfternoon</span><span
+                    class="c8"> = </span><span class="c7">EnglishHuman</span><span class="c8">.</span><span
+                    class="c7">MESSAGE_AFTERNOON</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">super</span><span class="c8">.</span><span class="c7">messageEvening</span><span
+                    class="c8">
+                    = </span><span class="c7">EnglishHuman</span><span class="c8">.</span><span
+                    class="c7">MESSAGE_EVENING</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">super</span><span class="c8">.</span><span class="c7">messageOther</span><span
+                    class="c8"> =
+                </span><span class="c7">String</span><span class="c8">.</span><span class="c0">format</span><span
+                    class="c14 c8">(</span></p><br>
+            <p class="c10"><span
+                    class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">EnglishHuman</span><span class="c8">.</span><span class="c7">MESSAGE_OTHER</span><span
+                    class="c14 c8">,</span></p><br>
+            <p class="c10"><span
+                    class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">this</span><span class="c8">.</span><span class="c0">putInDQ</span><span
+                    class="c8">(</span><span class="c7">Human</span><span class="c8">.</span><span
+                    class="c7">KEYWORD_MORNING</span><span class="c14 c8">),</span></p><br>
+            <p class="c10"><span
+                    class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">this</span><span class="c8">.</span><span class="c0">putInDQ</span><span
+                    class="c8">(</span><span class="c7">Human</span><span class="c8">.</span><span
+                    class="c7">KEYWORD_AFTERNOON</span><span class="c14 c8">),</span></p><br>
+            <p class="c10"><span
+                    class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">this</span><span class="c8">.</span><span class="c0">putInDQ</span><span
+                    class="c8">(</span><span class="c7">Human</span><span class="c8">.</span><span
+                    class="c7">KEYWORD_EVENING</span><span class="c14 c8">)</span></p><br>
+            <p class="c10"><span class="c14 c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span></p><br>
+            <p class="c10"><span class="c14 c8">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c1"><span class="c14 c8"></span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">public</span><span
+                    class="c8">
+                </span><span class="c15">String</span><span class="c8"> </span><span class="c0">greet</span><span
+                    class="c8">(</span><span class="c15">String</span><span class="c8"> </span><span
+                    class="c8">yourName</span><span class="c8">, </span><span class="c15">String</span><span
+                    class="c14 c8">
+                    now) {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c15">String</span><span class="c7"> message </span><span class="c8">= </span><span
+                    class="c7">Human</span><span class="c8">.</span><span class="c7">HR</span><span
+                    class="c14 c8">;</span>
+            </p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message += </span><span
+                    class="c7">String</span><span class="c8">.</span><span class="c0">format</span><span
+                    class="c8">(</span><span class="c7">EnglishHuman</span><span class="c8">.</span><span
+                    class="c7">GREET_MY_NAME</span><span class="c14 c8">,</span></p><br>
+            <p class="c10"><span
+                    class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">this</span><span class="c8">.</span><span class="c0">putInDQ</span><span
+                    class="c8">(</span><span class="c7">this</span><span class="c8">.</span><span
+                    class="c7">name</span><span class="c8">)) + </span><span class="c7">Human</span><span
+                    class="c8">.</span><span class="c7">BR</span><span class="c14 c8">;</span>
+            </p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message += </span><span
+                    class="c7">String</span><span class="c8">.</span><span class="c0">format</span><span
+                    class="c8">(</span><span class="c7">EnglishHuman</span><span class="c8">.</span><span
+                    class="c7">GREET_YOUR_NAME</span><span class="c14 c8">,</span></p><br>
+            <p class="c10"><span
+                    class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">this</span><span class="c8">.</span><span class="c0">putInDQ</span><span
+                    class="c8">(</span><span class="c7">this</span><span class="c8">.</span><span
+                    class="c0">htmlspecialchars</span><span class="c8">(yourName))) + </span><span
+                    class="c7">Human</span><span class="c8">.</span><span class="c7">BR</span><span
+                    class="c14 c8">;</span>
+            </p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message += </span><span
+                    class="c7">String</span><span class="c8">.</span><span class="c0">format</span><span
+                    class="c8">(</span><span class="c7">EnglishHuman</span><span class="c8">.</span><span
+                    class="c7">GREET_NOW</span><span class="c14 c8">,</span></p><br>
+            <p class="c10"><span
+                    class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">this</span><span class="c8">.</span><span class="c0">putInDQ</span><span
+                    class="c8">(</span><span class="c7">this</span><span class="c8">.</span><span
+                    class="c0">htmlspecialchars</span><span class="c8">(now))) + </span><span
+                    class="c7">Human</span><span class="c8">.</span><span class="c7">BR</span><span
+                    class="c14 c8">;</span>
+            </p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message += </span><span
+                    class="c7">this</span><span class="c8">.</span><span class="c0">getGreetingMessage</span><span
+                    class="c8">(now) + </span><span class="c7">Human</span><span class="c8">.</span><span
+                    class="c7">BR</span><span class="c14 c8">;</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2">return</span><span class="c14 c8"> message;</span>
+            </p><br>
+            <p class="c10"><span class="c8 c14">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c1"><span class="c14 c8"></span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c2">private</span><span
+                    class="c8">
+                </span><span class="c15">String</span><span class="c8"> </span><span class="c0">putInDQ</span><span
+                    class="c8">(</span><span class="c15">String</span><span class="c14 c8"> str) {</span></p><br>
+            <p class="c10"><span class="c8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c2">return</span><span class="c14 c8"> DOUBLE_QUOTE +
+                    str + DOUBLE_QUOTE;</span></p><br>
+            <p class="c10"><span class="c14 c8">&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c10"><span class="c8">}</span></p><br>
+        </div>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 292.56px;">
+                <a href="https://www.google.com/search?q=%E7%B6%99%E6%89%BF&oq=%E7%B6%99%E6%89%BF&aqs=chrome..69i57j0l7.2249j1j7&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh4.googleusercontent.com/_jz4acZxNGw4l7JpWOS1xS4hMDpW9QamOwMff3CnpvLc1ifW8NJ8zqRwzCZDZ3nrzwkZzYGxWgmbwIkyzR-MBPA-lm08Puh945ZqtYeS4SRiI6DZZ-2ysqJ_fbO55NY5linOQSem"
+                        style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 290.29px;">
+                <a href="https://www.google.com/search?q=%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%83%A9%E3%82%A4%E3%83%89&oq=%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%83%A9%E3%82%A4%E3%83%89&aqs=chrome..69i57j0l7.3333j0j7&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh4.googleusercontent.com/JQQ5oSLl7ibeBm2j9toLW_23zkAEDdY9jwByeTfYqw2Nigtqax6zbCmORWcvXhNZqn38ZCR9kvhE_y6K7kf7gYXiJAGFMsLrRCO4sk1Y2cW7qe5uRZvt96YHVTVAxJ_aD7NEuz1x"
+                        style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span></p>
+        <p class="c12 c13"><span class="c14 c26 c4"></span></p>
+        <p class="c12"><span class="c4">＜正解結果例＞</span><span class="c3">（送信ボタン押下後）</span></p>
+        <p class="c12"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 850.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/yi-OzN4nhEmeLifXbxs4a-e5QbTEXUPJy2hz2MEpfFkm4CBUBjWoUO1vritnIpUsJAgF7ux1pbEeIP5nccJAkzOrmMuBCJUnHFqMwkfOqtSD5MlQZtaz839D8_h2WrdP_qP86Li_"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c12"><span class="c3"> </span></p>
+        <h1 class="c30 c34" id="h.mkep5q6j6x92"><span class="c17 c4">5-5 「朝・昼・夜」をプルダウン化</span></h1>
+        <h3 class="c12 c30" id="h.sf51hn7w99pk"><span class="c23 c4">1.</span></h3>
+        <p class="c12"><span
+                class="c3">「form.jsp」の、「朝・昼・夜」を入力するinputは、選択肢が限られているので、ユーザーがキーボードで入力するのではなく、プルダウンで選択できるよう機能を修正しましょう。</span>
+        </p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c14 c26 c4">＜課題＞</span></p>
+        <p class="c12"><span class="c4">(1)</span><span class="c3"> プルダウンはhtmlの「selectタグ」で実装できます。詳しい使い方は調べてみましょう。</span>
+        </p>
+        <p class="c12 c13"><span class="c14 c26 c4"></span></p>
+        <p class="c12"><span class="c4">(2)</span><span class="c3">
+                「form.jsp」のプルダウンで表示する選択肢「朝・昼・夜」は、「FormController.java」から配列で渡し、その配列の要素を表示することで実装してください。</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c4">(3)</span><span> </span><span
+                class="c3">プルダウンの選択支は、forループを使用して実装してください。また、プルダウンの先頭に、「選択してください」という項目を追加してください。</span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c4">(4)</span><span> </span><span
+                class="c3">現状ではフォームを送信すると、プルダウンの選択が元に戻ってしまいます。htmlの「selected属性」と、if文、もしくは三項演算子を使用し、フォーム送信後のプルダウンにユーザーの選択を反映させてください。</span>
+        </p>
+        <p class="c12 c13"><span class="c3"></span></p>
+        <p class="c12"><span class="c4">＜ポイント＞</span></p><a id="t.c0fc2eca73a751563acc98d860cac439aff9872c"></a><a
+            id="t.6"></a>
+        <table class="c28">
+            <tbody>
+                <tr class="c35">
+                    <td class="c24" colspan="1" rowspan="1">
+                        <p class="c12"><span class="c3">文字列 a が 文字列 b と等しいかの判定は、「equals()」メソッドを使用します。</span></p>
+                        <p class="c12"><span class="c3">「a.equals(b)」とし、aとbの値が等しい場合はtrue、異なる場合はfalseを返します。</span></p>
+                        <p class="c12"><span class="c3">※ 文字列が等しいかどうかは、「==」では判定できないので注意！</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c12"><span class="c3"> </span></p>
+        <p class="c12"><span class="c4">＜正解結果例＞</span></p>
+        <p class="c12"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 851.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/CwDC06YHugYzO2Lr5AhQIOJGAU6u8fg18KJDRAdCI_f8bzhoMewA604Qg5M6CWwbc2Q3ZLRkD9xc5TmKbFF3Vss2YFfNTjhHvyv-BEdwFAk6O5Tuhd41jqE2ROGy3obcM8NjjXJ3"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c12 c13"><span class="c3"></span></p>
+    </div>
+    <div id="footer"><span>公開元: <a href="https://member.digskill.net/dashboard">Dig Skill</a></span><span
+            class="dash">&ndash;</span>【5】プログラムの構造を理解しよう！
+    </div>
+</body>
+
+</html>

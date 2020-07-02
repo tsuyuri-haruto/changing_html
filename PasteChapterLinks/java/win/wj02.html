@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>【2】開発環境をセットアップしよう！</title>
+    <link rel="shortcut icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico">
+    <meta charset="UTF-8">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+        }
+
+        iframe {
+            border: 0;
+            frameborder: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #header {
+            align-items: center;
+            background: white;
+            border-bottom: 1px #ccc solid;
+            display: flex;
+            height: 60px;
+            justify-content: space-between;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        #header #title {
+            font-family: 'Noto Sans JP';
+            font-size: large;
+            margin: auto 0 auto 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 70%;
+        }
+
+        #header #interval {
+            margin: auto 25px auto 0;
+            font-family: 'Noto Sans JP';
+            font-size: small;
+            ;
+        }
+
+        #footer {
+            background: #f0f0f0;
+            border-bottom: 1px #ccc solid;
+            bottom: 0;
+            font-family: 'Noto Sans JP';
+            font-size: small;
+            padding: 10px 10px;
+            position: fixed;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #contents {
+            padding: 100px 3rem 50px;
+            max-width: 930px;
+            margin: 0 auto;
+        }
+
+        @media only screen and (max-width: 767px) {
+            #contents {
+                padding: 150px 1rem 80px;
+                word-break: break-all;
+            }
+        }
+
+        .dash {
+            padding: 0 6px;
+        }
+
+        :root {
+            --base_font_size: 14pt;
+        }
+
+        @media only screen and (max-width: 767px) {
+            :root {
+                --base_font_size: 14px;
+            }
+        }
+
+        .code_block {
+            white-space: nowrap;
+            overflow-x: auto;
+            background-color: #f8f8f8;
+            padding: 10px;
+        }
+
+        .code_block>p {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="title">【2】開発環境をセットアップしよう！</div>
+        <div id="interval"><span>Javaコース</span></div>
+    </div>
+    <div id="contents">
+        <style type="text/css">
+            ol.lst-kix_2zwrtrp7d7si-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-0 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-3 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-3.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-3 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-0.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-0 0
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-6.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-6 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-8>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-3.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-3 0
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-6.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-6 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-5.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-5 0
+            }
+
+            .lst-kix_tw1k779xd1a4-0>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-0
+            }
+
+            .lst-kix_za19uzqo5vqc-3>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-3
+            }
+
+            .lst-kix_za19uzqo5vqc-5>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-5
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-8.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-8 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-2.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-2 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-8.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-8 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-5.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-5 0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-0.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-0 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-8>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-8
+            }
+
+            .lst-kix_x41s1rdpnz1l-5>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-5, lower-roman) ") "
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-2.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-2 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-4>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-4, lower-latin) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-6>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-6, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-1>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-1
+            }
+
+            .lst-kix_tw1k779xd1a4-2>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-2, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-4>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-4, lower-latin) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-7>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-7
+            }
+
+            .lst-kix_x41s1rdpnz1l-3>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-3, decimal) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-7>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-7, lower-latin) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-1>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-1, lower-latin) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-5>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-5, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-5.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-5 0
+            }
+
+            .lst-kix_tw1k779xd1a4-0>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-0, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-6>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-6, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-8>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-8, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-7>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-7, lower-latin) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-8.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-8 0
+            }
+
+            .lst-kix_tw1k779xd1a4-8>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-0.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-0 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-8>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-8, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-2>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-2
+            }
+
+            ol.lst-kix_tw1k779xd1a4-1.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-1 0
+            }
+
+            .lst-kix_tw1k779xd1a4-3>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-3, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-7>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-7
+            }
+
+            .lst-kix_za19uzqo5vqc-8>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-7, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-8, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-1>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-1
+            }
+
+            .lst-kix_2zwrtrp7d7si-4>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-4
+            }
+
+            .lst-kix_za19uzqo5vqc-7>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-7, decimal) ". "
+            }
+
+            ol.lst-kix_tw1k779xd1a4-0.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-0 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-3.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-3 0
+            }
+
+            .lst-kix_za19uzqo5vqc-4>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-5>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-7.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-7 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-7.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-7 0
+            }
+
+            .lst-kix_za19uzqo5vqc-6>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-0>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-1>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-1.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-1 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-4>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-4
+            }
+
+            .lst-kix_x41s1rdpnz1l-7>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-7
+            }
+
+            .lst-kix_za19uzqo5vqc-3>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) ". "
+            }
+
+            .lst-kix_x41s1rdpnz1l-1>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-1, lower-latin) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-0>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-0, decimal) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-2>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-2, lower-roman) ") "
+            }
+
+            .lst-kix_za19uzqo5vqc-2>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) ". "
+            }
+
+            .lst-kix_x41s1rdpnz1l-1>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-1
+            }
+
+            .lst-kix_za19uzqo5vqc-4>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-4
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-7.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-7 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-3>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-3
+            }
+
+            .lst-kix_tw1k779xd1a4-4>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-4
+            }
+
+            .lst-kix_2zwrtrp7d7si-3>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-3
+            }
+
+            .lst-kix_2zwrtrp7d7si-2>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-2
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-4.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-4 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-6.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-6 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-1.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-1 0
+            }
+
+            .lst-kix_tw1k779xd1a4-5>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-5
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-5.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-5 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-0 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-3 {
+                list-style-type: none
+            }
+
+            .lst-kix_tw1k779xd1a4-3>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-3
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-1 {
+                list-style-type: none
+            }
+
+            .lst-kix_x41s1rdpnz1l-2>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-2
+            }
+
+            .lst-kix_za19uzqo5vqc-0>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-0
+            }
+
+            .lst-kix_x41s1rdpnz1l-5>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-5
+            }
+
+            .lst-kix_tw1k779xd1a4-6>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-6
+            }
+
+            ol.lst-kix_za19uzqo5vqc-4.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-4 0
+            }
+
+            .lst-kix_za19uzqo5vqc-8>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-2.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-2 0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-7.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-7 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-5 {
+                list-style-type: none
+            }
+
+            .lst-kix_x41s1rdpnz1l-6>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-6
+            }
+
+            .lst-kix_x41s1rdpnz1l-0>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-4.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-4 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-0>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-8.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-8 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-6>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-6
+            }
+
+            ol.lst-kix_za19uzqo5vqc-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-3 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-2 {
+                list-style-type: none
+            }
+
+            .lst-kix_tw1k779xd1a4-1>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-1
+            }
+
+            ol.lst-kix_za19uzqo5vqc-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-3 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-2>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-2
+            }
+
+            .lst-kix_2zwrtrp7d7si-5>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-5
+            }
+
+            ol.lst-kix_za19uzqo5vqc-1.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-1 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-7 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-6>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-6
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-6.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-6 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-0 {
+                list-style-type: none
+            }
+
+            .lst-kix_2zwrtrp7d7si-0>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-0, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-1>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-1, lower-latin) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-3>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-3, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-2>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-2, lower-roman) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-4>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-4, lower-latin) ". "
+            }
+
+            ol.lst-kix_tw1k779xd1a4-3.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-3 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-7>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-7, lower-latin) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-6>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-6, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-8>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-8, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-0 {
+                list-style-type: none
+            }
+
+            .lst-kix_2zwrtrp7d7si-5>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-5, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-2.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-2 0
+            }
+
+            .lst-kix_tw1k779xd1a4-7>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-7
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-4.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-4 0
+            }
+
+            ol {
+                margin: 0;
+                padding: 0
+            }
+
+            table td,
+            table th {
+                padding: 0
+            }
+
+            .c9 {
+                border-right-style: solid;
+                padding: 5pt 5pt 5pt 5pt;
+                border-bottom-color: #000000;
+                border-top-width: 0pt;
+                border-right-width: 0pt;
+                border-left-color: #000000;
+                vertical-align: top;
+                border-right-color: #000000;
+                border-left-width: 0pt;
+                border-top-style: solid;
+                background-color: #e4f0f6;
+                border-left-style: solid;
+                border-bottom-width: 0pt;
+                width: 697.9pt;
+                border-top-color: #000000;
+                border-bottom-style: solid
+            }
+
+            .c5 {
+                -webkit-text-decoration-skip: none;
+                color: #000000;
+                font-weight: 400;
+                text-decoration: underline;
+                vertical-align: baseline;
+                text-decoration-skip-ink: none;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c13 {
+                color: #000000;
+                font-weight: 700;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c3 {
+                color: #000000;
+                font-weight: 700;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 16pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c6 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c11 {
+                padding-top: 0pt;
+                padding-bottom: 3pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c19 {
+                color: #000000;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 20pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c21 {
+                padding-top: 10pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c23 {
+                color: #000000;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 26pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c0 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c18 {
+                padding-top: 4pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c22 {
+                padding-top: 20pt;
+                padding-bottom: 6pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c12 {
+                font-weight: 400;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c10 {
+                border-spacing: 0;
+                border-collapse: collapse;
+                margin-right: auto
+            }
+
+            .c2 {
+                text-decoration-skip-ink: none;
+                -webkit-text-decoration-skip: none;
+                color: #1155cc;
+                text-decoration: underline
+            }
+
+            .c20 {
+                background-color: #ffffff;
+                max-width: 697.9pt;
+                padding: 72pt 72pt 72pt 72pt
+            }
+
+            .c7 {
+                text-decoration-skip-ink: none;
+                -webkit-text-decoration-skip: none;
+                text-decoration: underline
+            }
+
+            .c14 {
+                color: inherit;
+                text-decoration: inherit
+            }
+
+            .c17 {
+                color: #1155cc
+            }
+
+            .c8 {
+                height: 0pt
+            }
+
+            .c16 {
+                background-color: #fce5cd
+            }
+
+            .c15 {
+                font-weight: 700
+            }
+
+            .c4 {
+                page-break-after: avoid
+            }
+
+            .c1 {
+                height: var(--base_font_size)
+            }
+
+            .title {
+                padding-top: 0pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 26pt;
+                padding-bottom: 3pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .subtitle {
+                padding-top: 0pt;
+                color: #666666;
+                font-size: 15pt;
+                padding-bottom: 16pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            li {
+                color: #000000;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP'
+            }
+
+            p {
+                margin: 0;
+                color: #000000;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP'
+            }
+
+            h1 {
+                padding-top: 20pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h2 {
+                padding-top: 18pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h3 {
+                padding-top: 0pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 16pt;
+                padding-bottom: 0pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h4 {
+                padding-top: var(--base_font_size);
+                color: #666666;
+                font-size: 12pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h5 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h6 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                font-style: italic;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+        </style>
+        <p class="c4 c11 title" id="h.mvqpun7iuli6"><span class="c15 c23">2 開発環境をセットアップしよう！</span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <p class="c18"><span class="c2"><a class="c14" href="#h.vhzgsgf681ul">2-1 パソコン上にサーバー環境を構築する</a></span></p>
+        <p class="c21"><span class="c2"><a class="c14" href="#h.3we2nkxn56xz">2-2 サーバー環境の起動・停止・リセット</a></span></p>
+        <p class="c21"><span class="c2"><a class="c14" href="#h.e31164v6spln">2-3 パソコン上に統合開発環境を構築する</a></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h1 class="c22 c4" id="h.vhzgsgf681ul"><span class="c19 c15">2-1 パソコン上にサーバー環境を構築する</span></h1>
+        <!-- chapter link -->
+        <p class="c0"><span class="c6">
+                <a href="https://firebasestorage.googleapis.com/v0/b/digskill-member.appspot.com/o/text%2Fhtml_text%2Fjava_win%2F20200701184357032%2Fwj01.html?alt=media&token=2da01098-819e-4738-80c9-3c59214bfb16"
+                    target="_blank" rel="noopener noreferrer">1 章</a>
+                では、プログラムを動かすために必要な環境を一通り見てみました。その内、パソコンとブラウザは既に手元にありますね。ここでは、Docker
+                というアプリケーションを使用して、DB サーバーをパソコン上に構築していきます。</span></p>
+        <p class="c0"><span class="c6">なお、テスト用の WEB サーバーと AP サーバーは、後で別の方法で用意します。</span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.qolgp542rmb1"><span>1.</span></h3>
+        <p class="c0"><span class="c6">サーバー環境を簡単に構築できる「Docker Toolbox」をダウンロード・インストールしていきます。</span></p>
+        <p class="c0"><span>ブラウザで「</span><span class="c2"><a class="c14"
+                    href="https://github.com/docker/toolbox/releases" target="_blank" rel="noopener
+                    noreferrer">https://github.com/docker/toolbox/releases</a></span><span>」を開き、最新バージョンの
+                Assets にある「</span><span class="c17">DockerToolbox-xx.xx.x.exe</span><span class="c6">」（-xx.xx.x
+                はバージョン）をクリックすると、ダウンロードが始まります。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/Vhtb_v1z7q1rAhrGfvlruXrFtrDqZd3vX_Wtb286iHW5onhV5GiD2dNvg-3Ov4viX6JdUYdKCHQ_nrTnSRgPIx3SiULpf-EItSIKAK7jdhE-Bwa1bW7g6ZolEPKDyO7o-s_5DbnJ"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.idx0gv1titsa"><span class="c3">2.</span></h3>
+        <p class="c0"><span>「Docker Toolbox」のダウンロードが完了したら、その </span><span class="c7">exe ファイルを実行</span><span
+                class="c6">してください。</span></p>
+        <p class="c0"><span class="c6">直後に「ユーザーアカウント制御」が出てきたら、「はい」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 134.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/cGhN2RTBHl3oqEuhCkhrpqWqUYX1zIM_5t8AcLrHQZe-geATpH3quqwGnUHomYWh89EPAVkbUHyiH8KXRy9bz8jsqXS12XtYj3RlfqbMdGDR3o43zKgP-XCmbRPUM2niOanNahTx"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 579.00px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/hN23ka8M9F_21LagjBXi3DZT0Jgq9gn9m6UEN1LhL4G9o4PZN7RqAZ9BEiLGj2655W10UgTakWWhr4lIwJp1WdCPj64Nygoobv-lTgp5-jtIFE1ZlCejfkJmS_EBPnwIb4IWovhG"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.a0vo1dompy"><span class="c3">3.</span></h3>
+        <p class="c0"><span>インストール画面が表示されますので、「Help Docker imporve Toolbox.」の</span><span
+                class="c7">チェックを外して</span><span class="c6">、「Next &gt;」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 589.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/CMa13uJejA58JccrC2soCKdORrm90x3ENxCl2kVi9AgrNrGNTCEPEo-9DYNuWIHaB1VkV3HBESEGoejpmACK1CCWKnpQ_taq0OMvVFbKSoohBOn98SyuJfEZlYFkZpJNXCcCnT6Z"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.d3g0pydo6mse"><span class="c3">4.</span></h3>
+        <p class="c0"><span class="c6">次の画面では何も変更せず「Next &gt;」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 598.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/jHxLr7hgw9s6Y6IgY33Iswq05K0qlrTLW0K8Ebt3FPcoZ_l8X2Fevo8JBib2r2H0wzLTDfiNoxWm_7khk3z-3oIRwRXpGEb543pPXO31DvYc3wAyJ9BhyGlWmP3aGki16oLk3B1j"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.qlfcc34q79yp"><span class="c3">5.</span></h3>
+        <p class="c0"><span>次の画面では</span><span class="c7">すべての項目にチェックを入れて</span><span class="c6">「Next
+                &gt;」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 588.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/DPEdMK2rV5iegaIkl18isDy-Ng4YEQP9L5vY-AGHsuiZeYrYzdtMNHh5P7M4xA36p05tRFfOushHY3fEfIfjdmpq37k7ZXPPiOa1zYq7Z6FfoIUVnM2lOkRCXDk2o-MUrIKG-agk"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.oldrx86r8mev"><span class="c3">6.</span></h3>
+        <p class="c0"><span>次の画面では「Install VirtualBox with NDIS5 driver[default NDIS6]」に</span><span
+                class="c7">チェックを入れて</span><span class="c6">、「Next &gt;」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 604.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/bcF7dNzfrqx-pCeKNMI_sQJu0t1MJ3xgz2eK9mLcjRPaw9P3_KNOR5TNySrDJ-S7f0TFf-jLV8xdd-DmfV8hc9pE1ZaePMxdD0R1HpsjSZz0K9DiSN81vO417soO-nIqByanmjKy"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.ajvzi5uw3onv"><span class="c3">7.</span></h3>
+        <p class="c0"><span class="c6">次の画面ではそのまま「Install」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 596.00px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/waBndE616n1TBHZD5A-AIS3qCUeqW9FT8JcnPseeQabBAbtLg_fU_nnToeKfj1FPbFhSWKYYHnk3bxj7S0Nhh6P3v_SnniEmBLPSEWDYZPNx4MjMr8plq4wUPN3XOr78udFNXxGn"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.wjy3m066dqbx"><span class="c3">8.</span></h3>
+        <p class="c0"><span>しばらく待つとインストール完了画面が表示されますので、「View Shortcuts in File Explorer」の</span><span
+                class="c7">チェックを外して</span><span class="c6">、「Finish」ボタンを押してください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 589.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/VrHpBNGiJqPwnOjur_r0fhgLEnC_pqO89Dpg10v0XArXlCZaA2J6wb54Os-luEUDKB2foWbgK1xnAreu5oErgZ3BkiciZhe4jX9jJh1SHviDtBmtEy4vDUM82iq_JKJqM5TgEJIj"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.cfpzcfcq52gn"><span class="c3">9.</span></h3>
+        <p class="c0"><span class="c6">インストールされた「VirtualBox」を、最新バージョンにアップデートします。</span></p>
+        <p class="c0"><span>デスクトップに作成された「Oracle VM VirtualBox」の</span><span class="c7">ショートカットを実行</span><span
+                class="c6">してください。</span></p>
+        <p class="c0"><span class="c6">表示されたダイアログの「次のリンクから最新バージョンをダウンロードできます。」に続くリンクをクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 111.00px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/ly8L7GkSzcHxnKLh6pE72Fx3J2Xf8nrJRD6ii_oXpx1ixLnRB6MVC05Ejft7Ot-3qYNmQ9HsOWtLCa6bz6HrTl6BImqq5cQHEygl8sgaLoFam_TKE-4_p9QnholBhm3JppuLsrCc"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 682.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/3-Io0tpJaHXodxjgdrFtJYvo9NZKUNHqEYbRSUDB8msc_TAPo5ABg7GEt7dBr2CZ1__MYZmgNnu15O0hi_TuBscT-mC1J-T-Wr774cH8EzaOg3KizXPe7aT9iKcSiTrox5xLgYdN"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.6z5bwgp8mq1r"><span class="c3">10.</span></h3>
+        <p class="c0"><span>「VirtualBox-6.x.xx-xxxxxx-Win.exe」のダウンロードが完了したら、現在開いている「Oracle VM VirtualBox」を閉じてから、その
+            </span><span class="c7">exe ファイルを実行</span><span class="c6">してください。</span></p>
+        <p class="c0"><span class="c6">インストール画面が表示されますので、「Next &gt;」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 112.00px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/nYNRZPjBY4z0H05EohNl6mi9WIkU0DoA1nIGuYdhNhNrBZEPmsbdaVjNLF3HIVtU_ibJ-GiDP882TVKzHvRGmWfgP05KtSGy9vMWIr67cRSV2tiS_sc3ByRC0jE-07yEfSOOUA6G"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 500.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/FqU-1ho_dx3IgjJ6--XLeqOLcZwP8veU0o-a-VC_rdHfDSH_KySYArGIge1TfVm-oYc3OIxnw_bVEUw6e_DduQZsVJLYawJ_srXeypP9kJth_V0D7QN5mTskG5Or187XJp9jenRR"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.8lr7rdlaf1z"><span class="c3">11.</span></h3>
+        <p class="c0"><span class="c6">次の画面では「Next &gt;」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 500.00px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/VYPPe-PXUVqoS5LuiL7uW4JlTEnxaJ_Nqh8mN_1oLjDQRKc5MwwChohZyuAOAJoUlAJomwRyLavQGg272x3M2U_eYpGINIHCbrv3uUrwvEXtUuQYPmLLVSiRX-Vr9NptoddIZEI3"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.gi2mqrl6whu0"><span class="c3">12.</span></h3>
+        <p class="c0"><span class="c6">次の画面では何も変更せず「Next &gt;」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 501.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/FcQHN6YuWVN0EQyOHD-breOLChvMGx0YQTrLzrX8MgPR2__TWHT0trnld2IGmAAgunFFjdl-Jc86BM7okEO1b91kRD3q9jzLSh6jWY-0pP2fIUP8wlMfPnwf8JjLhtZsijIMUojw"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.bpdn2igsq2j7"><span class="c3">13.</span></h3>
+        <p class="c0"><span class="c6">次の画面では「Yes」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 501.00px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/uxYoUEbxyltFWie1lI4Ex4ccTTpMnmnp6GMZkiCObb98jQktw2jZDoucajB3q3rfssKnUpwOPBXvI-kZxwXVHsZH1EkRnHOIZ-i27ZVnho5QZ7t53aeBA92YbnyfKwSqkPxqey1V"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.yymkgvzmt6t"><span class="c3">14.</span></h3>
+        <p class="c0"><span class="c6">次の画面ではそのまま「Install」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 501.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/9nZOyH_35d5X8eRAbD5AKTsgdf00Iz-IUnccEynIgl6Zrcgw4ambGhxjtBt2tRbFptGaGi1T-n5h5BXM5KgqJs1tWIhRPPzJ8aLRmSQB50GQdeRuEBv2O-mEh25Lisw0D6J_fH9E"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.1kbza213st71"><span class="c3">15.</span></h3>
+        <p class="c0"><span class="c6">しばらく待つとインストール完了画面が表示されますので、「Finish」ボタンを押してください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 502.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/mYxj61RGYk08AjbFroY0Y-tQXeLwkYzP4dSQdD9QA1i9IGqB01V7NcpAvHgjJUniiMxMQXW9TstQ_DdAY7hDZdrt4HmE7q7PtSlp08sotrkB6deqSYYeduhFxyj1dyuJbvValra6"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.dkyi8thkku40"><span class="c3">16.</span></h3>
+        <p class="c0"><span class="c6">インストールされた最新の「VirtualBox」が起動しますので、そのままウインドウを閉じてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 692.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/xtxE_t3vgS1adeWL3e7tWQs7VGJkYdXcuy0HEMRAqxxSafbEAWjcifWznoyQL8MWX7UraiSrYWuAb3DDvtNz2hixtDMU34ougekFyhE75TcmSr5szYvwpAQ4cPfU0qytnBdtA427"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.133s8lrfishp"><span class="c3">17.</span></h3>
+        <p class="c0"><span class="c6">「Docker Toolbox」のインストールが完了しましたので、サーバーの構築に移ります。</span></p>
+        <p class="c0"><span>デスクトップに作成された「Docker Quickstart Terminal」の</span><span class="c7">ショートカットを実行</span><span
+                class="c6">してください。</span></p>
+        <p class="c0"><span class="c6">直後に「ユーザーアカウント制御」が出てきたら、「はい」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 134.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/_MTEaBDnUtc-sFwp4B8UwnmiETrLx3iB6fyVOaSGdRtNdWh4vz7fUFXpORRikJsDJQEtfbT83Mewck1rWJzTrwQVhebz77LUKRpn0nYZ1Q5d29J0it2T62om6xpEtcUmo0GXRxd_"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 577.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/RXJi-WYHWXZ0a37IdZTNw70maS1MuXIcr2hUX74UI-UCPpwmYEMzUNYbJXvqZEizZLcq7x-jyBCEXeSUpysA3FyXKTNJ-MVSxlBdd1ImoVPzgb0ugeBJlgV_8bal5XHMJexyS5nB"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.bd5a5tjiqlcc"><span class="c3">18.</span></h3>
+        <p class="c0"><span class="c6">次のような画面が表示され、しばらく待つとクジラ（！？）のアスキーアートが表示されます。</span></p>
+        <p class="c0"><span>これで、あなたのノート PC 上に </span><span class="c7">Linux</span><span> という </span><span class="c7">OS
+            </span><span>で動く</span><span
+                class="c7">仮想サーバー</span><span>が起動されました。このサーバーを「docker-machine」と呼ぶことにしましょう。Docker Quickstart Terminal
+                では、この </span><span class="c7">docker-machine
+                を起動して、コマンドで操作ができる状態</span><span>にしてくれます。今後、クジラのすぐ下の行に表示されている「</span><span class="c7">IP アドレス</span><span
+                class="c6">」を使って、docker-machine にアクセスを行いますので、覚えておきましょう。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/6dgHIFIjmTYJTiUyfShm9L_b0yfi_f8yTk4GJT2CBLQ4-RirMTbJeCQQSVcOdJbldel7gxuzqzX3nATqmO0Mn7VqHTI-QymU5L-FeuVvGMw5Ma5t7ea9R4OvEa4BxTskuR65_fkY"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 293.35px;">
+                <a href="https://www.google.com/search?q=IP+%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9&oq=IP+%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9&aqs=chrome..69i57j0l7.7308j0j7&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh6.googleusercontent.com/CE2Km5xyXJWb3pkvTuNfYQDOavOAiOxNC4IGjpbFerze2CHLfkaY7Pez5GRXdo9yYk86rzTXClHJFSzzsl3optlMHatfbz3zXeduafGLoIa0u0MKATlCbISMa-FmpFAA-jPOxLpD"
+                        style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <p class="c0"><span class="c13">ノートパソコンと Docker-machine の関係性</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/VRnf_bsKJnvT7dZlrlIKz5jjV1cyH7feAvXQCy-sSIBZRMfyOS5Keh41tpr_eJ8q_N1NAev3njBsEywP2uAipfI9lqarWXKZZlSw25jcSAOAnc_JlEOCpC8GtwUqUN-hrL2MTP3U"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c13"></span></p>
+        <h3 class="c0 c4" id="h.xvj3vflha95o"><span class="c3">19.</span></h3>
+        <p class="c0"><span class="c6">ここまでのステップで次のような画面が表示された場合には、「はい、～」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 477.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/XAEfslgqswilwBpNDqy-pJj61lziTBzHTwRSxX-VRqtwo3TcMrAfuAOag-n6Zh1OoY0-kMkQDYaQMGijSOHHlOnCg2VWaw4XFrpfvoev1dpUW9MMsGZEC968DckDcwzORFIRyYxH"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.qr855qpfa0f2"><span class="c3">20.</span></h3>
+        <p class="c0"><span class="c6">ここからは、docker-machine 上にさらに DB サーバーを構築していきます。また、DB を管理するための、phpMyAdmin
+                というアプリケーションを動かすサーバーも一緒に構築します。</span></p>
+        <p class="c0"><span>そのために必要なフォルダやファイルを置いておくために、デスクトップに「workspace」というフォルダを作成しましょう。そして、そのフォルダを</span><span
+                class="c7">右クリック</span><span class="c6">してフォルダのパスを確認しておきましょう。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/nCkw21KEaPHfSvzWoRdkZKd6VFOFLwqXY4XG9o-KHAmCcKKU7RqNtAEbWOUbzSMmdgVhVE3-RvaAPH5J-p7TIyClCjpl-6TDfxPwAChroH1mtg5BnntUxtAjm2kRTnkcjFHwL6mC"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.4pc63qx62741"><span class="c3">21.</span></h3>
+        <p class="c0"><span class="c6">Docker Quickstart Terminal で以下の順にコマンドを入力して、「workspace」フォルダへ移動しましょう。</span></p>
+        <p class="c0 c1"><span class="c6"></span></p><a id="t.2720c0b6c2dfcc5576c34b2ffa99543c711cd53f"></a><a
+            id="t.0"></a>
+        <table class="c10">
+            <tbody>
+                <tr class="c8">
+                    <td class="c9" colspan="1" rowspan="1">
+                        <p class="c0"><span class="c15">(1)</span><span> 「$」マークの右側へ </span><span class="c16">cd
+                                /c/Users/</span><span class="c6"> を入力。（cd の後に半角スペース 1 つ）</span></p>
+                        <p class="c0"><span class="c15">(2) </span><span
+                                class="c6">先ほど確認したパスの「Users」と「Desktop」の間（パソコンのユーザーアカウント）を入力。</span></p>
+                        <p class="c0"><span class="c15">(3)</span><span> 続けて </span><span
+                                class="c16">/Desktop/workspace</span><span class="c6"> を入力。</span></p>
+                        <p class="c0"><span class="c15">(4)</span><span> ここまでで hanaco さんなら「</span><span class="c16">cd
+                                /c/Users/hanaco/Desktop/workspace</span><span class="c6">」となっているはずです。</span></p>
+                        <p class="c0"><span class="c15">(5)</span><span class="c6"> Enter キーを押してコマンド実行。</span></p>
+                        <p class="c0"><span class="c15">(6)</span><span> </span><span class="c16">pwd</span><span
+                                class="c6"> と入力、Enter を押して、表示されたパスが正しいことを確認。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/Su0zjFjt0K2pUa-FynMVQmMQC9BM9pymLrByGhK_DDOexRzKDzzhSifEx37Why4ccENshVr-UWaWSeq5y5xCllvo8FgPIBBFvnX4iNk66iUigZoC1nGCtKtKspJJW1r4K8klX998"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 288.17px;">
+                <a href="https://www.google.com/search?q=cd+%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89&oq=cd+%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89&aqs=chrome..69i57j0l7.4605j0j8&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh6.googleusercontent.com/I8BKgG2ig4bwQj5l8HfxxNWdzlX9XL6Ld74RjLwLyFm-LhNMNGhVHGYnFdeQg56q4Yz84qUNJLPUQwptKl1vUIeRT9ugQRd9obqlndZKUqPn1d_Mkmk8UtsGG6azXy3w6Y91pGGW"
+                        style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 292.52px;">
+                <a href="https://www.google.com/search?sxsrf=ALeKk01w34_1kac6938ajMiIVRA2tBFXfQ%3A1593075441345&ei=8Wb0XprXFM77-Qauhb24Bg&q=pwd+%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89&oq=pwd+%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89&gs_lcp=CgZwc3ktYWIQAzIECAAQQzICCAAyAggAMgQIABBDMgIIADICCAAyBggAEAcQHjIGCAAQBxAeOgQIIxAnOgoIABCxAxCxAxBDUIjGAljl1QJg_9oCaABwAHgAgAFjiAG-BJIBATaYAQCgAQGqAQdnd3Mtd2l6&sclient=psy-ab&ved=0ahUKEwjak6C-zJzqAhXOfd4KHa5CD2cQ4dUDCAw&uact=5"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh5.googleusercontent.com/BGCb_DKowLWOY1y5kON6Po7o8_5wc1e8e6XWVrolR0tH4Tc4GTDJo4xNNp0mIiVerPQ_Bw3hI4UoT3n3Tgq9mU9m34wy43qQ0fbrEid6sdpDBXP_AYfFelQOM0GqkPKEI6P2e_fq"
+                        style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.sti5695914r5"><span class="c3">22.</span></h3>
+        <p class="c0"><span class="c6">あらかじめ用意してある設定ファイルを、「Git」という仕組みを使ってダウンロードしましょう。</span></p>
+        <p class="c0"><span class="c6">次のコマンドを実行すると下記のようなフォルダ構造が workspace の中に作成されます。</span></p>
+        <p class="c0"><span>「</span><span class="c16">git clone
+                https://bitbucket.org/digskill_java/docker.git</span><span class="c6">」</span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <p class="c0"><span class="c15">(1)</span><span> docker / compose / </span><span
+                class="c5">docker-compose.yml</span></p>
+        <p class="c0"><span class="c15">(2)</span><span> docker / compose / </span><span class="c7">mysql</span><span
+                class="c6"> / .gitkeep</span></p>
+        <p class="c0"><span class="c15">(3)</span><span> docker / compose / </span><span class="c7">pma</span><span> /
+            </span><span class="c7">sessions</span><span class="c6"> / .gitkeep</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/9HKF4gIbd-omXk5ECSPYeU0miDjeMehZ5eyW4K_wpyugd2y_WlGZzAAmxFgqbjgQPpPZp2GbbrT8PNLpf-3yp1Oehl7HMZn8khT3TD0tvUALNoE6tP5E0nWkMKmv9K7h9KUpvm9g"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 295.64px;">
+                <a href="https://www.google.com/search?q=git+%E3%81%A8%E3%81%AF&oq=git+%E3%81%A8%E3%81%AF&aqs=chrome..69i57j0l5j69i64l2.3367j0j7&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh3.googleusercontent.com/4lfWAlyCpJtfFMqqvlxGITc2c7H8eq9bwbKW0eHn2LKfwxlavh0iLmY-cA8DC2zxAF7nppa6yGByAAtEdLN6dCYL4u8l6FgzZUMnIz_9Aaji7MvX2fQJ64yVNAB7IxsxVfloei0M"
+                        style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 297.85px;">
+                <a href="https://www.google.com/search?q=git+clone&oq=git+clone&aqs=chrome..69i57j0l5j69i61l2.2622j0j7&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh6.googleusercontent.com/QrUAfL9tAuepB4ki72MpTroOK7KiA-Lh-kh52sNG3KWdIzvTiDTrrWPY3yPJo-EQ4YIIvdEq59vo_ruM6AsPD4dSWhhxe7KhO8YksD_IVG3_WcES1yz-iYFFvzgiqbFPgV1URk7j"
+                        style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.xqh0vd2y5y6b"><span class="c3">23.</span></h3>
+        <p class="c0"><span>ダウンロードしてきた設定ファイルを使って、docker-machine の上にさらに DB サーバーと DB 管理アプリ用のサーバーを起動します。「</span><span
+                class="c16">cd docker/compose</span><span class="c6">」コマンドにより、「docker-compose.yml」のある compose
+                フォルダへ移動しましょう。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/PtZEP0zqOgdEKwcIveg2Hih-Vfh9IN4eVDHqDZlomKoYWgO3_g9-vOrTjH2eN8a-9y__gN-asASYkWY1OH74DUYAEZgFVG25XHM-HQYMoa37OLpwKvUZ-ODb7JkHfM6JuIR9hG3w"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.1t644bj809el"><span class="c3">24.</span></h3>
+        <p class="c0"><span>「</span><span class="c16">docker-compose up -d</span><span
+                class="c6">」コマンドにより、「docker-compose.yml」に定義してある情報を元にして、「mysql」という DB アプリケーションが稼動する DB
+                サーバーと、「phpMyAdmin（PMA）」という PHP 製の mysql 管理アプリケーションが稼動する WEB/AP サーバーが、docker-machine 上で起動します。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/vDzTbkD7fQkN63Yl5RPtp9qHiWny9BC00UaOMp1sBSkIA00GgneMzKv_BNEt5NW6Z7dPA_th8xv799JcGwQp-zNJiD3bPiuOa_vEkSHhWxytVWJUOkLrqseOtWogmODo1Rn6CI6l"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 292.56px;">
+                <a href="https://www.google.com/search?q=mysql+%E8%AA%AD%E3%81%BF%E6%96%B9&oq=mysql+%E8%AA%AD%E3%81%BF%E6%96%B9&aqs=chrome..69i57j0l6.5481j0j7&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh4.googleusercontent.com/3JBFJinFTaX-rsLEXgccnNwAItU7YLbsE_nLymrnIeITrl0RRXMssU0U0JTKhnUq07bPWSQL08EGVJRpzXBzI9dx4xCAi4KPgcO6dA4OdNvOeJXIBqY00O70GmbuW3D2vWGzB9uI"
+                        style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.q2ypaj8h2l9p"><span class="c3">25.</span></h3>
+        <p class="c0"><span>これでブラウザから「http://</span><span class="c2"><a class="c14"
+                    href="#h.bd5a5tjiqlcc">2-1-18</a></span><span class="c7"> で確認した IP</span><span
+                class="c6">:8080/」にアクセスし、次の画面が表示されれば完了です！</span></p>
+        <p class="c0"><span class="c6">もしもうまく表示されなかった場合は、もう一度これまでの手順を見直し、それでもうまくいかなければ、講師に相談してみましょう。（Microsoft Edge
+                の場合は、Google Chrome をインストールしてください。）</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/9JIFdS-P76qBfrc113yOSeH_-jc_2fTfAX8hqrfjxmnJQtioOg66nNb-p4VT7Ha2NcS7HCotBkPFKmalDZ0bHwOrdc7Kaj7r9uI7KkNBMqRBtDDc0B9GCRw2MqFDPjSwNb8ptdMi"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h1 class="c4 c22" id="h.3we2nkxn56xz"><span class="c15 c19">2-2 サーバー環境の起動・停止・リセット</span></h1>
+        <p class="c0"><span>docker-machine 上で起動した DB サーバーや PMA 用のサーバーは、「</span><span class="c7">コンテナ</span><span
+                class="c6">」と言います。このコンテナや、docker-machine を停止させ、Docker Quickstart Terminal を終了させる方法を覚えておきましょう。</span></p>
+        <p class="c0"><span class="c6">ノート PC をシャットダウンする場合にはこの手順を実行するようにしてください。また、次に作業を再開する時の手順も併せて確認しておきましょう。</span>
+        </p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.ttzdfsy94yfn"><span class="c3">1. ノート PC シャットダウン前の作業</span></h3><a
+            id="t.ea4e20878ce5ec296db7a6741af95d9651acd4a7"></a><a id="t.1"></a>
+        <table class="c10">
+            <tbody>
+                <tr class="c8">
+                    <td class="c9" colspan="1" rowspan="1">
+                        <p class="c0"><span>まず、コンテナを「</span><span class="c16">docker-compose
+                                stop</span><span>」で停止させましょう。起動しているか停止しているかわからない時は、「</span><span
+                                class="c16">docker-compose ps</span><span
+                                class="c6">」で確認できます。（「指定されたパスが・・・」は気にしなくて大丈夫です！）</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/GikbHteh-thn8N8zC5_doLQGGYmaH_noJoFmUvVkw9yEmZBpMm6-8YZoC7mZ33KduTztBSVjGwOmUm0P_EyWQynGmvA_XfgVeNtBZt6ymVhZHeJ4wy5LJvoJBHwgbVkZvl4bB97Q"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p><a id="t.901bce0af64012634638a21d0bb98194cf6d1562"></a><a id="t.2"></a>
+        <table class="c10">
+            <tbody>
+                <tr class="c8">
+                    <td class="c9" colspan="1" rowspan="1">
+                        <p class="c0"><span>次に、docker-machine を「</span><span class="c16">docker-machine
+                                stop</span><span>」で停止させましょう。起動しているか停止しているかわからない時は、「</span><span
+                                class="c16">docker-machine ls</span><span>」で確認できます。（</span><span
+                                class="c16">ps</span><span> ではなく </span><span class="c16">ls</span><span class="c6">
+                                でなので注意しましょう！）</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/0HZvylhz0-3P89BvHU207rq8QrVP9fcdLiAT4z9kuKszbGB0-mNSV4lHvQz45mJ9RM46kOHTAMtqGQXngb10TBZ0amSl8ddP0MycPvDYnzFj-rJC5LCNiWORMeXJvu3bXrWvcqD8"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p><a id="t.d5be81a38eb082b1857322bad78ebf6e9e1e3e89"></a><a id="t.3"></a>
+        <table class="c10">
+            <tbody>
+                <tr class="c8">
+                    <td class="c9" colspan="1" rowspan="1">
+                        <p class="c0"><span>最後に、Docker Quickstart Terminal を「</span><span class="c16">exit</span><span
+                                class="c6">」で終了させましょう。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.nx17001q7w3m"><span class="c3">2. ノート PC 起動後の作業</span></h3><a
+            id="t.69e9c20f944fe986bce3ec49929466310022aee2"></a><a id="t.4"></a>
+        <table class="c10">
+            <tbody>
+                <tr class="c8">
+                    <td class="c9" colspan="1" rowspan="1">
+                        <p class="c0"><span>まず、Docker Quickstart Terminal をショートカットから起動し、クジラを待ちましょう。（</span><span
+                                class="c2"><a class="c14" href="#h.133s8lrfishp">2-1-17</a></span><span class="c6">
+                                参照）</span></p>
+                        <p class="c0"><span class="c6">この時点で、docker-machine は起動されています。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/wHKyW2fxxLllOU2v9hYiMBPUgV5zMqvh-FJxCt1ox6EK91X2gqdk97MyNFAGEcSM4wOXYp2MaxjKd16FzESV3gQKH5kWtsFBu24hFQb10SdvgEHCFB8OrAoea5ZKkG-ODlagTD05"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p><a id="t.856ce56531adf324a696a401a58114a22587f02b"></a><a id="t.5"></a>
+        <table class="c10">
+            <tbody>
+                <tr class="c8">
+                    <td class="c9" colspan="1" rowspan="1">
+                        <p class="c0"><span>次に、「cd
+                                /c/Users/xxx/Desktop/workspace/docker/compose/」コマンドにより、「docker-compose.yml」のある compose
+                                フォルダへ移動し、コンテナを「</span><span class="c16">docker-compose start</span><span
+                                class="c6">」で起動させましょう。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/z3G_DgcmiQIZ7Lk_TCH_D1l9DGAKTz3PA5iEfAj9R8Ki_ZmM1D2CZzI9gIZB8BTQyX_pakD5yDl6CqULSRhQLfe3D0J-PMkGOMCmIMji2mKzZqW7mHEdE1d4lUfGdnCK7B4UiIL8"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.erbmo1rux4v2"><span class="c3">3. コンテナの初期化を行う場合</span></h3><a
+            id="t.c6fdb402a91127ca80f93aa78fa088865af9bf03"></a><a id="t.6"></a>
+        <table class="c10">
+            <tbody>
+                <tr class="c8">
+                    <td class="c9" colspan="1" rowspan="1">
+                        <p class="c0"><span>コンテナに直接行った設定をリセットしたい場合、「</span><span class="c16">docker-compose
+                                down</span><span>」で停止と同時にコンテナを削除します。その後、</span><span class="c2"><a class="c14"
+                                    href="#h.1t644bj809el">2-1-24</a></span><span> を参考にして、「</span><span
+                                class="c16">docker-compose up -d</span><span class="c6">」でコンテナを起動しましょう。</span></p>
+                        <p class="c0"><span class="c6">これでコンテナが 1 から再作成されます。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h1 class="c22 c4" id="h.e31164v6spln"><span class="c19 c15">2-3 パソコン上に統合開発環境を構築する</span></h1>
+        <p class="c0"><span class="c6">実際にプログラムを書くにあたっては、「統合開発環境」というものを使用します。もちろん、「メモ帳」だけでも作れないことはありませんが、テスト用の WEB/AP
+                サーバーをボタンひとつで構築できるだけでなく、たくさんのファイルを管理しやすくする機能や、入力を補助する機能など、開発の現場では無くてはならない存在なのです。</span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.egjbdlrkajnu"><span class="c3">1.</span></h3>
+        <p class="c0"><span>統合開発環境の「</span><span class="c7">eclipse</span><span>」を日本語化した「</span><span
+                class="c7">Pleiades</span><span class="c6">」をダウンロード・インストールしましょう。</span></p>
+        <p class="c0"><span>ブラウザで「</span><span class="c2"><a class="c14" href="https://mergedoc.osdn.jp/"
+                    target="_blank" rel="noopener
+                    noreferrer">https://mergedoc.osdn.jp/</a></span><span>」を開き、「</span><span class="c17">Eclipse
+                xxxx-xx 最新版</span><span class="c6">」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/XHrRfO1wJO5tIDfGIaYTQz9pIEs9xxhtbE3yzc8a3E4iW3NQvVt8K6PdmHJHAD0kofUREgHCWKIUK4j1QfhwiDb_dZH7Qbu_KnDxibTY2Wcy7reMdwwO1iQ0opZeZBDyPeC4vwWF"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.qp7s2cbf5n0a"><span class="c3">2.</span></h3>
+        <p class="c0"><span>開かれた画面で「Java – Windows 64bit – Full Edition」の「</span><span class="c17">Download</span><span
+                class="c6">」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/wM97zUsC3TCrrANI8BSOraEDbhQ4yLxEkKFovGqO3dZfggzw2NiX0nbHDCdpP9devGbr8LDJqOAM7vagvLMEquuceJi5Aa9j473mFjhsA5gnKUZWRgV5XK9NxQw_6KHSDmZy7Y0I"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.dmp074sjwrn9"><span class="c3">3.</span></h3>
+        <p class="c0"><span
+                class="c6">開かれた画面で自動的に「pleiades-xxxx-xx-java-win-64bit-jre_xxxxxxxx.zip」ファイルのダウンロードが開始されます。1.6GB
+                程度あるためしばらく時間がかかります。</span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.v8bbb2m3x61p"><span class="c3">4.</span></h3>
+        <p class="c0"><span>ダウンロードされた zip
+                ファイルの中身は長い名前のファイルが多く、かつファイル数も膨大なため、Windows標準の展開（解凍）処理では、失敗したり時間がかかり過ぎたりしてしまいます。「7-Zip」というフリーソフトをインストールして、そのソフトで展開しましょう。「</span><span
+                class="c2"><a class="c14" href="https://sevenzip.osdn.jp/download.html" target="_blank" rel="noopener
+                    noreferrer">https://sevenzip.osdn.jp/download.html</a></span><span>」開いて、「(MSI
+                インストーラ)7-Zip 64 ビット Windows x64(Intel 64 or AMD64)用」の「</span><span class="c17">ダウンロード</span><span
+                class="c6">」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/NuTU40GBdslReVSZI7Afxvv4YdloklYlWXTTOjlX1evvOnJ2g_QL8ZDtoSnmlkLnPS7TzhZ7VSaP2C7snjLd6OnckZ71H5ywCcPAL-LKi9g_1jt_FD9SLdEWke7BU-F7qO0dgExP"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.4b2cb5yg6h8r"><span class="c3">5.</span></h3>
+        <p class="c0"><span>次の画面は広告がたくさん出てきて若干不安になりますが、「</span><span
+                class="c7">何もせず</span><span>」待っていると、下に警告メッセージが表示されますので（Chrome の場合）、「</span><span
+                class="c7">保存</span><span class="c6">」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/A2mCKjYkc3mI5Lta5zygMkxSelKm3HOZ_9ftjoiqOT7Ff8XdR4arAt5C8416Czf2-533gUiqI-kd9BNIEOoWd3Zs_V1acHr99syOcCD-4eWRK6zSLhIqNpHcD3kwgTvQVD1xggVE"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.f404sbixqr1d"><span class="c3">6.</span></h3>
+        <p class="c0"><span class="c6">保存された「7z1900-x64.msi」をダブルクリックして、インストーラーを起動してください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 133.00px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/6csha090ihTnrWFzfUjjad8zdz9sPMiA_aKaFn4tDNTc-sk9qhTpDt2HPGxol6pwuUZOo2KPbpJwVwmzceouY4PtxG30hSE0n-vHtzRoe1BtdfSe_0t9Uxs1muMlkBu8Dwc8Lm1Z"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.mts9ct40w2n"><span class="c3">7.</span></h3>
+        <p class="c0"><span class="c6">表示された画面では、そのまま「Next」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 633.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/tXHZxupBfqRoM3yVlhzpW9WDxFHUpdBNjiuv0S2puUcZXgfY6Nuqv1tQBAezkA5UGUkG9wSlNvEp7gSvNZZUHrkjLjMwxv-4OB7ajPjs4WAubqO8f3szm8-EwqyQv5nxC94rkR2Q"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.n29jurldfjzs"><span class="c3">8.</span></h3>
+        <p class="c0"><span>次の画面では、「I accept the ～」に</span><span class="c7">チェックを入れて</span><span
+                class="c6">、「Next」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 623.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/A4sATiWjTSQ73SUxC0bKBpT8CRI0cpexhYCSpX-VRiYeTWbFm62yM_h6IuZjqd5AzIITBJWVqMbZYI6_fwgGrq-PxB_9yIV8BYE_fKihYjCT3va1M7OS9b2bKkuL8VNi_RrXZW_c"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.p9xpoa4867rs"><span class="c3">9.</span></h3>
+        <p class="c0"><span class="c6">次の画面では、そのまま「Next」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 624.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/rpzDYJFD5NkVLgn3Tghpk6OQW2z9CpwN8n_cMsu3jxzNRTfGjr-HX8ORALKs9P8-ByW7rlwgXYogq4wuKGSUZmOfpPRcwlfSdzYO_z0jVsHg557HaERy4SfkEmeymDIt4d8ZpXve"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.k9nvkaqdbflk"><span class="c3">10.</span></h3>
+        <p class="c0"><span class="c6">次の画面では、そのまま「Install」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 624.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/Yj9AMLMIxZqjBwYsxlgAYcHATrMTQVSq4oDCFVUU9_NBPxNVkSrc2tuypfM3qAbr4ei-qLSxv6hHQsHY5r0N6LrHmDigSMlb54h1aBwR5GyygDfDk1KmiM3wzVqvB_WRagVLrYgh"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.uiyts0r2dlv7"><span class="c3">11.</span></h3>
+        <p class="c0"><span class="c6">この際、ユーザーアカウント制御のダイアログが出ますので、「はい」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 578.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/-yUqO9bTfCtfVw2tFrSGhG3oG10ewzzZCvEY1d1Ng9ptPwFMiwl8EI5qPTEFSP-HWSrJE-HrGOl6tKSBSueV9_RUX6kRWdgYfK3xVXqR4iUk5nKBmz2N4EUoJ1Y_cQLsjbpOb5bm"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.cyq3xq0sqbu"><span class="c3">12.</span></h3>
+        <p class="c0"><span class="c6">この画面が表示されればインストール完了です。「Finish」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 623.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/xEgqxJKFvV88IVEFgd7owFCBW_i99cqlnGZ-HVfAy0E74jap6wKIAp70tK65Bac_BDIxuAWAzfw3YyQfxOpQ0NzPrewp9O6fXJwLYxblpnptt13MgZ2PLFGWv7cp8ioiCIaZy-VA"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.864pirixrsax"><span class="c3">13.</span></h3>
+        <p class="c0"><span
+                class="c6">「pleiades-xxxx-xx-java-win-64bit-jre_xxxxxxxx.zip」を右クリックし、「7-Zip」の「ここに展開」をクリックしてください。</span>
+        </p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/qz-d7BU_h5Fc0I0qQ5eY1RKPUmtxObcjKWBJg-EuwvaCk25s9IsnA7nDQAxZHrV0MZcj59uFcGG38mFBjfUxT5ksiS-EK76RfuPfvTKhLC34PqchIbN8FJ3QIDMZYZG2x8AHS2zs"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.ud64t4vtfzb7"><span class="c3">14.</span></h3>
+        <p class="c0"><span class="c6">7-Zip
+                の展開画面が表示されますので、この画面が閉じると展開完了です。デスクトップに「pleiades」というフォルダが作成されますので、今後はこのフォルダを起点に課題を進めていきます。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 664.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/XK7Fod7M8dXsyhjcl2KYqYICjEi9RiwvFQW2NI2Lqqgz-dmc96ZGuj-37JopG3OE7CB7qix0WWZGxzbu4RfTgNcZ71V6MHP8chdXTVE_vLA3_oZ_nbfaRULpwwXd4l3pV7qG2-8i"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.byhlg9qr5cda"><span class="c3">15.</span></h3>
+        <p class="c0"><span>「...\pleiades\eclipse\eclipse.exe」をダブルクリックして起動してください。eclipse
+                のロゴが表示されてしばらく内部処理が行われますが、これには数分かかることもあります。その途中で「ワークスペースとしてのディレクトリー選択」画面が表示されますので、「</span><span
+                class="c16">../workspace</span><span class="c6">」のまま「起動」をクリックしてください。</span></p>
+        <p class="c0"><span
+                class="c6">この設定により、「...\pleiades\workspace」フォルダの中に作成中のプログラムなどを格納するように設定が行われます。これは毎回表示されますが、そのまま「起動」をクリックして構いません。</span>
+        </p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 174.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/1IazDxr55lLIM1F9QX4jqKQ8je5FAFq3kH_KJ3CfcssFuB52SuhP0110ifax_kcDFSq_0YhWXiyX8o9bFKnsaPyVvPEVwMPpJr1RUpDD7h-MqdtGki5u1h7UsAcThCkMmqIJz6hm"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 710.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/sCEGb9lC91KAyC5kvnKKS6rWXod2RIOtKkP8sIeDnj3PNNhFuRXl1mCfelErZfyyjN1e_WLI9dUqEwg0Ea2ry1I_vwdlzHTZLZoLMkKIBUn-HgYoX8mTMlHy7OfDJCjfPah_A7V5"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.clviikv4ph3i"><span class="c3">16.</span></h3>
+        <p class="c0"><span class="c6">次のような画面が表示されたら、統合開発環境「eclipse」のインストールが完了です。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/2L7wgVYi83HvHBfmhUl8jTVcvHZHJR_QWQWUdTzTOotuK4ASC12jQpoLfI2VmlsPe1SPKmzwSlrfbFcFtCjMbK3ZZbvP55nVJ7voKZHIaMD6Rf0rjL9CKDO4f2GFl_lO_NLBjVJx"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.pk54tuiwvkuj"><span class="c3">17.</span></h3>
+        <p class="c0"><span>続いて、プログラムを書く準備をしていきましょう。eclipse ではプログラムやその実行環境を「</span><span class="c7">プロジェクト</span><span
+                class="c6">」というフォルダ構造で管理します。メイン画面左上の「パッケージ・エクスプローラー」に表示されている、「プロジェクトの作成」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 299.26px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/zxLIZ_VpPFshw2dCbEUlqhpm4QIwP7K6SAmHi2OlNPSPM6qfUwyCiKYg1tgleulL6F_KbqSx6mi-ZJQyN-sLoonrtZGV1Z3IYSzO6oZE5w_5ilrbEK7c-a1KMQny0Oqvpx9JMNC-"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 599.31px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/Vo80qWvhn4VfGgOf3OGepBCKoJE6eP5l_fcOC1gjub9vJp4SBNnakQUI5vIoEdhGjvMPYoZDpQZue0PWWyf7YMLmf4fPrh9kTvBzwImLPnz3yUygG5NdZLxlyq5H5chtcXzxoXB3"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.cnf9nb9wr9nn"><span class="c3">18.</span></h3>
+        <p class="c0"><span class="c6">開かれた画面で、「Web」の中の「動的 Web プロジェクト」をクリックし、「次へ」をクリックしてくだい。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 690.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/5NquUNcq31GJifeYJJIyqRSBSy-qxc4VyXjfWYL-tBG5s-hFbirPIGd7gWmEcBR4dWEr9kRGyBj7tTufbd5n10nHfttb2Rt1fZVPmdFXHQ7oiD5idaa-jRXkZqnfMb2jH45yzZ28"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.n337d6us5csy"><span class="c3">19.</span></h3>
+        <p class="c0"><span class="c6">開かれた「新規動的 Web プロジェクト」画面では、以下の通り入力して「次へ」をクリックしてください。</span></p>
+        <p class="c0 c1"><span class="c6"></span></p><a id="t.a676ebcdbdab3baec607ab18756bf85b155ce53a"></a><a
+            id="t.7"></a>
+        <table class="c10">
+            <tbody>
+                <tr class="c8">
+                    <td class="c9" colspan="1" rowspan="1">
+                        <p class="c0"><span class="c15">(1)</span><span> </span><span class="c15">プロジェクト名</span><span>
+                            </span><span class="c15">：</span><span class="c6">「HelloWorld」</span></p>
+                        <p class="c0"><span class="c15">(2) ターゲット・ランタイム ：</span><span class="c6">「Tomcat9
+                                (Java11)」</span></p>
+                        <p class="c0"><span class="c15">(3) 動的 web モジュールバージョン ：</span><span class="c6">「4.0」</span></p>
+                        <p class="c0"><span class="c15">(4) 構成 ：</span><span class="c6">「Tomcat9 (Java11)
+                                デフォルト構成」</span></p>
+                        <p class="c0"><span>※</span><span class="c15">：(3)</span><span>と</span><span
+                                class="c15">(4)</span><span>は</span><span class="c15">(2)</span><span
+                                class="c6">を選択すると自動的に上記の値に変更されます。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 690.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/EBDODT-HUvIQVwx5QI0QBYZZaLUHcgRLXadrSWOJ5bMWdeA_xrbZrWCPghtJusTk1jZYeNhEuU8zTlTTLLT7mL_Nm6-yXRMEL7Sb2Ps9zP49Qefc7PmWTbqv4XtkhRDq0jwewBLD"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.tn7c4eseaogo"><span class="c3">20.</span></h3>
+        <p class="c0"><span class="c6">次の画面ではそのまま「次へ」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 694.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/3xZ3J2wiJ3SHorvq6mL0W8AzyeU1eKTH9wFYofQV_AyeGcF1OyexVLZUp_SeFT1AGCDUQW4e1mFrJevSPLTwnGPZvqcAeVQOTgqHhcTaZCJDTbZfOZzNnrGqG4qeyQLGKoBe6cfB"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.8ftbms3z8e6f"><span class="c3">21.</span></h3>
+        <p class="c0"><span class="c6">次の画面でもそのまま「完了」をクリックしてください。これで「HelloWorld」プロジェクトが作られます。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 702.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/y33BRNW7_8uhrQ-AvowG2rz6YRmsSFhpzx67I4p44FYfgDHwu-P7KvR7xVmeHrePxQPGFOMprR5GaNFhykJFn06iWpvXVjpa88BfdEib-DTQsBoyWCCIfzDvjC1vuukO0Z1KwKMT"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.r1l8iarhhkpw"><span class="c3">22.</span></h3>
+        <p class="c0"><span>続いて JAVA プログラムを書く「</span><span class="c7">サーブレット</span><span
+                class="c6">」ファイルを作成します。HelloWorld プロジェクトを開いて、その中の「src」フォルダを右クリックして、「新規」の「その他」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 806.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/8G6m-4cSbHARAFEziAKbO5KYPAveKAeI2vLzuMH3MA9lO8O18dE1G1rBzaDpvEq2B1izCySBCBVOfoN4sXSRRjdcnISajixi06zZkvcUAtaLelBQvRSvLMfQJfx8Y7LMu4ujaFU4"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.qndgmsk580c8"><span class="c3">23.</span></h3>
+        <p class="c0"><span class="c6">開かれた画面で、「Web」の中の「サーブレット」をクリックし、「次へ」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 689.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/-zb8XqhQvJ4v3qSFRfWTHo-tAV8y6IHyLOzh3oiQevPJeTI-FFGvzWBQdKyc8WUM68Zzr26P8hQYG2844MJPa8lxSKvluwgtgm8idd7p3iphLoDlSnHI-swMS7ZZBwI_Ab_lyAtH"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.bi5c4zc29xpp"><span class="c3">24.</span></h3>
+        <p class="c0"><span class="c6">開かれた「サーブレット作成」画面では、以下の通り入力して「次へ」をクリックしてください。</span></p>
+        <p class="c0 c1"><span class="c6"></span></p><a id="t.12db5808b362a8534d8b459c0d724ba13f77d800"></a><a
+            id="t.8"></a>
+        <table class="c10">
+            <tbody>
+                <tr class="c8">
+                    <td class="c9" colspan="1" rowspan="1">
+                        <p class="c0"><span class="c15">(1) Java パッケージ ：</span><span class="c6">「jp.co.digskill」</span>
+                        </p>
+                        <p class="c0"><span class="c15">(2) クラス名 ：</span><span class="c6">「IndexController」</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 690.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/T1wZsUgiNtaPgOSNGRz60kp2O656hBkt-mhM5YJTfq73sFAIaVwXydCyps8cte7QhXSoFJf0QZyyoBCNiYLGGUri1dOyxHdo_O5GyekeLCT1ULJlB_P0ogzJ5sZd---DsgWFZPGh"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.qikg0b3x0ju2"><span class="c3">25.</span></h3>
+        <p class="c0"><span class="c6">次の画面ではそのまま「次へ」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 699.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/lzE3jG3PvJ8wmKOirQJAw8LadhqXj2gWec52D4R4UjZ1_4ZIi-yaSH1OLop-KxOpzqEeZ4R5DZJlcg2TEiRmBKDrwmX-StxQIDO0qFTAViuKSOqOk-EgIdDpm3ZkztwvHsQqxvy2"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.ig2z492bgq2"><span class="c3">26.</span></h3>
+        <p class="c0"><span class="c6">次の画面もそのまま「完了」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 695.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/b61e-8ZGpin8Qp8IPaiWhQj7Xq6lVVlwijwhh8_0kxO6haai39e_-PxnyPlHZFG_3THRp_RIkC2iFVficS6AKI8GYlLcBnQghohmPfZ7gp9e6i3B342S-nCaQBUOYMaCZMNi4faK"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.id2nau9cbuoi"><span class="c3">27.</span></h3>
+        <p class="c0"><span
+                class="c6">作成された「HelloWorld/src/jp.co.digskill/IndexController.java」ファイルをダブルクリックで開くと、下図のように右側にファイルの中身が表示されます。</span>
+        </p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/KNrgVCvxs37a6b8xLuEmCwNPhvdqnO5dUeCF1wMGUgMQI5YE_kjh2IcLMYmGriZX8_aAni_7pjIO8C-TtACOYP_4mr8ZbBmENODl6nuRGakOaq2SCFro8iQ1C9M_0GBTwZS1OC94"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.ludtrenojuto"><span class="c3">28.</span></h3>
+        <p class="c0"><span class="c6">とりあえずこのままでも動きますので、起動してみましょう。IndexController.java
+                を右クリックして、実行の中の「サーバーで実行」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/L4CYN_7poLLSh1cB2t6L63B0_fgtS5gfRCjLlhQKT6N2QxM_7vwqegoT7EO0SX3zeqAmr7-mMIhOLDI-6Kv1jah-aferL36FooMA1_lVHA2TWkC1W4RWgI96LRWcCiaOb_LoEfQe"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.23ifewhvpjwc"><span class="c3">29.</span></h3>
+        <!-- chapter link -->
+        <p class="c0"><span class="c6">この「サーバー」とは、
+                <a href="https://firebasestorage.googleapis.com/v0/b/digskill-member.appspot.com/o/text%2Fhtml_text%2Fjava_win%2F20200701184357032%2Fwj01.html?alt=media&token=2da01098-819e-4738-80c9-3c59214bfb16#h.yssehabng53b"
+                    target="_blank" rel="noopener noreferrer">1-8</a>
+                の図で言う「ブラウザとの通信を管理する WEB サーバー」と「JAVA プログラムを処理する AP
+                サーバー」の両方の機能を兼ねる「Tomcat」というアプリケーションのことを示しています。以降の手順ではこの Tomcat をノート PC 上に起動して、ノート PC 内で「ブラウザ⇔WEB/AP
+                サーバー」の環境を構築します。開かれた「サーバーで実行」画面では、以下の通り入力して「次へ」をクリックしてください。</span></p>
+        <p class="c0 c1"><span class="c6"></span></p><a id="t.553128c450946c3e83752cfbcbd21d65979684ce"></a><a
+            id="t.9"></a>
+        <table class="c10">
+            <tbody>
+                <tr class="c8">
+                    <td class="c9" colspan="1" rowspan="1">
+                        <p class="c0"><span class="c15">(1) サーバーのタイプを選択 ：</span><span class="c6">「Tomcat v9.0
+                                サーバー」</span></p>
+                        <p class="c0"><span class="c15">(2) サーバーのホスト名 ：</span><span class="c6">「localhost」</span></p>
+                        <p class="c0"><span class="c15">(3) サーバー名 ：</span><span class="c6">「ローカルホスト の Tomcat9
+                                (Java11)」</span></p>
+                        <p class="c0"><span class="c15">(4) サーバー・ランタイム環境 ：</span><span class="c6">「Tomcat9
+                                (Java11)」</span></p>
+                        <p class="c0"><span class="c15">(5)</span><span class="c6">
+                                「このプロジェクトを実行するときは常にこのサーバーを使用」にチェックを入れる</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 693.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/4YKG9sHTn6SeBU_cRTCJPsJhTGmyWjKByEbN29Qf9Qj_PD1oA1t9KcOiHVU2t1rlK9Ra2hRVJ9gw6enWdRRxPkeOdpIItyj49bm7J9KzR2kaBfibOnUpCe-_Ss3JL9gx1AiFJOWZ"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.k09cj36lrmnc"><span class="c3">30.</span></h3>
+        <p class="c0"><span class="c6">次の画面ではそのまま「完了」をクリックしてください。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 700.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/7PggCP-CvQMvVeecFJnLiNvPGbglgNsndc27qXJIXB356V1D1iIfs8aWzjbFDZehBBSmwTrVjarVybboRVYBDmu5LGmUve1dcgjHALgDywOi4uOyQDlthBgXB37IDNjwLbREX4iD"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+        <h3 class="c0 c4" id="h.8vd2r4smht2u"><span class="c3">31.</span></h3>
+        <p class="c0"><span>すると、次のような画面となります。左下の「コンソール」ビューには、Tomcat 起動時のログが出力されています。右側半分には内部ブラウザが起動され、「</span><span
+                class="c17">http://localhost:8080/HelloWorld/IndexController</span><span
+                class="c6">」へアクセスしています。その結果、IndexController.java に書かれたプログラムが実行され、「Served at:
+                /HelloWorld」という文字列が表示されたのです。これですべての準備が完了です！</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/df72wWw3zHGDQmwhQ1PozhLHigJQvgFHSKNyBkcoq50SH7nBUd7-kiYSX2bk4qo5sgFmlXR6uexnwOFGzTXSEMMYYuf3Uuu2urZ83TITMbUX6S73L5i6weMs8-vX-GRMZjVV0YW0"
+                    style="width:100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c1"><span class="c6"></span></p>
+    </div>
+    <div id="footer"><span>公開元: <a href="https://member.digskill.net/dashboard">Dig Skill</a></span><span
+            class="dash">&ndash;</span>【2】開発環境をセットアップしよう！
+    </div>
+</body>
+
+</html>
