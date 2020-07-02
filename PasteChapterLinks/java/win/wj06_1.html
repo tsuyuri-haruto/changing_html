@@ -2876,8 +2876,12 @@
         </div>
         <p class="c7 c15"><span class="c10"></span></p>
         <p class="c7"><span class="c13 c27 c11">⑨ html生成処理の主導者「index.jsp」</span></p>
+        <!-- chapter link -->
         <p class="c7"><span
-                class="c10">予約一覧はカレンダーの部分、予約対象や表示年月を選択する部分、予約内容参照・編集画面など、大量のHTMLで構成されています。画面内のどこかを右クリックして、「ページのソースを表示」してみるとよくわかります。もちろんループを多用しているため、実際のコード量はかなり少なくなりますが、それでもひとつのファイルに書く量ではありません。そのため、index.jspでは、5-1で使用したファイルの分割・読込を活用しています。</span>
+                class="c10">予約一覧はカレンダーの部分、予約対象や表示年月を選択する部分、予約内容参照・編集画面など、大量のHTMLで構成されています。画面内のどこかを右クリックして、「ページのソースを表示」してみるとよくわかります。もちろんループを多用しているため、実際のコード量はかなり少なくなりますが、それでもひとつのファイルに書く量ではありません。そのため、index.jspでは、
+                <a href="https://firebasestorage.googleapis.com/v0/b/digskill-member.appspot.com/o/text%2Fhtml_text%2Fjava_win%2F20200701184357032%2Fwj05.html?alt=media&token=49713b31-1f26-4946-9057-026aef77eaa5#h.dy8n0uz7z965"
+                    target="_blank" rel="noopener noreferrer">5-1</a>
+                で使用したファイルの分割・読込を活用しています。</span>
         </p>
         <p class="c7 c15"><span class="c10"></span></p>
         <p class="c7"><span>headやbody先頭の「</span><span class="c2">&lt;%@ include file=&quot; ～
@@ -2887,7 +2891,11 @@
                 class="c10">」と呼ばれます。この場合はinclude元とinclude先で変数なども共有されてしまうため、多用するとお互いが干渉し過ぎて危険です。単純なHTMLや変数を出力するだけなど、なるべく変化のない部分を切り出す為に使用しましょう。</span>
         </p>
         <p class="c7 c15"><span class="c10"></span></p>
-        <p class="c7"><span>5-1で使用した「</span><span class="c2">&lt;jsp:include page=&quot; ～
+        <!-- chapter link -->
+        <p class="c7"><span>
+                <a href="https://firebasestorage.googleapis.com/v0/b/digskill-member.appspot.com/o/text%2Fhtml_text%2Fjava_win%2F20200701184357032%2Fwj05.html?alt=media&token=49713b31-1f26-4946-9057-026aef77eaa5#h.dy8n0uz7z965"
+                    target="_blank" rel="noopener noreferrer">5-1</a>
+                で使用した「</span><span class="c2">&lt;jsp:include page=&quot; ～
                 &quot;%&gt;</span><span>」は「</span><span
                 class="c12">インクルードアクション</span><span>」と言って、変数はそれぞれで定義する必要がありましたね。これは逆にメリットなのです。例えば「表示年月選択プルダウン」などのように複数箇所で何度もインクルードしても、ファイル内でがすべて完結・独立しているため、同じ結果となることを保証しやすいのです。内部的には別々のJSPでそれぞれ結果を出力するため、「</span><span
                 class="c12">動的インクルード</span><span class="c10">」と呼ばれます。</span></p>
