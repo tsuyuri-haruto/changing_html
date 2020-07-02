@@ -1,0 +1,2672 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>【3】基本的なプログラムを書いてみよう！</title>
+    <link rel="shortcut icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <style type="text/css" nonce="hEBdIEGo6AkxP57Dzyg6iw">
+        @import url("https://fonts.googleapis.com/css?family=Google+Sans");
+        @import url("https://fonts.googleapis.com/css?family=Roboto");
+
+        body {
+            font-family: Roboto, arial, sans, sans-serif;
+            margin: 0;
+        }
+
+        iframe {
+            border: 0;
+            frameborder: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #header {
+            align-items: center;
+            background: white;
+            border-bottom: 1px #ccc solid;
+            display: flex;
+            height: 60px;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        #header #title {
+            font-family: 'Google Sans';
+            font-size: large;
+            margin: auto 0 auto 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 70%;
+        }
+
+        #header #interval {
+            margin: auto 25px auto 0;
+            font-family: Roboto;
+            font-size: small;
+            ;
+        }
+
+        #footer {
+            background: #f0f0f0;
+            border-bottom: 1px #ccc solid;
+            bottom: 0;
+            font-family: Roboto;
+            font-size: small;
+            padding: 10px 10px;
+            position: fixed;
+            text-align: center;
+            width: 100%;
+        }
+
+        #contents {
+            padding: 100px 20% 50px 20%;
+        }
+
+        @media only screen and (max-device-width: 800px) {
+            #header {
+                border-bottom-width: 5px;
+                height: auto;
+                display: block;
+            }
+
+            #header #title {
+                font-size: 3em;
+                margin: auto 0 auto 20px;
+                width: 90%;
+            }
+
+            #header #interval {
+                font-size: 1.5em;
+                margin: 10px 0 auto 25px;
+            }
+
+            #contents {
+                padding: 150px 5% 80px;
+            }
+
+            #footer {
+                font-size: 2em;
+            }
+        }
+
+        .dash {
+            padding: 0 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="title">【3】基本的なプログラムを書いてみよう！</div>
+        <div id="interval"><span>5 分ごとに自動更新</span></div>
+    </div>
+    <div id="contents">
+        <style type="text/css">
+            @import url(https://themes.googleusercontent.com/fonts/css?kit=cGvuclDC_Z1vE_cnVEU6Ae_NZQ7StBcqH_vXVqoPMX0);
+
+            ol.lst-kix_2zwrtrp7d7si-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-0 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-3 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-3.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-3 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-0.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-0 0
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-6.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-6 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-8>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-3.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-3 0
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-6.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-6 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-5.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-5 0
+            }
+
+            .lst-kix_tw1k779xd1a4-0>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-0
+            }
+
+            .lst-kix_za19uzqo5vqc-3>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-3
+            }
+
+            .lst-kix_za19uzqo5vqc-5>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-5
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-8.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-8 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-2.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-2 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-8.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-8 0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-0.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-0 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-5.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-5 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-8>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-8
+            }
+
+            .lst-kix_x41s1rdpnz1l-5>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-5, lower-roman) ") "
+            }
+
+            .lst-kix_za19uzqo5vqc-1>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-1
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-2.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-2 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-4>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-4, lower-latin) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-6>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-6, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-2>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-2, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-4>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-4, lower-latin) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-7>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-7
+            }
+
+            .lst-kix_x41s1rdpnz1l-3>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-3, decimal) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-7>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-7, lower-latin) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-1>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-1, lower-latin) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-5>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-5, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-5.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-5 0
+            }
+
+            .lst-kix_tw1k779xd1a4-0>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-0, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-6>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-6, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-8>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-8, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-7>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-7, lower-latin) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-8.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-8 0
+            }
+
+            .lst-kix_tw1k779xd1a4-8>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-0.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-0 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-8>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-8, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-2>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-2
+            }
+
+            ol.lst-kix_tw1k779xd1a4-1.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-1 0
+            }
+
+            .lst-kix_tw1k779xd1a4-3>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-3, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-7>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-7
+            }
+
+            .lst-kix_za19uzqo5vqc-8>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-7, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-8, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-1>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-1
+            }
+
+            .lst-kix_2zwrtrp7d7si-4>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-4
+            }
+
+            .lst-kix_za19uzqo5vqc-7>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-7, decimal) ". "
+            }
+
+            ol.lst-kix_tw1k779xd1a4-0.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-0 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-3.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-3 0
+            }
+
+            .lst-kix_za19uzqo5vqc-4>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-5>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-7.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-7 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-7.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-7 0
+            }
+
+            .lst-kix_za19uzqo5vqc-6>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-0>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-1>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-1.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-1 0
+            }
+
+            .lst-kix_za19uzqo5vqc-3>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) ". "
+            }
+
+            .lst-kix_x41s1rdpnz1l-4>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-4
+            }
+
+            .lst-kix_x41s1rdpnz1l-7>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-7
+            }
+
+            .lst-kix_x41s1rdpnz1l-1>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-1, lower-latin) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-0>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-0, decimal) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-2>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-2, lower-roman) ") "
+            }
+
+            .lst-kix_za19uzqo5vqc-2>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) ". "
+            }
+
+            .lst-kix_x41s1rdpnz1l-1>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-1
+            }
+
+            .lst-kix_za19uzqo5vqc-4>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-4
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-7.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-7 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-3>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-3
+            }
+
+            .lst-kix_tw1k779xd1a4-4>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-4
+            }
+
+            .lst-kix_2zwrtrp7d7si-3>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-3
+            }
+
+            .lst-kix_2zwrtrp7d7si-2>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-2
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-4.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-4 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-6.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-6 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-1.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-1 0
+            }
+
+            .lst-kix_tw1k779xd1a4-5>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-5
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-5.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-5 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-0 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-3 {
+                list-style-type: none
+            }
+
+            .lst-kix_tw1k779xd1a4-3>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-3
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-1 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-0>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-0
+            }
+
+            .lst-kix_x41s1rdpnz1l-2>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-2
+            }
+
+            .lst-kix_x41s1rdpnz1l-5>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-5
+            }
+
+            .lst-kix_tw1k779xd1a4-6>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-6
+            }
+
+            ol.lst-kix_za19uzqo5vqc-4.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-4 0
+            }
+
+            .lst-kix_za19uzqo5vqc-8>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-2.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-2 0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-7.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-7 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-5 {
+                list-style-type: none
+            }
+
+            .lst-kix_x41s1rdpnz1l-6>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-6
+            }
+
+            .lst-kix_x41s1rdpnz1l-0>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-4.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-4 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-0>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-8.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-8 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-6>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-6
+            }
+
+            ol.lst-kix_za19uzqo5vqc-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-3 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-2 {
+                list-style-type: none
+            }
+
+            .lst-kix_tw1k779xd1a4-1>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-1
+            }
+
+            ol.lst-kix_za19uzqo5vqc-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-3 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-2>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-2
+            }
+
+            .lst-kix_2zwrtrp7d7si-5>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-5
+            }
+
+            ol.lst-kix_za19uzqo5vqc-1.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-1 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-7 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-6>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-6
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-6.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-6 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-0 {
+                list-style-type: none
+            }
+
+            .lst-kix_2zwrtrp7d7si-0>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-0, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-1>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-1, lower-latin) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-3>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-3, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-2>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-2, lower-roman) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-4>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-4, lower-latin) ". "
+            }
+
+            ol.lst-kix_tw1k779xd1a4-3.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-3 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-7>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-7, lower-latin) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-6>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-6, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-8>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-8, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-0 {
+                list-style-type: none
+            }
+
+            .lst-kix_2zwrtrp7d7si-5>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-5, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-2.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-2 0
+            }
+
+            .lst-kix_tw1k779xd1a4-7>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-7
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-4.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-4 0
+            }
+
+            ol {
+                margin: 0;
+                padding: 0
+            }
+
+            table td,
+            table th {
+                padding: 0
+            }
+
+            .c34 {
+                border-right-style: solid;
+                padding: 5pt 5pt 5pt 5pt;
+                border-bottom-color: #000000;
+                border-top-width: 0pt;
+                border-right-width: 0pt;
+                border-left-color: #000000;
+                vertical-align: top;
+                border-right-color: #000000;
+                border-left-width: 0pt;
+                border-top-style: solid;
+                background-color: #e4f0f6;
+                border-left-style: solid;
+                border-bottom-width: 0pt;
+                width: 697.9pt;
+                border-top-color: #000000;
+                border-bottom-style: solid
+            }
+
+            .c0 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 14pt;
+                font-family: "Arial";
+                font-style: normal
+            }
+
+            .c11 {
+                padding-top: 20pt;
+                padding-bottom: 6pt;
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c2 {
+                background-color: #fafafa;
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.3571428571428572;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c17 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+                height: 14pt
+            }
+
+            .c6 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c36 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c39 {
+                padding-top: 4pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c42 {
+                padding-top: 0pt;
+                padding-bottom: 3pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c31 {
+                padding-top: 12pt;
+                padding-bottom: 12pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c15 {
+                padding-top: 10pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c16 {
+                color: #000000;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 16pt;
+                font-family: "Arial";
+                font-style: normal
+            }
+
+            .c30 {
+                font-weight: 400;
+                vertical-align: baseline;
+                font-size: 14pt;
+                font-family: "Arial";
+                font-style: normal
+            }
+
+            .c22 {
+                font-family: "Consolas";
+                font-style: italic;
+                color: #a0a1a7;
+                font-weight: 400
+            }
+
+            .c19 {
+                background-color: #efefef;
+                font-family: "Consolas";
+                color: #c18401;
+                font-weight: 400
+            }
+
+            .c32 {
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-style: normal
+            }
+
+            .c37 {
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 20pt;
+                font-style: normal
+            }
+
+            .c9 {
+                border-spacing: 0;
+                border-collapse: collapse;
+                margin-right: auto
+            }
+
+            .c43 {
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 26pt;
+                font-style: normal
+            }
+
+            .c3 {
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 14pt;
+                font-style: normal
+            }
+
+            .c4 {
+                font-family: "Consolas";
+                color: #4078f2;
+                font-weight: 400
+            }
+
+            .c41 {
+                background-color: #ffffff;
+                max-width: 697.9pt;
+                padding: 72pt 72pt 72pt 72pt
+            }
+
+            .c27 {
+                font-family: "Consolas";
+                color: #c18401;
+                font-weight: 400
+            }
+
+            .c12 {
+                text-decoration-skip-ink: none;
+                -webkit-text-decoration-skip: none;
+                text-decoration: underline
+            }
+
+            .c8 {
+                font-family: "Consolas";
+                color: #e45649;
+                font-weight: 400
+            }
+
+            .c13 {
+                font-family: "Consolas";
+                color: #986801;
+                font-weight: 400
+            }
+
+            .c5 {
+                font-family: "Consolas";
+                color: #a626a4;
+                font-weight: 400
+            }
+
+            .c1 {
+                font-family: "Consolas";
+                color: #383a42;
+                font-weight: 400
+            }
+
+            .c33 {
+                color: #383a42;
+                font-size: 14pt;
+                font-family: "Consolas"
+            }
+
+            .c7 {
+                font-family: "Consolas";
+                color: #50a14f;
+                font-weight: 400
+            }
+
+            .c29 {
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 14pt
+            }
+
+            .c23 {
+                color: inherit;
+                text-decoration: inherit
+            }
+
+            .c40 {
+                color: #383a42;
+                font-family: "Consolas"
+            }
+
+            .c25 {
+                width: 33%;
+                height: 1px
+            }
+
+            .c28 {
+                color: #000000;
+                font-family: "Arial"
+            }
+
+            .c14 {
+                font-weight: 700
+            }
+
+            .c38 {
+                height: 0pt
+            }
+
+            .c44 {
+                color: #000000
+            }
+
+            .c10 {
+                background-color: #fce5cd
+            }
+
+            .c21 {
+                page-break-after: avoid
+            }
+
+            .c18 {
+                font-size: 10pt
+            }
+
+            .c26 {
+                background-color: #efefef
+            }
+
+            .c24 {
+                height: 14pt
+            }
+
+            .c35 {
+                font-style: italic
+            }
+
+            .c20 {
+                color: #1155cc
+            }
+
+            .title {
+                padding-top: 0pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 26pt;
+                padding-bottom: 3pt;
+                font-family: "Arial";
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .subtitle {
+                padding-top: 0pt;
+                color: #666666;
+                font-size: 15pt;
+                padding-bottom: 16pt;
+                font-family: "Arial";
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            li {
+                color: #000000;
+                font-size: 14pt;
+                font-family: "Arial"
+            }
+
+            p {
+                margin: 0;
+                color: #000000;
+                font-size: 14pt;
+                font-family: "Arial"
+            }
+
+            h1 {
+                padding-top: 20pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: "Arial";
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h2 {
+                padding-top: 20pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: "Arial";
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h3 {
+                padding-top: 0pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 16pt;
+                padding-bottom: 0pt;
+                font-family: "Arial";
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h4 {
+                padding-top: 14pt;
+                color: #666666;
+                font-size: 12pt;
+                padding-bottom: 4pt;
+                font-family: "Arial";
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h5 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: "Arial";
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h6 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: "Arial";
+                line-height: 2.0;
+                page-break-after: avoid;
+                font-style: italic;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+        </style>
+        <p class="c21 c42 title" id="h.xhsdhsx43pik"><span class="c28 c14 c43">3 基本的なプログラムを書いてみよう！</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c39"><span class="c12 c20"><a class="c23" href="#h.629yijcw0wl0">3-1 文字列の表示</a></span></p>
+        <p class="c15"><span class="c12 c20"><a class="c23" href="#h.owr7ezvtfun4">3-2 日本語の表示</a></span></p>
+        <p class="c15"><span class="c12 c20"><a class="c23" href="#h.2aas2l5y38m0">3-3 定数</a></span></p>
+        <p class="c15"><span class="c12 c20"><a class="c23" href="#h.3ctq7p9tnynj">3-4 変数</a></span></p>
+        <p class="c15"><span class="c12 c20"><a class="c23" href="#h.1ei2euuto80h">3-5 変数の型、初期化</a></span></p>
+        <p class="c15"><span class="c12 c20"><a class="c23" href="#h.e5rl0qgox0yw">3-6 条件分岐、比較演算子</a></span></p>
+        <p class="c15"><span class="c12 c20"><a class="c23" href="#h.xfh6pc7te6a6">3-7 関数、スコープ、引数</a></span></p>
+        <p class="c15"><span class="c12 c20"><a class="c23" href="#h.sx8jw2mja1pp">3-8 配列、ループ</a></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c0">WEBページの基本となる「文字列を表示する」という課題をこなしながら、定数・変数や型、条件分岐、関数などの基本的な技術を学びましょう。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h1 class="c11" id="h.629yijcw0wl0"><span class="c37 c28 c14">3-1 文字列の表示</span></h1>
+        <h3 class="c6 c21" id="h.19ml0mcia9h0"><span>1.</span></h3>
+        <p class="c6"><span class="c0">2-3-26で表示された「Served at: /HelloWorld」は、IndexControllerの31行目によって表示されています。</span>
+        </p>
+        <p class="c6"><span>その部分を次のように変更して、「</span><span class="c12">Command + s</span><span
+                class="c0">」を押して保存しましょう。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（31行目変更前）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span>‥‥</span><span class="c8">response</span><span class="c1">.</span><span
+                class="c4">getWriter</span><span class="c1">().</span><span class="c4">append</span><span
+                class="c1">(</span><span class="c7">&quot;Served at: &quot;</span><span class="c1">).</span><span
+                class="c4">append</span><span class="c1">(</span><span class="c8">request</span><span
+                class="c1">.</span><span class="c4">getContextPath</span><span class="c32 c33">());</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c3 c28 c14">サンプルコード：IndexController.java（31行目変更後）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span>‥‥</span><span class="c8">response</span><span class="c1">.</span><span
+                class="c4">getWriter</span><span class="c1">().</span><span class="c4">append</span><span
+                class="c1">(</span><span class="c7">&quot;HelloWorld!&quot;</span><span class="c32 c33">);</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.vrbpvuqbxojk"><span class="c16 c14">2.</span></h3>
+        <p class="c6"><span>変更内容を反映するためには、「</span><span class="c12">コンパイル</span><span
+                class="c0">」とTomcatの再起動が必要となります。「ランナー」ビューの中の「_IndexController」をダブルクリックし、サーバーを再起動してください。</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 930.52px; height: 522.67px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/yGQ-jRVX_zN7bnimARxOhue4n-dEk8AxES9BDZNvKIQBg6e0tFmrctG3SjSfVqc1S5FpaYGVnJx3k93kqTyFQDqjG_IPK4Q7iXGW-7SvsWYC2J_T7pihHARmfesbDdznEpGBGWmW"
+                    style="width: 930.52px; height: 522.67px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.y9orwd2i923t"><span class="c16 c14">3.</span></h3>
+        <p class="c6"><span class="c0">新たな内部ブラウザが起動され、表示内容が次のように変わっていれば成功です！</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 675.00px; height: 273.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/QUOusr_4WULV8Zr_tBIviPQpRB3a1H2HRfDbpey-6rzUI3OFRvOzufo2a620T2U1d5V8oFC-aaE45Y9O_Q7ESwGfdU1tpwCUO2BRsUaqJd7rrZFvESORoFMUDD0nZkNAgUseybnp"
+                    style="width: 675.00px; height: 273.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.cbbsq6jl24wb"><span class="c16 c14">4.</span></h3>
+        <p class="c6"><span
+                class="c0">31行目を修正しましたが、その他の部分は一体どうなっているのでしょうか？このファイルだけでも、書かれているプログラムをすべて理解するのは大変なことで、それよりも先に理解しておくべきことがたくさんあります。</span>
+        </p>
+        <p class="c6"><span class="c0">今は「なんとなくそんなことも書いてあった」程度で構いませんので、以下のポイントを覚えておきましょう。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c14">＜ポイント＞</span></p><a id="t.d3134e7b536d40d04ef1b24d9e659f297e3f1b88"></a><a
+            id="t.0"></a>
+        <table class="c9">
+            <tbody>
+                <tr class="c38">
+                    <td class="c34" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c14">(1) </span><span>「</span><span class="c10">public class
+                                IndexController ～</span><span>」の行の「</span><span
+                                class="c10">{</span><span>」から、最後の行の「</span><span
+                                class="c10">}</span><span>」までを「</span><span class="c12">クラス</span><span
+                                class="c0">」と呼びます。</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c14">(2) </span><span>「</span><span class="c10">protected void doGet
+                                ～</span><span>」の次の行の「</span><span class="c10">{</span><span>」から、最後の行の「</span><span
+                                class="c10">}</span><span>」までを「</span><span class="c12">メソッド</span><span
+                                class="c0">」と呼びます。</span></p>
+                        <p class="c6"><span>つまり、先ほど修正した31行目は、「</span><span
+                                class="c12">IndexControllerクラス</span><span>」の「</span><span
+                                class="c12">doGetメソッド</span><span class="c0">」となります。</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c14">(3)</span><span> 同じように「</span><span class="c10">protected void
+                                doPost ～</span><span
+                                class="c0">」というメソッドがあり、doPostメソッドではdoGetメソッドを呼び出しているため、どちらのメソッドを実行しても結果的にdoGetが実行されます。</span>
+                        </p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c14">(4)</span><span> ブラウザのアドレスバーにURLを入力してアクセスした場合は、「</span><span
+                                class="c12">GET</span><span>」という方式でブラウザからサーバーへアクセスされ、その場合にはdoGetが実行されます。「</span><span
+                                class="c12">POST</span><span
+                                class="c0">」という方式は、一度表示した画面内の入力フォームで「送信」ボタンを押したときなどに行われるアクセスの方式です。</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c14">(5)</span><span> 内部ブラウザがアクセスしているURLは「</span><span
+                                class="c20">http://localhost:8081/</span><span>」という部分と、その後ろにはこのプロジェクト名である「</span><span
+                                class="c20">HelloWorld</span><span>」と、「</span><span
+                                class="c10">@WebServlet</span><span>」で指定している「</span><span
+                                class="c20">/IndexController</span><span
+                                class="c0">」が連結されています。このURLを他のブラウザのアドレスバーにも入力してみてください。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c5">package</span><span class="c1"> </span><span
+                class="c1 c26">jp.co.digskill</span><span class="c1">;</span><sup class="c1"><a href="#ftnt1"
+                    id="ftnt_ref1">[1]</a></sup></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span class="c5 c26">import</span><span class="c1 c26"> </span><span
+                class="c19">java.io.IOException</span><span class="c1 c26">;</span><sup class="c1"><a href="#ftnt2"
+                    id="ftnt_ref2">[2]</a></sup></p>
+        <p class="c2 c24"><span class="c32 c33 c26"></span></p>
+        <p class="c2"><span class="c5 c26">import</span><span class="c1 c26"> </span><span
+                class="c19">javax.servlet.ServletException</span><span class="c3 c1 c26">;</span></p>
+        <p class="c2"><span class="c5 c26">import</span><span class="c1 c26"> </span><span
+                class="c19">javax.servlet.annotation.WebServlet</span><span class="c32 c33 c26">;</span></p>
+        <p class="c2"><span class="c5 c26">import</span><span class="c1 c26"> </span><span
+                class="c19">javax.servlet.http.HttpServlet</span><span class="c32 c33 c26">;</span></p>
+        <p class="c2"><span class="c5 c26">import</span><span class="c1 c26"> </span><span
+                class="c19">javax.servlet.http.HttpServletRequest</span><span class="c3 c1 c26">;</span></p>
+        <p class="c2"><span class="c5 c26">import</span><span class="c1 c26"> </span><span
+                class="c19">javax.servlet.http.HttpServletResponse</span><span class="c32 c33 c26">;</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span class="c22 c26">/**</span><sup class="c22"><a href="#ftnt3" id="ftnt_ref3">[3]</a></sup></p>
+        <p class="c2"><span class="c22 c29 c26"> * Servlet implementation class IndexController</span></p>
+        <p class="c2"><span class="c22 c29 c26"> */</span></p>
+        <p class="c2"><span class="c1">@</span><span class="c5">WebServlet</span><span class="c1">(</span><span
+                class="c7">&quot;</span><span class="c7 c26">/IndexController</span><span class="c7">&quot;</span><span
+                class="c1">)</span><sup class="c1"><a href="#ftnt4" id="ftnt_ref4">[4]</a></sup></p>
+        <p class="c2"><span class="c5 c26">public</span><span class="c19"> </span><span class="c5 c26">class</span><span
+                class="c19"> IndexController </span><span class="c5 c26">extends</span><span class="c19"> HttpServlet
+            </span><span class="c1 c26">{</span><sup class="c1"><a href="#ftnt5" id="ftnt_ref5">[5]</a></sup></p>
+        <p class="c2"><span>‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">static</span><span class="c1"> </span><span class="c5">final</span><span class="c1">
+            </span><span class="c5">long</span><span class="c8"> serialVersionUID </span><span class="c1">= </span><span
+                class="c13">1L</span><span class="c32 c33">;</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span>‥‥</span><span class="c22 c29">/**</span></p>
+        <p class="c2"><span>‥‥</span><span class="c22"> * </span><span class="c5 c35">@see</span><span class="c22 c29">
+                HttpServlet#HttpServlet()</span></p>
+        <p class="c2"><span>‥‥</span><span class="c22 c29"> */</span></p>
+        <p class="c2"><span>‥‥</span><span class="c5">public</span><span class="c1"> </span><span
+                class="c4">IndexController</span><span class="c32 c33">() {</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c8">super</span><span class="c32 c33">();</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c22 c29">// TODO Auto-generated constructor stub</span></p>
+        <p class="c2"><span>‥‥</span><span class="c32 c33">}</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span>‥‥</span><span class="c22 c29">/**</span></p>
+        <p class="c2"><span>‥‥</span><span class="c22"> * </span><span class="c5 c35">@see</span><span class="c22 c29">
+                HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)</span></p>
+        <p class="c2"><span>‥‥</span><span class="c22 c29"> */</span></p>
+        <p class="c2"><span class="c26">‥‥</span><span class="c5 c26">protected</span><span class="c1 c26"> </span><span
+                class="c5 c26">void</span><span class="c1 c26"> </span><span class="c4 c26">doGet</span><span
+                class="c1 c26">(</span><span class="c19">HttpServletRequest</span><span class="c1 c26"> request,
+            </span><span class="c19">HttpServletResponse</span><span class="c1 c26"> response)</span><sup class="c1"><a
+                    href="#ftnt6" id="ftnt_ref6">[6]</a></sup></p>
+        <p class="c2"><span class="c26">‥‥‥‥‥‥</span><span class="c5 c26">throws</span><span class="c1 c26">
+            </span><span class="c19">ServletException</span><span class="c1 c26">, </span><span
+                class="c19">IOException</span><span class="c32 c33 c26"> {</span></p>
+        <p class="c2"><span class="c26">‥‥‥‥</span><span class="c22 c29 c26">// TODO Auto-generated method stub</span>
+        </p>
+        <p class="c2"><span class="c26">‥‥‥‥</span><span class="c8 c26">response</span><span
+                class="c1 c26">.</span><span class="c4 c26">getWriter</span><span class="c1 c26">().</span><span
+                class="c4 c26">append</span><span class="c1 c26">(</span><span
+                class="c7 c26">&quot;HelloWorld!&quot;</span><span class="c32 c33 c26">);</span></p>
+        <p class="c2"><span class="c26">‥‥</span><span class="c32 c33 c26">}</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span>‥‥</span><span class="c22 c29">/**</span></p>
+        <p class="c2"><span>‥‥</span><span class="c22"> * </span><span class="c5 c35">@see</span><span class="c22 c29">
+                HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)</span></p>
+        <p class="c2"><span>‥‥</span><span class="c22 c29"> */</span></p>
+        <p class="c2"><span class="c26">‥‥</span><span class="c5 c26">protected</span><span class="c1 c26"> </span><span
+                class="c5 c26">void</span><span class="c1 c26"> </span><span class="c4 c26">doPost</span><span
+                class="c1 c26">(</span><span class="c19">HttpServletRequest</span><span class="c1 c26"> request,
+            </span><span class="c19">HttpServletResponse</span><span class="c1 c26"> response)</span><sup class="c1"><a
+                    href="#ftnt7" id="ftnt_ref7">[7]</a></sup></p>
+        <p class="c2"><span class="c26">‥‥‥‥‥‥</span><span class="c5 c26">throws</span><span class="c1 c26">
+            </span><span class="c19">ServletException</span><span class="c1 c26">, </span><span
+                class="c19">IOException</span><span class="c32 c33 c26"> {</span></p>
+        <p class="c2"><span class="c26">‥‥‥‥</span><span class="c22 c29 c26">// TODO Auto-generated method stub</span>
+        </p>
+        <p class="c2"><span class="c26">‥‥‥‥</span><span class="c4 c26">doGet</span><span class="c32 c33 c26">(request,
+                response);</span></p>
+        <p class="c2"><span class="c26">‥‥</span><span class="c32 c33 c26">}</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span class="c32 c33">}</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 295.59px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/sl8xz9Nj2UUzqknQM00Sctn0uJ6pvZzaqh6qdFyNhZW2Owi61JKDXlNNCG49jsXGOGF1wwSmuETj1mCSAE6zCWCYgWT8yYOvl8Tdld0NCeXAN9DGR0VksoaGOc-mWQbzCetvUyKt"
+                    style="width: 295.59px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 293.34px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/s8GiyYPIBR1Ce7dL7lpXKxsFUfItJFDJQYnIRmk5QfDVojhPbYYhfEIS-C1isiOiycm0CYOweQctULq7Ys-qaIzQKQRv7QVWvjvQNqoVFrU-K2tCWg4GK_5KYiMTjymzTk50J6QI"
+                    style="width: 293.34px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h1 class="c11" id="h.owr7ezvtfun4"><span class="c37 c28 c14">3-2 日本語の表示</span></h1>
+        <h3 class="c6 c21" id="h.sgsyobatfd5a"><span class="c16 c14">1.</span></h3>
+        <p class="c6"><span class="c0">IndexControllerクラスのdoGetメソッドを次のコードに書き換えて、日本語を表示させてみましょう。</span></p>
+        <p class="c6"><span>この「</span><span
+                class="c10">response</span><span>」というのは、doGetが実行される際にあらかじめJavaが「HttpServlet」の機能によって用意してくれている、「ブラウザに結果を返すためのもの」です。それに対して「</span><span
+                class="c10">getWriter()</span><span>」というメソッドを実行して、「書き込むための領域」を受け取り、それに対して「</span><span
+                class="c10">append()</span><span class="c0">」することで、ブラウザに返す結果に「おはようございます」を追記しているのです。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c3 c28 c14">サンプルコード：IndexController.java（doGetメソッドの中身）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c8">response</span><span class="c1">.</span><span class="c4">getWriter</span><span
+                class="c1">().</span><span class="c4">append</span><span class="c1">(</span><span
+                class="c7">&quot;おはようございます&quot;</span><span class="c32 c33">);</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.sgjqqkbuy7ei"><span class="c16 c14">2.</span></h3>
+        <p class="c6"><span class="c12 c20"><a class="c23"
+                    href="#h.vrbpvuqbxojk">3-1-2</a></span><span>を参考にブラウザで先ほどのページを更新すると・・・「????????」のように表示されてしまうはずです。これを文字化けと言います。原因は「</span><span
+                class="c12">文字コード</span><span class="c0">」というものが正しくブラウザに伝わっていないためですので、次のように修正して再度ブラウザから確認してみましょう。</span>
+        </p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c3 c28 c14">サンプルコード：IndexController.java（doGetメソッドの中身）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c8">response</span><span class="c1">.</span><span
+                class="c4">setContentType</span><span class="c1">(</span><span class="c7">&quot;text/html;
+                charset=UTF-8&quot;</span><span class="c32 c33">);</span></p>
+        <p class="c2"><span class="c8">response</span><span class="c1">.</span><span class="c4">getWriter</span><span
+                class="c1">().</span><span class="c4">append</span><span class="c1">(</span><span
+                class="c7">&quot;おはようございます&quot;</span><span class="c32 c33">);</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 291.96px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/-1YY8U0U9maT5xg6KBz7tPw61WDpRWgnlVR9zZyHPUEWL1gvfJdMcK6RTffb-CB6AYkqzvX8g13b-Uh-7Hd0Z2SipQVg66v1oySj3xea88D3i5NAvsjx8_cKKi10hfEa0jtWT0pP"
+                    style="width: 291.96px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.ufq0mesds3z5"><span class="c16 c14">4.</span></h3>
+        <p class="c6"><span>「</span><span class="c10">charset=&quot;UTF-8&quot;</span><span
+                class="c0">」のおかげで、今度は正しく「おはようございます」と正しく表示されましたね！</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 672.00px; height: 123.00px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/s935kQiUWcVSQi1WNbVleQ_u6BCHNzXjzmvkgRKUfSmFiTmRtEmTuUhD2bmJOvwyFEKE5t3zin-BHNzvvK8tqAzrq1KDU8vsuC2xPOkg22tnSFm3w8bYFlB0drsCO6i8PZbCXKWE"
+                    style="width: 672.00px; height: 123.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h1 class="c11" id="h.2aas2l5y38m0"><span class="c28 c14 c37">3-3 定数</span></h1>
+        <h3 class="c6 c21" id="h.3ehoov7u6pxk"><span class="c16 c14">1.</span></h3>
+        <p class="c6">
+            <span>先ほど表示した「おはようございます」という文字列が何回もプログラム内で使われる場合、もしもその文字列に変更が入ってしまったら、何箇所もプログラムを書き直す必要がありますよね。それを防ぐために「</span><span
+                class="c12">定数</span><span>」という仕組みがあります。定数はプログラム内で１度「</span><span class="c12">定義</span><span
+                class="c0">」すると、それ以降は変更できません。</span></p>
+        <p class="c6"><span>「</span><span class="c12">プログラムの実行中に変わることがないものを入れておくための入れ物</span><span
+                class="c0">」と覚えましょう。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.qp9mr79u3hfe"><span class="c16 c14">2.</span></h3>
+        <p class="c6"><span>次のサンプルでは「おはようございます」を定数として定義し、それを画面へ表示させています。定数は大文字で名前をつけることが一般的であり、定義する際には「</span><span
+                class="c12">static final</span><span>」キーワードを使います。次のとおり追記・修正を行い、</span><span class="c12 c20"><a
+                    class="c23" href="#h.ufq0mesds3z5">3-2-4</a></span><span
+                class="c0">と全く同じように表示されることをブラウザから確認してみましょう。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（IndexControllerクラスの先頭）</span></p>
+        <p class="c6 c24"><span class="c3 c28 c14"></span></p>
+        <p class="c2"><span class="c5">public</span><span class="c27"> </span><span class="c5">class</span><span
+                class="c27"> IndexController </span><span class="c5">extends</span><span class="c27"> HttpServlet
+            </span><span class="c32 c33">{</span></p>
+        <p class="c2"><span>‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">static</span><span class="c1"> </span><span class="c5">final</span><span class="c1">
+            </span><span class="c5">long</span><span class="c8"> serialVersionUID </span><span class="c1">= </span><span
+                class="c13">1L</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span>‥‥</span><span class="c5 c26">private</span><span class="c1 c26"> </span><span
+                class="c5 c26">static</span><span class="c1 c26"> </span><span class="c5 c26">final</span><span
+                class="c1 c26"> </span><span class="c19">String</span><span class="c8 c26"> MESSAGE </span><span
+                class="c1 c26">= </span><span class="c7 c26">&quot;おはようございます&quot;</span><span
+                class="c1 c26">;</span><sup class="c1"><a href="#ftnt8" id="ftnt_ref8">[8]</a></sup></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（doGetメソッドの中身）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c8">response</span><span class="c1">.</span><span
+                class="c4">setContentType</span><span class="c1">(</span><span class="c7">&quot;text/html;
+                charset=UTF-8&quot;</span><span class="c32 c33">);</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c8 c26">response</span><span class="c1 c26">.</span><span
+                class="c4 c26">getWriter</span><span class="c1 c26">().</span><span class="c4 c26">append</span><span
+                class="c1 c26">(MESSAGE);</span><sup class="c1"><a href="#ftnt9" id="ftnt_ref9">[9]</a></sup></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 291.96px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/UxwnFvSPfNBjGtBfZ1gKyhof27N2W_BB5VYL2bPwMw6a7i6HQUxMBwXZqovG-MukR4Ded3LVgp3PCZvFlfatyUIZGgqsIZ-GkD7JI72atUW8bE0rSGFv1FMm5v-WeUxDZPutWnn_"
+                    style="width: 291.96px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h1 class="c11" id="h.3ctq7p9tnynj"><span class="c37 c28 c14">3-4 変数</span></h1>
+        <h3 class="c6 c21" id="h.z5lik088zwti"><span class="c16 c14">1.</span></h3>
+        <p class="c6"><span>計算の結果や条件判断の結果など、「</span><span
+                class="c12">プログラムの実行中に変わるものを入れておくための入れ物</span><span>」には、「</span><span
+                class="c12">変数</span><span>」を使います。次のサンプルでは、「こんにちは」「こんばんは」「おはようございます！」を順番に変数「</span><span
+                class="c10">message</span><span>」へ「</span><span class="c12">代入</span><span
+                class="c0">」して、それを画面へ表示させています。変数は、先頭に「入れる物の種類」を書き、スペースを空けて英字の小文字で名前をつけましょう。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（IndexControllerクラス先頭の定数定義部分）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span>‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">static</span><span class="c1"> </span><span class="c5">final</span><span class="c1">
+            </span><span class="c27">String</span><span class="c8"> MESSAGE_EVENING </span><span class="c1">=
+            </span><span class="c7">&quot;こんばんは&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span>‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">static</span><span class="c1"> </span><span class="c5">final</span><span class="c1">
+            </span><span class="c27">String</span><span class="c8"> MESSAGE_MORNING </span><span class="c1">=
+            </span><span class="c7">&quot;おはようございます！&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span>‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">static</span><span class="c1"> </span><span class="c5">final</span><span class="c1">
+            </span><span class="c27">String</span><span class="c8"> HTML_LINE_BREAK </span><span class="c1">=
+            </span><span class="c7">&quot;&lt;br&gt;&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span>‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">static</span><span class="c1"> </span><span class="c5">final</span><span class="c1">
+            </span><span class="c27">String</span><span class="c8"> HTML_HORIZONTAL_RULE </span><span class="c1">=
+            </span><span class="c7">&quot;&lt;hr&gt;&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（doGetメソッドの中身）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c8">response</span><span class="c1">.</span><span
+                class="c4">setContentType</span><span class="c1">(</span><span class="c7">&quot;text/html;
+                charset=UTF-8&quot;</span><span class="c32 c33">);</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c27">String</span><span class="c8"> message </span><span
+                class="c1">= </span><span class="c7">&quot;こんにちは&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c8">response</span><span class="c1">.</span><span
+                class="c4">getWriter</span><span class="c1">().</span><span class="c4">append</span><span
+                class="c32 c33">(message);</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c8">response</span><span class="c1">.</span><span
+                class="c4">getWriter</span><span class="c1">().</span><span class="c4">append</span><span
+                class="c32 c33">(HTML_LINE_BREAK);</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c32 c33">message = MESSAGE_EVENING;</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c8">response</span><span class="c1">.</span><span
+                class="c4">getWriter</span><span class="c1">().</span><span class="c4">append</span><span
+                class="c32 c33">(message);</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c8">response</span><span class="c1">.</span><span
+                class="c4">getWriter</span><span class="c1">().</span><span class="c4">append</span><span
+                class="c3 c1">(HTML_LINE_BREAK);</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c3 c1">message = MESSAGE_MORNING;</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c8">response</span><span class="c1">.</span><span
+                class="c4">getWriter</span><span class="c1">().</span><span class="c4">append</span><span
+                class="c32 c33">(message);</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c8">response</span><span class="c1">.</span><span
+                class="c4">getWriter</span><span class="c1">().</span><span class="c4">append</span><span
+                class="c3 c1">(HTML_HORIZONTAL_RULE);</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 288.27px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/hapZMmMEoNJzAlaLsLGpg5ubmnlEjdgtqxujNw7VZcpaaoL2w4eRL37PXGoL5y08pBSLGji53tc7EKneUKU-Zz_Fpk012IcbkCxV4OumjKelXKjXqLXU5nJ0WIGOkoFOVKwaMmOq"
+                    style="width: 288.27px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 294.80px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/DWJHnvXZPz-JsaJcgG20O_MwKFv_zAJ6TBBtoVfzloojoM3WUzxNgb-WyPg0yTEetIOC9y1dSkluXM2Jn-EwkGWNCYT7-1kNM0p_EpNk8DlgKoxLWXZUAM8scP-SjqhotZUK4zED"
+                    style="width: 294.80px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.vduicwd7a0r0"><span class="c16 c14">2.</span></h3>
+        <p class="c6"><span>途中に出てくる「</span><span class="c10">&lt;br&gt;</span><span>」は、画面に表示されませんね。「</span><span
+                class="c10">response.getWriter().append(HTML_LINE_BREAK);</span><span>」の行を削除してみるとわかりますが、このHTMLタグによって、画面上の文字列が改行されるのです。「</span><span
+                class="c10">&lt;hr&gt;</span><span>」では水平罫線が表示できますので、各コードの区切れ目などに入れて、ブラウザでの確認結果を自分で自由に整形しましょう。また、「</span><span
+                class="c10">//</span><span>」で始まる行は「</span><span class="c12">コメント行</span><span
+                class="c0">」となり、プログラムとしては無視されます。自分で調べた結果などを自由にメモしておきましょう。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c3 c28 c14">＜ここまでの表示結果＞</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 673.00px; height: 208.00px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/gUYFscYorHJkPVNdtdPpClkZfv0FDullFZJ9O1KHcnYZjqr1pNgFr8NRH9mWuOucm0BJ0B1noXp4QOm9DD_VVLoRBwS40pPBxbvKXIKXzyEnMpx3hLhSyAJDq66OXv0z6wLlZ4Pw"
+                    style="width: 673.00px; height: 208.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h1 class="c11" id="h.1ei2euuto80h"><span class="c37 c28 c14">3-5 変数の型、初期化</span></h1>
+        <h3 class="c6 c21" id="h.6hgx0oyxbe4m"><span class="c16 c14">1.</span></h3>
+        <p class="c6"><span
+                class="c0">変数には「何を入れるか」をあらかじめ決めておく必要があり、それを「型」といいます。Javaで扱える型には以下のような種類が存在します。内部的にどのように管理されるかによって細かく分類されるのですが、最初は「整数なら基本型のint」「文字列なら参照型のString」というぐらいで覚えて構いません。</span>
+        </p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c14">＜基本型（プリミティブ型）＞</span></p><a
+            id="t.f3f94c20282c313bf4dda9be274fd02ba44e2b66"></a><a id="t.1"></a>
+        <table class="c9">
+            <tbody>
+                <tr class="c38">
+                    <td class="c34" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c3 c28 c14">(1) 論理値型：</span></p>
+                        <p class="c6"><span class="c0">boolean（true / false）</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c14 c28">(2) 整数型：</span></p>
+                        <p class="c6"><span class="c0">byte（-128～127）、short（-32768～32767）、</span></p>
+                        <p class="c6"><span class="c0">int（-2147483648～2147483647）、</span></p>
+                        <p class="c6"><span class="c0">long（-9223372036854775808L～9223372036854775807L）</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">(3) 浮動小数点型：</span></p>
+                        <p class="c6"><span class="c0">float（約±3.4×10の38乗～約±1.4×10の-45乗）</span></p>
+                        <p class="c6"><span class="c0">double（約±1.8×10の308乗～約±4.9×10の-324乗）</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">(4) 文字型：</span></p>
+                        <p class="c6"><span
+                                class="c0">char（unicode文字1文字、例：&#39;あ&#39;=0x3042、&#39;い&#39;=0x3044、&#39;猫&#39;=0x732B）</span>
+                        </p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c0">※1byteは8bitのことです。8bitあれば256段階表現できるんでしたよね！（1-1を読み返してみましょう）</span>
+                        </p>
+                        <p class="c6"><span class="c0">※intはinteger（整数）の略で、shortはshort integer、longはlong
+                                integerの略です。</span></p>
+                        <p class="c6"><span class="c0">※charはcharacter（文字）の略です。</span></p>
+                        <p class="c6"><span class="c0">※longの場合は「L」、floatは「F」、doubleは「D」をそれぞれ数値の最後に付ける必要があります。</span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c14">＜参照型（リファレンス型）＞</span></p><a
+            id="t.3b21006fd544b4b28062d3a47fdaf2ba8fd63d40"></a><a id="t.2"></a>
+        <table class="c9">
+            <tbody>
+                <tr class="c38">
+                    <td class="c34" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c3 c28 c14">(1) クラス型：</span></p>
+                        <p class="c6"><span class="c0">基本型をそのまま使うのは論理値型と整数型ぐらいです。以下は代表的なクラスです。</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">String：</span></p>
+                        <p class="c6"><span class="c0">内部で複数の文字型（char）をまとめて管理し、文字列として処理するクラス。</span></p>
+                        <p class="c6"><span class="c3 c28 c14">BigDecimal：</span></p>
+                        <p class="c6"><span class="c0">浮動小数点数（float,
+                                double）はその特性を十分理解していないと、計算結果などが想定通りとならないため、小数や巨大な整数の計算にはこのクラスを使用します。</span></p>
+                        <p class="c6"><span class="c3 c28 c14">LocalDate：</span></p>
+                        <p class="c6"><span
+                                class="c0">日付は内部的に1970年1月1日0時０分0秒からの秒数を積み上げた整数（long）で管理しており、これを日付として扱いやすくするクラス。</span>
+                        </p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c0">※参照型にはクラス型の他、インターフェイス型、配列型があります。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 293.35px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/a1N6l0Av8M_b9SEtd--Yxlh5A9C6LsBM_2Ws632wD6dOEpGn8Xk1g_G2mqs3t7PsEbvzN6ZLWwfgB1DbCSTBJFWJyU7zvjVakLOG7f02hv4yJPKHeP86RI5_5paX0POQw7f51yiX"
+                    style="width: 293.35px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.3oj8yq0djlc"><span class="c16 c14">2.</span></h3>
+        <p class="c6"><span>変数の定義時には型に応じた初期値を代入して「</span><span
+                class="c12">初期化</span><span>」しましょう。次のサンプルでは変数「</span><span class="c10">stringVariable</span><span
+                class="c0">」を空の文字列「&quot;&quot;」で初期化し、文字を連結した結果を変数へ代入して、その中身を画面へ表示させています。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（doGetメソッドに追記）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c27">String</span><span class="c8"> </span><span
+                class="c8">stringVariable</span><span class="c8"> </span><span class="c1">= </span><span
+                class="c7">&quot;&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c1">stringVariable = </span><span
+                class="c7">&quot;あ&quot;</span><span class="c1"> + </span><span class="c7">&quot;い&quot;</span><span
+                class="c1"> + </span><span class="c7">&quot;う&quot;</span><span class="c1"> + </span><span
+                class="c7">&quot;え&quot;</span><span class="c1"> + </span><span class="c7">&quot;お&quot;</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c8">response</span><span class="c1">.</span><span
+                class="c4">getWriter</span><span class="c1">().</span><span class="c4">append</span><span
+                class="c3 c1">(stringVariable);</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c8">response</span><span class="c1">.</span><span
+                class="c4">getWriter</span><span class="c1">().</span><span class="c4">append</span><span
+                class="c32 c33">(HTML_LINE_BREAK);</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.fgx617gms93d"><span class="c16 c14">3.</span></h3>
+        <p class="c6"><span>次のサンプルでは、変数「</span><span
+                class="c10">intVariable</span><span>」を「0」で初期化し、順次「演算」した結果を変数へ代入して、その中身を画面へ表示させています。また、「</span><span
+                class="c10">response.getWriter()</span><span>」によって取得できる「ブラウザに結果を返すためのもの」の「書き込むための領域」は、「</span><span
+                class="c10">PrintWriter</span><span>」というクラスの型ですので、変数「</span><span
+                class="c10">writer</span><span>」に入れて、「</span><span class="c10">writer</span><span>」に対して「</span><span
+                class="c10">append()</span><span class="c0">」して追記するようにしています。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（doGetメソッドに追記）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c5">import</span><span class="c1"> </span><span
+                class="c27">java.io.PrintWriter</span><span class="c32 c33">;</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span class="c32 c33">（省略）</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">int</span><span class="c8"> </span><span
+                class="c8">intVariable</span><span class="c8"> </span><span class="c1">= </span><span
+                class="c13">0</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c27">PrintWriter</span><span class="c8"> writer
+            </span><span class="c1">= </span><span class="c8">response</span><span class="c1">.</span><span
+                class="c4">getWriter</span><span class="c32 c33">();</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥intVariable = </span><span class="c13">50</span><span class="c1"> +
+            </span><span class="c13">50</span><span class="c3 c1">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c1">(</span><span class="c8">String</span><span
+                class="c1">.</span><span class="c4">format</span><span class="c1">(</span><span
+                class="c7">&quot;今のintVariableの内容は[</span><span class="c7 c26">%s</span><span
+                class="c7">]です。&quot;</span><span class="c1">, intVariable));</span><sup class="c1"><a href="#ftnt10"
+                    id="ftnt_ref10">[10]</a></sup></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c3 c1">(HTML_LINE_BREAK);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c1">intVariable</span><span class="c1"> = </span><span
+                class="c1">intVariable</span><span class="c1"> - </span><span class="c13">60</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c1">(</span><span class="c8">String</span><span
+                class="c1">.</span><span class="c4">format</span><span class="c1">(</span><span
+                class="c7">&quot;今のintVariableの内容は[%s]です。&quot;</span><span class="c32 c33">, intVariable));</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c32 c33">(HTML_LINE_BREAK);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c1">intVariable</span><span class="c1"> = </span><span
+                class="c1">intVariable</span><span class="c1"> * </span><span class="c13">5</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c1">(</span><span class="c8">String</span><span
+                class="c1">.</span><span class="c4">format</span><span class="c1">(</span><span
+                class="c7">&quot;今のintVariableの内容は[%s]です。&quot;</span><span class="c32 c33">, intVariable));</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c32 c33">(HTML_LINE_BREAK);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c1">intVariable</span><span class="c1"> = </span><span
+                class="c1">intVariable</span><span class="c1"> / </span><span class="c13">20</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c1">(</span><span class="c8">String</span><span
+                class="c1">.</span><span class="c4">format</span><span class="c1">(</span><span
+                class="c7">&quot;今のintVariableの内容は[%s]です。&quot;</span><span class="c32 c33">, intVariable));</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c32 c33">(HTML_HORIZONTAL_RULE);</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c3 c28 c14">＜ここまでの表示結果＞</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 674.00px; height: 368.00px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/nk-JNrRHmnXujjC7j0Gx-stsF-l3VNE6zbSYWBm-P6_B5P75TmZJjyxxIGLCTHDWVB1a3pZQAluoD2lpz8ROjj5sXh1lE8_WiAJ1rP30CNy7OPC_f8fsCSwEC691Aokggt_q9nnq"
+                    style="width: 674.00px; height: 368.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 294.75px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/ViocYKCVu7v4sAI-VMNY1nmPKIhkVxDzfL1562jm08V2flRt04aAOinYR2ZmYZl--V1OQbiQME7jDZC1fM5HolHhYIbdrQWn1_z3A7nDPGfwGNL7-x16VcYpcj9kh0eWgXN8tSOc"
+                    style="width: 294.75px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 297.07px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/_Ilh3cEB6KqcYUKIe8HUY3dkYKAhQJE1KwSJoV2zuyp_GiYnuwv_OpOusKddLe7XRBbKKVpTjas0veH8wwjdLuWXAknZSq9RwV72B4rm7wRpdKcKCALEoyiEB3rNCzOmNDy6bcTM"
+                    style="width: 297.07px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h1 class="c11" id="h.e5rl0qgox0yw"><span class="c37 c28 c14">3-6 条件分岐、比較演算子</span></h1>
+        <h3 class="c6 c21" id="h.j92fb17fpqrh"><span class="c14 c16">1.</span></h3>
+        <p class="c6"><span>変数の値に応じて処理を振り分ける時は「if ～ else if ～ else文」を使用します。次のサンプルでは、「</span><span
+                class="c10">intVariable</span><span
+                class="c0">」の値を「5と等しいか」、「5未満か」、「6以上10未満か」「それ以外か」の順にif文で振り分け、各ブロック内でその結果を変数へ代入して、if文の外で変数の中身を画面へ表示させています。</span>
+        </p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c14">＜ポイント＞</span></p><a id="t.1b379cf8adde5a7e7aa7eaded99faa45238f88b5"></a><a
+            id="t.3"></a>
+        <table class="c9">
+            <tbody>
+                <tr class="c38">
+                    <td class="c34" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c3 c28 c14">(1) 「if」：</span></p>
+                        <p class="c6"><span>「</span><span
+                                class="c10">if</span><span>」に続く丸括弧「()」内に入れた「条件式」の評価結果が正しい（true）場合にのみ、以降に続く</span><span
+                                class="c12">中括弧「{}」でくくられたブロック</span><span class="c0">内のコードが実行されます。</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">(2) 「else」：</span></p>
+                        <p class="c6"><span>「</span><span class="c10">if</span><span>」とセットでのみ使用が可能で、「</span><span
+                                class="c10">if</span><span>」や次の「</span><span class="c10">else
+                                if</span><span>」の評価結果がどれも正しくない場合にのみブロック内のコードが実行されます。「</span><span
+                                class="c10">else</span><span class="c0">」は無くても構いません。</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">(3)「else if」：</span></p>
+                        <p class="c6"><span>振り分ける条件が複数となる場合は、サンプルのように「</span><span
+                                class="c10">if</span><span>」と「</span><span
+                                class="c10">else</span><span>」の間に「</span><span class="c10">else
+                                if</span><span>」を挟んで使用することが可能です。「</span><span class="c10">if</span><span>」や「</span><span
+                                class="c10">else if</span><span
+                                class="c0">」の各条件式に複数当てはまる場合は、上から評価して最初に当てはまったブロックのみ実行されます。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（doGetメソッドに追記）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c1">intVariable</span><span class="c1"> = </span><span
+                class="c13">5</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c1">message = </span><span class="c8">String</span><span
+                class="c1">.</span><span class="c4">format</span><span class="c1">(</span><span
+                class="c7">&quot;intVariable「%s」は、&quot;</span><span class="c32 c33">, intVariable);</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c5">if</span><span class="c1"> (</span><span
+                class="c1">intVariable</span><span class="c1"> == </span><span class="c13">5</span><span
+                class="c32 c33">) {</span></p>
+        <p class="c2"><span>‥‥‥‥‥‥</span><span class="c1">message = message + </span><span
+                class="c7">&quot;5と等しいです。&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c1">} </span><span class="c5">else</span><span class="c1">
+            </span><span class="c5">if</span><span class="c1"> (</span><span class="c1">intVariable</span><span
+                class="c1"> &lt; </span><span class="c13">5</span><span class="c32 c33">) {</span></p>
+        <p class="c2"><span>‥‥‥‥‥‥</span><span class="c1">message = message + </span><span
+                class="c7">&quot;5未満です。&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c1">} </span><span class="c5">else</span><span class="c1">
+            </span><span class="c5">if</span><span class="c1"> ((</span><span class="c1">intVariable</span><span
+                class="c1"> &gt;= </span><span class="c13">6</span><span class="c1">) &amp;&amp; (</span><span
+                class="c1">intVariable</span><span class="c1"> &lt; </span><span class="c13">10</span><span
+                class="c32 c33">)) {</span></p>
+        <p class="c2"><span>‥‥‥‥‥‥</span><span class="c1">message = message + </span><span
+                class="c7">&quot;6以上10未満です。&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c1">} </span><span class="c5">else</span><span class="c1">
+            </span><span class="c5">if</span><span class="c1"> ((</span><span class="c1">intVariable</span><span
+                class="c1"> &gt;= </span><span class="c13">2</span><span class="c1">) &amp;&amp; (</span><span
+                class="c1">intVariable</span><span class="c1"> &lt; </span><span class="c13">8</span><span
+                class="c32 c33">)) {</span></p>
+        <p class="c2"><span>‥‥‥‥‥‥</span><span class="c22 c29">// 上の条件式が先に評価されるため、ここは絶対実行されない。</span></p>
+        <p class="c2"><span>‥‥‥‥‥‥</span><span class="c1">message = message + </span><span
+                class="c7">&quot;2以上8未満です。&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c1">} </span><span class="c5">else</span><span class="c32 c33">
+                {</span></p>
+        <p class="c2"><span>‥‥‥‥‥‥</span><span class="c1">message = message + </span><span
+                class="c7">&quot;10以上です。&quot;</span><span class="c3 c1">;</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c32 c33">}</span></p>
+        <p class="c2"><span>‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c1">(message).</span><span class="c4">append</span><span
+                class="c32 c33">(HTML_HORIZONTAL_RULE);</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 297.00px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/4SflYjqxCqszloNRE-xcSFXRMZArsF7rdcwrDzF2PdvSLFmNwVooE-sjrudvO1zMYMmSbCRi54J36UPDwnFFNUvhTLT0SNGiptvG8ctOymsf8MGYVDcplJLKlzAlrjrMSkyrXrWY"
+                    style="width: 297.00px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 293.40px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/fmLYOrPT65Xq_laX8nU2MjUuhAcVWafXXu4mce16w0swXj-EhHdf2C82rktyxCA03AvbQrHp8LH019rX4LVxTnnwAq4NP69UPwqg2gILiPQjGeYAUzlKnz9iVOVlvjxrXIflsG8q"
+                    style="width: 293.40px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span>条件式内で使用している「</span><span>&amp;&amp;</span><span
+                class="c0">（アンパサンド2つ）」は、「AND（かつ）」を表します。条件式が「(A &amp;&amp;
+                B)」の場合、「A」と「B」が両方trueならば条件式の結果はtrue、いずれかもしくは両方falseならば条件式の結果はfalseとなります。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span>「OR（もしくは）」を表す場合には「</span><span>||</span><span class="c0">（バー2つ）」を使用します。条件式が「(A ||
+                B)」の場合、「A」と「B」のいずれかもしくは両方trueならば条件式の結果はtrue、両方falseならば条件式の結果はfalseとなります。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.mq9jgpj9qw16"><span class="c16 c14">2.</span></h3>
+        <p class="c6"><span>比較を行う際に使用している「</span><span class="c10">&lt;</span><span>」「</span><span
+                class="c10">&gt;=</span><span>」「</span><span class="c10">==</span><span>」などの記号を「</span><span
+                class="c12">比較演算子</span><span
+                class="c0">」といいます。読み方と意味はそれぞれ以下の通りです。intVariableの値を変えて全てのメッセージが出るように試してみましょう。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p><a id="t.e716be7fdd71461ea46a0de6dae5cf806020cfc7"></a><a
+            id="t.4"></a>
+        <table class="c9">
+            <tbody>
+                <tr class="c38">
+                    <td class="c34" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c14">(1) 「==」： </span><span>イコール。左辺と右辺が</span><span
+                                class="c12">等しい</span><span class="c0">かどうか。代入と区別するために2つ重ねます。</span></p>
+                        <p class="c6"><span class="c14">(2) 「!=」： </span><span>ノットイコール。左辺と右辺が</span><span
+                                class="c12">等しくない</span><span class="c0">かどうか。</span></p>
+                        <p class="c6"><span class="c14">(3) 「&lt;」： </span><span>小なり。左辺が右辺</span><span
+                                class="c12">未満</span><span class="c0">かどうか。</span></p>
+                        <p class="c6"><span class="c14">(4) 「&gt;」： </span><span>大なり。左辺が右辺を</span><span
+                                class="c12">超過</span><span class="c0">しているかどうか。</span></p>
+                        <p class="c6"><span class="c14">(5) 「&lt;=」： </span><span>小なりイコール。左辺が右辺</span><span
+                                class="c12">以下</span><span class="c0">かどうか。</span></p>
+                        <p class="c6"><span class="c14">(6) 「&gt;=」： </span><span>大なりイコール。左辺が右辺</span><span
+                                class="c12">以上</span><span class="c0">かどうか。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 284.15px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/szE58LAq5rIjqzh0aP_J1drsywrfb_JSCnjgarBofbXfAVPg5EMbhEjHukCWhp7qlKKzSR9pFqDG1wIhSoTM78e1u8ETQqTwK_2hjKkL9iRlmfpKAIam6Uxv0ldDNnsegddsJOeX"
+                    style="width: 284.15px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.soqa8u2femhw"><span class="c16 c14">3.</span></h3>
+        <p class="c6"><span
+                class="c0">この比較演算子で比較できるのは基本型のみです。つまり、文字列を比較する際には使えません。文字列の比較を行う場合には、次のサンプルコードのようにします。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c14">＜ポイント＞</span></p><a id="t.ff3b77658543d98c48a757e2f9fd19a901b44705"></a><a
+            id="t.5"></a>
+        <table class="c9">
+            <tbody>
+                <tr class="c38">
+                    <td class="c34" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c3 c28 c14">(1)</span></p>
+                        <p class="c6"><span>1つ目のif文では、stringVariableが「ねこ」と等しいか判定しています。また、2つ目のif文では、「</span><span
+                                class="c10">!</span><span
+                                class="c0">」という否定を意味する演算子を用いて、「いぬ」と等しくないか判定しています。どちらも正しいという結果となるため、両方のif文のブロックの中身が実行されます。</span>
+                        </p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">(2)</span></p>
+                        <p class="c6"><span>「</span><span class="c10">message +=
+                                &quot;ねこ&quot;</span><span>」は、「</span><span class="c10">message = message +
+                                &quot;ねこ&quot;</span><span class="c0">」と同じ意味となります。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（doGetメソッドに追記）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c1">‥‥‥‥stringVariable = </span><span class="c7">&quot;ねこ&quot;</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥message = </span><span class="c8">String</span><span class="c1">.</span><span
+                class="c4">format</span><span class="c1">(</span><span
+                class="c7">&quot;stringVariable「%s」は、&quot;</span><span class="c32 c33">, stringVariable);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">if</span><span class="c1"> (</span><span
+                class="c8">stringVariable</span><span class="c1">.</span><span class="c4">equals</span><span
+                class="c1">(</span><span class="c7">&quot;ねこ&quot;</span><span class="c32 c33">)) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥message += </span><span class="c7">&quot;ねこです。&quot;</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span class="c3 c1">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">if</span><span class="c1"> (!</span><span
+                class="c8">stringVariable</span><span class="c1">.</span><span class="c4">equals</span><span
+                class="c1">(</span><span class="c7">&quot;いぬ&quot;</span><span class="c32 c33">)) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥message += </span><span class="c7">&quot;いぬではありません。&quot;</span><span
+                class="c3 c1">;</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c1">(message).</span><span class="c4">append</span><span
+                class="c32 c33">(HTML_HORIZONTAL_RULE);</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c3 c28 c14">＜ここまでの実行結果＞</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 673.00px; height: 479.00px;"><img
+                    alt=""
+                    src="https://lh4.googleusercontent.com/fGeR1lhn-xxAfwwP7kJcjhpO0uJCHyisOPXmzFTAB2FIRZEovGCRH8GXTAR3GEfM7raX-jB6vxlOpi_lTgNRX8eRo4pYqBIcgcUNbN0xoJsJuZhaT4GjBEJkM2AgnzTJK9Ah0xSH"
+                    style="width: 673.00px; height: 479.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h1 class="c11" id="h.xfh6pc7te6a6"><span class="c37 c28 c14">3-7 関数、スコープ、引数</span></h1>
+        <h3 class="c6 c21" id="h.lr5vpj1xbgee"><span class="c16 c14">1.</span></h3>
+        <p class="c6"><span class="c0">プログラムを書く上で、以下を心掛ける必要があります。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c14">(1)</span><span class="c0"> だらだらと長く書かない。見通しが悪いとバグに気が付きにくくなります。</span></p>
+        <p class="c6"><span class="c14">(2)</span><span class="c0">
+                同じことを２回以上書かない。修正や変更がその分だけ増えてしまい、直し忘れなどにつながります。</span></p>
+        <p class="c6"><span class="c14">(3)</span><span class="c0"> 似たような処理は工夫して１つにまとめる。ちょっと違うだけで同じことを書くなんて無駄！</span>
+        </p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.matz4v60wzvx"><span class="c16 c14">2.</span></h3>
+        <p class="c6"><span>これらを実現するために「</span><span class="c12">関数</span><span
+                class="c0">」という仕組みがあります。プログラムコードの塊で、それを他のプログラムから呼び出すことで、「毎回同じ処理」を実行してくれます。また、「同じようだけど少し違う処理」をしたい場合は、関数を呼び出す際に「違う部分」を渡してあげることで、渡した内容に応じた処理をさせることが可能です。</span>
+        </p>
+        <p class="c6"><span class="c0">実は既に「クラスのメソッド」という形で「関数」を使用しています。このdoGetメソッドも実行すると毎回同じ処理をしてくれますよね？これが関数です。</span>
+        </p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span>今はこのdoGetメソッドに何でもかんでも詰め込んでしまっていますので、「</span><span class="c14">(1)</span><span
+                class="c0">だらだらと長く書かない」を解決するために、コードを塊ごとに区切った関数を作って、見通しが良くなるようにしてみましょう。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c14">＜ポイント＞</span></p><a id="t.ab6a93e0de61dc4e1746c26ce89402c18f1b3a61"></a><a
+            id="t.6"></a>
+        <table class="c9">
+            <tbody>
+                <tr class="c38">
+                    <td class="c34" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c3 c28 c14">(1) 関数呼出：</span></p>
+                        <p class="c6"><span>「</span><span class="c10">do_x_x_x_Procedure();</span><span
+                                class="c0">」が呼出部分です。定義と呼び出しは前後しても大丈夫です。サンプルコードでは「ブラウザに返す結果を書き込む領域(writer)」を渡しています。</span>
+                        </p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">(2) 関数定義：</span></p>
+                        <p class="c6"><span>関数を定義する際には「</span><span class="c10">private void
+                            </span><span>」に続けて関数名を命名しましょう（このprivateとvoidについてはこの先の章で解説します）。そして、関数名に続けて丸括弧を書き、その中に関数で使うものをどのような「型・変数名」で呼び出し元から受け取るかを明示します。「</span><span
+                                class="c10">{ ～ }</span><span class="c0">」でくくった部分が関数の本体となります。</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">(3) 変数定義：</span></p>
+                        <p class="c6"><span
+                                class="c0">変数は、定義した関数内でのみ使用できます。そのため、「message」「stringVariable」「intVariable」の各変数は、使っている関数ごとに定義・初期化する必要があります。</span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（doGetメソッドの中身を置き換え）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8 c26">response</span><span class="c1 c26">.</span><span
+                class="c4 c26">setContentType</span><span class="c1 c26">(</span><span class="c7 c26">&quot;text/html;
+                charset=UTF-8&quot;</span><span class="c1 c26">);</span><sup class="c1"><a href="#ftnt11"
+                    id="ftnt_ref11">[11]</a></sup></p>
+        <p class="c2"><span class="c1 c26">‥‥‥‥</span><span class="c19">PrintWriter</span><span class="c8 c26"> writer
+            </span><span class="c1 c26">= </span><span class="c8 c26">response</span><span class="c1 c26">.</span><span
+                class="c4 c26">getWriter</span><span class="c32 c33 c26">();</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c4 c26">do_3_4_1_Procedure</span><span
+                class="c1 c26">(writer);</span><sup class="c1"><a href="#ftnt12" id="ftnt_ref12">[12]</a></sup></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c4">do_3_5_2_Procedure</span><span
+                class="c32 c33">(writer);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c4">do_3_5_3_Procedure</span><span
+                class="c32 c33">(writer);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c4">do_3_6_1_Procedure</span><span
+                class="c32 c33">(writer);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c4">do_3_6_3_Procedure</span><span
+                class="c32 c33">(writer);</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（IndexControllerクラスの最後に追記）</span></p>
+        <p class="c6 c24"><span class="c3 c28 c14"></span></p>
+        <p class="c2"><span class="c1">‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">void</span><span class="c1"> </span><span class="c4">do_3_4_1_Procedure</span><span
+                class="c1">(</span><span class="c27">PrintWriter</span><span class="c1"> writer) {</span><sup
+                class="c1"><a href="#ftnt13" id="ftnt_ref13">[13]</a></sup></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c27">String</span><span class="c8"> message </span><span
+                class="c1">= </span><span class="c7">&quot;こんにちは&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c32 c33">(message);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c32 c33">(HTML_LINE_BREAK);</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥message = MESSAGE_EVENING;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c32 c33">(message);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c32 c33">(HTML_LINE_BREAK);</span></p>
+        <p class="c2"><span class="c3 c1">‥‥‥‥message = MESSAGE_MORNING;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c32 c33">(message);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c32 c33">(HTML_HORIZONTAL_RULE);</span></p>
+        <p class="c2"><span class="c32 c33">‥‥}</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span class="c1">‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">void</span><span class="c1"> </span><span class="c4">do_3_5_2_Procedure</span><span
+                class="c1">(</span><span class="c27">PrintWriter</span><span class="c1"> writer) {</span><sup
+                class="c1"><a href="#ftnt14" id="ftnt_ref14">[14]</a></sup></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c27">String</span><span class="c8"> </span><span
+                class="c8">stringVariable</span><span class="c8"> </span><span class="c1">= </span><span
+                class="c7">&quot;&quot;</span><span class="c3 c1">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥stringVariable = </span><span class="c7">&quot;あ&quot;</span><span
+                class="c1"> + </span><span class="c7">&quot;い&quot;</span><span class="c1"> + </span><span
+                class="c7">&quot;う&quot;</span><span class="c1"> + </span><span class="c7">&quot;え&quot;</span><span
+                class="c1"> + </span><span class="c7">&quot;お&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c32 c33">(stringVariable);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c32 c33">(HTML_LINE_BREAK);</span></p>
+        <p class="c2"><span class="c32 c33">‥‥}</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span class="c1">‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">void</span><span class="c1"> </span><span class="c4">do_3_5_3_Procedure</span><span
+                class="c1">(</span><span class="c27">PrintWriter</span><span class="c1"> writer) {</span><sup
+                class="c1"><a href="#ftnt15" id="ftnt_ref15">[15]</a></sup></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">int</span><span class="c8"> </span><span
+                class="c8">intVariable</span><span class="c8"> </span><span class="c1">= </span><span
+                class="c13">0</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥intVariable = </span><span class="c13">50</span><span class="c1"> +
+            </span><span class="c13">50</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c1">(</span><span class="c8">String</span><span
+                class="c1">.</span><span class="c4">format</span><span class="c1">(</span><span
+                class="c7">&quot;今のintVariableの内容は[%s]です。&quot;</span><span class="c32 c33">, intVariable));</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c32 c33">(HTML_LINE_BREAK);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c1">intVariable</span><span class="c1"> = </span><span
+                class="c1">intVariable</span><span class="c1"> - </span><span class="c13">60</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c1">(</span><span class="c8">String</span><span
+                class="c1">.</span><span class="c4">format</span><span class="c1">(</span><span
+                class="c7">&quot;今のintVariableの内容は[%s]です。&quot;</span><span class="c32 c33">, intVariable));</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c3 c1">(HTML_LINE_BREAK);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c1">intVariable</span><span class="c1"> = </span><span
+                class="c1">intVariable</span><span class="c1"> * </span><span class="c13">5</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c1">(</span><span class="c8">String</span><span
+                class="c1">.</span><span class="c4">format</span><span class="c1">(</span><span
+                class="c7">&quot;今のintVariableの内容は[%s]です。&quot;</span><span class="c32 c33">, intVariable));</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c32 c33">(HTML_LINE_BREAK);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c1">intVariable</span><span class="c1"> = </span><span
+                class="c1">intVariable</span><span class="c1"> / </span><span class="c13">20</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c1">(</span><span class="c8">String</span><span
+                class="c1">.</span><span class="c4">format</span><span class="c1">(</span><span
+                class="c7">&quot;今のintVariableの内容は[%s]です。&quot;</span><span class="c32 c33">, intVariable));</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c32 c33">(HTML_HORIZONTAL_RULE);</span></p>
+        <p class="c2"><span class="c32 c33">‥‥}</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span class="c1">‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">void</span><span class="c1"> </span><span class="c4">do_3_6_1_Procedure</span><span
+                class="c1">(</span><span class="c27">PrintWriter</span><span class="c1"> writer) {</span><sup
+                class="c1"><a href="#ftnt16" id="ftnt_ref16">[16]</a></sup></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">int</span><span class="c8"> </span><span
+                class="c8">intVariable</span><span class="c8"> </span><span class="c1">= </span><span
+                class="c13">5</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c27">String</span><span class="c8"> message </span><span
+                class="c1">= </span><span class="c8">String</span><span class="c1">.</span><span
+                class="c4">format</span><span class="c1">(</span><span
+                class="c7">&quot;intVariable「%s」は、&quot;</span><span class="c32 c33">, intVariable);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">if</span><span class="c1"> (</span><span
+                class="c1">intVariable</span><span class="c1"> == </span><span class="c13">5</span><span class="c3 c1">)
+                {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥message = message + </span><span
+                class="c7">&quot;5と等しいです。&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">else</span><span class="c1"> </span><span
+                class="c5">if</span><span class="c1"> (</span><span class="c1">intVariable</span><span class="c1"> &lt;
+            </span><span class="c13">5</span><span class="c32 c33">) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥message = message + </span><span class="c7">&quot;5未満です。&quot;</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">else</span><span class="c1"> </span><span
+                class="c5">if</span><span class="c1"> ((</span><span class="c1">intVariable</span><span class="c1">
+                &gt;= </span><span class="c13">6</span><span class="c1">) &amp;&amp; (</span><span
+                class="c1">intVariable</span><span class="c1"> &lt; </span><span class="c13">10</span><span
+                class="c32 c33">)) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥message = message + </span><span
+                class="c7">&quot;6以上10未満です。&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">else</span><span class="c1"> </span><span
+                class="c5">if</span><span class="c1"> ((</span><span class="c1">intVariable</span><span class="c1">
+                &gt;= </span><span class="c13">2</span><span class="c1">) &amp;&amp; (</span><span
+                class="c1">intVariable</span><span class="c1"> &lt; </span><span class="c13">8</span><span
+                class="c32 c33">)) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥</span><span class="c22 c29">// 上の条件式が先に評価されるため、ここは絶対実行されない。</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥message = message + </span><span
+                class="c7">&quot;2以上8未満です。&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">else</span><span class="c32 c33"> {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥message = message + </span><span class="c7">&quot;10以上です。&quot;</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c1">(message).</span><span class="c4">append</span><span
+                class="c32 c33">(HTML_HORIZONTAL_RULE);</span></p>
+        <p class="c2"><span class="c32 c33">‥‥}</span></p>
+        <p class="c2 c24"><span class="c3 c1"></span></p>
+        <p class="c2"><span class="c1">‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">void</span><span class="c1"> </span><span class="c4">do_3_6_3_Procedure</span><span
+                class="c1">(</span><span class="c27">PrintWriter</span><span class="c1"> writer) {</span><sup
+                class="c1"><a href="#ftnt17" id="ftnt_ref17">[17]</a></sup></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c27">String</span><span class="c8"> stringVariable
+            </span><span class="c1">= </span><span class="c7">&quot;ねこ&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c27">String</span><span class="c8"> message </span><span
+                class="c1">= </span><span class="c8">String</span><span class="c1">.</span><span
+                class="c4">format</span><span class="c1">(</span><span
+                class="c7">&quot;stringVariable「%s」は、&quot;</span><span class="c32 c33">, stringVariable);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">if</span><span class="c1"> (</span><span
+                class="c8">stringVariable</span><span class="c1">.</span><span class="c4">equals</span><span
+                class="c1">(</span><span class="c7">&quot;ねこ&quot;</span><span class="c32 c33">)) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥message += </span><span class="c7">&quot;ねこです。&quot;</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">if</span><span class="c1"> (!</span><span
+                class="c8">stringVariable</span><span class="c1">.</span><span class="c4">equals</span><span
+                class="c1">(</span><span class="c7">&quot;いぬ&quot;</span><span class="c32 c33">)) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥message += </span><span class="c7">&quot;いぬではありません。&quot;</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c1">(message).</span><span class="c4">append</span><span
+                class="c32 c33">(HTML_HORIZONTAL_RULE);</span></p>
+        <p class="c2"><span class="c32 c33">‥‥}</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 292.52px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/dtf-1Bf6zUICzEFyUaOZxQtkZCEH8fDfkAuQyMo4vHag53dVofDL8VCqSmrUZEjP9SNQiwox6CqHHM2-AeQqwUTguKZ04YZrModOGGpZHO6yz-LBXZHw8BKO4XyDCQsFNjCJWfdd"
+                    style="width: 292.52px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.7ovt1oev62b8"><span class="c16 c14">3.</span></h3>
+        <p class="c6"><span>これで、</span><span class="c12 c20"><a class="c23" href="#h.soqa8u2femhw">3-6-3</a></span><span
+                class="c0">までの表示内容と全く同じになっていれば、関数に切り出す整理が成功です！</span></p>
+        <p class="c6"><span class="c0">どうでしょうか、プログラムが塊となって名前も付くため、doGet内がかなりきれいになりましたよね？</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span
+                class="c0">今までと比べて修正量が多くなってきました。多くの修正を連続して行うと、どこで間違えたのかがわからなくなってしまいますので、最初は少しずつ修正・保存して、ブラウザで動作確認しながら進めましょう。</span>
+        </p>
+        <p class="c6"><span>また、間違いに気づいたときには、さらにそこを手で修正し直すのではなく、ショートカット「</span><span class="c12">Ctrl + z</span><span
+                class="c0">」を何度か押して前の状態にさかのぼることで、確実に動いていたところから再度修正を行いましょう。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.24bq1kubzh4e"><span class="c16 c14">4.</span></h3>
+        <p class="c6"><span>次は「</span><span class="c14">(2) </span><span>同じことを２回以上書かない」を解決してみましょう。次のサンプルでは、</span><span
+                class="c12 c20"><a class="c23" href="#h.fgx617gms93d">3-5-3</a></span><span>で繰り返している「</span><span
+                class="c10">String.format(&quot;今のintVariableの内容は[%s]です。&quot;, intVariable)</span><span
+                class="c0">」を関数化します。intVariableの内容を表示させるための文字列を作り出す関数となります。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c14">＜ポイント＞</span></p><a id="t.4fe32a587ee690bf00f841105ce10b05714d23fa"></a><a
+            id="t.7"></a>
+        <table class="c9">
+            <tbody>
+                <tr class="c38">
+                    <td class="c34" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c3 c28 c14">(1) スコープ：</span></p>
+                        <p class="c6"><span>今回作成する関数の中では、「</span><span
+                                class="c10">intVariable</span><span>」という変数を使っていますが、この変数は「</span><span
+                                class="c10">do_3_5_3_Procedure</span><span>」の中で定義・代入されており、定義された関数の中でしか使うことができません。これを変数の「</span><span
+                                class="c12">スコープ</span><span class="c0">」といいます。</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">(2) 引数：</span></p>
+                        <p class="c6"><span>スコープの外にある関数へ必要な値を渡すための仕組みを「</span><span class="c12">引数</span><span
+                                class="c0">」といいます。</span></p>
+                        <p class="c6"><span>関数名に続く丸括弧の中に、</span><span
+                                class="c12">受け取る引数を格納する変数名とその型</span><span>を書くことで引数を定義できます。</span><span
+                                class="c12">引数は呼び出し元と同じ名前でなくて構いません</span><span class="c0">。</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">(3) 戻り値：</span></p>
+                        <p class="c6"><span>今まで関数定義の際に「void」と書いていた位置に「String」と書かれていますね。これによって、</span><span
+                                class="c12">関数を実行した結果として文字列を返却する</span><span class="c0">ということを示しています。</span></p>
+                        <p class="c6">
+                            <span>今までは何も返さないため、「void（空っぽ）」を指定していたのです。「返却」するには、「return」というキーワードに続けて返す値を書きましょう。この返す値を「</span><span
+                                class="c12">戻り値</span><span class="c0">」といいます。戻り値には変数でも、サンプルのように式の結果を直接返しても構いません。</span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（IndexControllerクラスの最後に追記）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c1">‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c27">String</span><span class="c1"> </span><span class="c4">dumpIntVariable</span><span
+                class="c1">(</span><span class="c5">int</span><span class="c3 c1"> intVariable) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">return</span><span class="c1"> </span><span
+                class="c8">String</span><span class="c1">.</span><span class="c4">format</span><span
+                class="c1">(</span><span class="c7">&quot;今のintVariableの内容は[%s]です。&quot;</span><span class="c32 c33">,
+                intVariable);</span></p>
+        <p class="c2"><span class="c3 c1">‥‥}</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（呼び出し側、do_3_5_3_Procedure の４箇所を置き換え）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c1">(</span><span class="c4">dumpIntVariable</span><span
+                class="c1">(</span><span class="c1">intVariable</span><span class="c32 c33">));</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.863sgule1ph7"><span class="c16 c14">5.</span></h3>
+        <p class="c6"><span
+                class="c0">この部分だけ見てしまうとコードの量は増えていますが、固定文字列への変数展開など、バグの発生や修正の対象となり得る箇所が４分の１に集約されています。プログラム全体でこれを行うことで、結果としては効率化や安全化が進むのです。</span>
+        </p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.opzsaaip1tzq"><span class="c16 c14">6.</span></h3>
+        <p class="c6"><span>では最後に「</span><span class="c14">(3) </span><span
+                class="c0">似たような処理は工夫して１つにまとめる」です。「writer.append()」に注目してみると、文字列をappendした後に、必ず「&lt;br&gt;」や「&lt;hr&gt;」をappendしています。この違いを引数で吸収して、ひとつの関数で実現できるようにしてみましょう。サンプルコード2つ目は、自分で置き換える場所を見つけてみてください。</span>
+        </p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c14">＜ポイント＞</span></p><a id="t.02cee9c1daf8ded4d763d0b013b85b3c4b54be56"></a><a
+            id="t.8"></a>
+        <table class="c9">
+            <tbody>
+                <tr class="c38">
+                    <td class="c34" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c3 c28 c14">(1) 関数仕様：</span></p>
+                        <p class="c6"><span
+                                class="c0">第1引数のwriterに第2引数のmessageをappendします。その際に第3引数のisSectionEndでセクションの終了かどうかを判定し、trueならば「&lt;hr&gt;」をappend、falseならば「&lt;br&gt;」を続けてappendします。</span>
+                        </p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">(2) 三項演算子：</span></p>
+                        <p class="c6"><span>変数「separator」に代入している式は見たことのない形をしていますが、</span><span
+                                class="c12">三項演算子</span><span>といって、「</span><span class="c10">代入先の変数 = 条件式 ? trueの場合の代入値
+                                : falseの場合の代入値</span><span class="c0">」という形式で、本来はif文で数行の処理を1行の式で行ってしまう構文です。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（IndexControllerクラスの最後に追記）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c1">‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">void</span><span class="c1"> </span><span class="c4">appendMessage</span><span
+                class="c1">(</span><span class="c27">PrintWriter</span><span class="c1"> writer, </span><span
+                class="c27">String</span><span class="c1"> message, </span><span class="c5">boolean</span><span
+                class="c32 c33"> isSectionEnd) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c27">String</span><span class="c8"> separator
+            </span><span class="c1">= isSectionEnd </span><span class="c5">?</span><span class="c1">
+                HTML_HORIZONTAL_RULE </span><span class="c5">:</span><span class="c3 c1"> HTML_LINE_BREAK;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c8">writer</span><span class="c1">.</span><span
+                class="c4">append</span><span class="c1">(message).</span><span class="c4">append</span><span
+                class="c32 c33">(separator);</span></p>
+        <p class="c2"><span class="c32 c33">‥‥}</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（各呼び出し箇所の修正）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c22 c29">//
+                messageをappendして、HTML_LINE_BREAKをappendしているところ</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c4">appendMessage</span><span class="c1">(writer,
+                message, </span><span class="c13">false</span><span class="c32 c33">);</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c22 c29">//
+                messageをappendして、HTML_HORIZONTAL_RULEをappendしているところ</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c4">appendMessage</span><span class="c1">(writer,
+                message, </span><span class="c13">true</span><span class="c32 c33">);</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c22 c29">// dumpIntVariableを使っているところ</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c4">appendMessage</span><span class="c1">(writer,
+            </span><span class="c4">dumpIntVariable</span><span class="c1">(intVariable), </span><span
+                class="c13">false</span><span class="c32 c33">);</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.che7ezw5mkwp"><span class="c16 c14">7.</span></h3>
+        <p class="c6"><span>長大なコードを関数に分割し、同じコードは1つにまとめ、似たような処理は引数で吸収したことによって、</span><span class="c12 c20"><a class="c23"
+                    href="#h.soqa8u2femhw">3-6-3</a></span><span
+                class="c0">のコードと比べて見通しが良く無駄がなくなりましたね！しかし、整理されたコードを書くということはとても難しく、そればかり考えていると手が進みません。最初はどんどん書いて動かしてみるようにしましょう。そして必ず、一段落付いた時点でコードを振り返って整理することを忘れないでください。</span>
+        </p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h1 class="c11" id="h.sx8jw2mja1pp"><span class="c37 c28 c14">3-8 配列、ループ</span></h1>
+        <h3 class="c6 c21" id="h.y01frpvulwni"><span class="c16 c14">1.</span></h3>
+        <p class="c6"><span>ここまででかなりプログラムが効率的で安全になってきました。しかし、</span><span class="c10">do_3_6_1_procedure</span><span>
+                を見てみるとintVariableがどのような数値であるかチェックするプログラムとなっていますが、同じ関数内でチェックする対象の数値を「5」で固定しています。せっかくなので、引数でチェック対象の数値を受け取る関数を作り、「1」～「12」までの数値を「</span><span
+                class="c12">配列</span><span>」に入れて、「</span><span class="c12">ループ</span><span
+                class="c0">」を使ってすべてチェックするようにしてみましょう。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.6trszq5zhsrd"><span class="c16 c14">2.</span></h3>
+        <p class="c6"><span>まずは</span><span class="c10">do_3_6_1_procedure</span><span class="c0">
+                の処理を次のように新しい関数に移動しましょう。修正前と後で同じ結果がブラウザに表示されることを確認してください。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（IndexControllerクラスの最後に追記）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c1">‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c27">String</span><span class="c1"> </span><span class="c4">checkIntVariable</span><span
+                class="c1">(</span><span class="c5">int</span><span class="c32 c33"> intVariable) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c27">String</span><span class="c8"> message </span><span
+                class="c1">= </span><span class="c8">String</span><span class="c1">.</span><span
+                class="c4">format</span><span class="c1">(</span><span
+                class="c7">&quot;intVariable「%s」は、&quot;</span><span class="c32 c33">, intVariable);</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">if</span><span class="c1"> (</span><span
+                class="c1">intVariable</span><span class="c1"> == </span><span class="c13">5</span><span
+                class="c32 c33">) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥message = message + </span><span
+                class="c7">&quot;5と等しいです。&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">else</span><span class="c1"> </span><span
+                class="c5">if</span><span class="c1"> (</span><span class="c1">intVariable</span><span class="c1"> &lt;
+            </span><span class="c13">5</span><span class="c3 c1">) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥message = message + </span><span class="c7">&quot;5未満です。&quot;</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">else</span><span class="c1"> </span><span
+                class="c5">if</span><span class="c1"> ((</span><span class="c1">intVariable</span><span class="c1">
+                &gt;= </span><span class="c13">6</span><span class="c1">) &amp;&amp; (</span><span
+                class="c1">intVariable</span><span class="c1"> &lt; </span><span class="c13">10</span><span
+                class="c32 c33">)) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥message = message + </span><span
+                class="c7">&quot;6以上10未満です。&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">else</span><span class="c1"> </span><span
+                class="c5">if</span><span class="c1"> ((</span><span class="c1">intVariable</span><span class="c1">
+                &gt;= </span><span class="c13">2</span><span class="c1">) &amp;&amp; (</span><span
+                class="c1">intVariable</span><span class="c1"> &lt; </span><span class="c13">8</span><span
+                class="c32 c33">)) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥</span><span class="c22 c29">// 上の条件式が先に評価されるため、ここは絶対実行されない。</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥message = message + </span><span
+                class="c7">&quot;2以上8未満です。&quot;</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">else</span><span class="c32 c33"> {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥message = message + </span><span class="c7">&quot;10以上です。&quot;</span><span
+                class="c32 c33">;</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">return</span><span class="c32 c33"> message;</span>
+        </p>
+        <p class="c2"><span class="c32 c33">‥‥}</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（do_3_6_1_procedure）</span></p>
+        <p class="c6 c24"><span class="c3 c28 c14"></span></p>
+        <p class="c2"><span class="c1">‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">void</span><span class="c1"> </span><span class="c4">do_3_6_1_Procedure</span><span
+                class="c1">(</span><span class="c27">PrintWriter</span><span class="c32 c33"> writer) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">int</span><span class="c8"> </span><span
+                class="c8">intVariable</span><span class="c8"> </span><span class="c1">= </span><span
+                class="c13">5</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c4">appendMessage</span><span class="c1">(writer,
+            </span><span class="c4">checkIntVariable</span><span class="c1">(</span><span
+                class="c1">intVariable</span><span class="c1">), </span><span class="c13">true</span><span
+                class="c32 c33">);</span></p>
+        <p class="c2"><span class="c32 c33">‥‥}</span></p>
+        <p class="c6"><span class="c0"> </span></p>
+        <h3 class="c6 c21" id="h.h2ovau3vhl19"><span class="c16 c14">3.</span></h3>
+        <p class="c6"><span>次に配列を学びましょう。次の関数を追加してブラウザで結果を確認してみると、</span><span class="c10">do_3_6_1_procedure</span><span
+                class="c0"> と全く同じ結果となります。intArrayの5番目に入れた数字をチェックしているのです。</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c14">＜ポイント＞</span></p><a id="t.360e0d9ef5078818005c5432b24b5df7efce169d"></a><a
+            id="t.9"></a>
+        <table class="c9">
+            <tbody>
+                <tr class="c38">
+                    <td class="c34" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c3 c28 c14">(1) 配列：</span></p>
+                        <p class="c6"><span>配列とは、「</span><span
+                                class="c12">番号の付いた箱がいくつも連なっていて、その箱一つ一つが変数</span><span>」であるとイメージしましょう（下図参照）。その箱を配列の「</span><span
+                                class="c12">要素</span><span class="c0">」と呼びます。</span></p>
+                        <p class="c6"><span>定義する際には要素の型に「</span><span
+                                class="c10">[]</span><span>」を付け、基本型の場合は「</span><span class="c10">int[]
+                                arrayName</span><span>」、参照型も同様に「</span><span class="c10">String[]
+                                arrayName</span><span>」「</span><span class="c10">LocalDate[] arrayName</span><span
+                                class="c0">」のようにします。</span></p>
+                        <p class="c6"><span>初期化する際には要素数を指定する必要があるため、「</span><span class="c10">new
+                                String[3]</span><span>」のようにし、各要素の中身が決まっている場合には「</span><span class="c10">new String[]
+                                {&quot;あ&quot;, &quot;い&quot;, &quot;う&quot;}</span><span class="c0">」とします。</span></p>
+                        <p class="c6"><span>なお、この場合には「</span><span class="c10">{&quot;あ&quot;, &quot;い&quot;,
+                                &quot;う&quot;}</span><span class="c0">」として省略することが可能です。</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">(2) 配列の添字：</span></p>
+                        <p class="c6"><span>配列の各要素へ値を代入する際は、「</span><span class="c10">intArray[0] =
+                                1</span><span>」のようにします。各要素の値を取得する場合は、同じように「</span><span class="c10">int firstElement =
+                                intArray[0]</span><span class="c0">」のようにします。</span></p>
+                        <p class="c6"><span class="c30 c12 c44">この角括弧の中に入れる番号を配列の「添字」といい、0からスタートします。</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">(3) 配列の長さ：</span></p>
+                        <p class="c6"><span>配列の要素数は配列の長さともいい、「</span><span class="c10">変数名.length</span><span
+                                class="c0">」で取得できます。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 930.52px; height: 305.33px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/ZHnCBRxJDOs3MrfhB-eFcro94RiyIzz3Gz-hct63udjOK1JNBDy8_V2aX2LQSm3nvtsEgkRUxMDN3GoUw341p-s06BlOVFz2LHRwzxr3sZ_OuDM6y2zDigyOsZaHV1UngBYx16Bx"
+                    style="width: 930.52px; height: 305.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（IndexControllerクラスの最後に追記）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c1">‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">void</span><span class="c1"> </span><span class="c4">doLoopPractice</span><span
+                class="c1">(</span><span class="c27">PrintWriter</span><span class="c32 c33"> writer) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c27">int</span><span class="c8">[] intArray </span><span
+                class="c1">= </span><span class="c5">new</span><span class="c1"> </span><span
+                class="c27">int</span><span class="c1">[] {</span><span class="c13">1</span><span class="c1">,
+            </span><span class="c13">2</span><span class="c1">, </span><span class="c13">3</span><span class="c1">,
+            </span><span class="c13">4</span><span class="c1">, </span><span class="c13">5</span><span class="c1">,
+            </span><span class="c13">6</span><span class="c1">, </span><span class="c13">7</span><span class="c1">,
+            </span><span class="c13">8</span><span class="c1">, </span><span class="c13">9</span><span class="c1">,
+            </span><span class="c13">10</span><span class="c1">, </span><span class="c13">11</span><span class="c1">,
+            </span><span class="c13">12</span><span class="c3 c1">};</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c4">appendMessage</span><span class="c1">(writer,
+            </span><span class="c4">checkIntVariable</span><span class="c1">(intArray[</span><span
+                class="c13">4</span><span class="c1">]), </span><span class="c13">true</span><span
+                class="c32 c33">);</span></p>
+        <p class="c2"><span class="c32 c33">‥‥}</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（doGetメソッドの最後に追記）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c4">doLoopPractice</span><span
+                class="c32 c33">(writer);</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <h3 class="c6 c21" id="h.bb015lz8mq8n"><span class="c16 c14">4.</span></h3>
+        <p class="c6"><span
+                class="c0">次のサンプルでは、この配列を使用してループ処理を行っています。「while文」「for文」「拡張for文」の３パターンで同じ処理を行っているため、3回全く同じ結果が表示されます。</span>
+        </p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c14">＜ポイント＞</span></p><a id="t.d06e534bf95d7066a9db3f12cc346201f9fe406e"></a><a
+            id="t.10"></a>
+        <table class="c9">
+            <tbody>
+                <tr class="c38">
+                    <td class="c34" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c3 c28 c14">(1) while文：</span></p>
+                        <p class="c6"><span>while文は、</span><span
+                                class="c12">丸括弧内の条件式がtrueの間、ブロック内の処理を繰り返し実行します</span><span class="c0">。</span></p>
+                        <p class="c6"><span>このサンプルでは、「</span><span
+                                class="c10">whileIndex</span><span>」が0～11の間（intArrayの要素数は12）の時に毎回「</span><span
+                                class="c10">checkIntVariable</span><span>」で「</span><span
+                                class="c10">intArray[whileIndex]</span><span>」の値をチェックして「</span><span
+                                class="c10">appendMessage</span><span>」によって画面出力させています。最後の「</span><span
+                                class="c10">whileIndex++</span><span>」を忘れると、「</span><span
+                                class="c10">whileIndex</span><span>」は0のままで永久にループするバグとなってしまうため注意が必要です。この「++」という演算子は「</span><span
+                                class="c12">インクリメント演算子</span><span>」と言い、「</span><span class="c10">whileIndex</span><span
+                                class="c0">」の値を1増加させます。</span></p>
+                        <p class="c6"><span>「</span><span class="c10">whileIndex = whileIndex + 1;</span><span
+                                class="c0">」の省略記法です。</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">(2) for文：</span></p>
+                        <p class="c6"><span class="c0">for文は、丸括弧内のセミコロン「;」で区切られた３つの処理がポイントになります。</span></p>
+                        <p class="c6"><span>仮に「</span><span class="c10">for ( A ; B ; C )</span><span
+                                class="c0">」と置き換えた場合・・・</span></p>
+                        <p class="c6"><span> ⇒</span><span class="c12">Aは一番最初に１回のみ実行</span><span class="c0">されます。</span>
+                        </p>
+                        <p class="c6"><span> ⇒</span><span class="c12">Bはwhile文の丸括弧内と同じ</span><span
+                                class="c0">です。</span></p>
+                        <p class="c6"><span> ⇒</span><span class="c12">Cはブロック内を実行した後、毎回実行</span><span
+                                class="c0">されます。</span></p>
+                        <p class="c6"><span class="c0">Indexの扱いに注目してwhile文と見比べるとわかりやすいですね！</span></p>
+                        <p class="c6 c24"><span class="c0"></span></p>
+                        <p class="c6"><span class="c3 c28 c14">(3) 拡張for文：</span></p>
+                        <p class="c6"><span>拡張for文は、配列内の各要素を順番に処理するための構文です。「</span><span class="c10">:</span><span
+                                class="c0">」の右側に指定した配列の各要素を、１つずつ左側に定義した変数に代入して、ブロック内を実行します。つまり、要素の数だけループすることとなります。</span>
+                        </p>
+                        <p class="c6"><span>「</span><span class="c10">intArray[forIndex]</span><span>」の代わりに「</span><span
+                                class="c10">element</span><span>」を「</span><span class="c10">checkIntVariable</span><span
+                                class="c0">」の引数へ渡していることに注目しましょう。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c14">サンプルコード：IndexController.java（IndexControllerクラスの最後に追記）</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c2"><span class="c1">‥‥</span><span class="c5">private</span><span class="c1"> </span><span
+                class="c5">void</span><span class="c1"> </span><span class="c4">doLoopPractice</span><span
+                class="c1">(</span><span class="c27">PrintWriter</span><span class="c32 c33"> writer) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c27">int</span><span class="c8">[] intArray </span><span
+                class="c1">= { </span><span class="c13">1</span><span class="c1">, </span><span
+                class="c13">2</span><span class="c1">, </span><span class="c13">3</span><span class="c1">, </span><span
+                class="c13">4</span><span class="c1">, </span><span class="c13">5</span><span class="c1">, </span><span
+                class="c13">6</span><span class="c1">, </span><span class="c13">7</span><span class="c1">, </span><span
+                class="c13">8</span><span class="c1">, </span><span class="c13">9</span><span class="c1">, </span><span
+                class="c13">10</span><span class="c1">, </span><span class="c13">11</span><span class="c1">,
+            </span><span class="c13">12</span><span class="c32 c33"> };</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">int</span><span class="c8"> </span><span
+                class="c8">lastIndex</span><span class="c8"> </span><span class="c1">= </span><span
+                class="c8">intArray</span><span class="c1">.</span><span class="c8">length</span><span class="c1"> -
+            </span><span class="c13">1</span><span class="c32 c33">;</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">int</span><span class="c8"> whileIndex </span><span
+                class="c1">= </span><span class="c13">0</span><span class="c32 c33">;</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">while</span><span class="c1"> (</span><span
+                class="c1">whileIndex</span><span class="c32 c33"> &lt;= lastIndex) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥</span><span class="c4">appendMessage</span><span class="c1">(writer,
+            </span><span class="c4">checkIntVariable</span><span class="c32 c33">(intArray[whileIndex]), (whileIndex ==
+                lastIndex));</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥‥‥whileIndex++;</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">for</span><span class="c1"> (</span><span
+                class="c5">int</span><span class="c8"> forIndex </span><span class="c1">= </span><span
+                class="c13">0</span><span class="c32 c33">; forIndex &lt;= lastIndex; forIndex++) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥</span><span class="c4">appendMessage</span><span class="c1">(writer,
+            </span><span class="c4">checkIntVariable</span><span class="c32 c33">(intArray[forIndex]), (forIndex ==
+                lastIndex));</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2 c24"><span class="c32 c33"></span></p>
+        <p class="c2"><span class="c1">‥‥‥‥</span><span class="c5">for</span><span class="c1"> (</span><span
+                class="c5">int</span><span class="c8"> element </span><span class="c5">:</span><span class="c32 c33">
+                intArray) {</span></p>
+        <p class="c2"><span class="c1">‥‥‥‥‥‥</span><span class="c4">appendMessage</span><span class="c1">(writer,
+            </span><span class="c4">checkIntVariable</span><span class="c32 c33">(element), (element ==
+                intArray[lastIndex]));</span></p>
+        <p class="c2"><span class="c32 c33">‥‥‥‥}</span></p>
+        <p class="c2"><span class="c32 c33">‥‥}</span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 293.35px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/EK-ipz4p7NDvdTtZW6Ve-D3VB9oD6TA7f1JLCcy0WEpzj_BeqhJqyP90poGjKephPhff1ZD4uqgur4xoKXbgr3Hxh58rEEFiJ8NlGiP4cYaQNoiHo5mFexjeq7oMOa29usjpssuO"
+                    style="width: 293.35px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span> </span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 293.40px; height: 113.39px;"><img
+                    alt=""
+                    src="https://lh3.googleusercontent.com/_Q06-B2eWgNkKZpfK5uW3_GY419F5vlQLAF2r78bxLruIEZUi0TBohB-MrsmvzYo1N4EaGkMT1zyX3tWSX-n0KkWIadhIHa6x-byptV1JVP6h2Fat0zZlYxBiwYwSuRAGmmmL8yT"
+                    style="width: 293.40px; height: 113.39px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c0"></span></p>
+        <p class="c6"><span class="c3 c28 c14">＜ここまでの実行結果＞</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 930.52px; height: 712.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/JJYOKdS5cCknecPwsERLufoGplZrHbH_DcpD3rlhg5JcnCk7RxMGkKP7zQ2Oc0lxpeCzSzzfBbIaJMjtWaVlnxmUblkrP_yfPD08faISa7XHnau5PCN3kR3-6Y1C0e-vLTCtpLfb"
+                    style="width: 930.52px; height: 712.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 930.52px; height: 713.33px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/B1dIcfS_wDOn9bxilki3w0fAjzJtgp3IztAY31Wgr5-6QgziZ968fgUhrFqgvabavxrYdz9FKuNsdd8mSFEAvRAviRQnQGtQHwsNqhQYyrv053H-A49l9O4CU52mxl9gZdU6TCpe"
+                    style="width: 930.52px; height: 713.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c6 c24"><span class="c3 c28 c14"></span></p>
+        <hr class="c25">
+        <div>
+            <p class="c36"><a href="#ftnt_ref1" id="ftnt1">[1]</a><span class="c32 c28 c18"> このファイルの居場所</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref2" id="ftnt2">[2]</a><span class="c32 c28 c18"> 関係する他のファイル</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref3" id="ftnt3">[3]</a><span class="c32 c28 c18"> ただのコメント・メモ。「/* ～ */」と「// ～
+                    改行」の２パターンがあり、プログラムとしては実行されない。</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref4" id="ftnt4">[4]</a><span class="c32 c28 c18"> この行でURLの後半を決めている。</span>
+            </p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref5" id="ftnt5">[5]</a><span class="c32 c28 c18"> HttpServletという機能を持った
+                    IndexControllerという「クラス」</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref6" id="ftnt6">[6]</a><span class="c32 c28 c18">
+                    ブラウザからGETという方式でアクセスされた場合にここが実行される。</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref7" id="ftnt7">[7]</a><span class="c32 c28 c18">
+                    ブラウザからPOSTという方式でアクセスされた場合にここが実行される。</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref8" id="ftnt8">[8]</a><span class="c32 c28 c18"> この行を追加</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref9" id="ftnt9">[9]</a><span class="c32 c28 c18"> この行を修正</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref10" id="ftnt10">[10]</a><span class="c32 c28 c18"> 文字列内の「%s」の部分が
+                    intVariableの値で置き換えられます。</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref11" id="ftnt11">[11]</a><span class="c32 c28 c18"> 共通部分</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref12" id="ftnt12">[12]</a><span class="c32 c28 c18">
+                    関数を呼び出す際にwriterを渡している</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref13" id="ftnt13">[13]</a><span class="c18"> </span><span
+                    class="c12 c18 c20"><a class="c23" href="#h.z5lik088zwti">3-4-1</a></span><span
+                    class="c32 c28 c18">でdoGetに追加したコード</span></p>
+            <p class="c31"><span class="c32 c28 c18">＜変更点＞・共通部分を削除（doGetへ） ・writerを使うように変更</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref14" id="ftnt14">[14]</a><span class="c18"> </span><span
+                    class="c12 c18 c20"><a class="c23" href="#h.3oj8yq0djlc">3-5-2</a></span><span
+                    class="c32 c28 c18">でdoGetに追加したコード</span></p>
+            <p class="c31"><span class="c32 c28 c18">＜変更点＞・writerを使うように変更</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref15" id="ftnt15">[15]</a><span class="c18"> </span><span
+                    class="c12 c18 c20"><a class="c23" href="#h.fgx617gms93d">3-5-3</a></span><span
+                    class="c28 c18 c32">でdoGetに追加したコード</span></p>
+            <p class="c31"><span class="c32 c28 c18">＜変更点＞・writer取得部分を削除</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref16" id="ftnt16">[16]</a><span class="c18"> </span><span
+                    class="c12 c18 c20"><a class="c23" href="#h.j92fb17fpqrh">3-6-1</a></span><span
+                    class="c32 c28 c18">でdoGetに追加したコード</span></p>
+            <p class="c31"><span class="c32 c28 c18">＜変更点＞・intVariableの定義を追加 ・messageの定義を追加</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+        <div>
+            <p class="c36"><a href="#ftnt_ref17" id="ftnt17">[17]</a><span class="c18"> </span><span
+                    class="c12 c18 c20"><a class="c23" href="#h.soqa8u2femhw">3-6-3</a></span><span
+                    class="c32 c28 c18">でdoGetに追加したコード</span></p>
+            <p class="c31"><span class="c32 c28 c18">＜変更点＞・stringVariableの定義を追加 ・messageの定義を追加</span></p>
+            <p class="c17"><span class="c32 c28 c18"></span></p>
+        </div>
+    </div>
+    <div id="footer"><span>公開元: <a target="_blank" title="Learn more about Google Drive"
+                href="//docs.google.com/">Google ドライブ</a></span><span class="dash">&ndash;</span><a
+            href="https://docs.google.com/u/1/abuse?id=AKkXjoyZcdDWfvK3s8hkcwWx4rDvZaSq1N1dcvXCFEsNbJyZbW-zC-pd2w_b4uSVELrA7gvICJIm1eilDINv-sE:0">不正行為の報告</a>
+    </div>
+    <script type="text/javascript" nonce="hEBdIEGo6AkxP57Dzyg6iw">(function () {/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+            var aa = "function" == typeof Object.defineProperties ? Object.defineProperty : function (a, b, c) { if (a == Array.prototype || a == Object.prototype) return a; a[b] = c.value; return a }; function ba(a) { a = ["object" == typeof globalThis && globalThis, a, "object" == typeof window && window, "object" == typeof self && self, "object" == typeof global && global]; for (var b = 0; b < a.length; ++b) { var c = a[b]; if (c && c.Math == Math) return c } throw Error("Cannot find global object"); } var ca = ba(this);
+            function da(a, b) { if (b) a: { var c = ca; a = a.split("."); for (var d = 0; d < a.length - 1; d++) { var e = a[d]; if (!(e in c)) break a; c = c[e] } a = a[a.length - 1]; d = c[a]; b = b(d); b != d && null != b && aa(c, a, { configurable: !0, writable: !0, value: b }) } } var ea = "function" == typeof Object.create ? Object.create : function (a) { function b() { } b.prototype = a; return new b }, fa;
+            if ("function" == typeof Object.setPrototypeOf) fa = Object.setPrototypeOf; else { var ha; a: { var ia = { s: !0 }, ja = {}; try { ja.__proto__ = ia; ha = ja.s; break a } catch (a) { } ha = !1 } fa = ha ? function (a, b) { a.__proto__ = b; if (a.__proto__ !== b) throw new TypeError(a + " is not extensible"); return a } : null } var ka = fa;
+            function k(a, b) { a.prototype = ea(b.prototype); a.prototype.constructor = a; if (ka) ka(a, b); else for (var c in b) if ("prototype" != c) if (Object.defineProperties) { var d = Object.getOwnPropertyDescriptor(b, c); d && Object.defineProperty(a, c, d) } else a[c] = b[c]; a.j = b.prototype } da("Object.is", function (a) { return a ? a : function (b, c) { return b === c ? 0 !== b || 1 / b === 1 / c : b !== b && c !== c } }); var l = this || self; function la() { } function ma(a) { var b = typeof a; return "object" != b ? b : a ? Array.isArray(a) ? "array" : b : "null" }
+            function na(a) { var b = typeof a; return "object" == b && null != a || "function" == b } function oa(a, b) { var c = Array.prototype.slice.call(arguments, 1); return function () { var d = c.slice(); d.push.apply(d, arguments); return a.apply(this, d) } } function pa(a, b) { function c() { } c.prototype = b.prototype; a.j = b.prototype; a.prototype = new c; a.prototype.constructor = a } function qa(a) { return a }; var ra = Array.prototype.indexOf ? function (a, b) { return Array.prototype.indexOf.call(a, b, void 0) } : function (a, b) { if ("string" === typeof a) return "string" !== typeof b || 1 != b.length ? -1 : a.indexOf(b, 0); for (var c = 0; c < a.length; c++)if (c in a && a[c] === b) return c; return -1 }; function sa(a, b, c) { for (var d in a) b.call(c, a[d], d, a) }; var m; function n(a, b) { this.c = a === ta && b || ""; this.f = ua } n.prototype.b = !0; n.prototype.a = function () { return this.c }; var ua = {}, ta = {}; var va = String.prototype.trim ? function (a) { return a.trim() } : function (a) { return /^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(a)[1] }, wa = /&/g, xa = /</g, ya = />/g, za = /"/g, Aa = /'/g, Ba = /\x00/g, Ca = /[\x00&<>"']/; function Da(a, b) { return a < b ? -1 : a > b ? 1 : 0 }; function p(a, b) { this.c = a === q && b || ""; this.f = Ea } p.prototype.b = !0; p.prototype.a = function () { return this.c.toString() }; function Fa(a) { return a instanceof p && a.constructor === p && a.f === Ea ? a.c : "type_error:SafeUrl" } var Ga = /^(?:(?:https?|mailto|ftp):|[^:/?#]*(?:[/?#]|$))/i; function Ha(a) { if (a instanceof p) return a; a = "object" == typeof a && a.b ? a.a() : String(a); Ga.test(a) || (a = "about:invalid#zClosurez"); return new p(q, a) } var Ea = {}, Ia = new p(q, "about:invalid#zClosurez"), q = {}; var r; a: { var Ja = l.navigator; if (Ja) { var Ka = Ja.userAgent; if (Ka) { r = Ka; break a } } r = "" } function t(a) { return -1 != r.indexOf(a) }; function u() { this.c = ""; this.f = La } u.prototype.b = !0; u.prototype.a = function () { return this.c.toString() }; var La = {}; function Ma(a, b, c, d) { a = a instanceof p ? a : Ha(a); return (b || l).open(Fa(a), c instanceof n ? c instanceof n && c.constructor === n && c.f === ua ? c.c : "type_error:Const" : c || "", d, void 0) }; function Na(a) { Na[" "](a); return a } Na[" "] = la; function v(a, b, c) { return Object.prototype.hasOwnProperty.call(a, b) ? a[b] : a[b] = c(b) }; var Oa = t("Opera"), x = t("Trident") || t("MSIE"), Pa = t("Edge"), Qa = Pa || x, Ra = t("Gecko") && !(-1 != r.toLowerCase().indexOf("webkit") && !t("Edge")) && !(t("Trident") || t("MSIE")) && !t("Edge"), Sa = -1 != r.toLowerCase().indexOf("webkit") && !t("Edge"), Ta = t("Macintosh"); function Ua() { var a = l.document; return a ? a.documentMode : void 0 } var Va;
+            a: { var Wa = "", Xa = function () { var a = r; if (Ra) return /rv:([^\);]+)(\)|;)/.exec(a); if (Pa) return /Edge\/([\d\.]+)/.exec(a); if (x) return /\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a); if (Sa) return /WebKit\/(\S+)/.exec(a); if (Oa) return /(?:Version)[ \/]?(\S+)/.exec(a) }(); Xa && (Wa = Xa ? Xa[1] : ""); if (x) { var Ya = Ua(); if (null != Ya && Ya > parseFloat(Wa)) { Va = String(Ya); break a } } Va = Wa } var Za = Va, $a = {}, ab; if (l.document && x) { var bb = Ua(); ab = bb ? bb : parseInt(Za, 10) || void 0 } else ab = void 0; var cb = ab; function db(a) { return v(a.prototype, "$$generatedClassName", function () { return "Class$obf_" + { valueOf: function () { return ++eb } } }) } var eb = 1E3; function y() { } y.prototype.g = function () { return fb(this) }; y.prototype.toString = function () { return z(A(B(this.constructor))) + "@" + z((this.g() >>> 0).toString(16)) }; function C() { } k(C, y); C.prototype.b = function (a) { this.a = a; if (a instanceof Object) try { a.o = this } catch (b) { } }; function D(a) { a.a instanceof Error && (Error.captureStackTrace ? Error.captureStackTrace(a.a) : a.a.stack = Error().stack) } C.prototype.toString = function () { var a = A(B(this.constructor)), b = this.f; return null == b ? a : z(a) + ": " + z(b) };
+            function gb(a) { if (null != a) { var b = a.o; if (null != b) return b } if (a instanceof TypeError) { b = new hb; var c = z(a); b.f = c; D(b); b.c = a; b.b(new TypeError(b)); a = b } else b = new E, c = z(a), b.f = c, D(b), b.c = a, b.b(Error(b)), a = b; return a }; function F() { } k(F, C); function ib() { } k(ib, F); function jb(a, b) { this.b = a; this.a = b } k(jb, y); function A(a) { var b = db(a.b); 0 != a.a && (b = "L" + z(b) + ";"); a = a.a; for (var c = "", d = 0; d < a; d++)c = z(c) + "["; return z(c) + z(b) } jb.prototype.toString = function () { return "class " + z(A(this)) }; function B(a, b) { var c = b || 0; return v(a.prototype, "$$class/" + c, function () { return new jb(a, c) }) }; function fb(a) { return a.l || (Object.defineProperties(a, { l: { value: ++kb, enumerable: !1 } }), a.l) } var kb = 0; function lb() { } k(lb, C); function mb() { } k(mb, lb); function nb() { } k(nb, ib); function E() { } k(E, ib); E.prototype.b = function (a) { ib.prototype.b.call(this, Object.is(this.c, "__noinit__") ? a : this.c) }; function hb() { } k(hb, E); function ob(a, b) { return "string" == typeof a ? a.charCodeAt(b) : a.C(b) }; function z(a) { if (null == a) a = "null"; else if (Array.isArray(a)) { var b = a.v; a = A(b ? B(b.B, b.A) : B(y, 1)) + "@" + (fb(a) >>> 0).toString(16) } else a = a.toString(); return a } function pb(a) { if (65536 <= a) { var b = 56320 + (a - 65536 & 1023) & 65535; return z(String.fromCharCode(55296 + (a - 65536 >> 10 & 1023) & 65535)) + z(String.fromCharCode(b)) } return String.fromCharCode(a & 65535) }
+            function qb(a, b) { var c = b, d = a.length; b = ob(a, c++); var e; if (d = 55296 <= b && 56319 >= b && c < d) a = e = ob(a, c), d = 56320 <= a && 57343 >= a; var f; d ? f = 65536 + ((b & 1023) << 10) + (e & 1023) : f = b; return f }; function rb(a) { sb(); if (!a) throw a = new nb, D(a), a.b(Error(a)), a.a; } function sb() { sb = function () { }; tb = Object.is("DISABLED", "ENABLED") || !1; ub = Object.is("DISABLED", "ENABLED") || !1 } var tb = !1, ub = !1; function vb(a, b) { var c = null == a || "object" == typeof a && "number" == typeof a.length; sb(); if (tb) rb(c); else if (ub) try { rb(c) } catch (d) { d = gb(d); if (d instanceof F) throw a = new mb, b = z(d), a.f = b, D(a), a.b(Error(a)), a.a; throw d.a; } return a[b] }; function wb(a, b) { return null == a ? a : b ? decodeURI(a) : decodeURIComponent(a) }; var xb = /^(?:([^:/?#.]+):)?(?:\/\/(?:([^/?#]*)@)?([^/#?]*?)(?::([0-9]+))?(?=[/#?]|$))?([^?#]+)?(?:\?([^#]*))?(?:#([\S\s]*))?$/; function yb(a) { a = xb.exec(a); for (var b = [], c = 0; 7 >= c; c++)if (a.length <= c || null == vb(a, c)) b.push(null); else { var d = vb(a, c); b.push(d) } return b }
+            function zb(a, b) {
+                var c = pb(35); c = a.indexOf(c); c = 0 > c ? a.length : c; a: { var d = 0; for (var e = b.length; 0 < (d = a.indexOf(b, d)) && d < c;) { var f = qb(a, d - 1); if (38 == f || 63 == f) { if (d + e >= a.length) break a; f = qb(a, d + e); if (61 == f || 38 == f || 35 == f) break a } d += e + 1 } d = -1 } if (0 > d) return null; e = d; f = pb(38); e = a.indexOf(f, e); if (0 > e || e > c) e = c; d += b.length + 1; b = Math.min(a.length, d); a = a.substr(b, Math.min(a.length, Math.max(d, e)) - b); c = " "; for (b = 0; 0 <= (b = c.indexOf("\\", b));)36 == c.charCodeAt(b + 1) ? (d = z(c.substr(0, b)) + "$", e = ++b, c = d + z(c.substr(e))) : (d = z(c.substr(0,
+                    b)), e = ++b, c = d + z(c.substr(e))); a = a.replace(/\+/g, c); return wb(a, !1)
+            }; function G(a, b) { this.b = b; for (var c = [], d = !0, e = a.length - 1; 0 <= e; e--) { var f = a[e] | 0; d && f == b || (c[e] = f, d = !1) } this.a = c } var Ab = {}; function Bb(a) { return -128 <= a && 128 > a ? v(Ab, a, function (b) { return new G([b | 0], 0 > b ? -1 : 0) }) : new G([a | 0], 0 > a ? -1 : 0) } function H(a) { if (isNaN(a) || !isFinite(a)) return I; if (0 > a) return J(H(-a)); for (var b = [], c = 1, d = 0; a >= c; d++)b[d] = a / c | 0, c *= 4294967296; return new G(b, 0) } var I = Bb(0), K = Bb(1), Cb = Bb(16777216);
+            function L(a) { if (-1 == a.b) return -L(J(a)); for (var b = 0, c = 1, d = 0; d < a.a.length; d++) { var e = M(a, d); b += (0 <= e ? e : 4294967296 + e) * c; c *= 4294967296 } return b } G.prototype.toString = function (a) { a = a || 10; if (2 > a || 36 < a) throw Error("radix out of range: " + a); if (O(this)) return "0"; if (-1 == this.b) return "-" + J(this).toString(a); for (var b = H(Math.pow(a, 6)), c = this, d = ""; ;) { var e = Db(c, b).a; c = P(c, Q(e, b)); var f = ((0 < c.a.length ? c.a[0] : c.b) >>> 0).toString(a); c = e; if (O(c)) return f + d; for (; 6 > f.length;)f = "0" + f; d = f + d } };
+            function M(a, b) { return 0 > b ? 0 : b < a.a.length ? a.a[b] : a.b } function O(a) { if (0 != a.b) return !1; for (var b = 0; b < a.a.length; b++)if (0 != a.a[b]) return !1; return !0 } function R(a, b) { a = P(a, b); return -1 == a.b ? -1 : O(a) ? 0 : 1 } function J(a) { for (var b = a.a.length, c = [], d = 0; d < b; d++)c[d] = ~a.a[d]; return (new G(c, ~a.b)).add(K) } G.prototype.abs = function () { return -1 == this.b ? J(this) : this };
+            G.prototype.add = function (a) { for (var b = Math.max(this.a.length, a.a.length), c = [], d = 0, e = 0; e <= b; e++) { var f = d + (M(this, e) & 65535) + (M(a, e) & 65535), g = (f >>> 16) + (M(this, e) >>> 16) + (M(a, e) >>> 16); d = g >>> 16; f &= 65535; g &= 65535; c[e] = g << 16 | f } return new G(c, c[c.length - 1] & -2147483648 ? -1 : 0) }; function P(a, b) { return a.add(J(b)) }
+            function Q(a, b) {
+                if (O(a) || O(b)) return I; if (-1 == a.b) return -1 == b.b ? Q(J(a), J(b)) : J(Q(J(a), b)); if (-1 == b.b) return J(Q(a, J(b))); if (0 > R(a, Cb) && 0 > R(b, Cb)) return H(L(a) * L(b)); for (var c = a.a.length + b.a.length, d = [], e = 0; e < 2 * c; e++)d[e] = 0; for (e = 0; e < a.a.length; e++)for (var f = 0; f < b.a.length; f++) { var g = M(a, e) >>> 16, h = M(a, e) & 65535, N = M(b, f) >>> 16, w = M(b, f) & 65535; d[2 * e + 2 * f] += h * w; Eb(d, 2 * e + 2 * f); d[2 * e + 2 * f + 1] += g * w; Eb(d, 2 * e + 2 * f + 1); d[2 * e + 2 * f + 1] += h * N; Eb(d, 2 * e + 2 * f + 1); d[2 * e + 2 * f + 2] += g * N; Eb(d, 2 * e + 2 * f + 2) } for (e = 0; e < c; e++)d[e] = d[2 * e + 1] <<
+                    16 | d[2 * e]; for (e = c; e < 2 * c; e++)d[e] = 0; return new G(d, 0)
+            } function Eb(a, b) { for (; (a[b] & 65535) != a[b];)a[b + 1] += a[b] >>> 16, a[b] &= 65535, b++ } function S(a, b) { this.a = a; this.b = b }
+            function Db(a, b) {
+                if (O(b)) throw Error("division by zero"); if (O(a)) return new S(I, I); if (-1 == a.b) return b = Db(J(a), b), new S(J(b.a), J(b.b)); if (-1 == b.b) return b = Db(a, J(b)), new S(J(b.a), b.b); if (30 < a.a.length) { if (-1 == a.b || -1 == b.b) throw Error("slowDivide_ only works with positive integers."); for (var c = K, d = b; 0 >= R(d, a);)c = Fb(c, 1), d = Fb(d, 1); var e = T(c, 1), f = T(d, 1); d = T(d, 2); for (c = T(c, 2); !O(d);) { var g = f.add(d); 0 >= R(g, a) && (e = e.add(c), f = g); d = T(d, 1); c = T(c, 1) } b = P(a, Q(e, b)); return new S(e, b) } for (e = I; 0 <= R(a, b);) {
+                    c = Math.max(1,
+                        Math.floor(L(a) / L(b))); d = Math.ceil(Math.log(c) / Math.LN2); d = 48 >= d ? 1 : Math.pow(2, d - 48); f = H(c); for (g = Q(f, b); -1 == g.b || 0 < R(g, a);)c -= d, f = H(c), g = Q(f, b); O(f) && (f = K); e = e.add(f); a = P(a, g)
+                } return new S(e, a)
+            } G.prototype.and = function (a) { for (var b = Math.max(this.a.length, a.a.length), c = [], d = 0; d < b; d++)c[d] = M(this, d) & M(a, d); return new G(c, this.b & a.b) }; G.prototype.or = function (a) { for (var b = Math.max(this.a.length, a.a.length), c = [], d = 0; d < b; d++)c[d] = M(this, d) | M(a, d); return new G(c, this.b | a.b) };
+            G.prototype.xor = function (a) { for (var b = Math.max(this.a.length, a.a.length), c = [], d = 0; d < b; d++)c[d] = M(this, d) ^ M(a, d); return new G(c, this.b ^ a.b) }; function Fb(a, b) { var c = b >> 5; b %= 32; for (var d = a.a.length + c + (0 < b ? 1 : 0), e = [], f = 0; f < d; f++)e[f] = 0 < b ? M(a, f - c) << b | M(a, f - c - 1) >>> 32 - b : M(a, f - c); return new G(e, a.b) } function T(a, b) { var c = b >> 5; b %= 32; for (var d = a.a.length - c, e = [], f = 0; f < d; f++)e[f] = 0 < b ? M(a, f + c) >>> b | M(a, f + c + 1) << 32 - b : M(a, f + c); return new G(e, a.b) }; P(Fb(K, 32), K); P(Fb(K, 128), K); function U() { this.b = this.b; this.a = this.a } U.prototype.b = !1; U.prototype.m = function () { this.b || (this.b = !0, this.f()) }; U.prototype.f = function () { if (this.a) for (; this.a.length;)this.a.shift()() }; function Gb(a) { a && "function" == typeof a.m && a.m() }; var Hb = !x || 9 <= Number(cb), Ib = !x || 9 <= Number(cb), Jb = x && !v($a, "9", function () { for (var a = 0, b = va(String(Za)).split("."), c = va("9").split("."), d = Math.max(b.length, c.length), e = 0; 0 == a && e < d; e++) { var f = b[e] || "", g = c[e] || ""; do { f = /(\d*)(\D*)(.*)/.exec(f) || ["", "", "", ""]; g = /(\d*)(\D*)(.*)/.exec(g) || ["", "", "", ""]; if (0 == f[0].length && 0 == g[0].length) break; a = Da(0 == f[1].length ? 0 : parseInt(f[1], 10), 0 == g[1].length ? 0 : parseInt(g[1], 10)) || Da(0 == f[2].length, 0 == g[2].length) || Da(f[2], g[2]); f = f[3]; g = g[3] } while (0 == a) } return 0 <= a }),
+                Kb = function () { if (!l.addEventListener || !Object.defineProperty) return !1; var a = !1, b = Object.defineProperty({}, "passive", { get: function () { a = !0 } }); try { l.addEventListener("test", la, b), l.removeEventListener("test", la, b) } catch (c) { } return a }(); function Lb(a, b) { this.type = a; this.a = this.target = b; this.defaultPrevented = !1 } Lb.prototype.c = function () { this.defaultPrevented = !0 }; function V(a, b) {
+                    Lb.call(this, a ? a.type : ""); this.relatedTarget = this.a = this.target = null; this.button = this.screenY = this.screenX = this.clientY = this.clientX = 0; this.key = ""; this.metaKey = this.shiftKey = this.altKey = this.ctrlKey = !1; this.state = null; this.pointerId = 0; this.pointerType = ""; this.b = null; if (a) {
+                        var c = this.type = a.type, d = a.changedTouches && a.changedTouches.length ? a.changedTouches[0] : null; this.target = a.target || a.srcElement; this.a = b; if (b = a.relatedTarget) {
+                            if (Ra) {
+                                a: {
+                                    try { Na(b.nodeName); var e = !0; break a } catch (f) { } e =
+                                        !1
+                                } e || (b = null)
+                            }
+                        } else "mouseover" == c ? b = a.fromElement : "mouseout" == c && (b = a.toElement); this.relatedTarget = b; d ? (this.clientX = void 0 !== d.clientX ? d.clientX : d.pageX, this.clientY = void 0 !== d.clientY ? d.clientY : d.pageY, this.screenX = d.screenX || 0, this.screenY = d.screenY || 0) : (this.clientX = void 0 !== a.clientX ? a.clientX : a.pageX, this.clientY = void 0 !== a.clientY ? a.clientY : a.pageY, this.screenX = a.screenX || 0, this.screenY = a.screenY || 0); this.button = a.button; this.key = a.key || ""; this.ctrlKey = a.ctrlKey; this.altKey = a.altKey; this.shiftKey =
+                            a.shiftKey; this.metaKey = a.metaKey; this.pointerId = a.pointerId || 0; this.pointerType = "string" === typeof a.pointerType ? a.pointerType : Mb[a.pointerType] || ""; this.state = a.state; this.b = a; a.defaultPrevented && this.c()
+                    }
+                } pa(V, Lb); var Nb = [1, 4, 2], Mb = { 2: "touch", 3: "pen", 4: "mouse" }; V.prototype.c = function () { V.j.c.call(this); var a = this.b; if (a.preventDefault) a.preventDefault(); else if (a.returnValue = !1, Jb) try { if (a.ctrlKey || 112 <= a.keyCode && 123 >= a.keyCode) a.keyCode = -1 } catch (b) { } }; var Ob = "closure_listenable_" + (1E6 * Math.random() | 0), Pb = 0; function Qb(a, b, c, d, e) { this.listener = a; this.a = null; this.src = b; this.type = c; this.capture = !!d; this.b = e; this.key = ++Pb; this.h = this.i = !1 } function Rb(a) { a.h = !0; a.listener = null; a.a = null; a.src = null; a.b = null }; function Sb(a) { this.src = a; this.a = {}; this.b = 0 } Sb.prototype.add = function (a, b, c, d, e) { var f = a.toString(); a = this.a[f]; a || (a = this.a[f] = [], this.b++); var g; a: { for (g = 0; g < a.length; ++g) { var h = a[g]; if (!h.h && h.listener == b && h.capture == !!d && h.b == e) break a } g = -1 } -1 < g ? (b = a[g], c || (b.i = !1)) : (b = new Qb(b, this.src, f, !!d, e), b.i = c, a.push(b)); return b }; function Tb(a, b) { var c = b.type; if (c in a.a) { var d = a.a[c], e = ra(d, b), f; (f = 0 <= e) && Array.prototype.splice.call(d, e, 1); f && (Rb(b), 0 == a.a[c].length && (delete a.a[c], a.b--)) } }; var Ub = "closure_lm_" + (1E6 * Math.random() | 0), Vb = {}, Wb = 0; function Xb(a, b, c, d, e) { if (d && d.once) return Yb(a, b, c, d, e); if (Array.isArray(b)) { for (var f = 0; f < b.length; f++)Xb(a, b[f], c, d, e); return null } c = Zb(c); return a && a[Ob] ? a.c.add(String(b), c, !1, na(d) ? !!d.capture : !!d, e) : $b(a, b, c, !1, d, e) }
+            function $b(a, b, c, d, e, f) { if (!b) throw Error("Invalid event type"); var g = na(e) ? !!e.capture : !!e, h = ac(a); h || (a[Ub] = h = new Sb(a)); c = h.add(b, c, d, g, f); if (c.a) return c; d = bc(); c.a = d; d.src = a; d.listener = c; if (a.addEventListener) Kb || (e = g), void 0 === e && (e = !1), a.addEventListener(b.toString(), d, e); else if (a.attachEvent) a.attachEvent(cc(b.toString()), d); else if (a.addListener && a.removeListener) a.addListener(d); else throw Error("addEventListener and attachEvent are unavailable."); Wb++; return c }
+            function bc() { var a = dc, b = Ib ? function (c) { return a.call(b.src, b.listener, c) } : function (c) { c = a.call(b.src, b.listener, c); if (!c) return c }; return b } function Yb(a, b, c, d, e) { if (Array.isArray(b)) { for (var f = 0; f < b.length; f++)Yb(a, b[f], c, d, e); return null } c = Zb(c); return a && a[Ob] ? a.c.add(String(b), c, !0, na(d) ? !!d.capture : !!d, e) : $b(a, b, c, !0, d, e) }
+            function ec(a) { if ("number" !== typeof a && a && !a.h) { var b = a.src; if (b && b[Ob]) Tb(b.c, a); else { var c = a.type, d = a.a; b.removeEventListener ? b.removeEventListener(c, d, a.capture) : b.detachEvent ? b.detachEvent(cc(c), d) : b.addListener && b.removeListener && b.removeListener(d); Wb--; (c = ac(b)) ? (Tb(c, a), 0 == c.b && (c.src = null, b[Ub] = null)) : Rb(a) } } } function cc(a) { return a in Vb ? Vb[a] : Vb[a] = "on" + a }
+            function fc(a, b, c, d) { var e = !0; if (a = ac(a)) if (b = a.a[b.toString()]) for (b = b.concat(), a = 0; a < b.length; a++) { var f = b[a]; f && f.capture == c && !f.h && (f = gc(f, d), e = e && !1 !== f) } return e } function gc(a, b) { var c = a.listener, d = a.b || a.src; a.i && ec(a); return c.call(d, b) }
+            function dc(a, b) {
+                if (a.h) return !0; if (!Ib) { if (!b) a: { b = ["window", "event"]; for (var c = l, d = 0; d < b.length; d++)if (c = c[b[d]], null == c) { b = null; break a } b = c } d = b; b = new V(d, this); c = !0; if (!(0 > d.keyCode || void 0 != d.returnValue)) { a: { var e = !1; if (0 == d.keyCode) try { d.keyCode = -1; break a } catch (g) { e = !0 } if (e || void 0 == d.returnValue) d.returnValue = !0 } d = []; for (e = b.a; e; e = e.parentNode)d.push(e); a = a.type; for (e = d.length - 1; 0 <= e; e--) { b.a = d[e]; var f = fc(d[e], a, !0, b); c = c && f } for (e = 0; e < d.length; e++)b.a = d[e], f = fc(d[e], a, !1, b), c = c && f } return c } return gc(a,
+                    new V(b, this))
+            } function ac(a) { a = a[Ub]; return a instanceof Sb ? a : null } var hc = "__closure_events_fn_" + (1E9 * Math.random() >>> 0); function Zb(a) { if ("function" == ma(a)) return a; a[hc] || (a[hc] = function (b) { return a.handleEvent(b) }); return a[hc] }; function W(a) { U.call(this); this.g = a; this.c = {} } pa(W, U); var ic = []; function jc(a) { sa(a.c, function (b, c) { this.c.hasOwnProperty(c) && ec(b) }, a); a.c = {} } W.prototype.f = function () { W.j.f.call(this); jc(this) }; W.prototype.handleEvent = function () { throw Error("EventHandler.handleEvent not implemented"); }; function kc(a) { U.call(this); this.c = a || document.body; this.g = new W(this); a = oa(Gb, this.g); this.b ? a() : (this.a || (this.a = []), this.a.push(a)); a = this.g; var b = this.c, c = this.u, d = "click"; Array.isArray(d) || (d && (ic[0] = d.toString()), d = ic); for (var e = 0; e < d.length; e++) { var f = Xb(b, d[e], c || a.handleEvent, !1, a.g || a); if (!f) break; a.c[f.key] = f } } k(kc, U);
+            kc.prototype.u = function (a) {
+                if (!(!(Hb ? 0 == a.b.button : "click" == a.type || a.b.button & Nb[0]) || Ta && a.ctrlKey || a.defaultPrevented)) for (var b = a.target; b && b != this.c;) {
+                    if (b.tagName && "a" == b.tagName.toLowerCase()) {
+                        var c = b.getAttribute("href") || b.getAttributeNS("http://www.w3.org/1999/xlink", "href"), d = c; try { var e = void 0, f = yb(c)[3]; e = null == f ? null : f; var g; if (g = "www.google.com" === wb(e, !0)) { var h = yb(c)[5]; g = "/url" === wb(h, !0) } if (g) { var N = zb(c, "q"); d = N ? N : zb(c, "url") } } catch (w) { if (w = gb(w), !(w instanceof F)) throw w.a; } d =
+                            null != d ? d : ""; if (c != d) {
+                                g = void 0; b = { target: "_blank", noreferrer: !0 }; c = window; d instanceof p ? f = d : (f = "undefined" != typeof d.href ? d.href : String(d), f instanceof p || (f = "object" == typeof f && f.b ? f.a() : String(f), f = Ga.test(f) ? new p(q, f) : null), f = f || Ia); d = b.target || d.target; h = []; for (g in b) switch (g) { case "width": case "height": case "top": case "left": h.push(g + "=" + b[g]); break; case "target": case "noopener": case "noreferrer": break; default: h.push(g + "=" + (b[g] ? 1 : 0)) }g = h.join(","); if ((t("iPhone") && !t("iPod") && !t("iPad") ||
+                                    t("iPad") || t("iPod")) && c.navigator && c.navigator.standalone && d && "_self" != d) g = "A", h = document, g = String(g), "application/xhtml+xml" === h.contentType && (g = g.toLowerCase()), h = g = h.createElement(g), f = f instanceof p ? f : Ha(f), h.href = Fa(f), g.setAttribute("target", d), b.noreferrer && g.setAttribute("rel", "noreferrer"), b = document.createEvent("MouseEvent"), b.initMouseEvent("click", !0, !0, c, 1), g.dispatchEvent(b); else if (b.noreferrer) {
+                                        if (c = Ma("", c, d, g), b = Fa(f), c) {
+                                            Qa && -1 != b.indexOf(";") && (b = "'" + b.replace(/'/g, "%27") + "'");
+                                            c.opener = null; Ca.test(b) && (-1 != b.indexOf("&") && (b = b.replace(wa, "&amp;")), -1 != b.indexOf("<") && (b = b.replace(xa, "&lt;")), -1 != b.indexOf(">") && (b = b.replace(ya, "&gt;")), -1 != b.indexOf('"') && (b = b.replace(za, "&quot;")), -1 != b.indexOf("'") && (b = b.replace(Aa, "&#39;")), -1 != b.indexOf("\x00") && (b = b.replace(Ba, "&#0;"))); b = '<meta name="referrer" content="no-referrer"><meta http-equiv="refresh" content="0; url=' + b + '">'; d = new u; if (void 0 === m) if (f = null, (g = l.trustedTypes) && g.createPolicy) {
+                                                try {
+                                                    f = g.createPolicy("goog#html",
+                                                        { createHTML: qa, createScript: qa, createScriptURL: qa })
+                                                } catch (w) { l.console && l.console.error(w.message) } m = f
+                                            } else m = f; f = m; d.c = f ? f.createHTML(b) : b; b = d; if (c = c.document) c.write(b instanceof u && b.constructor === u && b.f === La ? b.c : "type_error:SafeHtml"), c.close()
+                                        }
+                                    } else (c = Ma(f, c, d, g)) && b.noopener && (c.opener = null); a.c(); break
+                            }
+                    } b = b.parentNode
+                }
+            }; function lc(a) { new kc(a) } var X = ["DOCS_installLinkReferrerSanitizer"], Y = l; X[0] in Y || "undefined" == typeof Y.execScript || Y.execScript("var " + X[0]);
+            for (var Z; X.length && (Z = X.shift());)X.length || void 0 === lc ? Y[Z] && Y[Z] !== Object.prototype[Z] ? Y = Y[Z] : Y = Y[Z] = {} : Y[Z] = lc;
+        }).call(this);
+    </script>
+    <script type="text/javascript" nonce="hEBdIEGo6AkxP57Dzyg6iw">DOCS_installLinkReferrerSanitizer();</script>
+</body>
+
+</html>
