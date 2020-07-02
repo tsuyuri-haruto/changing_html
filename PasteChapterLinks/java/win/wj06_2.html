@@ -1,0 +1,2245 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>【6】より高度な WEB アプリケーションを作ってみよう！（2）</title>
+    <link rel="shortcut icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico">
+    <meta charset="UTF-8">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+        }
+
+        iframe {
+            border: 0;
+            frameborder: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #header {
+            align-items: center;
+            background: white;
+            border-bottom: 1px #ccc solid;
+            display: flex;
+            height: 60px;
+            justify-content: space-between;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        #header #title {
+            font-family: 'Noto Sans JP';
+            font-size: large;
+            margin: auto 0 auto 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 70%;
+        }
+
+        #header #interval {
+            margin: auto 25px auto 0;
+            font-family: 'Noto Sans JP';
+            font-size: small;
+            ;
+        }
+
+        #footer {
+            background: #f0f0f0;
+            border-bottom: 1px #ccc solid;
+            bottom: 0;
+            font-family: 'Noto Sans JP';
+            font-size: small;
+            padding: 10px 10px;
+            position: fixed;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #contents {
+            padding: 100px 3rem 50px;
+            max-width: 930px;
+            margin: 0 auto;
+        }
+
+        @media only screen and (max-width: 767px) {
+            #contents {
+                padding: 150px 1rem 80px;
+                word-break: break-all;
+            }
+        }
+
+        .dash {
+            padding: 0 6px;
+        }
+
+        :root {
+            --base_font_size: 14pt;
+        }
+
+        @media only screen and (max-width: 767px) {
+            :root {
+                --base_font_size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="title">【6】より高度な WEB アプリケーションを作ってみよう！（2）</div>
+        <div id="interval"><span>Javaコース</span></div>
+    </div>
+    <div id="contents">
+        <style type="text/css">
+            @import url('https://themes.googleusercontent.com/fonts/css?kit=lhDjYqiy3mZ0x6ROQEUoUw');
+
+            ol.lst-kix_2zwrtrp7d7si-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-0 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-3 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-3.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-3 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-0.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-0 0
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-6.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-6 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-8>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-3.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-3 0
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-6.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-6 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-5.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-5 0
+            }
+
+            .lst-kix_tw1k779xd1a4-0>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-0
+            }
+
+            .lst-kix_za19uzqo5vqc-3>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-3
+            }
+
+            .lst-kix_za19uzqo5vqc-5>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-5
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-8.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-8 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-2.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-2 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-8.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-8 0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-0.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-0 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-5.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-5 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-8>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-8
+            }
+
+            .lst-kix_x41s1rdpnz1l-5>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-5, lower-roman) ") "
+            }
+
+            .lst-kix_za19uzqo5vqc-1>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-1
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-2.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-2 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-4>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-4, lower-latin) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-6>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-6, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-2>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-2, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-4>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-4, lower-latin) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-7>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-7
+            }
+
+            .lst-kix_x41s1rdpnz1l-3>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-3, decimal) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-7>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-7, lower-latin) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-1>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-1, lower-latin) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-5>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-5, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-5.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-5 0
+            }
+
+            .lst-kix_tw1k779xd1a4-0>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-0, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-6>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-6, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-8>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-8, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-7>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-7, lower-latin) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-8.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-8 0
+            }
+
+            .lst-kix_tw1k779xd1a4-8>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-0.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-0 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-8>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-8, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-2>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-2
+            }
+
+            ol.lst-kix_tw1k779xd1a4-1.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-1 0
+            }
+
+            .lst-kix_tw1k779xd1a4-3>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-3, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-7>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-7
+            }
+
+            .lst-kix_za19uzqo5vqc-8>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-7, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-8, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-1>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-1
+            }
+
+            .lst-kix_2zwrtrp7d7si-4>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-4
+            }
+
+            .lst-kix_za19uzqo5vqc-7>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-7, decimal) ". "
+            }
+
+            ol.lst-kix_tw1k779xd1a4-0.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-0 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-3.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-3 0
+            }
+
+            .lst-kix_za19uzqo5vqc-4>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-5>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-7.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-7 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-7.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-7 0
+            }
+
+            .lst-kix_za19uzqo5vqc-6>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-0>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-1>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-1.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-1 0
+            }
+
+            .lst-kix_za19uzqo5vqc-3>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) ". "
+            }
+
+            .lst-kix_x41s1rdpnz1l-4>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-4
+            }
+
+            .lst-kix_x41s1rdpnz1l-7>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-7
+            }
+
+            .lst-kix_x41s1rdpnz1l-1>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-1, lower-latin) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-0>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-0, decimal) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-2>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-2, lower-roman) ") "
+            }
+
+            .lst-kix_za19uzqo5vqc-2>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) ". "
+            }
+
+            .lst-kix_x41s1rdpnz1l-1>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-1
+            }
+
+            .lst-kix_za19uzqo5vqc-4>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-4
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-7.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-7 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-3>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-3
+            }
+
+            .lst-kix_tw1k779xd1a4-4>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-4
+            }
+
+            .lst-kix_2zwrtrp7d7si-3>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-3
+            }
+
+            .lst-kix_2zwrtrp7d7si-2>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-2
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-4.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-4 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-6.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-6 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-1.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-1 0
+            }
+
+            .lst-kix_tw1k779xd1a4-5>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-5
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-5.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-5 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-0 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-3 {
+                list-style-type: none
+            }
+
+            .lst-kix_tw1k779xd1a4-3>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-3
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-1 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-0>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-0
+            }
+
+            .lst-kix_x41s1rdpnz1l-2>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-2
+            }
+
+            .lst-kix_x41s1rdpnz1l-5>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-5
+            }
+
+            .lst-kix_tw1k779xd1a4-6>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-6
+            }
+
+            ol.lst-kix_za19uzqo5vqc-4.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-4 0
+            }
+
+            .lst-kix_za19uzqo5vqc-8>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-2.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-2 0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-7.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-7 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-5 {
+                list-style-type: none
+            }
+
+            .lst-kix_x41s1rdpnz1l-6>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-6
+            }
+
+            .lst-kix_x41s1rdpnz1l-0>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-4.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-4 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-0>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-8.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-8 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-6>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-6
+            }
+
+            ol.lst-kix_za19uzqo5vqc-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-3 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-2 {
+                list-style-type: none
+            }
+
+            .lst-kix_tw1k779xd1a4-1>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-1
+            }
+
+            ol.lst-kix_za19uzqo5vqc-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-3 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-2>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-2
+            }
+
+            .lst-kix_2zwrtrp7d7si-5>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-5
+            }
+
+            ol.lst-kix_za19uzqo5vqc-1.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-1 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-7 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-6>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-6
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-6.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-6 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-0 {
+                list-style-type: none
+            }
+
+            .lst-kix_2zwrtrp7d7si-0>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-0, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-1>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-1, lower-latin) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-3>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-3, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-2>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-2, lower-roman) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-4>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-4, lower-latin) ". "
+            }
+
+            ol.lst-kix_tw1k779xd1a4-3.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-3 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-7>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-7, lower-latin) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-6>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-6, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-8>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-8, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-0 {
+                list-style-type: none
+            }
+
+            .lst-kix_2zwrtrp7d7si-5>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-5, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-2.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-2 0
+            }
+
+            .lst-kix_tw1k779xd1a4-7>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-7
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-4.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-4 0
+            }
+
+            ol {
+                margin: 0;
+                padding: 0
+            }
+
+            table td,
+            table th {
+                padding: 0
+            }
+
+            .c29 {
+                border-right-style: solid;
+                padding: 5pt 5pt 5pt 5pt;
+                border-bottom-color: #000000;
+                border-top-width: 0pt;
+                border-right-width: 0pt;
+                border-left-color: #000000;
+                vertical-align: top;
+                border-right-color: #000000;
+                border-left-width: 0pt;
+                border-top-style: solid;
+                background-color: #e4f0f6;
+                border-left-style: solid;
+                border-bottom-width: 0pt;
+                width: 697.9pt;
+                border-top-color: #000000;
+                border-bottom-style: solid
+            }
+
+            .c7 {
+                -webkit-text-decoration-skip: none;
+                color: #1155cc;
+                font-weight: 400;
+                text-decoration: underline;
+                vertical-align: baseline;
+                text-decoration-skip-ink: none;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c27 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: "Consolas";
+                font-style: normal
+            }
+
+            .c9 {
+                color: #000000;
+                font-weight: 700;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 20pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c15 {
+                color: #000000;
+                font-weight: 700;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 16pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c22 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+                height: var(--base_font_size)
+            }
+
+            .c3 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left;
+                height: var(--base_font_size)
+            }
+
+            .c2 {
+                color: #383a42;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: "Consolas";
+                font-style: normal
+            }
+
+            .c4 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 10pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c14 {
+                background-color: #f8f8f8;
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.3571428571428572;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c16 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c34 {
+                color: #a0a1a7;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: "Consolas";
+                font-style: italic
+            }
+
+            .c25 {
+                padding-top: 20pt;
+                padding-bottom: 6pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c11 {
+                padding-top: 10pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c31 {
+                color: #000000;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 26pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c41 {
+                padding-top: 4pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c6 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c28 {
+                padding-top: 0pt;
+                padding-bottom: 3pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c37 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c35 {
+                color: #000000;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c19 {
+                background-color: #efefef;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-style: normal
+            }
+
+            .c44 {
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 10.5pt;
+                font-style: normal
+            }
+
+            .c1 {
+                background-color: #efefef;
+                font-family: "Consolas";
+                color: #383a42;
+                font-weight: 400
+            }
+
+            .c36 {
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-style: normal
+            }
+
+            .c40 {
+                border-spacing: 0;
+                border-collapse: collapse;
+                margin-right: auto
+            }
+
+            .c5 {
+                font-family: "Consolas";
+                color: #383a42;
+                font-weight: 400
+            }
+
+            .c33 {
+                font-family: "Consolas";
+                color: #ca1243;
+                font-weight: 400
+            }
+
+            .c30 {
+                font-family: "Consolas";
+                color: #c18401;
+                font-weight: 400
+            }
+
+            .c26 {
+                font-family: "Consolas";
+                color: #986801;
+                font-weight: 400
+            }
+
+            .c45 {
+                background-color: #ffffff;
+                max-width: 697.9pt;
+                padding: 72pt 72pt 72pt 72pt
+            }
+
+            .c0 {
+                font-family: "Consolas";
+                color: #e45649;
+                font-weight: 400
+            }
+
+            .c32 {
+                font-family: "Consolas";
+                color: #a626a4;
+                font-weight: 400
+            }
+
+            .c18 {
+                font-family: "Consolas";
+                color: #4078f2;
+                font-weight: 400
+            }
+
+            .c21 {
+                text-decoration-skip-ink: none;
+                -webkit-text-decoration-skip: none;
+                text-decoration: underline
+            }
+
+            .c8 {
+                font-family: "Consolas";
+                color: #50a14f;
+                font-weight: 400
+            }
+
+            .c24 {
+                font-family: "Consolas";
+                color: #0184bc;
+                font-weight: 400
+            }
+
+            .c42 {
+                font-weight: 400;
+                font-family: "Consolas"
+            }
+
+            .c43 {
+                width: 33%;
+                height: 1px
+            }
+
+            .c13 {
+                color: inherit;
+                text-decoration: inherit
+            }
+
+            .c10 {
+                background-color: #fce5cd
+            }
+
+            .c46 {
+                color: #000000
+            }
+
+            .c38 {
+                height: var(--base_font_size)
+            }
+
+            .c17 {
+                page-break-after: avoid
+            }
+
+            .c23 {
+                background-color: #efefef
+            }
+
+            .c39 {
+                color: #1155cc
+            }
+
+            .c12 {
+                height: 0pt
+            }
+
+            .c20 {
+                font-weight: 700
+            }
+
+            .title {
+                padding-top: 0pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 26pt;
+                padding-bottom: 3pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .subtitle {
+                padding-top: 0pt;
+                color: #666666;
+                font-size: 15pt;
+                padding-bottom: 16pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            li {
+                color: #000000;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP'
+            }
+
+            p {
+                margin: 0;
+                color: #000000;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP'
+            }
+
+            h1 {
+                padding-top: 20pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h2 {
+                padding-top: 20pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h3 {
+                padding-top: 0pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 16pt;
+                padding-bottom: 0pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h4 {
+                padding-top: var(--base_font_size);
+                color: #666666;
+                font-size: 12pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h5 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h6 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                font-style: italic;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .code_block {
+                white-space: nowrap;
+                overflow-x: auto;
+                background-color: #f8f8f8;
+                padding: 10px;
+            }
+
+            .code_block>p {
+                display: inline-block;
+            }
+        </style>
+        <p class="c17 c28 title" id="h.j4jya7dkn33i"><span class="c20 c31">6 より高度なWEBアプリケーションを作ってみよう！（2）</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c41"><span class="c21 c39"><a class="c13" href="#h.kf7futm6g1a3">6-11
+                    機能追加２：年月選択リンクへの年月移動リンク追加対応</a></span></p>
+        <p class="c11"><span class="c21 c39"><a class="c13" href="#h.25uij4bd4oml">6-12
+                    機能追加３：カレンダーへの時間帯表示位置修正対応</a></span></p>
+        <p class="c11"><span class="c21 c39"><a class="c13" href="#h.j1v3sfdvjj1u">6-13 機能追加４：カレンダーへの当日強調対応</a></span>
+        </p>
+        <p class="c11"><span class="c21 c39"><a class="c13" href="#h.txzidfmcocjs">6-14 予約ウィンドウにおける処理の流れ</a></span></p>
+        <p class="c11"><span class="c21 c39"><a class="c13" href="#h.lmfarvc7l474">6-15 送受信データの中身</a></span></p>
+        <p class="c11"><span class="c21 c39"><a class="c13" href="#h.e29iz6rm9bsx">6-16 機能追加５：予約ウィンドウへの項目追加対応</a></span>
+        </p>
+        <p class="c11"><span class="c21 c39"><a class="c13" href="#h.gpu8rzild5uj">6-17
+                    機能追加６：予約ウィンドウへのキャンセル機能追加対応</a></span></p>
+        <p class="c11"><span class="c21 c39"><a class="c13" href="#h.k5nr37bmfttl">6-18 仕様変更：MySQLへの変更対応</a></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h1 class="c25 c17" id="h.kf7futm6g1a3"><span class="c9">6-11 機能追加２：年月選択リンクへの年月移動リンク追加対応</span></h1>
+        <h3 class="c6 c17" id="h.5wkqeqflnbic"><span>1.</span></h3>
+        <p class="c6"><span
+                class="c16">現状では、年月選択リンクは「前月」と「今月」のみとなっています。ここへ、「次月」と「再読込」のリンクを追加してみましょう。まずはその部分のソースを見てみましょう。</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c14"><span class="c20">サンプルコード：month_selector_div.jsp（ポイントのみ抜粋、フォーマット一部変更）</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <div class="code_block">
+            <p class="c14"><span class="c5">&lt;%@ </span><span class="c32">page</span><span class="c5"> </span><span
+                    class="c26">import</span><span class="c5">=</span><span
+                    class="c8">&quot;java.util.Calendar&quot;</span><span class="c2">%&gt;</span></p><br>
+            <p class="c14"><span class="c5">&lt;%@ </span><span class="c32">page</span><span class="c5"> </span><span
+                    class="c26">import</span><span class="c5">=</span><span
+                    class="c8">&quot;java.text.SimpleDateFormat&quot;</span><span class="c2">%&gt;</span></p><br>
+            <p class="c14"><span class="c36 c33">&lt;%</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c34">//
+                    表示年月選択エリアで使用する日付フォーマッタ</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c30">SimpleDateFormat</span><span class="c0"> yyyymm </span><span class="c5">= </span><span
+                    class="c32">new</span><span class="c5"> </span><span class="c18">SimpleDateFormat</span><span
+                    class="c5">(</span><span class="c8">&quot;yyyyMM&quot;</span><span class="c2">);</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c30">SimpleDateFormat</span><span class="c0"> yyyymmJp </span><span class="c5">= </span><span
+                    class="c32">new</span><span class="c5"> </span><span class="c18">SimpleDateFormat</span><span
+                    class="c5">(</span><span class="c8">&quot;yyyy年MM月&quot;</span><span class="c2">);</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c34">// 表示年月</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c30">String</span><span
+                    class="c0"> targetMonthYyyyMm </span><span class="c5">= (String) </span><span
+                    class="c0">request</span><span class="c5">.</span><span class="c18">getAttribute</span><span
+                    class="c5">(</span><span class="c8">&quot;targetMonth&quot;</span><span class="c2">);</span></p><br>
+            <p class="c14"><span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c34 c23">// 表示年月のカレンダー</span>
+            </p><br>
+            <p class="c14"><span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c30 c23">Calendar</span><span
+                    class="c0 c23"> targetMonth </span><span class="c1">= </span><span
+                    class="c0 c23">Calendar</span><span class="c1">.</span><span class="c18 c23">getInstance</span><span
+                    class="c2 c23">();</span></p><br>
+            <p class="c14"><span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c0 c23">targetMonth</span><span
+                    class="c1">.</span><span class="c18 c23">set</span><span class="c1">(</span><span
+                    class="c0 c23">Calendar</span><span class="c1">.</span><span class="c0 c23">YEAR</span> <span
+                    class="c1">, </span><span class="c0 c23">Integer</span><span class="c1">.</span><span
+                    class="c18 c23">parseInt</span><span class="c1">(</span><span
+                    class="c0 c23">targetMonthYyyyMm</span><span class="c1">.</span><span
+                    class="c18 c23">substring</span> <span class="c1">(</span><span class="c26 c23">0</span><span
+                    class="c1">, </span><span class="c26 c23">4</span><span class="c2 c23">)));</span></p><br>
+            <p class="c14"><span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c0 c23">targetMonth</span><span
+                    class="c1">.</span><span class="c18 c23">set</span><span class="c1">(</span><span
+                    class="c0 c23">Calendar</span><span class="c1">.</span><span class="c0 c23">MONTH</span> <span
+                    class="c1">, </span><span class="c0 c23">Integer</span><span class="c1">.</span><span
+                    class="c18 c23">parseInt</span><span class="c1">(</span><span
+                    class="c0 c23">targetMonthYyyyMm</span><span class="c1">.</span><span
+                    class="c18 c23">substring</span> <span class="c1">(</span><span class="c26 c23">4</span><span
+                    class="c1">, </span><span class="c26 c23">6</span><span class="c1">)) - </span><span
+                    class="c26 c23">1</span><span class="c2 c23">);</span></p><br>
+            <p class="c14"><span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c0 c23">targetMonth</span><span
+                    class="c1">.</span><span class="c18 c23">set</span><span class="c1">(</span><span
+                    class="c0 c23">Calendar</span><span class="c1">.</span><span class="c0 c23">DATE</span> <span
+                    class="c1">, </span><span class="c26 c23">1</span><span class="c2 c23">);</span></p><br>
+            <p class="c14 c38"><span class="c2"></span></p><br>
+            <p class="c14"><span class="c2">（省略）</span></p><br>
+            <p class="c14 c38"><span class="c2"></span></p><br>
+            <p class="c14"><span class="c2">&nbsp;&nbsp;&nbsp;&nbsp;&lt;%</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c34">//
+                    表示年月の１月前</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentMonth = (Calendar)
+                </span><span class="c0">targetMonth</span><span class="c5">.</span><span class="c18">clone</span><span
+                    class="c2">();</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c0">currentMonth</span><span class="c5">.</span><span class="c18">add</span><span
+                    class="c5">(</span><span class="c0">Calendar</span><span class="c5">.</span> <span
+                    class="c0">MONTH</span><span class="c5">, - </span> <span class="c26">1</span><span
+                    class="c2">);</span></p><br>
+            <p class="c14"><span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;monthValue = </span><span
+                    class="c0 c23">yyyymm</span><span class="c1">.</span><span class="c18 c23">format</span><span
+                    class="c1">(</span><span class="c0 c23">currentMonth</span> <span class="c1">.</span><span
+                    class="c18 c23">getTime</span> <span class="c2 c23">());</span> </p><br>
+            <p class="c14"><span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;monthTextJp = </span><span
+                    class="c0 c23">yyyymmJp</span><span class="c1">.</span><span class="c18 c23">format</span><span
+                    class="c1">(</span><span class="c0 c23">currentMonth</span> <span class="c1">.</span><span
+                    class="c18 c23">getTime</span> <span class="c2 c23">());</span> </p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c36 c33">%&gt;</span></p><br>
+            <p class="c14"><span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span class="c0 c23">span</span><span
+                    class="c1"> </span><span class="c26 c23">class</span><span class="c1">=</span><span
+                    class="c19 c8">&quot;month_select_link&quot;</span></p><br>
+            <p class="c14"><span class="c26 c23">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onclick</span><span
+                    class="c1">=</span><span class="c8 c23">&quot;calendar_controller.month_move(this,&#39;</span><span
+                    class="c33 c23">&lt;%=</span><span class="c8 c23">monthValue</span> <span
+                    class="c33 c23">%&gt;</span> <span class="c19 c8">&#39;);&quot;</span> </p><br>
+            <p class="c14"><span class="c26 c23">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title</span><span
+                    class="c1">=</span><span class="c8 c23">&quot;表示中年月の前月に移動します。&quot;</span><span
+                    class="c1">&gt;</span><span class="c26 c23">&amp;lt;&amp;lt;&amp;nbsp;</span> <span
+                    class="c1">前月（</span><span class="c33 c23">&lt;%=</span> <span class="c1">monthTextJp</span><span
+                    class="c33 c23">%&gt;</span><span class="c2 c23">）</span></p> <br>
+            <p class="c14"><span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span class="c0 c23">span</span><span
+                    class="c2 c23">&gt;</span> </p><br>
+            <p class="c14 c38"><span class="c2"></span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c36 c33">&lt;%</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c34">//
+                    今月</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c5">currentMonth</span><span class="c5"> = </span><span class="c0">Calendar</span><span
+                    class="c5">.</span><span class="c18">getInstance</span><span class="c2">();</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;monthValue = </span><span
+                    class="c0">yyyymm</span><span class="c5">.</span><span class="c18">format</span><span
+                    class="c5">(</span><span class="c0">currentMonth</span><span class="c5">.</span> <span
+                    class="c18">getTime</span> <span class="c2">());</span> </p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;monthTextJp = </span><span
+                    class="c0">yyyymmJp</span><span class="c5">.</span><span class="c18">format</span><span
+                    class="c5">(</span><span class="c0">currentMonth</span> <span class="c5">.</span> <span
+                    class="c18">getTime</span> <span class="c2">());</span> </p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c33 c36">%&gt;</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span class="c0">span</span><span
+                    class="c5"> </span><span class="c26">class</span><span class="c5">=</span><span
+                    class="c36 c8">&quot;month_select_link&quot;</span></p><br>
+            <p class="c14"><span class="c26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onclick</span><span
+                    class="c5">=</span><span class="c8">&quot;calendar_controller.month_move(this,&#39;</span><span
+                    class="c33">&lt;%=</span><span class="c8">monthValue</span> <span class="c33">%&gt;</span><span
+                    class="c36 c8">&#39;);&quot;</span></p><br>
+            <p class="c14"><span class="c26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title</span><span
+                    class="c5">=</span><span class="c8">&quot;今月に移動します。&quot;</span><span class="c5">&gt;今月（</span><span
+                    class="c33">&lt;%=</span><span class="c5">monthTextJp</span> <span class="c33">%&gt;</span><span
+                    class="c2">）</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span class="c0">span</span><span
+                    class="c5">&gt;</span></p><br>
+        </div>
+        <p class="c3"><span class="c16"></span></p><br>
+        <h3 class="c6 c17" id="h.rq18lm4nrwuh"><span class="c15">2.</span></h3>
+        <p class="c6"><span>１つ目のポイントは</span><span
+                class="c21">Calendar</span><span>クラスです。このクラスは日時を扱いやすくするクラスです。「</span><span
+                class="c10">targetMonth</span><span>」という変数は、「</span><span class="c10">getInstance()</span><span
+                class="c16">」関数によって生成されたCalendarクラスのインスタンスが格納されています。</span></p>
+        <p class="c6"><span>この時点ではtargetMonthが指し示す日時はその瞬間のミリ秒レベルの時点となります。その後、「</span><span class="c10">set()</span><span
+                class="c16">」関数で年月日を設定していますので、表示年月パラメータが「201910」で、時刻が12時34分56秒789ミリ秒であった場合には、targetMonthが指し示す日時は「2019/10/01
+                12:34:56.789」のような時点となります。</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span>Calendarクラスのインスタンスは、「</span><span class="c10">set()</span><span>」の他に「</span><span
+                class="c10">add()</span><span>」などの関数によって時刻を操作することが可能であり、「表示年月の１か月前」は「</span><span
+                class="c10">add()</span><span>」によって「</span><span class="c10">MONTH</span><span>」を「</span> <span
+                class="c10">- 1</span><span class="c16">」しています。</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.pvhfh3voergs"><span class="c15">3.</span></h3>
+        <p class="c6"><span>２つ目のポイントは</span><span
+                class="c21">SimpleDateFormat</span><span>クラスです。このクラスはCalendarクラスなどから受け取った日時情報を任意の形式で文字列に変換する機能を持っています。変数「</span><span
+                class="c10">yyyymm</span><span>」に格納したインスタンスでは、「</span><span class="c10">yyyymm.format()</span> <span
+                class="c16">」とすることにより、引数の日時情報を「西暦年4桁＋月前ゼロ2桁」の文字列にします。</span> </p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.sgthn2ar71pf"><span class="c15">4.</span></h3>
+        <p class="c6"><span>3つ目のポイントは「</span><span class="c21">span</span><span>」タグです。本来「リンク」は「</span><span
+                class="c21">aタグ</span><span
+                class="c16">」で作りますが、Bookingアプリではspanタグにしています。そして、「onclick」という属性にjavascriptを設定していますね。予約対象選択でも「onchange」という属性にjavascirptを設定していました。この「on
+                ～」は「イベント」と呼び、ユーザーの操作をイベントとしてjavascriptに通知し、それをきっかけに対応した処理を行えるようにする仕組みです。</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.knwfuxghyycd"><span class="c15">5.</span></h3>
+        <p class="c6"><span>それではjavascriptも少し覗いておきましょう。この</span><span
+                class="c10">calendar_controller</span><span>というのがJavaでいうクラスにあたり、</span><span
+                class="c10">month_move</span><span>というのがメソッドにあたります。第１引数にはイベントが発生したspanタグ自身が渡されており、二重送信を防ぐために１回目のクリックで無効化してから処理を進めています。第２引数には移動先の年月が渡され、submit処理を行う</span>
+            <span class="c10">target_select_form_submit</span><span>を呼び出しています。実際にGETで渡すパラメーター（</span><span
+                class="c10">c, a, tc, tm</span><span class="c16">）がどのように取得・設定されているのか、追いかけてみてください。</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c14"><span class="c20">サンプルコード：js/index.js（一部抜粋、フォーマット変更）</span></p>
+        <p class="c3"><span class="c35 c20"></span></p>
+        <div class="code_block">
+            <p class="c14"><span class="c32">var</span><span class="c5"> calendar_controller </span><span
+                    class="c24">=</span><span class="c2"> {</span></p><br>
+            <p class="c14 c38"><span class="c2"></span></p><br>
+            <p class="c14"><span class="c27">（省略）</span></p><br>
+            <p class="c14 c38"><span class="c2"></span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c18">month_move</span><span
+                    class="c24">:</span><span class="c5"> </span><span class="c32">function</span><span class="c2">
+                    (obj, target_month) {</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c32">if</span><span class="c5"> (</span><span class="c24">!</span><span
+                    class="c5">obj.</span><span class="c0">disabled</span><span class="c5">) {</span><sup class="c5"><a
+                        href="#ftnt1" id="ftnt_ref1" style="user-select:none;">[1]</a></sup></p> <br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj.</span><span
+                    class="c0">disabled</span><span class="c5"> </span><span class="c24">=</span><span class="c5">
+                </span><span class="c26">true</span> <span class="c2">;</span> </p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now_loading.</span><span
+                    class="c18">on</span><span class="c5">();</span><sup class="c5"><a href="#ftnt2" id="ftnt_ref2"
+                        style="user-select:none;">[2]</a></sup></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target_select_form.</span><span
+                    class="c0">tm</span><span class="c5">.</span><span class="c0">value</span><span class="c5">
+                </span><span class="c24">=</span> <span class="c5"> target_month;</span><sup class="c5"><a href="#ftnt3"
+                        id="ftnt_ref3" style="user-select:none;">[3]</a></sup></p> <br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.</span><span
+                    class="c18">target_select_form_submit</span><span class="c5">();</span><sup class="c5"><a
+                        href="#ftnt4" id="ftnt_ref4" style="user-select:none;">[4]</a></sup></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c3"><span class="c16"></span></p><br>
+        </div>
+        <hr class="c43">
+        <div>
+            <p class="c37"><a href="#ftnt_ref1" id="ftnt1">[1]</a><span class="c4">
+                    クリックされたspanが無効化されている時は二重送信であるため処理をスキップします。</span></p>
+            <p class="c37"><span class="c4">最初のクリックならば無効化しておきます。</span></p>
+            <p class="c22"><span class="c4"></span></p>
+        </div>
+        <div>
+            <p class="c37"><a href="#ftnt_ref2" id="ftnt2">[2]</a><span class="c4"> 「データ送受信中です。～」を表示します。</span></p>
+            <p class="c22"><span class="c4"></span></p>
+        </div>
+        <div>
+            <p class="c37"><a href="#ftnt_ref3" id="ftnt3">[3]</a><span class="c4">
+                    tmというパラメーター用の領域にクリックされた年月を格納します。</span></p>
+            <p class="c22"><span class="c4"></span></p>
+        </div>
+        <div>
+            <p class="c37"><a href="#ftnt_ref4" id="ftnt4">[4]</a><span class="c4"> index/indexへGETします。</span></p>
+            <p class="c22"><span class="c4"></span></p>
+        </div>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span>ここまで読み解ければ、後は</span><span class="c21">spanタグを増やせば良さそう</span><span
+                class="c16">ということまでわかりましたね！？「次月」リンクおよび「再読込」リンクが正しく追加されるよう、プログラムを修正し、コミットまで行ってください！</span></p>
+        <p class="c6"><span class="c16">もしも余裕があれば、カレンダー下部への表示年月選択追加にチャレンジしてみましょう！</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span class="c35 c20">＜結果イメージ＞</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width:930.52px;">
+                <img alt=""
+                    src="https://lh3.googleusercontent.com/WImZ75VYT9dSyhHxjC2yXgqmkKfq3uIpPhcW3ylCOCGr8dCOtw9e1iansCV1pRKO-7Ja_fswEXPwjExYLsdR_kNGsjDgXyKTeGFMt_C7Y-4q31ErgU9Rv6yUiehMI7FZLcVzPo7p"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h1 class="c25 c17" id="h.25uij4bd4oml"><span class="c9">6-12 機能追加３：カレンダーへの時間帯表示位置修正対応</span></h1>
+        <h3 class="c6 c17" id="h.zc3pjfb0x38c"><span class="c15">1.</span></h3>
+        <p class="c6"><span
+                class="c16">カレンダーを眺めていると、なんとなくわかりにくい、そう感じませんか？それはきっと時間帯表示の茶色い部分が、週や曜日と関係なく表示されているからです。これを、「月曜日の前」に表示するようにしましょう。</span>
+        </p>
+        <p class="c6"><span
+                class="c16">また、表示年月選択と同様に、最下部にもつけてあげましょう。今回は該当箇所の紹介だけとします。正し位置に表示されるよう、プログラムを修正し、コミットまで行ってください！</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c14"><span class="c20">サンプルコード：calendar_div.jsp（ポイントのみ抜粋、フォーマット一部変更）</span></p>
+        <p class="c3"><span class="c35 c20"></span></p>
+        <div class="code_block">
+            <p class="c14"><span class="c5">&lt;</span><span class="c0">div</span><span class="c5"> </span><span
+                    class="c26">class</span><span class="c5">=</span><span
+                    class="c8">&quot;calendar_div&quot;</span><span class="c2">&gt;</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span class="c0">table</span><span
+                    class="c5"> </span><span class="c26">class</span><span class="c5">=</span><span
+                    class="c8">&quot;calendar_table&quot;</span><span class="c2">&gt;</span></p><br>
+            <p class="c14"><span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c34 c23">&lt;!-- 時間帯表示：先頭（動的インクルード） --&gt;</span></p><br>
+            <p class="c14"><span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c0 c23">thead</span><span class="c1">&gt;&lt;</span><span
+                    class="c0 c23">jsp:include</span><span class="c1"> </span><span class="c26 c23">page</span> <span
+                    class="c1">=</span><span class="c8 c23">&quot;time_slot_tr.jsp&quot;</span> <span class="c1">
+                </span><span class="c26 c23">flush</span><span class="c1">=</span><span
+                    class="c8 c23">&quot;true&quot;</span><span class="c1"> /&gt;&lt;/</span><span
+                    class="c0 c23">thead</span><span class="c2 c23">&gt;</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c34">&lt;!-- カレンダー部本体 --&gt;</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c0">tbody</span><span class="c2">&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c36 c33">&lt;%</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c34">// 日付ループ用のカレンダーオブジェクト</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c30">Calendar</span><span class="c0"> startDate </span><span class="c5">= (Calendar)
+                </span><span class="c0">request</span><span class="c5">.</span><span
+                    class="c18">getAttribute</span><span class="c5">(</span><span
+                    class="c8">&quot;startDate&quot;</span><span class="c2">);</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c30">Calendar</span><span class="c0"> endDate </span><span class="c5">= (Calendar)
+                </span><span class="c0">request</span><span class="c5">.</span><span
+                    class="c18">getAttribute</span><span class="c5">(</span><span
+                    class="c8">&quot;endDate&quot;</span><span class="c2">);</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c30">Calendar</span><span class="c0"> currentDate </span><span class="c5">= (Calendar)
+                </span><span class="c0">startDate</span><span class="c5">.</span><span class="c18">clone</span><span
+                    class="c2">();</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c34">// 予約データを先頭から取得するためのインデックス（予約開始日時でソート済み前提）</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c32">int</span><span class="c0"> bookingListIndex </span><span class="c5">= </span><span
+                    class="c26">0</span><span class="c2">;</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c34">// 月初～月末の日付ループ</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c32">while</span><span class="c5"> (</span><span class="c0">currentDate</span><span
+                    class="c5">.</span> <span class="c18">before</span> <span class="c2">(endDate)) {</span> </p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c30">String</span><span class="c0"> headerDate </span><span class="c5">= </span><span
+                    class="c0">headerDateFormat</span><span class="c5">.</span><span class="c18">format</span><span
+                    class="c5">(</span><span class="c0">currentDate</span><span class="c5">.</span><span
+                    class="c18">getTime</span> <span class="c2">());</span> </p><br>
+            <p class="c14 c38"><span class="c2"></span></p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c34 c23">// １０日ごとにヘッダー行をつける（先頭行は除く）</span></p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c32 c23">int</span><span class="c0 c23"> day </span><span class="c1">= </span><span
+                    class="c0 c23">currentDate</span><span class="c1">.</span><span class="c18 c23">get</span><span
+                    class="c1">(</span><span class="c0 c23">Calendar</span><span class="c1">.</span><span
+                    class="c0 c23">DATE</span> <span class="c2 c23">);</span> </p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c32 c23">if</span><span class="c1"> (day == </span><span class="c26 c23">11</span><span
+                    class="c1"> || day == </span><span class="c26 c23">21</span><span class="c2 c23">) {</span></p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c19 c33">%&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c34 c23">&lt;!-- 時間帯表示：１０日毎（動的インクルード） --&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c0 c23">jsp:include</span><span class="c1"> </span><span class="c26 c23">page</span><span
+                    class="c1">=</span><span class="c8 c23">&quot;time_slot_tr.jsp&quot;</span><span class="c1">
+                </span><span class="c26 c23">flush</span><span class="c1">=</span><span
+                    class="c8 c23">&quot;true&quot;</span> <span class="c2 c23"> /&gt;</span> </p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c19 c33">&lt;%</span></p><br>
+            <p class="c14"><span
+                    class="c2 c23">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+            </p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c33">%&gt;</span></p><br>
+        </div>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span class="c35 c20">＜結果イメージ＞</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;">
+                <img alt=""
+                    src="https://lh6.googleusercontent.com/5TebsVEHQWqCvYw0RAnfH7rmENgWZgIAjYbAMwd2ZRY8YORjfEadrFhss_Yuy3f0NGZOSNy_KWEri-0yQd1WT0Nq2P1CsDn0gJCKsF0tC_y3FAA7xc_B_7MV3YaFJXdL9byhEesc"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h1 class="c25 c17" id="h.j1v3sfdvjj1u"><span class="c9">6-13 機能追加４：カレンダーへの当日強調対応</span></h1>
+        <h3 class="c6 c17" id="h.ae4iyqw7z3mh"><span class="c15">1.</span></h3>
+        <p class="c6"><span
+                class="c16">時間帯表示の位置変更でかなり日付を把握しやすくなりましたが、「今日」がよくわかりません。今度は今日を強調して表示できるようにしてみましょう。予約済みは緑色、マウスカーソルを乗せるとピンク色にするという処理は、cssにより実現されています。忘れてしまった人は、1-9-1を読み返してみましょう。HTMLタグとcssの紐づけは、タグ名やid属性、class属性によって行われます。「今日」の行を判定して、そこにclass名をつけて、cssで色を変えてあげればよいわけです。現在の色設定を見てみましょう。</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c14"><span class="c20">サンプルコード：calendar_div.jsp（ポイントのみ抜粋、フォーマット一部変更）</span></p>
+        <p class="c3"><span class="c35 c20"></span></p>
+        <div class="code_block">
+            <p class="c14"><span class="c5">&lt;</span><span class="c0">div</span><span class="c5"> </span><span
+                    class="c26">class</span><span class="c5">=</span><span
+                    class="c8">&quot;calendar_div&quot;</span><span class="c2">&gt;</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span class="c0">table</span><span
+                    class="c5"> </span><span class="c26">class</span><span class="c5">=</span><span
+                    class="c8">&quot;calendar_table&quot;</span><span class="c2">&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c0">tr</span><span class="c2">&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c19 c33">&lt;%</span></p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c23 c34">// 今日の強調表示用</span></p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c23 c30">Calendar</span><span class="c0 c23"> today </span><span class="c1">= </span><span
+                    class="c0 c23">Calendar</span><span class="c1">.</span><span class="c18 c23">getInstance</span><span
+                    class="c2 c23">();</span></p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c30 c23">String</span><span class="c0 c23"> headerDateThClass </span><span class="c1">=
+                </span><span class="c8 c23">&quot;date_th&quot;</span><span class="c2 c23">;</span></p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c30 c23">String</span><span class="c0 c23"> plotTdClass </span><span class="c1">=
+                </span><span class="c8 c23">&quot;plot_td&quot;</span><span class="c2 c23">;</span></p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c19 c33">%&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c0 c23">th</span><span class="c1"> </span><span class="c26 c23">class</span><span
+                    class="c1">=</span> <span class="c8 c23">&quot;</span><span class="c33 c23">&lt;%=</span><span
+                    class="c8 c23">headerDateThClass</span> <span class="c33 c23">%&gt;</span><span
+                    class="c8 c23">&quot;</span><span class="c1">&gt;</span><span class="c33 c23">&lt;%=</span><span
+                    class="c1">headerDate</span><span class="c33 c23">%&gt;</span><span class="c1">&lt;/</span><span
+                    class="c0 c23">th</span> <span class="c2 c23">&gt;</span> </p><br>
+            <p class="c14 c38"><span class="c2"></span></p><br>
+            <p class="c14"><span class="c2">（省略）</span></p><br>
+            <p class="c14 c38"><span class="c2"></span></p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c0 c23">td</span><span class="c1"> </span><span class="c26 c23">class</span><span
+                    class="c1">=</span> <span class="c8 c23">&quot;</span><span class="c33 c23">&lt;%=</span><span
+                    class="c8 c23">cssClass</span> <span class="c33 c23">%&gt;</span><span
+                    class="c8 c23">&quot;</span><span class="c2 c23"> &lt;%=colspan%&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onclick=&quot;</span><span
+                    class="c33 c23">&lt;%=</span><span class="c1">onClickEvent</span><span class="c33 c23">%&gt;</span>
+                <span class="c1">&quot; title=&quot; </span><span class="c33 c23">&lt;%=</span><span
+                    class="c1">title</span><span class="c23 c33">%&gt;</span><span
+                    class="c1">&quot;&gt;&lt;/</span><span class="c0 c23">td</span><span class="c2 c23">&gt;</span></p>
+            <br>
+        </div>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c14"><span class="c20">サンプルコード：index.css（ポイントのみ抜粋）</span></p>
+        <p class="c3"><span class="c35 c20"></span></p>
+        <div class="code_block">
+            <p class="c14"><span class="c0">table</span><span class="c26">.calendar_table</span><span class="c32">
+                </span><span class="c0">th</span><span class="c26">.date_th</span><span class="c5"> {</span><sup
+                    class="c5"><a href="#ftnt5" id="ftnt_ref5" style="user-select: none;">[5]</a></sup></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;height: </span><span class="c26">30px</span><span
+                    class="c2">;</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;background-color: </span><span
+                    class="c26">peachpuff</span><span class="c2">;</span></p><br>
+            <p class="c14"><span class="c2">}</span></p><br>
+            <p class="c14 c38"><span class="c2"></span></p><br>
+            <p class="c14"><span class="c2">（省略）</span></p><br>
+            <p class="c14 c38"><span class="c2"></span></p><br>
+            <p class="c14"><span class="c0">table</span><span class="c26">.calendar_table</span><span class="c32">
+                </span><span class="c0">td</span><span class="c5"> {</span><sup class="c5"><a href="#ftnt6"
+                        id="ftnt_ref6" style="user-select: none;">[6]</a></sup></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;border-left: </span><span
+                    class="c26">1px</span><span class="c5"> </span><span class="c26">dotted white</span><span
+                    class="c2">;</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;background-color: </span><span
+                    class="c26">papayawhip</span><span class="c2">;</span></p><br>
+            <p class="c14"><span class="c2">}</span></p><br>
+        </div>
+        <hr class="c43">
+        <div>
+            <p class="c37"><a href="#ftnt_ref5" id="ftnt5">[5]</a><span class="c4">
+                    tableタグでclassがcalendar_table、その中のthタグでclassがdate_thなら高さは30pxで、背景色はpeachpuff。</span></p>
+            <p class="c22"><span class="c4"></span></p>
+        </div>
+        <div>
+            <p class="c37"><a href="#ftnt_ref6" id="ftnt6">[6]</a><span class="c4">
+                    tableタグでclassがcalendar_table、その中のtdタグなら、左の枠線は1pxで白い点線、背景色はpapayawhip。</span></p>
+            <p class="c22"><span class="c4"></span></p>
+        </div>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.762u5pm3v8qp"><span class="c15">2.</span></h3>
+        <p class="c6"><span>この関係性が理解できれば、あとは</span><span class="c21">色を変えたいタグに新たなクラス名を追加</span><span>し、それに</span><span
+                class="c21">対応するcssを追加して色を指定</span><span class="c16">すればよいのです！センスはお任せします！プログラムを修正し、コミットまで行ってください！</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span class="c35 c20">＜結果イメージ＞</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;">
+                <img alt=""
+                    src="https://lh6.googleusercontent.com/S3jz4h4yw2H_3_sfa_yn4zKaYgq19K7n8J6E2hHqcH-lBLTTGbvvknwRvNG70OEFHByZvYqO5Jf78wn90gs9XwfDaevdJIkIM5cm1TnBhtfEUVuZNRiAYDJj1IdSmYaRPhGTilvb"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h1 class="c25 c17" id="h.txzidfmcocjs"><span class="c9">6-14 予約ウィンドウにおける処理の流れ</span></h1>
+        <p class="c6"><span
+                class="c16">これまで機能追加を行ってきたカレンダー画面では、予約対象や表示年月を変更した時点で、サーバーへリクエストを送信して画面全体を更新していました。しかし、予約ウィンドウを表示するタイミングでは、カレンダー画面の更新は行われていません。新規予約、予約内容照会、そして予約登録・変更時の動きを確認してみましょう。</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span class="c35 c20">＜新規予約時の予約ウィンドウ表示＞</span></p>
+        <h3 class="c6 c17" id="h.nxcyasmz6jbm"><span class="c15">1.</span></h3>
+        <p class="c6"><span>予約のない時間枠の</span><span class="c10">onclick</span><span>属性を見てみると、どうやら、</span><span
+                class="c10">input_dialog_controller</span><span>の</span><span class="c10">input_new</span><span
+                class="c16">というjavascriptの関数に引数「年月日時分」を渡して呼び出すようにしているようです。</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c14"><span class="c20">サンプルコード：calendar_div.jsp（ポイントのみ抜粋、フォーマット変更）</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <div class="code_block">
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c30">String</span><span class="c0"> startDateString </span><span class="c5">= </span><span
+                    class="c0">dbDateFormat</span><span class="c5">.</span><span class="c18">format</span><span
+                    class="c5">(</span><span class="c0">currentTime</span><span class="c5">.</span><span
+                    class="c18">getTime</span> <span class="c2">());</span> </p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onClickEvent =
+                </span><span class="c32">new</span><span class="c5"> </span><span class="c18">StringBuilder</span><span
+                    class="c5">(</span><span class="c8">&quot;input_dialog_controller.input_new(&#39;&quot;</span><span
+                    class="c2">)</span></p> <br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span><span
+                    class="c18">append</span><span class="c5">(startDateString).</span> <span
+                    class="c18">append</span><span class="c5">(</span><span class="c8">&quot;&#39;);&quot;</span><span
+                    class="c5">).</span> <span class="c18">toString</span><span class="c2">();</span></p><br>
+            <p class="c14 c38"><span class="c2"></span></p><br>
+            <p class="c14"><span class="c2">（省略）</span></p><br>
+            <p class="c14 c38"><span class="c2"></span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c0">td</span><span class="c5"> </span><span class="c26">class</span><span
+                    class="c5">=</span><span class="c8">&quot;</span> <span class="c33">&lt;%=</span><span
+                    class="c8">cssClass</span><span class="c33">%&gt;</span> <span class="c8">&quot;</span><span
+                    class="c2"> &lt;%=colspan%&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c1">onclick=&quot;</span><span class="c33 c23">&lt;%=</span><span
+                    class="c1">onClickEvent</span> <span class="c33 c23">%&gt;</span><span class="c1">&quot;</span><span
+                    class="c5"> title=&quot;</span> <span class="c33">&lt;%=</span><span class="c5">title</span><span
+                    class="c33">%&gt;</span><span class="c5">&quot;&gt;&lt;/</span><span class="c0">td</span><span
+                    class="c2">&gt;</span></p><br>
+        </div>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.xm201hheyxgl"><span class="c15">2.</span></h3>
+        <p class="c6"><span>実際に生成されたhtmlをブラウザの</span><span class="c21">デバッグ</span><span
+                class="c16">機能で確認してみましょう。（Chromeで説明します！）</span></p>
+        <p class="c6"><span class="c16">カレンダー画面を表示した状態で「F12」を押してみましょう。すると、下図のような画面が表示されます。</span></p>
+        <p class="c6"><span>これは「</span><span
+                class="c21">デベロッパーツール</span><span>」と言って、実際にブラウザが読み込んでいるhtmlやcss、javascriptを確認できるほか、POSTデータの中身など、サーバーとの通信内容も確認できる優れものです。デベロッパーツール画面左上の</span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 21.00px; vertical-align: bottom;">
+                <img alt=""
+                    src="https://lh4.googleusercontent.com/hGXN_IYvEkXGz_rDA6kdAf3HldeXkA9qnoZIHkzLhkWQoFDwJfWgm-DzWb5dj6A07EJw-O0C1_iGmssoC_cXshxawQH8xRKysbCYJXMXTrG-8d73l7T5AzeQQ-oL2wIqrD0oFU-o"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span><span class="c16">マークをクリックして、そのままブラウザ上の予約のない時間枠をクリックしてください。</span></p>
+        <p class="c6"><span class="c16">これで、実際にブラウザが読み込んでいるHTMLとcssを確認することができました。</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width:930.52px;">
+                <img alt=""
+                    src="https://lh5.googleusercontent.com/guk8pdVANCORlTR4f4nPaSwhO5LLdiYEc4wnZmNsOOfRTsZSQTIKfh7DwwpY7DD7t8IeR_gp8RytIjasrLVhs4AbgHKEPBqpqahLW4xMEv0NRNn4jHxB1VyzAxWFe6rJIAO-cZlt"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.wd9kyva4zj4b"><span class="c15">3.</span></h3>
+        <p class="c6">
+            <span>せっかくなので、このままjavascriptのデバッグを行ってみましょう。上部のSourcesタブをクリックして、左側に出てきたフォルダツリーから、js/index.jsを選択しましょう。これは、eclipseで見ているWEB-INF/jsフォルダの中身ではなく、ブラウザがサーバーから取得したリソースを見ています。次にindex.jsの中にある</span><span
+                class="c10">input_new</span><span>という関数の定義部分を検索しましょう。「ctrl +
+                f」を押して、出てきた検索文字入力欄で検索を実行してください。検索された</span><span class="c10">input_new</span><span>の中の</span><span
+                class="c10">now_loading.on();</span><span class="c16">
+                の行番号をクリックして、青色に変更されたら、デバッグの準備が完了です！予約のない時間枠をクリックしてみましょう！</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;">
+                <img alt=""
+                    src="https://lh4.googleusercontent.com/IiYD192iOWuYT9zR3_DCJ2tjgh6x1HZpba0r20oYEdLadH8Sh3FXJVfT3gA7WInnNeJJm3dWG5bPLTjAnzTZc3BrZyxwCzbiOKhAPpOhIfvh2Is4ggng0sUWIDXFaxHz6YEWlVco"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.bfssaobx6dn3"><span class="c15">4.</span></h3>
+        <p class="c6"><span>すると、カレンダー画面が灰色になり、右側のデバッグウィンドウで</span><span
+                class="c10">now_loading.on();</span><span>のコードが青く表示されました。これで、この行の手前までjavascriptが実行された状態となっています。この状態で「F10」を押すと、</span><span
+                class="c10">now_loading.on();</span><span>の行が実行され、カレンダー画面に「データ送受信中です～」という</span> <span
+                class="c21">マスク</span><span>を表示するという処理まで実行されました。右側のウィンドウには、その時点での変数の内容が表示されます。順々に「F10」を押していくと、</span><span
+                class="c10">self.show();</span><span>の行が実行されると予約ウィンドウが表示され、</span><span
+                class="c10">now_loading.off();</span><span
+                class="c16">の行が実行されるとマスクが外れることがわかります。そしてそのまま最後まで押し続けると、カレンダー画面の色が戻り、onclickイベントによって開始されたjavascriptの制御が、全て終了となります。このようにして、javascriptを１行ずつ実行し、その結果やその時点での変数の内容を確認することが可能です。</span>
+        </p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;">
+                <img alt=""
+                    src="https://lh4.googleusercontent.com/JMUxIqdIdNCAAt0cKHo5qjIozmkJNUk_fFX3ZK9SZ7kRLN5GOBN_ZNnuV-ac96NBFzfPxlUVqIXKDyqETMXwTrjvTi2KZUPVOioOwYh3KObGInJUXqyJ6EuTWbbhdXwX20Yt49J1"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.tdjkws93rgvx"><span class="c15">5.</span></h3>
+        <p class="c6"><span class="c10">self.show();</span><span
+                class="c16">により、index.jspで読み込んだinput_dialog_div.jspの中にある、非表示状態のdivタグを表示させている、これが新規予約時の予約ウィンドウ表示の実体です。</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span class="c35 c20">＜予約内容照会時の予約ウィンドウ表示＞</span></p>
+        <h3 class="c6 c17" id="h.kf9sogv1c0dl"><span class="c15">1.</span></h3>
+        <p class="c6"><span
+                class="c16">予約済の時間枠のonclick属性を見てみると、input_dialog_controllerのmodifyに引数として予約データのidを渡して呼び出しているようです。なお、下記のように文字列を「+」で連結するコードを書いても、コンパイル後は「new
+                StringBuilder(&quot; ～ &quot;).append(&quot; ～
+                &quot;).toString()」と同じコードが生成されます。また、文字列と数値（getId()の戻り値はint）を「+」で連結すると、数値は文字列に変換されて結合されます。</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c14"><span class="c20">サンプルコード：calendar_div.jsp（ポイントのみ抜粋、フォーマット変更）</span></p>
+        <p class="c3"><span class="c35 c20"></span></p>
+        <div class="code_block">
+            <p class="c14"><span
+                    class="c42">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c5">onClickEvent = </span><span
+                    class="c8">&quot;input_dialog_controller.modify(&#39;&quot;</span><span class="c5"> + </span> <span
+                    class="c0">bookingData</span> <span class="c5">.</span><span class="c18">getId</span> <span
+                    class="c5">() + </span><span class="c8">&quot;&#39;);&quot;</span><span class="c2">;</span></p> <br>
+            <p class="c14 c38"><span class="c2"></span></p><br>
+            <p class="c14"><span class="c2">（省略）</span></p><br>
+            <p class="c14 c38"><span class="c2"></span></p><br>
+            <p class="c14"><span
+                    class="c42">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c5">&lt;</span><span class="c0">td</span><span class="c5"> </span><span
+                    class="c26">class</span><span class="c5">=</span> <span class="c8">&quot;</span><span
+                    class="c33">&lt;%=</span><span class="c8">cssClass</span> <span class="c33">%&gt;</span><span
+                    class="c8">&quot;</span><span class="c2"> &lt;%=colspan%&gt;</span> </p><br>
+            <p class="c14"><span
+                    class="c42">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c1">onclick=&quot;</span><span class="c33 c23">&lt;%=</span><span
+                    class="c1">onClickEvent</span> <span class="c33 c23">%&gt;</span><span class="c1">&quot;</span><span
+                    class="c5"> title=&quot;</span> <span class="c33">&lt;%=</span><span class="c5">title</span><span
+                    class="c33">%&gt;</span><span class="c5">&quot;&gt;&lt;/</span><span class="c0">td</span><span
+                    class="c2">&gt;</span></p><br>
+        </div>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.apu8krx87eaa"><span class="c15">2.</span></h3>
+        <p class="c6"><span>また今回もjavascriptのデバッグを行ってみましょう。今度はindex.jsの中からmodify関数を見つけ出して、その１行目に</span><span
+                class="c21">ブレイクポイント</span><span>を設定しましょう。そして今度は「F10」ではなく、「F11」を押して進めるようにしてみましょう。すると、先ほどは</span><span
+                class="c10">now_loading.on();</span><span>という関数の中身は追いかけず、見ている関数の中だけを進んでいきましたが、今回はその中まで入っていきました。F10の動きを「</span>
+            <span class="c21">ステップオーバー</span><span>」、F11の動きを「</span><span class="c21">ステップイン</span><span
+                class="c16">」と言います。ちなみに「F5」を押すと、次のブレイクポイントもしくは最後まで実行されます。これらの機能は、デバッグウィンドウの右上に表示されたボタンからも操作可能です。</span>
+        </p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;">
+                <img alt=""
+                    src="https://lh3.googleusercontent.com/bDS2MhcBQk5HyTH99p7yTjo5BwT-DJeBqFPtjngQ_LU3h5FNh2VdyJgn9ejwA6c4YjNLYSYERx-o3LCoTb6dy72JxqgPkEVuzU6E8aLuGazcNuVnI1rihIwxvtIYcGhruzeJHrTS"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.yfh9n58v87uu"><span class="c15">3.</span></h3>
+        <p class="c6"><span>何度かF11を押していると、</span><span class="c10">get_booking_data</span><span
+                class="c16">という関数に入ります。ここでは、サーバーから予約データの詳細を取得するための通信処理を起動しています。formをsubmitすると画面が更新されますが、ここで行っている処理では、画面を更新せず、データのみをjavascriptで受け取ることが可能です。</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span class="c20">＜ポイント＞</span></p> <a id="t.1e062d2f97b45837dede2da055ca4465c3c76296"></a> <a
+            id="t.0"></a>
+        <table class="c40">
+            <tbody>
+                <tr class="c12">
+                    <td class="c29" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c35 c20">(1)</span></p>
+                        <p class="c6"><span class="c10">getBaseQuery</span><span
+                                class="c16">というutility.jsに定義された関数で、データ取得用のURLを生成しています。</span></p>
+                        <p class="c3"><span class="c16"></span></p>
+                        <p class="c6"><span class="c20">(2)</span></p>
+                        <p class="c6"><span>dataは</span><span class="c10">「&amp;id=1」</span><span
+                                class="c16">という形式で準備しておきます。</span></p>
+                        <p class="c3"><span class="c16"></span></p>
+                        <p class="c6"><span class="c35 c20">(3)</span></p>
+                        <p class="c6"><span class="c10">XHRController</span><span>というutility.jsに定義されたクラスの</span><span
+                                class="c10">send</span><span
+                                class="c16">メソッドを使用して、データを取得するためのリクエストを送信しています。各引数は以下の通りとなります。</span></p>
+                        <p class="c3"><span class="c16"></span></p>
+                        <p class="c6"><span class="c20">第1引数 ：</span><span class="c16">リクエスト送信先のURLを指定します。</span></p>
+                        <p class="c6"><span class="c20">第2引数 ：</span><span
+                                class="c16">リクエストメソッドを指定します。ここではPOSTを指定しています。</span></p>
+                        <p class="c6"><span class="c20">第3引数 ：</span><span class="c16">POSTするデータを指定します。</span></p>
+                        <p class="c6"><span class="c20">第4引数 ：</span><span
+                                class="c16">通信処理を非同期で行う場合true、falseの場合はすべての処理が停止してしまいます。例えば、「データ送受信中です～」とメッセージを表示したくてもできません。</span>
+                        </p>
+                        <p class="c6"><span class="c20">第5引数 ：</span><span
+                                class="c16">レスポンスを受信したら受信データを引数として呼び出す関数を指定します。</span></p>
+                        <p class="c6"><span class="c20">第6引数 ：</span><span class="c16">リクエスト送信時のデータフォーマットを指定します。</span>
+                        </p>
+                        <p class="c3"><span class="c16"></span></p>
+                        <p class="c6"><span class="c35 c20">(4)</span></p>
+                        <p class="c6"><span class="c10">get_booking_data_result</span><span>は、</span><span
+                                class="c10">xhr_controller</span><span>による通信完了後に呼び出され、引数responseに受信データを受け取ります。受信データの中のsucceededがtrueであった場合には、</span><span
+                                class="c10">input_modify</span><span>で予約ウィンドウの各項目に受信データの内容を反映して表示させ、falseの場合エラーメッセージを表示してカレンダー画面を再読込します。</span>
+                            <span class="c10">input_modify</span><span class="c16">の中身は自分で確認してみてください！</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c14"><span class="c20">サンプルコード：index.js（input_dialog_controllerの一部抜粋、フォーマット変更）</span></p>
+        <p class="c3"><span class="c35 c20"></span></p>
+        <div class="code_block">
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c18">get_booking_data</span><span class="c24">:</span><span class="c5"> </span><span
+                    class="c32">function</span><span class="c2"> (id) {</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c32">var</span><span class="c5"> self </span><span class="c24">=</span><span class="c5">
+                </span><span class="c0">this</span><span class="c2">;</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c32">var</span><span class="c5"> url </span><span class="c24">=</span><span class="c5">
+                </span><span class="c18">getBaseQuery</span><span class="c5">(</span> <span
+                    class="c8">&#39;get&#39;</span><span class="c2">);</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c32">var</span><span class="c5"> data </span><span class="c24">=</span><span class="c5">
+                </span><span class="c8">&#39;&amp;id=&#39;</span><span class="c5"> </span><span
+                    class="c24">+</span><span class="c2"> id;</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c32">var</span><span class="c5"> xhr_controller </span><span class="c24">=</span><span
+                    class="c5"> </span><span class="c32">new</span><span class="c5"> </span><span
+                    class="c30">XHRController</span><span class="c2">();</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xhr_controller.</span><span
+                    class="c18">send</span><span class="c5">(url, </span><span class="c8">&#39;POST&#39;</span><span
+                    class="c5">, data, </span><span class="c26">true</span><span class="c5">, self.</span><span
+                    class="c0">get_booking_data_result</span><span class="c5">, env.</span><span
+                    class="c0">content_type</span> <span class="c2">);</span> </p><br>
+            <p class="c14"><span class="c2">&nbsp;&nbsp;&nbsp;&nbsp;},</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c18">get_booking_data_result</span><span class="c24">:</span><span class="c5"> </span><span
+                    class="c32">function</span><span class="c2"> (response) {</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c32">if</span><span class="c5"> (response.</span><span class="c0">succeeded</span><span
+                    class="c2">) {</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input_dialog_controller.</span><span
+                    class="c18">input_modify</span><span class="c5">(response.</span><span class="c0">data</span><span
+                    class="c2">);</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} </span><span
+                    class="c32">else</span><span class="c2"> {</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c18">alert</span><span class="c5">(response.</span><span class="c0">message</span><span
+                    class="c2">);</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;calendar_controller.</span><span
+                    class="c18">target_select_form_submit</span><span class="c2">();</span></p><br>
+            <p class="c14"><span class="c2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p><br>
+            <p class="c14"><span class="c2">&nbsp;&nbsp;&nbsp;&nbsp;},</span></p><br>
+        </div>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span class="c20 c35">＜予約ウィンドウにおける予約・変更ボタン押下時の処理＞</span></p>
+        <h3 class="c6 c17" id="h.6wujtlar6ki0"><span class="c15">1.</span></h3>
+        <p class="c6"><span>新規予約時の「予約」ボタンや予約内容照会時の「変更」ボタンを押した際には、</span><span
+                class="c10">input_dialog_controller</span><span>の</span><span
+                class="c10">save()</span><span>によってサーバーにデータを送信していますが、input_dialog_div.jspの予約フォームのformタグに注目すると、「</span><span
+                class="c10">&lt;form id=&quot;booking_form&quot; onsubmit=&quot;return false;&quot;&gt;</span> <span
+                class="c16">」となっており、submitがキャンセルされています。また、4-1-5で学習したform.jspのformタグで指定していた「name」「method」「action」の各属性も定義されていません。</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span>これらの属性は</span><span
+                class="c10">save()</span><span>の中のxhr_controller.send()で定義しており、submitの代わりに</span><span
+                class="c21">非同期通信（Ajax）</span><span>によってサーバーへデータを送信しています。submitによるリクエストでは、ページ全体の書き換えが発生しますが、非同期通信ではページの書き換えを行わずに必要なデータのみ送受信することができます。前項の</span>
+            <span class="c10">get_booking_data</span><span class="c16">でも同じように、画面はそのままで予約データのみを受信しているのです。</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span>POST処理の動きは</span><span
+                class="c10">get_booking_data</span><span>を参考に読み解けると思います。流れとしては、</span><span
+                class="c10">validation</span><span>でフォームへの入力内容の確認を行い、入力内容に問題があればエラーメッセージを表示し、問題がなければ入力データを</span><span
+                class="c10">get_dialog_data</span> <span class="c16">で収集してPOSTする流れとなっています。自分でデバッグして読み解いてみましょう！</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p>
+        <h1 class="c25 c17" id="h.lmfarvc7l474"><span class="c9">6-15 送受信データの中身</span></h1>
+        <p class="c6"><span class="c21 c39"><a class="c13" href="#h.txzidfmcocjs">6-14</a></span><span
+                class="c16">では、画面内で発生したイベントに対応するjavascirptが、どのように動いているのかをデベロッパーツールから確認する方法を学びました。次に、ブラウザとサーバー間で送受信されるデータを確認してみましょう！</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.w6oimx3rnzmz"><span class="c15">1.</span></h3>
+        <p class="c6"><span>まず、Sourceタブでindex.jsを開き、</span><span
+                class="c10">input_dialog_controller.save_result</span><span
+                class="c16">の１行目にブレイクポイントを設定し、その状態で予約済の時間枠をクリックし、さらに変更ボタンを押してください。</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;">
+                <img alt=""
+                    src="https://lh6.googleusercontent.com/FhsUvcszcL0x9GyZhjozzoVtXhCkndV5LPa_ouwiQB5jBsPUQyqJW91iMhW5jL9PJr6DspO-lYxODuRMdcvj3EG_Pf4t1IrujaFbF9HqkKWDnyMXbNqb0f7Gmg3d2ngUTdGfWyBx"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.krsvf8k4rmxz"><span class="c15">2.</span></h3>
+        <p class="c6"><span
+                class="c16">１行目で停止している状態でNetworkタブを押して、左下のNameから「?a=get」を選択してください。その状態で右側のHeadersやPreviewを開くと、送受信データの詳細を確認できます。</span>
+        </p>
+        <p class="c6"><span
+                class="c16">これは、予約済みの時間枠をクリックした際の、「予約データをサーバーから取得しているGETリクエスト」の情報で、Previewから受信データの中身を見ることができます。</span>
+        </p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width:930.52px;">
+                <img alt=""
+                    src="https://lh4.googleusercontent.com/mayu14YtCFzd7lFVkWIqp_GBkFOPg9r-APU1MOg2Qyjf0OQ5vWolVFUGuHchaHxlTgW206mm4mX8g7M7XyPVNbiHzWw29uDDtny4tqwtDLBLe8ZUyQ3T5axfbxkphyrFZaqAIsMi"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.79rhhlz71512"><span class="c15">3.</span></h3>
+        <p class="c6"><span
+                class="c16">続けてその下の「?a=input&amp;tc=room_a&amp;tm=201907」を見てみましょう。これは、変更ボタンを押した際のPOSTリクエストです。HeadersのForm
+                Dataから送信データの中身を見ることができます。</span></p>
+        <p class="c6"><span class="c16">実際には、view sourceで見える文字列がPOSTデータの中に埋め込まれます。</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;">
+                <img alt=""
+                    src="https://lh6.googleusercontent.com/2kLm6MqL1QdkXUBdfT1L3qNXP6YFq5y-D8eyz0QRH5cV-DZsvwOB0sYKNRWAts9g0rGF5vcDzXBcATTUHttE_v_WWW2op7elNxaQ8bMMD6gHMu99hpJHe1DXVsZy3LfKF5cXJdMn"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.f20f5yi4ouat"><span class="c15">4.</span></h3>
+        <p class="c6"><span
+                class="c16">予約済みの時間枠をクリックしてから変更ボタンを押すまでに「予約者名」欄の入力内容を変更していなければ、GETリクエスト時の受信データの「userName」の値が、POSTリクエスト時の送信データの「user_name」の値と同じになっているはずです。</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span class="c21 c39"><a class="c13" href="#h.txzidfmcocjs">6-14</a></span><span
+                class="c16">の手順で確認してみると、予約済みの時間枠をクリックした際にGETリクエストで受信した「userName」は、index.jsによって「予約者名」の入力欄へ反映しています。index.jsでは、「id=&quot;booking_user_name&quot;」が付いた「HTML上のformのinputタグ」を「bookig_form.booking_user_name」により特定して、value属性の値を書き換えています。</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span class="c16">変更ボタンによりPOSTリクエストを送信する場合は、index.jsにおいて送信データを作成する際に「data +=
+                &#39;&amp;user_name=&#39; +
+                encodeURIComponent(booking_form.booking_user_name.value);」で「user_name」という名前に紐付けています。そしてサーバー側では、IndexControllerのinputActionにおいて「data.setUserName(req.getParameter(&quot;user_name&quot;));」によりその値を取得しています。</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p>
+        <h1 class="c17 c25" id="h.e29iz6rm9bsx"><span class="c9">6-16 機能追加５：予約ウィンドウへの項目追加対応</span></h1>
+        <p class="c6"><span class="c21 c39"><a class="c13" href="#h.txzidfmcocjs">6-14</a></span><span>～</span><span
+                class="c21 c39"><a class="c13" href="#h.lmfarvc7l474">15</a></span><span
+                class="c16">では、予約ウィンドウにおける処理の流れと、そこで実際に送受信されるデータの内容を確認してきました。</span></p>
+        <p class="c6"><span
+                class="c16">予約ウィンドウの各項目の値が、サーバーとどのようにやり取りされているかわかってきたと思いますので、次は項目の追加を行います。6-3で整理した予約ウィンドウの項目の中でまだ存在しない項目は、所属部署・内線番号・利用人数の３つです。まずは所属部署追加のポイントを説明しますので、残りの２つも同じように進めてみましょう！</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.13ggnvm724d5"><span class="c15">1.</span></h3>
+        <p class="c6"><span class="c16">予約ウィンドウの定義は「input_dialog_div.jsp」で行われています。</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span class="c20">＜ポイント＞</span></p> <a id="t.31822fdfbc46346511046ab1d5ab9b62a2cbe5fa"></a> <a
+            id="t.1"></a>
+        <table class="c40">
+            <tbody>
+                <tr class="c12">
+                    <td class="c29" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c35 c20">(1)</span></p>
+                        <p class="c6"><span
+                                class="c16">SQLを見るとbooking_dataテーブル内での予約者名は「user_name」です。input_dialog_div.jsp内では「booking_」とフィールド名をキーに使用しているようです。divタグのidや、inputタグのidとnameにもそれが使用されています。所属部署は「user_section_name」としましょう。</span>
+                        </p>
+                        <p class="c3"><span class="c16"></span></p>
+                        <p class="c6"><span class="c35 c20">(2)</span></p>
+                        <p class="c6"><span>所属部署は改行は含まず予約者名より少し長いぐらいでしょう。ですので、入力欄のタイプは予約者名と同様に</span><span
+                                class="c10">input type=&quot;text&quot;</span><span class="c16">で問題なさそうです。</span></p>
+                        <p class="c3"><span class="c16"></span></p>
+                        <p class="c6"><span class="c35 c20">(3)</span></p>
+                        <p class="c6">
+                            <span>サンプルコードでは、必須項目と任意項目をひとつずつ抜粋してきました。class名の違いを見ると、「require_」の有無が違いますね。これを「</span><span
+                                class="c21">index.css</span><span class="c16">」と見比べてみてください。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c14"><span class="c20">サンプルコード：input_dialog_div.jsp（一部抜粋、フォーマット変更）</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <div class="code_block">
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c0">div</span><span class="c5"> </span><span class="c26">id</span><span
+                    class="c5">=</span><span class="c8">&quot;booking_</span><span class="c8 c23">user_name</span> <span
+                    class="c8">_div&quot;</span> <span class="c5"> </span><span class="c26 c23">class</span><span
+                    class="c1">=</span><span class="c19 c8">&quot;booking_require_items&quot;</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c26">title</span><span class="c5">=</span><span class="c36 c8">&quot;【必須入力項目】</span></p><br>
+            <p class="c14"><span class="c36 c8">予約される方や代表者の方、</span></p><br>
+            <p class="c14"><span class="c36 c8">もしくは問い合わせ先の方の</span></p><br>
+            <p class="c14"><span class="c8">お名前を入力して下さい。&quot;</span><span class="c2">&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;予約者名：</span><span
+                    class="c1">&lt;</span><span class="c0 c23">input</span><span class="c1"> </span><span
+                    class="c26 c23">type</span><span class="c1">=</span> <span
+                    class="c8 c23">&quot;text&quot;</span><span class="c5"> </span> <span class="c26">id</span><span
+                    class="c5">=</span><span class="c8">&quot;booking_</span><span class="c8 c23">user_name</span><span
+                    class="c8">&quot; </span><span class="c26">name</span><span class="c5">=</span><span
+                    class="c8">&quot;booking_</span> <span class="c8 c23">user_name</span> <span
+                    class="c8">&quot;</span><span class="c5"> </span><span class="c26">value</span><span
+                    class="c5">=</span><span class="c8">&quot;&quot;</span><span class="c2"> /&gt;</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span
+                    class="c0">div</span><span class="c2">&gt;</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c0">div</span><span class="c5"> </span><span class="c26">id</span><span
+                    class="c5">=</span><span class="c8">&quot;booking_description_div&quot;</span> <span class="c5">
+                </span><span class="c26 c23">class</span> <span class="c1">=</span><span
+                    class="c8 c19">&quot;booking_items&quot;</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c26">title</span><span class="c5">=</span><span class="c36 c8">&quot;【任意入力項目】</span></p><br>
+            <p class="c14"><span class="c36 c8">利用目的の詳細や、</span></p><br>
+            <p class="c14"><span class="c36 c8">参加者への通知事項など</span></p><br>
+            <p class="c14"><span class="c8">自由に入力して下さい。&quot;</span><span class="c2">&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;利用詳細・その他備考：&lt;</span><span
+                    class="c0">br</span><span class="c2">&gt;</span></p><br>
+            <p class="c14"><span
+                    class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span
+                    class="c0">textarea</span><span class="c5"> </span><span class="c26">id</span><span
+                    class="c5">=</span><span class="c8">&quot;booking_description&quot;</span> <span class="c5">
+                </span><span class="c26">name</span> <span class="c5">=</span><span
+                    class="c8">&quot;booking_description&quot;</span><span class="c5">&gt;&lt;/</span><span
+                    class="c0">textarea</span><span class="c2">&gt;</span></p><br>
+            <p class="c14"><span class="c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span
+                    class="c0">div</span><span class="c2">&gt;</span></p><br>
+        </div>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.i39zpfkiwrzs"><span class="c15">2.</span></h3>
+        <p class="c6"><span>入力されたデータの送信は</span><span class="c10">input_dialog_controller</span><span>の</span><span
+                class="c10">save</span><span>で行っており、サーバーからのデータの取得は</span><span
+                class="c10">get_booking_data</span><span>で行っていましたね。「</span><span class="c21">index.js</span> <span
+                class="c16">」を修正して送受信が行えるようにしましょう。</span> </p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.9v2dzauv1fg8"><span class="c15">3.</span></h3>
+        <p class="c6"><span>サーバー側では「</span><span
+                class="c21">IndexController</span><span>」の「inputAction」と「getAction」が窓口でしたね。さらにその先のDBとのやり取りは「</span><span
+                class="c21">BookingDataDao</span><span
+                class="c16">」で行っていました。DAO修正の前に、使用するDTOへの項目追加を行いましょう。なお、DBテーブルには、既に項目は作成してあります。</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span class="c20">BookingDataDto.java への項目追加 ポイント</span></p> <a
+            id="t.a060f17cc241c58c5f0be15822c3333e2ba14575"></a> <a id="t.2"></a>
+        <table class="c40">
+            <tbody>
+                <tr class="c12">
+                    <td class="c29" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c35 c20">(1)</span></p>
+                        <p class="c6"><span>追加するプロパティはprivateにしてください。（</span><span class="c21">カプセル化</span><span
+                                class="c16">）</span></p>
+                        <p class="c3"><span class="c16"></span></p>
+                        <p class="c6"><span class="c35 c20">(2)</span></p>
+                        <p class="c6"><span class="c16">利用人数（memberCount）はint型にしてください。</span></p>
+                        <p class="c3"><span class="c16"></span></p>
+                        <p class="c6"><span class="c20">(3)</span></p>
+                        <p class="c6"><span
+                                class="c16">privateなプロパティは他のクラスからアクセスできません。一般的に、プロパティをprivateにして、クラスの外から見えなくすることで、プログラムの安全性を高めています。</span>
+                        </p>
+                        <p class="c6"><span>privateなプロパティは、publicで修飾した</span><span
+                                class="c21">「getter」、「setter」メソッド</span><span class="c16">を経由してアクセスします。</span></p>
+                        <p class="c3"><span class="c16"></span></p>
+                        <p class="c6"><span class="c20">(4)</span></p>
+                        <p class="c6"><span class="c16">リクエストから送られてくるパラメータ（フォームで入力したデータ）は、全て文字列（String）です。</span></p>
+                        <p class="c6"><span>利用人数のセッターはint型の引数となるため、呼び出す際には</span><span
+                                class="c10">Integer.parseInt()</span><span class="c16">を使いましょう。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.m3ui4k9flqkv"><span class="c15">4.</span></h3>
+        <p class="c6"><span class="c16">HTML(jsp)、javascript、servletそれぞれの修正と、DAO関連のModelを修正すればうまくいきそうです。</span></p>
+        <p class="c6"><span>いきなり触るファイルが増えましたが、ひとつひとつ、直していけば大丈夫です。もしわからなくなってしまったら、</span><span
+                class="c21">既に動いている「user_name」の動きを追いかけていけばわかる</span><span class="c16">はずです！</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h1 class="c25 c17" id="h.gpu8rzild5uj"><span class="c9">6-17 機能追加６：予約ウィンドウへのキャンセル機能追加対応</span></h1>
+        <p class="c6"><span>ついに最後の機能追加である、予約キャンセル機能の追加です。6-4に記載している通り、予約データをDBのテーブルから完全に削除する</span><span
+                class="c21">物理削除</span><span>ではなく、削除フラグに「1」を入れるだけの</span><span class="c21">論理削除</span><span
+                class="c16">とします。つまり、項目追加と同じように、削除フラグという予約ウィンドウ上では見えない項目を追加するだけです。説明なしでやってみましょう！</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h1 class="c25 c17" id="h.k5nr37bmfttl"><span class="c9">6-18 仕様変更：MySQLへの変更対応</span></h1>
+        <p class="c6"><span
+                class="c16">ここまでですべての機能が完成しました。きちんとcommitとpushはできていますでしょうか？Sourcetree上で見えていた「addmysql」ブランチをマージして、DBをMySQLに変更してみましょう。</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.kuuov6k0juu2"><span class="c15">1.</span></h3>
+        <p class="c6"><span class="c16">まずは2-1-23～24を参考に、MySQLが動くDBサーバーとMySQLを管理するphpMyAdminが動くサーバーを起動しましょう。</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.dzda8v9yj6vb"><span class="c15">2.</span></h3>
+        <p class="c6"><span class="c16">以降はSourcetree上の作業となりますので、すべてのcommitとpushが完了しているか確認してください。</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;">
+                <img alt=""
+                    src="https://lh6.googleusercontent.com/9Bel4xCmSh9BfbFXRlWgUmwl4Ia_TEP_y9somD9SarnvhMrBgLpIIKoF_HbBAzm81wq8E1hEGpoSuN3kTHa9hd7Ki2tIQH3_bCfKtDgAg2qgV8ZQ9DGDyjJqY0MM0R4aGV9kG9Lu"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.gvufpeytblxz"><span class="c15">3.</span></h3>
+        <p class="c6"><span class="c16">枝分かれした「addmysql」というブランチを選択して、画面下部からコミットの内容を確認してみましょう。</span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span class="c20">＜ポイント＞</span></p> <a id="t.19dfcf274723f9addcd28ba4f29ac2d9278d40a4"></a> <a
+            id="t.3"></a>
+        <table class="c40">
+            <tbody>
+                <tr class="c12">
+                    <td class="c29" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c20">(1)</span><span> </span><span
+                                class="c16">web.xmlへmysqlのリソースへの参照を追加、dbTypeをsqliteからmysqlに変更。</span></p>
+                        <p class="c6"><span class="c20">(2)</span><span> </span><span
+                                class="c16">context.xmlへmysqlのリソース情報を追加。</span></p>
+                        <p class="c6"><span class="c20">(3)</span><span> </span><span
+                                class="c16">MySQL向けのSQLファイルを追加。</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;">
+                <img alt=""
+                    src="https://lh6.googleusercontent.com/dyQx13ztgUbhK00AKZoTz9mSbzxrdw0uWlWY1XYc3zu365ziDDmGNmAVEVMLgbYexZyk8UWat8Rs8fhyrbkGjbG1Hp4V8s3aD9CF5hi7ltXv6sT7_2vJnag4XZIKn4jqu-kejm6q"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.52gznt2roc3y"><span class="c15">4.</span></h3>
+        <p class="c6">
+            <span>これらのファイルに変更は加えていない（はず）ですので、この変更情報をそのまま今のmasterブランチに取り込んでしまえば、DBをMySQLに切り替えることができそうです。</span><span
+                class="c21">addmysqlブランチの行を右クリックして「マージ」を選択</span><span class="c16">し、次の警告ダイアログで「ＯＫ」をクリックしてください。</span>
+        </p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width:596.00px;">
+                <img alt=""
+                    src="https://lh5.googleusercontent.com/XftqJLql3i4fbwXYE4lJOzKUGiFEnjhZT36eyeBXB4nLFlVQABAGGaJAr8aoFHXn_F5SLB7A9rg54wVwFChCrbFWFLeGIgINJ1c-u8FqMrvkU67ZJr8hRcWTkTOTqHU3V-rIXiTG"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.aadi0xdjn3dj"><span class="c15">5.</span></h3>
+        <p class="c6"><span class="c16">マージはローカルリポジトリ上で行われますので、プッシュを行ってリモートリポジトリへ反映しましょう。</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;">
+                <img alt=""
+                    src="https://lh6.googleusercontent.com/Hzc1GZfoObICVBbtfZrQW3QfkAUfrXIyl2b0_at580cVZFFS1vaGxs-aD14XuN_eYeIoIDBZ45gpU1gDsvk7yE1HSyOutpSj7A2NCDK95B9gCjY342pG-n5sYJiEGAmnZyAiGNXu"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.ehmb4xsmwo3f"><span class="c15">6.</span></h3>
+        <p class="c6"><span
+                class="c16">これでプログラムソース上はMySQLへの切り替えが終わり、DBも起動状態ですので、bookingにアクセスしてみましょう。もちろん、DB側の設定が終わっていませんので次のエラーが表示されるはずです。</span>
+        </p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;">
+                <img alt=""
+                    src="https://lh6.googleusercontent.com/1IEIol1UuwquvoIESLcfTBFb2d-YMpXhoItEZ6TZKpmkrLVMp5rC195ERK1IETyUI39PNvQOR6DcL4iMBX8WtiMoXNuTA7qPz8d6BHeVYAIJCGMurY5S6P0Qq4mz9B9ntzKo8R86"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.z0cki7celn81"><span class="c15">7.</span></h3>
+        <p class="c6"><span
+                class="c16">プロジェクトに新たに追加された「01_create_booking_mysql.sql」を実行しましょう。・・・とその前に、これまでの機能追加において増えたフィールドの定義を反映しましょう。フィールド名は異なるかもしれませんが、以下の定義で問題ないでしょう。</span>
+        </p>
+        <p class="c3"><span class="c16"></span></p> <a id="t.5ca96a952610be0f1f0f2d99de10d01c37444d4a"></a> <a
+            id="t.4"></a>
+        <table class="c40">
+            <tbody>
+                <tr class="c12">
+                    <td class="c29" colspan="1" rowspan="1">
+                        <p class="c6"><span class="c20">(1) 所属部署 ⇒</span><span class="c16"> `user_section_name`
+                                varchar(20) DEFAULT NULL,</span></p>
+                        <p class="c6"><span class="c20">(2) 内線番号 ⇒</span><span class="c16"> `user_phone_number`
+                                varchar(10) DEFAULT NULL,</span></p>
+                        <p class="c6"><span class="c20">(3) 利用人数 ⇒</span><span class="c16"> `member_count` tinyint(4)
+                                DEFAULT NULL,</span></p>
+                        <p class="c6"><span class="c20">(4) 削除フラグ ⇒</span><span class="c16"> `deleted_flag` varchar(1)
+                                DEFAULT NULL,</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.1kmlbvid9qd3"><span class="c15">8.</span></h3>
+        <p class="c6"><span>docker-machine上にphpMyAdminという管理ツールが稼動するコンテナが起動していますので、ブラウザから「</span><span
+                class="c10">http://2-1-18で確認したIP:8080/</span><span
+                class="c16">」へアクセスしてください。開かれた画面上部の「SQL」をクリックするとSQL実行画面となりますので、中央のSQL入力エリアに「01_create_booking_mysql.sql」の中身をすべて貼り付けて、実行ボタンをクリックしてください。</span>
+        </p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 100%;">
+                <img alt=""
+                    src="https://lh4.googleusercontent.com/PP6tpO-0Lh_6MuztWOge7I9WnkYULW_wKedkf0prjktKy8YhbQ_kJhjN_YbF_5iW4hMHWjqCK8kdQVYQc6XC7W7O1TJFZO4dneP_X63OmuAQulULjYq-rkaVKGJihBiuZdVINSYg"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <h3 class="c6 c17" id="h.ut8ix7rqtqy4"><span class="c15">9.</span></h3>
+        <p class="c6"><span class="c16">以下のメッセージが表示されれば、SQLの実行は成功です。ブラウザから動作を確認してみましょう！</span></p>
+        <p class="c6"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);max-width:841.00px;">
+                <img alt=""
+                    src="https://lh4.googleusercontent.com/E2uyI9q9NOgEtn6s4SG-pAFz_cb6jrnBGF18OUj0Q3RjT41QMn2xv7L5v5IUVzNrNvgfXYyXgTvJ_Aa34wIDrNMPJBFVfMCqD0eDHNyhcVMuBgbBkzx-6YmxOQY41zYIk7fRa-LU"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c3"><span class="c16"></span></p>
+        <p class="c6"><span class="c16">これで、６章は終了です！おつかれさまでした！</span></p>
+        <p class="c3"><span class="c16"></span></p>
+    </div>
+    <div id="footer"><span>公開元: <a href="https://member.digskill.net/dashboard">Dig Skill</a></span><span
+            class="dash">&ndash;</span>【6】より高度な WEB
+        アプリケーションを作ってみよう！（2） </div>
+</body>
+
+</html>

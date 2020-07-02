@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>【1】基礎知識を学ぼう！</title>
+    <link rel="shortcut icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico">
+    <meta charset="UTF-8">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+        }
+
+        iframe {
+            border: 0;
+            frameborder: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #header {
+            align-items: center;
+            background: white;
+            border-bottom: 1px #ccc solid;
+            display: flex;
+            height: 60px;
+            justify-content: space-between;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        #header #title {
+            font-family: 'Noto Sans JP';
+            font-size: large;
+            margin: auto 0 auto 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 70%;
+        }
+
+        #header #interval {
+            margin: auto 25px auto 0;
+            font-family: 'Noto Sans JP';
+            font-size: small;
+            ;
+        }
+
+        #footer {
+            background: #f0f0f0;
+            border-bottom: 1px #ccc solid;
+            bottom: 0;
+            font-family: 'Noto Sans JP';
+            font-size: small;
+            padding: 10px 10px;
+            position: fixed;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #contents {
+            padding: 100px 3rem 50px;
+            max-width: 930px;
+            margin: 0 auto;
+        }
+
+        @media only screen and (max-width: 767px) {
+            #contents {
+                padding: 150px 1rem 80px;
+                word-break: break-all;
+            }
+        }
+
+        .dash {
+            padding: 0 6px;
+        }
+
+        :root {
+            --base_font_size: 14pt;
+        }
+
+        @media only screen and (max-width: 767px) {
+            :root {
+                --base_font_size: 14px;
+            }
+        }
+
+        .code_block {
+            white-space: nowrap;
+            overflow-x: auto;
+            background-color: #f8f8f8;
+            padding: 10px;
+        }
+
+        .code_block>p {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="title">【1】基礎知識を学ぼう！</div>
+        <div id="interval"><span>Javaコース</span></div>
+    </div>
+    <div id="contents">
+        <style type="text/css">
+            @import url('https://themes.googleusercontent.com/fonts/css?kit=cGvuclDC_Z1vE_cnVEU6Ae_NZQ7StBcqH_vXVqoPMX0');
+
+            ol.lst-kix_2zwrtrp7d7si-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-0 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-3 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-3.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-3 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-0.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-0 0
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-6.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-6 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-8>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-3.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-3 0
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-6.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-6 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-5.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-5 0
+            }
+
+            .lst-kix_tw1k779xd1a4-0>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-0
+            }
+
+            .lst-kix_za19uzqo5vqc-3>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-3
+            }
+
+            .lst-kix_za19uzqo5vqc-5>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-5
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-8.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-8 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-2.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-2 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-8.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-8 0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-0.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-0 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-5.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-5 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-8>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-8
+            }
+
+            .lst-kix_x41s1rdpnz1l-5>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-5, lower-roman) ") "
+            }
+
+            .lst-kix_za19uzqo5vqc-1>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-1
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-2.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-2 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-4>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-4, lower-latin) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-6>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-6, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-2>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-2, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-4>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-4, lower-latin) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-7>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-7
+            }
+
+            .lst-kix_x41s1rdpnz1l-3>li:before {
+                content: "("counter(lst-ctn-kix_x41s1rdpnz1l-3, decimal) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-7>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-7, lower-latin) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-1>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-1, lower-latin) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-5>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-5, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-5.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-5 0
+            }
+
+            .lst-kix_tw1k779xd1a4-0>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-0, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-6>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-6, decimal) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-8>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-8, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-7>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-7, lower-latin) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-8.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-8 0
+            }
+
+            .lst-kix_tw1k779xd1a4-8>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-0.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-0 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-8>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-8, lower-roman) ". "
+            }
+
+            .lst-kix_tw1k779xd1a4-2>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-2
+            }
+
+            ol.lst-kix_tw1k779xd1a4-1.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-1 0
+            }
+
+            .lst-kix_tw1k779xd1a4-3>li:before {
+                content: ""counter(lst-ctn-kix_tw1k779xd1a4-3, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-7>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-7
+            }
+
+            .lst-kix_za19uzqo5vqc-8>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-7, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-8, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-1>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-1
+            }
+
+            .lst-kix_2zwrtrp7d7si-4>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-4
+            }
+
+            .lst-kix_za19uzqo5vqc-7>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-7, decimal) ". "
+            }
+
+            ol.lst-kix_tw1k779xd1a4-0.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-0 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-3.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-3 0
+            }
+
+            .lst-kix_za19uzqo5vqc-4>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-5>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-7.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-7 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-7.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-7 0
+            }
+
+            .lst-kix_za19uzqo5vqc-6>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-4, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-5, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-6, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-0>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) ". "
+            }
+
+            .lst-kix_za19uzqo5vqc-1>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) ". "
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-1.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-1 0
+            }
+
+            .lst-kix_za19uzqo5vqc-3>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-3, decimal) ". "
+            }
+
+            .lst-kix_x41s1rdpnz1l-4>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-4
+            }
+
+            .lst-kix_x41s1rdpnz1l-7>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-7
+            }
+
+            .lst-kix_x41s1rdpnz1l-1>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-1, lower-latin) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-0>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-0, decimal) ") "
+            }
+
+            .lst-kix_x41s1rdpnz1l-2>li:before {
+                content: ""counter(lst-ctn-kix_x41s1rdpnz1l-2, lower-roman) ") "
+            }
+
+            .lst-kix_za19uzqo5vqc-2>li:before {
+                content: ""counter(lst-ctn-kix_za19uzqo5vqc-0, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-1, decimal) "."counter(lst-ctn-kix_za19uzqo5vqc-2, decimal) ". "
+            }
+
+            .lst-kix_x41s1rdpnz1l-1>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-1
+            }
+
+            .lst-kix_za19uzqo5vqc-4>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-4
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-7.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-7 0
+            }
+
+            .lst-kix_x41s1rdpnz1l-3>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-3
+            }
+
+            .lst-kix_tw1k779xd1a4-4>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-4
+            }
+
+            .lst-kix_2zwrtrp7d7si-3>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-3
+            }
+
+            .lst-kix_2zwrtrp7d7si-2>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-2
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-4.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-4 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-6.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-6 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-1.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-1 0
+            }
+
+            .lst-kix_tw1k779xd1a4-5>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-5
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-5.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-5 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-0 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-3 {
+                list-style-type: none
+            }
+
+            .lst-kix_tw1k779xd1a4-3>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-3
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-1 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-0>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-0
+            }
+
+            .lst-kix_x41s1rdpnz1l-2>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-2
+            }
+
+            .lst-kix_x41s1rdpnz1l-5>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-5
+            }
+
+            .lst-kix_tw1k779xd1a4-6>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-6
+            }
+
+            ol.lst-kix_za19uzqo5vqc-4.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-4 0
+            }
+
+            .lst-kix_za19uzqo5vqc-8>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-8
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-2.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-2 0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-7.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-7 0
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-5 {
+                list-style-type: none
+            }
+
+            .lst-kix_x41s1rdpnz1l-6>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-6
+            }
+
+            .lst-kix_x41s1rdpnz1l-0>li {
+                counter-increment: lst-ctn-kix_x41s1rdpnz1l-0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-4.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-4 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-0>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-0
+            }
+
+            ol.lst-kix_za19uzqo5vqc-7 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-8.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-8 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-6>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-6
+            }
+
+            ol.lst-kix_za19uzqo5vqc-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-3 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-2 {
+                list-style-type: none
+            }
+
+            .lst-kix_tw1k779xd1a4-1>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-1
+            }
+
+            ol.lst-kix_za19uzqo5vqc-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-6 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-5 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-4 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-3 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-2>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-2
+            }
+
+            .lst-kix_2zwrtrp7d7si-5>li {
+                counter-increment: lst-ctn-kix_2zwrtrp7d7si-5
+            }
+
+            ol.lst-kix_za19uzqo5vqc-1.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-1 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-8 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-7 {
+                list-style-type: none
+            }
+
+            .lst-kix_za19uzqo5vqc-6>li {
+                counter-increment: lst-ctn-kix_za19uzqo5vqc-6
+            }
+
+            ol.lst-kix_x41s1rdpnz1l-6.start {
+                counter-reset: lst-ctn-kix_x41s1rdpnz1l-6 0
+            }
+
+            ol.lst-kix_tw1k779xd1a4-2 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_tw1k779xd1a4-0 {
+                list-style-type: none
+            }
+
+            .lst-kix_2zwrtrp7d7si-0>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-0, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-1>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-1, lower-latin) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-3>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-3, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-2>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-2, lower-roman) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-4>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-4, lower-latin) ". "
+            }
+
+            ol.lst-kix_tw1k779xd1a4-3.start {
+                counter-reset: lst-ctn-kix_tw1k779xd1a4-3 0
+            }
+
+            .lst-kix_2zwrtrp7d7si-7>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-7, lower-latin) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-6>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-6, decimal) ". "
+            }
+
+            .lst-kix_2zwrtrp7d7si-8>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-8, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-1 {
+                list-style-type: none
+            }
+
+            ol.lst-kix_za19uzqo5vqc-0 {
+                list-style-type: none
+            }
+
+            .lst-kix_2zwrtrp7d7si-5>li:before {
+                content: ""counter(lst-ctn-kix_2zwrtrp7d7si-5, lower-roman) ". "
+            }
+
+            ol.lst-kix_za19uzqo5vqc-2.start {
+                counter-reset: lst-ctn-kix_za19uzqo5vqc-2 0
+            }
+
+            .lst-kix_tw1k779xd1a4-7>li {
+                counter-increment: lst-ctn-kix_tw1k779xd1a4-7
+            }
+
+            ol.lst-kix_2zwrtrp7d7si-4.start {
+                counter-reset: lst-ctn-kix_2zwrtrp7d7si-4 0
+            }
+
+            ol {
+                margin: 0;
+                padding: 0
+            }
+
+            table td,
+            table th {
+                padding: 0
+            }
+
+            .c32 {
+                border-right-style: solid;
+                padding: 5pt 5pt 5pt 5pt;
+                border-bottom-color: #000000;
+                border-top-width: 0pt;
+                border-right-width: 0pt;
+                border-left-color: #000000;
+                vertical-align: top;
+                border-right-color: #000000;
+                border-left-width: 0pt;
+                border-top-style: solid;
+                background-color: #e4f0f6;
+                border-left-style: solid;
+                border-bottom-width: 0pt;
+                width: 697.9pt;
+                border-top-color: #000000;
+                border-bottom-style: solid
+            }
+
+            .c6 {
+                padding-top: 18pt;
+                padding-bottom: 6pt;
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c10 {
+                padding-top: 16pt;
+                padding-bottom: 4pt;
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c30 {
+                padding-top: 20pt;
+                padding-bottom: 6pt;
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c2 {
+                color: #434343;
+                font-weight: 700;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 16pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c21 {
+                padding-top: 0pt;
+                padding-bottom: 3pt;
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c16 {
+                margin-left: 18pt;
+                padding-top: 3pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c18 {
+                color: #000000;
+                font-weight: 700;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c19 {
+                color: #000000;
+                font-weight: 700;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 20pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c1 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c9 {
+                background-color: #f8f8f8;
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.3571428571428572;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c33 {
+                margin-left: 18pt;
+                padding-top: 3pt;
+                padding-bottom: 4pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c24 {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 10pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c25 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c0 {
+                padding-top: 0pt;
+                padding-bottom: 0pt;
+                line-height: 2.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c29 {
+                padding-top: 4pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c13 {
+                color: #1155cc;
+                font-weight: 400;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c36 {
+                padding-top: 10pt;
+                padding-bottom: 0pt;
+                line-height: 1.0;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .c39 {
+                font-weight: 700;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: 26pt;
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c11 {
+                color: #000000;
+                font-weight: 400;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP';
+                font-style: normal
+            }
+
+            .c31 {
+                color: #a0a1a7;
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-style: italic
+            }
+
+            .c20 {
+                text-decoration: none;
+                vertical-align: baseline;
+                font-size: var(--base_font_size);
+                font-style: normal
+            }
+
+            .c40 {
+                border-spacing: 0;
+                border-collapse: collapse;
+                margin-right: auto
+            }
+
+            .c22 {
+                background-color: #ffffff;
+                max-width: 697.9pt;
+                padding: 72pt 72pt 72pt 72pt
+            }
+
+            .c15 {
+                font-family: "Consolas";
+                color: #383a42;
+                font-weight: 700
+            }
+
+            .c5 {
+                font-family: "Consolas";
+                color: #383a42;
+                font-weight: 400
+            }
+
+            .c8 {
+                font-family: "Consolas";
+                color: #e45649;
+                font-weight: 400
+            }
+
+            .c7 {
+                font-family: "Consolas";
+                color: #a626a4;
+                font-weight: 400
+            }
+
+            .c4 {
+                text-decoration-skip-ink: none;
+                -webkit-text-decoration-skip: none;
+                text-decoration: underline
+            }
+
+            .c12 {
+                color: inherit;
+                text-decoration: inherit
+            }
+
+            .c37 {
+                width: 33%;
+                height: 1px
+            }
+
+            .c17 {
+                font-weight: 400;
+                font-family: "Consolas"
+            }
+
+            .c27 {
+                font-size: 20pt;
+                font-weight: 700
+            }
+
+            .c34 {
+                height: 0pt
+            }
+
+            .c38 {
+                background-color: #fce5cd
+            }
+
+            .c35 {
+                color: #50a14f
+            }
+
+            .c3 {
+                height: var(--base_font_size)
+            }
+
+            .c28 {
+                color: #000000
+            }
+
+            .c23 {
+                color: #4078f2
+            }
+
+            .c26 {
+                color: #c18401
+            }
+
+            .c14 {
+                color: #1155cc
+            }
+
+            .title {
+                padding-top: 0pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 26pt;
+                padding-bottom: 3pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            .subtitle {
+                padding-top: 0pt;
+                color: #666666;
+                font-size: 15pt;
+                padding-bottom: 16pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            li {
+                color: #000000;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP'
+            }
+
+            p {
+                margin: 0;
+                color: #000000;
+                font-size: var(--base_font_size);
+                font-family: 'Noto Sans JP'
+            }
+
+            h1 {
+                padding-top: 20pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h2 {
+                padding-top: 18pt;
+                color: #000000;
+                font-weight: 700;
+                font-size: 20pt;
+                padding-bottom: 6pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h3 {
+                padding-top: 16pt;
+                color: #434343;
+                font-weight: 700;
+                font-size: 16pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h4 {
+                padding-top: var(--base_font_size);
+                color: #666666;
+                font-size: 12pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h5 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+
+            h6 {
+                padding-top: 12pt;
+                color: #666666;
+                font-size: 11pt;
+                padding-bottom: 4pt;
+                font-family: 'Noto Sans JP';
+                line-height: 2.0;
+                page-break-after: avoid;
+                font-style: italic;
+                orphans: 2;
+                widows: 2;
+                text-align: left
+            }
+        </style>
+        <p class="c21 title" id="h.af05px8vuzky"><span class="c28 c39">これから学ぶこと</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c29"><span class="c4 c14"><a class="c12" href="#h.5gbwpx45pqzn">このテキストのルール</a></span></p>
+        <p class="c36"><span class="c4 c14"><a class="c12" href="#h.w6k7zqew5uz">1 基礎知識を学ぼう！</a></span></p>
+        <p class="c16"><span class="c4 c14"><a class="c12" href="#h.yaov5420so2g">1-1 「コンピューター」とは</a></span></p>
+        <p class="c16"><span class="c4 c14"><a class="c12" href="#h.c0iw7p2p6fc">1-2 「プログラム」とは</a></span></p>
+        <p class="c16"><span class="c4 c14"><a class="c12" href="#h.2b0k7zy2vknt">1-3 「アプリケーション」とは</a></span></p>
+        <p class="c16"><span class="c4 c14"><a class="c12" href="#h.ewhakkaumo2v">1-4 「WEB」とは</a></span></p>
+        <p class="c16"><span class="c4 c14"><a class="c12" href="#h.tryo21irb6np">1-5 「サーバー」とは</a></span></p>
+        <p class="c16"><span class="c4 c14"><a class="c12" href="#h.7uf4xwlyss37">1-6 「ブラウザ」とは</a></span></p>
+        <p class="c16"><span class="c4 c14"><a class="c12" href="#h.b44pqjd4g2xt">1-7 「URL」とは</a></span></p>
+        <p class="c16"><span class="c4 c14"><a class="c12" href="#h.yssehabng53b">1-8 「WEBアプリケーション」とは</a></span></p>
+        <p class="c33"><span class="c4 c14"><a class="c12" href="#h.zfnpwrneclcu">1-9 「WEBアプリケーション」に必要なプログラム</a></span>
+        </p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span class="c1">あなたはこれから「エンジニア」になるため、何を学ぶのでしょうか？</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span class="c18">「プログラムの書き方！」</span></p>
+        <p class="c0 c3"><span class="c18"></span></p>
+        <p class="c0"><span class="c1">正解！ ・・・ですが、そのプログラムはどこで、何のために、どうやって動くのでしょうか？</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span class="c18">「パソコン・スマホの中！」 「ブラウザの中！」 「ウェブサーバーの中！」</span></p>
+        <p class="c0 c3"><span class="c18"></span></p>
+        <p class="c0"><span
+                class="c1">実はこれら全てが正解です。一つだけでなく、様々な場所で、それぞれに必要なプログラムが連携して動いています。そのため、「エンジニア」になるためには、プログラムの書き方以外にも様々な知識・技術が必要となります。</span>
+        </p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span class="c1">例えばWEBサイトを一つ作るだけでも、</span></p>
+        <p class="c0"><span class="c1">★ Java / JSP / HTML / css / javascript / SQLなど複数のプログラミング言語</span></p>
+        <p class="c0"><span class="c1">★ プログラムを動かすサーバー</span></p>
+        <p class="c0"><span class="c1">★ ユーザーのスマホやパソコンとサーバーを繋ぐネットワーク</span></p>
+        <p class="c0"><span class="c1">★ 大量の情報を管理するデータベース</span></p>
+        <p class="c0"><span class="c1">・・・などなど、まだまだ他にも沢山の知識・技術が必要です！</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span class="c18">「それをたったの１ヶ月で全部身に付けるなんて無理！」</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span
+                class="c1">その通り、無理なんです。でも、安心してください。それを全部一人でやってのける必要は無いのです。一言で「エンジニア」と言ってもいくつもの分野に分かれおり、それぞれが自分の得意分野を分担しながら、みんなで協力して一つのアプリケーションを作り上げているのです。</span>
+        </p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span
+                class="c1">あなたにはこれからこのテキストや課題を通じて、プログラムの書き方だけではなくアプリケーションを作って動かすために必要な事を、すべて少しずつ経験していただきます。そうすることによって、就職した会社で様々な分野のプロのエンジニア達が話す言葉がわかるようになり、最初の「プログラムを書く仕事」がスムーズにこなせるようになるのです！</span>
+        </p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h1 class="c30" id="h.5gbwpx45pqzn"><span class="c19">このテキストのルール</span></h1>
+        <p class="c0"><span class="c1">このテキストで使用する色分けなどは、以下のルールになっていますので、参考にしてください。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.therl5jhi5a6"><span class="c2">1.</span></h3>
+        <p class="c0"><span>説明文の中に「</span><span class="c4">下線が引かれた文字</span><span
+                class="c1">」が出てきたら、重要な言葉ですのでしっかり覚えておきましょう。</span></p>
+        <p class="c0"><span class="c1">このテキストでは、最低限の説明に留めていたり、説明自体を割愛している場合がありますので、自分でもネット検索などで知識を深めましょう。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.is05oux3wa2o"><span class="c2">2.</span></h3>
+        <p class="c0"><span
+                class="c1">次のマークでは、深く知らなくても課題を進められる、関連知識を紹介しています。実際に仕事をする際には、わからない言葉をそのままにして進めることは許されません。すぐに調べる習慣をつけておきましょう！</span>
+        </p>
+        <p class="c0"><span class="c1">※途中からは入れていませんので、自分で調べられるようにしましょう。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 399.40px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/xCcbLTgQ8NLeEKjMORG7QuZ1ygwTTLLK9joftiEaJYHWlvJ8-jYwi1cq1qDjVqnIPdfwh9C3Jbg-d4SH2W_FOW5USl4SqqQjdhe7i28mKrTSxERUbrX0GHylB_CoYKZc3W0RC_YT"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.q9tk7z6oftvw"><span class="c2">3.</span></h3>
+        <p class="c0"><span>説明文の中に「</span><span class="c38">背景色を付けた文字</span><span
+                class="c1">」が出てきたら、それはコマンドやプログラムコードです。間違いが無いように入力してください。特に半角スペースを見落とさないように！</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.abwn6d8goy91"><span class="c2">4.</span></h3>
+        <p class="c0"><span
+                class="c1">次の背景色の付いたブロックが出てきたら、それはサンプルコードです。1行目にファイル名と、そのファイルのどこに入力・修正すべきかを記載していますので、間違いが無いように入力してください。なお、行の先頭の空白も、半角スペースで入力しましょう。これはプログラムを見やすくするためのインデント言って、今後紹介する「統合開発環境」では「Tab」キーでも入力することができます。</span>
+        </p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c9"><span class="c15">サンプルコード：</span><span class="c15">IndexController.java</span><span
+                class="c20 c15">（一部追記）</span></p>
+        <p class="c0 c3"><span class="c20 c17 c28"></span></p>
+        <div class="code_block">
+            <p class="c9"><span class="c17">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c7">protected</span><span
+                    class="c5"> </span><span class="c7">void</span><span class="c5"> </span><span
+                    class="c17 c23">doGet</span><span class="c5">(</span><span
+                    class="c17 c26">HttpServletRequest</span><span class="c5"> request,
+                </span><span class="c17 c26">HttpServletResponse</span><span class="c20 c5"> response)</span></p><br>
+            <p class="c9"><span
+                    class="c17">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c7">throws</span><span class="c5"> </span><span class="c17 c26">ServletException</span><span
+                    class="c5">, </span><span class="c17 c26">IOException</span><span class="c5 c20"> {</span></p><br>
+            <p class="c9"><span class="c17">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c17 c31">//
+                    TODO Auto-generated method stub</span></p><br>
+            <p class="c9"><span class="c17">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    class="c8">response</span><span class="c5">.</span><span class="c17 c23">getWriter</span><span
+                    class="c5">().</span><span class="c17 c23">append</span><span class="c5">(</span><span
+                    class="c17 c35">&quot;HelloWorld!&quot;</span><span class="c5">);</span><sup class="c5"><a
+                        href="#ftnt1" id="ftnt_ref1" style="user-select: none;">[1]</a></sup></p><br>
+            <p class="c9"><span class="c17">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c20 c5">}</span></p><br>
+        </div>
+        <hr class="c37">
+        <div>
+            <p class="c25"><a href="#ftnt_ref1" id="ftnt1">[1]</a><span class="c24"> コードの補足説明はこんな風に記載しています。</span></p>
+            <p class="c3 c25"><span class="c24"></span></p>
+        </div>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h1 class="c30" id="h.w6k7zqew5uz"><span class="c19">1 基礎知識を学ぼう！</span></h1>
+        <p class="c0"><span class="c1">あなたはこのテキストや課題によって、「JAVA」で「WEBアプリケーション」を作れるようになります！</span></p>
+        <p class="c0"><span class="c1">とは言っても、「JAVA」や「WEBアプリケーション」とは何なのか、そもそもコンピューターとは・・・？</span></p>
+        <p class="c0"><span class="c1">早くプログラムを書きたいと思いますが、その前に少しだけ、基礎知識をつけておきましょう。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h2 class="c6" id="h.yaov5420so2g"><span class="c27">1-1 「コン</span><span>ピューター」と</span><span
+                class="c19">は</span></h2>
+        <p class="c0"><span
+                class="c1">目の前にあるノートパソコンやスマートフォンはもちろん、冷蔵庫・洗濯機・掃除機などの家電、ゲーム機、楽器、腕時計、ウォシュレット・・・そして車まで！現代ではあらゆるものにコンピューターが搭載され、暮らしを便利にしてくれています。しかし、その基本はすべて「電気が流れているか、流れていないか（ON
+                / OFF）」だけなのです！</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span
+                class="c1">最初は下図のような原始的な計算機であり、ちょっとした計算でも、膨大な時間と電力と場所が必要でした。しかし、技術の進歩によりものすごく小さく、たくさん集積できるようになったことで、高度な計算が可能となったのです。</span>
+        </p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span>ボタンのような物理的な部品から、ON /
+                OFFの組み合わせで命令を伝え（入力）、その内容を元に瞬時に高度な計算を行う。そしてその計算結果をまた、コイルのような物理的な部品（電流が流れれば磁石が動く）によってON /
+                OFFを「動き」に変換（出力）することで、画面へ表示したり、車を動かす。これが</span><span class="c4">コンピューター</span><span
+                class="c1">なのです。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span class="c18">電球による原始的な計算機</span></p>
+        <p class="c0"><span class="c1">電球ON： 電球に書かれた数字を1倍</span></p>
+        <p class="c0"><span class="c1">電球OFF： 電球に書かれた数字を0倍</span></p>
+        <p class="c0"><span class="c4 c11">電球1つを1bit（ビット）と言い、4bitあれば、0～15までの16段階（0000 から 1111）の組み合わせを表現できるのです！</span>
+        </p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 931.00px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/lTIeNHVx9SNRNmk0-82VXqlTgdOTGFxaxaFVj-odt33Az8DnAYYrek6j6yJxIL8V7_Nc7SCmhKSaaNHPQAVnRQyz8OzpoHtLEMwXWMZ-HBRqeiSb67q71-qTqaY8p122M0-4y5LF"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 296.44px;">
+                <a href="https://www.google.com/search?q=2%E9%80%B2%E6%95%B0+bit&oq=2&aqs=chrome.0.69i59j69i57j69i60l3j69i65l3.1381j0j7&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh4.googleusercontent.com/Dq-aGSb3uPylwGlFsXmWiEweaLHtF_LBRpx9qL3hEZUaZb-R7hbC35fSbXlf6_y0m65nEx2hZuCvxQGNzirxpjcvW3rw9KPJdLtEMR4GtWJyLMULRSVgGRefCO4qlDBnwWThWlOZ"
+                        style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span></p>
+        <h2 class="c6" id="h.c0iw7p2p6fc"><span class="c19">1-2 「プログラム」とは</span></h2>
+        <p class="c0"><span>コンピューターに計算を行わせるためには、コンピューターが理解できる0と1の組み合わせで命令を入力すれば良いということが、</span><span class="c4 c14"><a
+                    class="c12" href="#h.yaov5420so2g">1-1</a></span><span>でわかりましたね。これが「</span><span
+                class="c4">プログラム</span><span
+                class="c1">」なのです。ただし、これでは効率が悪く、「画面に&quot;A&quot;を表示する」だけで途方もない労力が必要となるのでは、コンピューターを使う意味がありません。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0">
+            <span>そこで、「キーボードの上から４段目、左から２番目のキーが押されたら、画面に&quot;A&quot;を表示する」という一連の処理を行うプログラムを作成することで、人間が普段使う言葉をそのまま入力して、画面に表示させることができるようになりました。このような基本的なプログラムは、「</span><span
+                class="c4">オペレーティングシステム</span><span class="c1">（ＯＳ）」に含まれています。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0">
+            <span>次に、「ADD」と入力されたら、その前後の数字を加算するというプログラムを用意します。このプログラムは、人間が入力した「ADD」という文字列をＯＳから受け取り、コンピューターの機械語（0と1）に「翻訳＝</span><span
+                class="c4">コンパイル</span><span>」してくれるのです。ＯＳとコンパイラのおかげで、人間は「10 ADD
+                5」と入力するだけで、その結果を画面で確認できるようになったのです！このように、コンピューターが理解できるレベルのプログラム言語を</span><span
+                class="c4">低水準言語</span><span>と言い、JAVAのような人間が理解できる</span><span class="c4">高水準言語</span><span
+                class="c1">は、低水準言語によるプログラムの組み合わせでできています。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span class="c18">プログラム実行の流れ</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 931.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/srnIv_ovZX1cKNYvxGWJ2MuH183ESfKF-QftS6tvyrV0EYXqb9jq_2dPsNwYc4BWWRKJu37LkmWDDkmeNkNidRIRt9BpcZDmqzKcJ75R7sHFeqoDsapU-FdrRwGLBuRI0Ugusx1E"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 288.59px;">
+                <a href="https://www.google.com/search?q=%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%AB&oq=%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%AB&aqs=chrome.0.69i59.1786j0j7&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh6.googleusercontent.com/_W0RgOqSO2eyNRPz0Bb0AxhEbkVCg84Ug4vxDHqKccCCn1C7hTMvoqtxn820VFM0Bm2FoO94zxADkY7nEKuZ_-MNwvrlG7awO7D8p_o-MQMXe3ODNU-h-kZzKpjol4Oye8L6BcsO"
+                        style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span></p>
+        <h2 class="c6" id="h.2b0k7zy2vknt"><span class="c19">1-3 「アプリケーション」とは</span></h2>
+        <p class="c0"><span
+                class="c1">アプリケーションは普段から頻繁に使っていますよね。「スマホアプリ」の「アプリ」はアプリケーションの略です。メールやブラウザ、ゲームなど、パソコンやスマホの上で動いているものはすべてアプリケーションになります。</span>
+        </p>
+        <p class="c0">
+            <span>コンピューターに思い通りの処理をさせられるという意味では「プログラム」も同じですが、一般的にプログラムと言った場合には、単独の機能や処理を行う命令が書かれたファイルや、それがコンパイルされて実行できる状態のものを示しており、</span><span
+                class="c4">アプリケーションはその集合体</span><span class="c1">（機能を持ったプログラムの塊）を示していると考えてください。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span class="c18">プログラムとアプリケーション</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 931.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/heH7M_tL93vKmnXKYUwHfsEpftdQzLVpcApT1QnLMovWJWYLX2S4xcuIaF40wnnlgdjJGieZi5azUur7DpeDLwiLzrfbFKdJRdIGWJ1wBeuSC9Zz1DT-nH-Tht9dgwTEXzYqP0CM"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 291.47px;">
+                <a href="https://www.google.com/search?q=OS+%E4%BB%95%E7%B5%84%E3%81%BF&oq=OS+%E4%BB%95%E7%B5%84%E3%81%BF&aqs=chrome.0.69i59.2638j0j7&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh6.googleusercontent.com/d8Ruh9I9kTv1tAeU_V0MiGLvhcIh60hcL0lpCeM5sgOcmvSoFk-GFSwN_EpoLzFInyBPzo1WLC3Ek-bnCPo37bGIZFIiiF1k82-Pg4EK5AEHmZIsEjbCY_yLRWUO6RdKAmoypuGt"
+                        style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span></p>
+        <p class="c0 c3"><span class="c18"></span></p>
+        <h2 class="c6" id="h.ewhakkaumo2v"><span class="c19">1-4 「WEB」とは</span></h2>
+        <p class="c0">
+            <span>WEBは英語で蜘蛛の巣という意味であり、ITの世界では「網目状のネットワーク」のことを示します。ブラウザのアドレスバーの「http://」の後に「www」が続くサイトが多くみられますが、これは「World
+                Wide Web」のことであり、「</span><span
+                class="c4">世界に広がる網目状のネットワーク</span><span>」、つまりインターネットのことを示す言葉です。最近はインターネットの代わりに、WEBやネットという言葉が使われます。この仕組みにより世界中のパソコンや</span><span
+                class="c4">サーバー</span><span class="c1">が繋がっています。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span class="c18">蜘蛛の巣 ≒ WEB</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 931.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/NvDZZUAYkfgjCPjtzeCMpGimncu7OmutQgDp-EByIP2FYU8Ef8ItF9rNE069BD5vBZz8ms5fe2buHyuLLqntJn2P0auOHEAnZpDfkND9x3uPaTVb9d22NtaksCWPyebhTBZGPBHl"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 293.35px;">
+                <a href="https://www.google.com/search?q=web&oq=web&aqs=chrome.0.69i59j69i60l3j69i65j69i60l3.2550j0j7&sourceid=chrome&ie=UTF-8"
+                    target="_blank" rel="noopener noreferrer">
+                    <img alt=""
+                        src="https://lh5.googleusercontent.com/B_nQiGVa7UrniFLM-jADFMSG6-cNwCWvEBoNYiw9FOu4vX_De-b13ktqMuzPNhOPhnp2p2xpOORv_1r2mjdM9cDZtcCKWkKffpVWOsqeRPWmbTmEon-5n9HrMj40Set7K7rhhmmb"
+                        style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title="">
+                </a>
+            </span></p>
+        <p class="c0 c3"><span class="c18"></span></p>
+        <h2 class="c6" id="h.tryo21irb6np"><span class="c19">1-5 「サーバー」とは</span></h2>
+        <p class="c0"><span
+                class="c1">例えばWEB検索をするとき、ブラウザを開いてGoogleなどの検索サイトにアクセスしますよね。この時、あなたのパソコンやスマホは、WEBを通じてGoogleが管理するサーバーへ接続しているのです。</span>
+        </p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span class="c4">サーバーもコンピューター</span><span
+                class="c1">であり、あなたのパソコンと本質は変わりません。同じようにプログラムが動き、計算を行います。Googleのサーバーであれば、あなたの要求（リクエスト）を受け付け、計算を行い、検索結果を返します。</span>
+        </p>
+        <p class="c0"><span>パソコンとの違いは、その用途に特化して性能を高めたり、無駄な機能（使いやすいデスクトップ画面など）を排除しているかどうかだけです。ある</span><span
+                class="c4">特定の機能を提供・供給（＝serve）するコンピューター</span><span class="c1">がサーバーなのです。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h2 class="c6" id="h.7uf4xwlyss37"><span class="c19">1-6 「ブラウザ」とは</span></h2>
+        <p class="c0"><span>ブラウザはアプリケーションのひとつです。あなたのパソコンには、Internet
+                ExplorerやEdge、Chromeなどが、スマホにはスマホメーカー独自のブラウザや、Chrome、Firefox、Opera、iPhoneならSafariなどがインストールされているかと思います。それぞれ特徴がありますが、基本的には「</span><span
+                class="c4">URL</span><span>の示すサーバーへアクセスして、</span><span
+                class="c4">HTML</span><span>をサーバーから受信して、それを画面に表示させる」機能を持っています。さらに、</span><span
+                class="c4">javascirpt</span><span
+                class="c1">というプログラムがブラウザ上で動くようになっていることで、表示だけでなく、より高度な処理を行うことができます。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h2 class="c6" id="h.b44pqjd4g2xt"><span class="c19">1-7 「URL」とは</span></h2>
+        <p class="c0"><span>URLは「Uniform Resource Locator」の略で、</span><span class="c4">WEB上のサーバーの住所</span><span
+                class="c1">です。ブラウザのアドレスバーにURLを入力すると、WEB上のサーバーと連携してその住所まで辿り着き、必要なHTMLを受信するのです。</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 930.52px;"><img
+                    alt=""
+                    src="https://lh6.googleusercontent.com/9uN4DYSbQFeKpxvqsm4cubx8DvPhJRfD8x26BMGvwN0PSwE4v_RG3JMtIfwJywNLGL6VyOWF2CXpQlzPLfdeeP6CJ9_D1jH9bWT16ZWmwk9P1ofAX0zjx2VbuO4VUK39wQpPCzdp"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h2 class="c6" id="h.yssehabng53b"><span class="c19">1-8 「WEBアプリケーション」とは</span></h2>
+        <p class="c0"><span
+                class="c1">従来のアプリケーションは、まずダウンロードとインストールが必要であり、パソコンやスマホ上ですべての処理が行われ、データの保存先もパソコンやスマホの中で完結していました。</span>
+        </p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0">
+            <span>しかし、例えば「買い物をしよう！」と思ったら、ブラウザを開いてそのサイトへアクセスし、何もインストールをすることなくすべての処理が完結します。他にも、メールの送受信やゲームなども、</span><span
+                class="c4">すべてブラウザさえあればできる</span><span>ようになってきました。これが、</span><span class="c4">WEBアプリケーション</span><span
+                class="c1">です。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span class="c1">ではここで、買い物をするときに何が起きているのか、その仕組みを見てみましょう。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span class="c18">WEBアプリケーションの仕組み</span></p>
+        <p class="c0"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); max-width: 931.00px;"><img
+                    alt=""
+                    src="https://lh5.googleusercontent.com/4WlaczOD2dHIbk-qqjY9liO9HzQl2Ortw8bkiGv_68F7LnB-SYjAcyyUQtM-s3StkOjipiRuWXGrUcGSD3GrTigdhzNtlNtLBPwUiGbt752AepkFH3Z28J0UX9EKjcnKaYZ3h9Tf"
+                    style="width: 100%; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title=""></span></p>
+        <h3 class="c10" id="h.xcl8zwntn7vk"><span class="c2">1.</span></h3>
+        <p class="c0"><span class="c1">ユーザーが「10,000円の赤い靴」の購入ボタンを押します。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.m5jp8vrh9ef8"><span class="c2">2.</span></h3>
+        <p class="c0"><span class="c1">ブラウザからWEBサーバーへ、「ユーザーID=AAAAA」「商品ID=BBBBB」「処理＝購入」などの情報を含む「リクエスト」を送信します。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.74j4tdfimxnt"><span class="c2">3.</span></h3>
+        <p class="c0"><span
+                class="c1">WEBサーバーでは、リクエストの内容を解釈して、APサーバーの「購入処理プログラム」へデータの更新や取得と、購入完了ページの加工を指示するリクエストを送信します。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.fbuczkt12k42"><span class="c2">4.</span></h3>
+        <p class="c0"><span
+                class="c1">APサーバーでは、DBサーバーへ「商品ID=BBBBBの在庫を1つ減らす」「ユーザーID=AAAAAの残高を10,000円減らす」というデータ更新と、「商品ID=BBBBBの在庫」「ユーザーID=AAAAAの残高」の更新後データの取得を指示するリクエストを送信します。</span>
+        </p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.yaaozn8d2git"><span class="c2">5.</span></h3>
+        <p class="c0"><span
+                class="c1">DBサーバーからAPサーバーへ、データ更新が成功したかどうかと、「商品ID=BBBBBの在庫」と「ユーザーID=AAAAAの残高」を「レスポンス」として送信します。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.3t9lejatp2n"><span class="c2">6.</span></h3>
+        <p class="c0"><span class="c1">APサーバーでは、DBサーバーからの情報を元に購入完了ページをHTML形式へ加工して、WEBサーバーへ</span></p>
+        <p class="c0"><span class="c1">レスポンスとして送信します。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.byxjkev9azv"><span class="c2">7.</span></h3>
+        <p class="c0"><span
+                class="c1">WEBサーバーでは、APサーバーからの購入完了ページのHTMLを受け取り、ブラウザからのリクエストに応じた情報を付加して、ブラウザへレスポンスとして送信します。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.d16aoqqez2e"><span class="c2">8.</span></h3>
+        <p class="c0"><span class="c1">ブラウザでは、受け取ったHTMLを解釈して画面に表示させます。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h2 class="c6" id="h.zfnpwrneclcu"><span class="c19">1-9 「WEBアプリケーション」に必要なプログラム</span></h2>
+        <p class="c0">
+            <span>ここまでで、これから作る「WEBアプリケーション」やそれを支える仕組みについて理解してきました。しかしまだ、肝心のJAVAがどこでどう動いているかがわかりません。最後に、</span><span
+                class="c4 c14"><a class="c12" href="#h.yssehabng53b">1-8</a></span><span
+                class="c1">の図のどこでどのプログラムが動いているのかを学んでおきましょう。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.cpx6fmu47wxp"><span class="c2">1. ブラウザではHTML / css / javascript が動く</span></h3>
+        <p class="c0"><span class="c4 c14"><a class="c12" href="#h.7uf4xwlyss37">1-6</a></span><span
+                class="c1">において「ブラウザではHTMLを受信して表示する」と説明しましたが、内部では以下の3つが連携して画面表示や動きを制御しています。これらは今後課題の中で触れることになりますので覚えておきましょう。</span>
+        </p>
+        <p class="c0 c3"><span class="c1"></span></p><a id="t.a7c91581e3d662bb48bdee0fe0892bff95dfc12f"></a><a
+            id="t.0"></a>
+        <table class="c40">
+            <tbody>
+                <tr class="c34">
+                    <td class="c32" colspan="1" rowspan="1">
+                        <p class="c0"><span class="c18">(1) HTML：</span></p>
+                        <p class="c0"><span>HTML（</span><span class="c4">HypeText Markup Language</span><span
+                                class="c1">）には、画面の構造、表示する文字や画像、リンクやボタンを押した時に表示するURLなどが定義されており、ブラウザはこれを解釈して画面へ表示します。HTMLは本来、文章に「タイトル」や「見出し」といった構造を付加するものであり、装飾の機能はありません。</span>
+                        </p>
+                        <p class="c0"><span>例）</span><span class="c38">&lt;h2&gt;見出しレベル２&lt;/h2&gt;</span><span
+                                class="c1"> ⇒ 文章の中見出しであることを示す。</span></p>
+                        <p class="c0 c3"><span class="c1"></span></p>
+                        <p class="c0"><span class="c18">(2) css：</span></p>
+                        <p class="c0"><span>css（</span><span class="c4">Cascading Style Sheets</span><span
+                                class="c1">）には、HTMLのタグや、idやclassにより識別される各要素に対して、色や大きさなどの表示方法について定義することができます。</span></p>
+                        <p class="c0"><span>例）</span><span class="c38">h2 { color: red; }</span><span class="c1"> ⇒
+                                中見出しは赤字で表示させる。</span></p>
+                        <p class="c0 c3"><span class="c1"></span></p>
+                        <p class="c0"><span class="c18">(3) javascript：</span></p>
+                        <p class="c0"><span
+                                class="c1">ブラウザで動くプログラムです。身近な例では、申込フォームなどで必須入力項目が入力されるまで送信ボタンを押せなくしたり、送信ボタンを押した際に必須入力項目が未入力である旨メッセージを表示するといった処理によく使われます。</span>
+                        </p>
+                        <p class="c0"><span>例）</span><span class="c1 c38">if (document.application_form.name.value ===
+                                &quot;&quot;) { alert(&#39;必須です！&#39;); }</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.f28exxn9euv9"><span class="c2">2. WEBサーバーではHTTP通信処理アプリケーションが動く</span></h3>
+        <p class="c0"><span class="c4 c14"><a class="c12"
+                    href="#h.yssehabng53b">1-8</a></span><span>では、WEBサーバーは情報を右から左へ流しているだけであまり活躍していないように見えますが、実はHTTP（</span><span
+                class="c4">HyperText Transfer
+                Protocol</span><span>）という約束に則ってブラウザやWEB上の他のサーバー達とやり取りを行う、とても重要な役割を担っています。HTTP通信処理アプリケーションには</span><span
+                class="c4">Apache</span><span>や</span><span class="c4">nginx</span><span
+                class="c1">などがあり、今後の課題ではApacheを使い、それに対する設定を行うことになります。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.2e5vgxuy6amx"><span class="c2">3. APサーバーではJAVAやPHPが動く</span></h3>
+        <p class="c0"><span
+                class="c1">APサーバーは「アプリケーションサーバー」の略であり、WEBアプリケーションの中核処理を行うためのJAVAやPHPなどのプログラムと、それを実行するための処理アプリケーションが動いています。</span>
+        </p>
+        <p class="c0"><span class="c1">今後の課題では、主にここで動かすJAVAのプログラムを書いていくこととなります。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <h3 class="c10" id="h.s70hokc5gjnu"><span class="c2">4. DBサーバーではデータベース管理アプリケーションが動く</span></h3>
+        <p class="c0"><span>DB（</span><span class="c4">Data Base</span><span
+                class="c1">）とは、アプリケーションに必要なデータを効率的に格納したり、取り出したりできる仕組みを示します。電話帳のように氏名と住所と電話番号を紐づけて管理するものをイメージしてください。</span>
+        </p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span>DBには様々な種類があり、表のような形式で扱えるRDB（</span><span class="c4">Relational
+                DB</span><span>）が一般的で、それを管理するアプリケーションをRDBMS（</span><span class="c4">RDB Management
+                System</span><span>）と言います。RDBMSには</span><span class="c4">Access</span><span>、</span><span
+                class="c4">Oracle</span><span>、</span><span class="c4">PostgreSQL</span><span>、</span><span
+                class="c4">MySQL</span><span>、</span><span class="c4">SQLite</span><span
+                class="c1">といったアプリケーションが存在します。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+        <p class="c0"><span>DBからデータを取り出したり、DBのデータを更新するためには、SQL（</span><span class="c4">Simple Query Language</span><span
+                class="c1">）という言語を使用します。今後の課題ではSQLiteやMySQLを設定し、JAVAからSQLを発行して処理を行います。</span></p>
+        <p class="c0 c3"><span class="c1"></span></p>
+    </div>
+    <div id="footer"><span>公開元: <a href="https://member.digskill.net/dashboard">Dig Skill</a></span><span
+            class="dash">&ndash;</span>【1】基礎知識を学ぼう！
+    </div>
+</body>
+
+</html>
